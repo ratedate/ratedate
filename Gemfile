@@ -10,6 +10,8 @@ end
 gem 'rails', '~> 5.1.3'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
+# Use postgresql as the database for Active Record
+gem 'pg', '~> 0.18'
 # Use Puma as the app server
 # gem 'puma', '~> 3.7'
 gem 'passenger'
@@ -30,6 +32,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+gem 'jquery-rails'
+# bootstrap 4
+gem 'bootstrap', '~> 4.0.0.beta'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

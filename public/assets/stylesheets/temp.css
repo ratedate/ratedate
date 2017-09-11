@@ -1,0 +1,12 @@
+.container-start{
+    background-image: url("../images/bg.jpg");
+    background-size: cover;
+    height: 100vh;
+    padding-top: 106px;
+}
+.btn-outline-light {
+     color: #890901;
+     background-color: transparent;
+     background-image: none;
+     border-color: #890901;
+ }
