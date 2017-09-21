@@ -15,12 +15,17 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "variables";
 @import "bootstrap";
+// develop rake icons:update['icon_archive_name.zip']
 @import "icons";
+body{
+  padding-top: 116px;
+}
 .container-start{
+  margin-top: -116px;
+  padding-top: 116px;
+  height: 100vh;
   background-image: image_url("bg.jpg");
   background-size: cover;
-  height: 100vh;
-  padding-top: 116px;
 }
 .btn-outline-light {
   color: #890901;

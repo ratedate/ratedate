@@ -1,4 +1,7 @@
 class StaticPagesController < ApplicationController
-  def ico_landing
+  def home
+  end
+
+  def in_develop
   end
 end
