@@ -33,3 +33,19 @@ body{
   background-image: none;
   border-color: #890901;
 }
+.icon-logo_big{
+  font-size: 20em;
+}
+.bg-bordo{
+  background-color: $bordo;
+  color: $white;
+  background-image: image_url("heart-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.bg-grey{
+  background-color: $grey-bg;
+}
+.text-bordo{
+  color: $bordo;
+}

@@ -5,4 +5,3 @@ I18n.load_path += Dir[Rails.root.join('lib', 'locale', '*.{rb,yml}')]
 
 # Белый список локалей, доступных приложению
 I18n.available_locales = [:en, :ru]
-
