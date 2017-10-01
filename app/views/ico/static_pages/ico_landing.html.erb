@@ -2,7 +2,7 @@
 <div class="container-fluid container-start">
   <nav class="navbar navbar-expand-lg navbar-dark bg-fade justify-content-between fixed-top">
     <a class="navbar-brand" href="#">
-      <span class="icon-logo display-2"></span>
+      <span class="icon-logo display-3"></span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarICO" aria-controls="navbarICO" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -28,40 +28,27 @@
           <a class="nav-link" href="#">team</a>
         </li>
       </ul>
-      <div class="navbar-nav">
-        <div class="nav-item">
-          <a class="btn btn-outline-danger mr-sm-2" href="#">login ICO</a>
-        </div>
-        <div class="nav-item">
-          <a class="btn btn-outline-danger my-2 my-sm-0" href="#">join ICO</a>
-        </div>
-      </div>
     </div>
   </nav>
   <div class="row justify-content-md-center">
-    <div class="col-md-8 text-center">
-      <img class="img-fluid" src="http://dummyimage.com/960x540" />
-    </div>
-  </div>
-  <div class="row justify-content-md-center">
-    <div class="col-md-4 text-center text-light pt-3">
+    <div class="col-lg-4 col-md-6 text-center text-light pt-3">
       <h2>Pre-ICO Start</h2>
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-3">
           <small>Days</small>
-          <div class="display-3" id="tDayNum">--</div>
+          <div class="display-4" id="tDayNum">--</div>
         </div>
-        <div class="col-md-3">
+        <div class="col-3">
           <small>Hours</small>
-          <div class="display-3" id="tHourNum">--</div>
+          <div class="display-4" id="tHourNum">--</div>
         </div>
-        <div class="col-md-3">
+        <div class="col-3">
           <small>Minutes</small>
-          <div class="display-3" id="tMinNum">--</div>
+          <div class="display-4" id="tMinNum">--</div>
         </div>
-        <div class="col-md-3">
+        <div class="col-3">
           <small>Seconds</small>
-          <div class="display-3" id="tSecNum">--</div>
+          <div class="display-4" id="tSecNum">--</div>
         </div>
       </div>
     </div>
@@ -198,6 +185,136 @@
         <span class="icon-heart"></span>
         <span class="icon-heart"></span>
         <span class="icon-heart"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <h2 class="text-center p-3">Road Map</h2>
+
+  <div class="row">
+    <div class="col">
+      <ul class="timeline">
+        <li class="timeline-item">
+          <div class="timeline-badge align-content-center"><i class="icon-design"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Prototyping of RateDate.net website</h4>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-badge"><i class="icon-money"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Pre Sale</h4>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-badge"><i class="icon-money"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">ICO</h4>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-badge"><i class="icon-rdt"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">RDT allocating</h4>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-badge"><i class="icon-beta"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Beta version of RateDate.net website</h4>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-badge"><i class="icon-video-camera"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Launch of the online video date auction</h4>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-badge"><i class="icon-mobile-phone"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Launch of the mobile application</h4>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+</div>
+<div class="container-fluid bg-grey">
+  <h2 class="text-center p-3">Our Team</h2>
+  <div class="row justify-content-center card-group">
+    <div class="col-xl-2 col-lg col-sm-6 mb-3">
+      <div class="card card-team h-100">
+        <div class="card-img-top p-3">
+          <%= image_tag "katerina.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Katerina Usatenko</h4>
+          <p class="card-text font-italic">Founder, CEO</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-2 col-lg col-sm-6 mb-3">
+      <div class="card card-team h-100">
+        <div class="card-img-top p-3">
+          <%= image_tag "michail.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Mikhail Kruglichenko</h4>
+          <p class="card-text font-italic">Strategic Planning Manager</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-2 col-lg col-sm-6 mb-3">
+      <div class="card card-team h-100">
+        <div class="card-img-top p-3">
+          <%= image_tag "cheshire.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Dmitry Nadsadin</h4>
+          <p class="card-text font-italic">Project Manager, Developer</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-2 col-lg col-sm-6 mb-3">
+      <div class="card card-team h-100">
+        <div class="card-img-top p-3">
+          <%= image_tag "heyan.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Denis Goroshko</h4>
+          <p class="card-text font-italic">Web-Designer, Front-End Developer</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-2 col-lg col-sm-6 mb-3">
+      <div class="card card-team h-100">
+        <div class="card-img-top p-3">
+          <%= image_tag "ekaterina.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Katerina Voronkina</h4>
+          <p class="card-text font-italic">Designer, Illustrator</p>
+        </div>
       </div>
     </div>
   </div>
