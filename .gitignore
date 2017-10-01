@@ -25,3 +25,5 @@
 passenger*
 .idea/workspace.xml
 .idea/tasks.xml
+config/secrets.yml
+
