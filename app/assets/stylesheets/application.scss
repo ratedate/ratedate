@@ -34,7 +34,7 @@ body{
   border-color: #890901;
 }
 .icon-logo_big{
-  font-size: 20em;
+  font-size: 16em;
 }
 .bg-bordo{
   background-color: $bordo;
@@ -250,4 +250,31 @@ $brand-danger: #ba1f1f;
       left: 43px;
     }
   }
+}
+@media (max-width: 425px) {
+
+
+  .timeline {
+    &:before {
+      left: 50px;
+    }
+    .timeline-item {
+      .timeline-badge {
+        left: 30px;
+        margin-left: -60px;
+      }
+      .timeline-panel {
+        width: 64%;
+        float: right;
+        left: 16px;
+        &:before {
+          border-left-width: 0;
+          border-right-width: 14px;
+          left: -14px;
+          right: auto;
+        }
+      }
+    }
+  }
+
 }
