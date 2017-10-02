@@ -15,6 +15,17 @@
 
 
 jQuery(document).ready(function($) {
+    var scrollPos = $(window).scrollTop(),
+        navbar = $('.navbar');
+
+    if (scrollPos > 60) {
+        navbar.addClass('navbar-light bg-light')
+        navbar.removeClass('navbar-dark bg-fade')
+    } else {
+        navbar.removeClass('navbar-light bg-light')
+        navbar.addClass('navbar-dark bg-fade')
+    }
+
   $(window).scroll(function() {
     var scrollPos = $(window).scrollTop(),
         navbar = $('.navbar');
