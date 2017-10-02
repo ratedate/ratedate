@@ -26,6 +26,11 @@ jQuery(document).ready(function($) {
         navbar.addClass('navbar-dark bg-fade')
     }
 
+    $('.nav-link').on('click', function () {
+        $a = $($(this).attr('href'));
+        $('html,body').animate({ scrollTop: $a.offset().top - 101}, 500);
+        return false;
+    });
   $(window).scroll(function() {
     var scrollPos = $(window).scrollTop(),
         navbar = $('.navbar');

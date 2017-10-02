@@ -20,15 +20,19 @@
 body{
   padding-top: 101px;
 }
+
 .container-start{
   margin-top: -101px;
   padding-top: 101px;
-  height: 100vh;
+  min-height: 100vh;
   background-image: image_url("bg.jpg");
   background-size: cover;
 }
 .nav-lp{
   margin-left: -188px;
+}
+.navbar-ico{
+  transition: background-color .2s ease-in;
 }
 .btn-outline-light {
   color: #890901;
@@ -49,6 +53,7 @@ body{
 .bg-footer{
   background-color: $bordo;
   color: $white;
+  min-height: 100px;
 }
 .bg-grey{
   background-color: $grey-bg;
@@ -259,8 +264,6 @@ $brand-danger: #ba1f1f;
   }
 }
 @media (max-width: 425px) {
-
-
   .timeline {
     &:before {
       left: 50px;
@@ -283,5 +286,4 @@ $brand-danger: #ba1f1f;
       }
     }
   }
-
 }

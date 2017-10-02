@@ -1,77 +1,73 @@
 
 <div class="container-fluid container-start">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-fade justify-content-between fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-fade justify-content-between fixed-top navbar-ico">
     <a class="navbar-brand" href="#">
-      <span class="icon-logo display-2"></span>
+      <span class="icon-logo display-3"></span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarICO" aria-controls="navbarICO" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarICO">
-      <ul class="navbar-nav mx-auto">
+    <div class="collapse navbar-collapse nav-lp" id="navbarICO">
+      <ul class="navbar-nav mx-auto ">
         <li class="nav-item">
-          <a class="nav-link" href="#"><%= t :about %></a>
+          <a class="nav-link" href="#about"><%= t :about %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">white paper</a>
+          <a class="nav-link" href="#tokens">token</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">bounty</a>
+          <a class="nav-link" href="#bonus">bonus</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">token</a>
+          <a class="nav-link" href="#bounty">bounty</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">road map</a>
+          <a class="nav-link" href="#roadmap">road map</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">team</a>
+          <a class="nav-link" href="#team">team</a>
+        </li>
+        <li class="nav-item">
+          <%= link_to "download white paper", asset_path("white_paper_eng_1.1.pdf"), {class: "nav-link", target: "_blank"} %>
         </li>
       </ul>
-      <div class="navbar-nav">
-        <div class="nav-item">
-          <a class="btn btn-outline-danger mr-sm-2" href="#">login ICO</a>
-        </div>
-        <div class="nav-item">
-          <a class="btn btn-outline-danger my-2 my-sm-0" href="#">join ICO</a>
-        </div>
-      </div>
     </div>
   </nav>
+
   <div class="row justify-content-md-center">
     <div class="col-md-8 text-center">
-      <img class="img-fluid" src="http://dummyimage.com/960x540" />
+      <%= image_tag "ratedate.png", class: "img-fluid" %>
     </div>
   </div>
   <div class="row justify-content-md-center">
-    <div class="col-md-4 text-center text-light pt-3">
+    <div class="col-lg-4 col-md-6 text-center text-light pt-3">
       <h2>Pre-ICO Start</h2>
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-3">
           <small>Days</small>
-          <div class="display-3" id="tDayNum">--</div>
+          <div class="display-4" id="tDayNum">--</div>
         </div>
-        <div class="col-md-3">
+        <div class="col-3">
           <small>Hours</small>
-          <div class="display-3" id="tHourNum">--</div>
+          <div class="display-4" id="tHourNum">--</div>
         </div>
-        <div class="col-md-3">
+        <div class="col-3">
           <small>Minutes</small>
-          <div class="display-3" id="tMinNum">--</div>
+          <div class="display-4" id="tMinNum">--</div>
         </div>
-        <div class="col-md-3">
+        <div class="col-3">
           <small>Seconds</small>
-          <div class="display-3" id="tSecNum">--</div>
+          <div class="display-4" id="tSecNum">--</div>
         </div>
       </div>
     </div>
   </div>
   <div class="row justify-content-md-center">
     <div class="col-md-4 text-center text-light pt-3">
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-md-6">
           <span class="display-4 icon-ethereum"></span>
-          <span class="display-3">0</span>
+          <span class="display-4">0</span>
         </div>
       </div>
     </div>
@@ -80,44 +76,356 @@
     <div class="col-md-4 text-center text-light pt-3"></div>
   </div>
 </div>
-<div class="container-fluid bg-bordo">
+<div class="container-fluid " id="about">
   <div class="row">
-    <div class="col-md-8"><img class="img-fluid" src="http://dummyimage.com/1200x600" /></div>
-    <div class="col-md-4">
-      <h2 class="text-center p-3">Rate Date Idea</h2>
-      <p>Rate Date - это сайт знакомств с уникальной возможностью проведения онлайн аукциона видео-свиданий.</p>
-
-      <p>С помощью данного сервиса можно не только находить и общаться с интересными людбьми, но и создавать и участвовать в аукционах видео-свиданий. Rate Date включает в себя широкий спектр функций, главными из которых являются: простой доступ к сервису, бесграничное общение, возможность участвовать в онлайн аукционах видео-свиданий в качестве участника торгов (Rater) и соискателя (Dater).</p>
-
-      <p>Dater - зарегистрированый пользователь сайта Rate Date, который выставляет свой профайл на онлайн аукцион видео-свиданий.</p>
-      <p>Rater - зарегистрированый пользователь сайта Rate Date, который участвует в торгах онлайн аукциона видео-свиданий.</p>
-
-      <p>Главной целью компании Rate Date является объединение как можно большего коичества одиноких сердец и упрощение знакомства людей в эпоху высоких технологий.</p>
+    <div class="col-12 col-xl-8"><%= image_tag "about.png", class: 'img-fluid' %></div>
+    <div class="col-12 col-xl-4">
+      <h2 class="text-center p-3">Company description</h2>
+      <p>Rate Date – is a dating site, providing a unique opportunity to hold an online video date
+        auction. This service makes it possible not only to find and communicate with interesting
+        people, but create and take part in video date auctions as well.</p>
+      <p>Rate Date includes a wide range of opportunities: </p>
+      <ul>
+        <li>easy access to the service;</li>
+        <li>unlimited communication;</li>
+        <li>opportunity to take part in the online video date auction as a Rater and a Dater.</li>
+      </ul>
+      <p>Dater – a registered user of Rate Date website, who places his or her profile on the online video date auction.</p>
+      <p>Rater – a registered user of Rate Date website, who participates in a tender on the online video date auction.</p>
+      <p>The primary goal of Rate Date Company is to unite as many lonely hearts as possible and make it easier for people to make acquaintances in the high tech age.</p>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
-      <div class="text-center p-3">~~~~</div>
+      <div class="text-center p-3 display-4 text-bordo">
+        <span class="icon-heart"></span>
+      </div>
     </div>
   </div>
 </div>
-<div class="container-fluid">
+<div class="container-fluid bg-grey" id="tokens">
   <div class="row">
-    <div class="col-md-12">
-      <div class="text-center p-3">~~~~</div>
+    <div class="col-xl-8 order-xl-2 align-self-center"><%= image_tag "tokens.png", class: 'img-fluid' %></div>
+    <div class="col-xl-4 order-xl-1">
+      <h2 class="text-center p-3">Tokens</h2>
+      <p>To launch the investment program, Rate Date issues RDT for selling.</p>
+      <p>RDT token (Rate Date Token) – is an internal payment unit of the service, which grants the right to purchase additional services and participate in the online video date auctions.</p>
+
+      <p>All the RDT holders have an opportunity to make free use of token within Rate Date service, as well as for using them on the exchange.</p>
+
+      <p>The number of tokens is limited: 50,000,000 RDT, issued on Ethereum, ERC20.  For sale in ICO will be exposed 40 000 000 RDT.  During the ICO period, Rate Date plans to attract the maximum 10,000 ETH of investments.</p>
+
+      <p>Purchase of RDT – is a favorable and promising investment. Unique opportunities of the resource assume high level of demand for chargeable functionalities that will trigger growth of RDT price and will generate the expected profit for investors.</p>
+
+      <p>In the wake of rising amount of new Rate Date users, tokens will be bought back in order to support the service’s ecosystem.</p>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4">
-      <h2 class="text-center p-3">Business Model</h2>
-      <p>Сервис Rate Date является бесплатным и свободным сайтом знакоств. Главными способами монетизации проекта являются: возможность приобретения премиум-аккаунтов в которые входит расширеный функционал; и взымание комиссии с проводимых онлайн аукционов видео-свиданий.</p>
-      <ul>
-        <li>Премиум аккаунт приобретается на различные отрезки времени с учтенной системой скидок.</li>
-        <li>Комиссия предполагает снятие фиксированого процента от выигрышной ставки Rater. Остаток суммы перечисляется на счет Dater.</li>
-      </ul>
-      <p>100% средств полученных от работы сайта пойдут на развитие Rate Date</p>
-      <p>Присоединяйтесь к Rate Date и получайте высокую прибыль за счет роста цены токена</p>
+    <div class="col-md-12">
+      <div class="text-center p-3 display-4 text-bordo">
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+      </div>
     </div>
-    <div class="col-md-8"><img class="img-fluid" src="http://dummyimage.com/1200x600" /></div>
+  </div>
+</div>
+<div class="container-fluid bg-bordo" id="business_model">
+  <div class="row">
+    <div class="col-xl-8 align-self-center"><%= image_tag "business-model.png", class: 'img-fluid' %></div>
+    <div class="col-xl-4 ">
+      <h2 class="text-center p-3">Business model</h2>
+      <p>The key idea of the project is to hold online video date auctions.
+
+      <p>Any registered user can place his or her profile on an auction as a Dater and make bets at other auctions as a Rater. When creating an auction, the Dater has an opportunity to select bet ticks and auction timeframes at his own discretion.</p>
+
+      <p>Dater will get access to the funds from the winning bet after the video date has taken place, in case of the absence of complaints from either of the parties. Rate Date service charges commission for every successful deal amounting to 20% of the winning bet. All the funds received from the online auction can be use within the service, as well as withdrawn to your personal wallet.</p>
+
+      <p>Monetization Methods and using RDT in the service:
+      <ul>
+        <li>the acquisition of premium accounts with enhanced functionality;</li>
+        <li>additional services for communication (gifts, emoji, etc.);</li>
+        <li>participation on the online video date auctions.</li>
+      </ul>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="text-center p-3 display-4">
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid bg-grey" id="charity">
+  <div class="row">
+    <div class="col-xl-8 order-xl-2 align-self-center"><%= image_tag "charity.png", class: 'img-fluid' %></div>
+    <div class="col-xl-4 order-xl-1">
+      <h2 class="text-center p-3">Charitable online video date auction</h2>
+      <p>The company Rate Date provides an opportunity to participate in a charity event on the RateDate.net resource. The special function of the site will be a section with the holding of charity online video date auction. All funds received from the auctions will be transferred to charitable foundations.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="text-center p-3 display-4 text-bordo">
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid" id="graphs">
+  <div class="row">
+    <div class="col-lg-6">
+      <%= image_tag "graphs1.png", class: "img-fluid" %>
+    </div>
+    <div class="col-lg-6">
+      <%= image_tag "graphs2.png", class: "img-fluid" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="text-center p-3 display-4 text-bordo">
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid bg-bordo" id="bonus">
+  <div class="row justify-content-center">
+    <div class="col-md-2 col-sm-3">
+      <%= image_tag "bonus1.png", class: "img-fluid" %>
+    </div>
+    <div class="col-md-2 col-sm-3">
+      <%= image_tag "bonus2.png", class: "img-fluid" %>
+    </div>
+    <div class="col-md-2 col-sm-3">
+      <%= image_tag "bonus3.png", class: "img-fluid" %>
+    </div>
+    <div class="col-md-2 col-sm-3">
+      <%= image_tag "bonus4.png", class: "img-fluid" %>
+    </div>
+    <div class="col-md-2 col-sm-3">
+      <%= image_tag "bonus5.png", class: "img-fluid" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="text-center p-3 display-4">
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid" id="bounty">
+  <div class="row">
+    <div class="col-xl-8 align-self-center"><%= image_tag "bounty.png", class: 'img-fluid' %></div>
+    <div class="col-xl-4 ">
+      <h2 class="text-center p-3">Bounty</h2>
+      <p>Rate Date provides an opportunity to receive RDT by attracting investors.  For the bounty program 2 500 000 RDT have been appropriated that will be proportionally allocated between the participants according to a deposit amount of the attracted investors. </p>
+      <p>You can get the referral link in your personal account after registration.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="text-center p-3 display-4 text-bordo">
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid bg-bordo" id="stages">
+  <div class="row">
+    <div class="col-xl-8 order-xl-2 align-self-center"><%= image_tag "stages.png", class: 'img-fluid' %></div>
+    <div class="col-xl-4 order-xl-1">
+      <h2 class="text-center p-3">Stages</h2>
+      <h3><span class="badge badge-light badge-pill">Stage # 1</span></h3>
+      <p>150 000 $  -  a minimum amount, required for project implementation. The dating site with online video date auction.</p>
+
+      <h3><span class="badge badge-light badge-pill">Stage # 2</span></h3>
+      <p>400 000 $ -  a mobile application, enhanced PR campaign</p>
+      <h3><span class="badge badge-light badge-pill">Stage # 3</span></h3>
+      <p>1 000 000 $ - entry into new regions’ markets, expansion of technical support, development and introduction of new chargeable services.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="text-center p-3 display-4">
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid" id="roadmap">
+  <h2 class="text-center p-3">Road Map</h2>
+
+  <div class="row">
+    <div class="col">
+      <ul class="timeline">
+        <li class="timeline-item">
+          <div class="timeline-badge align-content-center"><i class="icon-design"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Разработка прототипа сайта RateDate.net</h4>
+              <small>Q4 2017</small>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-badge"><i class="icon-money"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Pre Sale</h4>
+              <small>Q4 2017</small>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-badge"><i class="icon-money"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">ICO</h4>
+              <small>Q1 2018</small>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-badge"><i class="icon-rdt"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Распределение RDT</h4>
+              <small>Q1 2018</small>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-badge"><i class="icon-beta"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Beta версия сайта RateDate.net</h4>
+              <small>Q1 2018</small>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-badge"><i class="icon-video-camera"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Запуск онлайн аукциона видео-свиданий</h4>
+              <small>Q2 2018</small>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-badge"><i class="icon-mobile-phone"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Запуск мобильного приложения</h4>
+              <small>Q3 2018</small>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container-fluid bg-grey" id="team">
+  <h2 class="text-center p-3">Our Team</h2>
+  <div class="row justify-content-center card-group">
+    <div class="col-xl-2 col-lg col-sm-6 mb-3">
+      <div class="card card-team h-100">
+        <div class="card-img-top p-3">
+          <%= image_tag "katerina.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Katerina Usatenko</h4>
+          <p class="card-text font-italic">Founder, CEO</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-2 col-lg col-sm-6 mb-3">
+      <div class="card card-team h-100">
+        <div class="card-img-top p-3">
+          <%= image_tag "michail.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Mikhail Kruglichenko</h4>
+          <p class="card-text font-italic">Strategic Planning Manager</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-2 col-lg col-sm-6 mb-3">
+      <div class="card card-team h-100">
+        <div class="card-img-top p-3">
+          <%= image_tag "cheshire.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Dmitry Nadsadin</h4>
+          <p class="card-text font-italic">Project Manager, Developer</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-2 col-lg col-sm-6 mb-3">
+      <div class="card card-team h-100">
+        <div class="card-img-top p-3">
+          <%= image_tag "heyan.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Denis Goroshko</h4>
+          <p class="card-text font-italic">Web-Designer, Front-End Developer</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-2 col-lg col-sm-6 mb-3">
+      <div class="card card-team h-100">
+        <div class="card-img-top p-3">
+          <%= image_tag "ekaterina.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Katerina Voronkina</h4>
+          <p class="card-text font-italic">Designer, Illustrator</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bg-footer container-fluid">
+  <div class="row justify-content-center pt-3 text-muted">
+    <div class="col-md-4"><i class="icon-logo h1 text-light"></i></div>
+    <div class="col-md-4 text-center">Copyright © Rate Date<br>info@ratedate.com</div>
+    <div class="col-md-4 text-right">
+      <div>Follow Us:</div>
+      <div class="nav justify-content-end">
+        <a href="https://www.facebook.com/Rate-Date-861947790626663/" class="icon-facebook h4 nav-link text-light"></a>
+        <a href="https://twitter.com/RateDate2" class="icon-twitter h4 nav-link text-light"></a>
+        <a href="https://t.me/joinchat/FnaGEQvA8Z54oH4AM2vIIQ" class="icon-telegram h4 nav-link text-light"></a>
+      </div>
+    </div>
   </div>
 </div>
