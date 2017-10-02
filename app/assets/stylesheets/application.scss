@@ -28,8 +28,10 @@ body{
   background-image: image_url("bg.jpg");
   background-size: cover;
 }
-.nav-lp{
-  margin-left: -188px;
+@media (min-width: 1024px) {
+  .nav-lp{
+    margin-left: -188px;
+  }
 }
 .navbar-ico{
   transition: background-color .2s ease-in;
