@@ -28,8 +28,14 @@ jQuery(document).ready(function($) {
 
     $('.nav-link').on('click', function () {
         $a = $($(this).attr('href'));
+        $('.navbar-collapse').collapse('hide');
         $('html,body').animate({ scrollTop: $a.offset().top - 101}, 500);
         return false;
+    });
+    $('.navbar-toggler').on('click',function () {
+        navbar.addClass('navbar-light bg-light')
+        navbar.removeClass('navbar-dark bg-fade')
+
     });
   $(window).scroll(function() {
     var scrollPos = $(window).scrollTop(),
