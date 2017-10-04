@@ -10,13 +10,13 @@
     <div class="collapse navbar-collapse nav-lp" id="navbarICO">
       <ul class="navbar-nav mx-auto ">
         <li class="nav-item">
-          <a class="nav-link" href="#about"><%= t :about %></a>
+          <a class="nav-link" href="#about">о проекте</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#tokens">token</a>
+          <a class="nav-link" href="#tokens">токены</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#bonus">bonus</a>
+          <a class="nav-link" href="#bonus">бонусы</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#bounty">bounty</a>
@@ -25,10 +25,13 @@
           <a class="nav-link" href="#roadmap">road map</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#team">team</a>
+          <a class="nav-link" href="#team">команда</a>
         </li>
         <li class="nav-item">
-          <%= link_to "download white paper", asset_path("white_paper_eng_1.1.pdf"), {class: "nav-link", target: "_blank"} %>
+          <%= link_to "загрузить white paper", asset_path("white_paper_rus.1.1.pdf"), {class: "nav-link", target: "_blank"} %>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/">en</a>
         </li>
       </ul>
     </div>
@@ -44,19 +47,19 @@
       <h2>Pre-ICO Start</h2>
       <div class="row">
         <div class="col-3">
-          <small>Days</small>
+          <small>Дни</small>
           <div class="display-4" id="tDayNum">--</div>
         </div>
         <div class="col-3">
-          <small>Hours</small>
+          <small>Часы</small>
           <div class="display-4" id="tHourNum">--</div>
         </div>
         <div class="col-3">
-          <small>Minutes</small>
+          <small>Минуты</small>
           <div class="display-4" id="tMinNum">--</div>
         </div>
         <div class="col-3">
-          <small>Seconds</small>
+          <small>Секунды</small>
           <div class="display-4" id="tSecNum">--</div>
         </div>
       </div>
@@ -80,19 +83,17 @@
   <div class="row">
     <div class="col-12 col-xl-8"><%= image_tag "about.png", class: 'img-fluid' %></div>
     <div class="col-12 col-xl-4">
-      <h2 class="text-center p-3">Company description</h2>
-      <p>Rate Date – is a dating site, providing a unique opportunity to hold an online video date
-        auction. This service makes it possible not only to find and communicate with interesting
-        people, but create and take part in video date auctions as well.</p>
-      <p>Rate Date includes a wide range of opportunities: </p>
+      <h2 class="text-center p-3">О компании</h2>
+      <p>Rate Date - это сайт знакомств с уникальной возможностью проведения онлайн аукциона видео свиданий.</p>
+      <p>Rate Date включает в себя широкий спектр возможностей:</p>
       <ul>
-        <li>easy access to the service;</li>
-        <li>unlimited communication;</li>
-        <li>opportunity to take part in the online video date auction as a Rater and a Dater.</li>
+        <li>простой доступ к сервису;</li>
+        <li>безграничное общение;</li>
+        <li>возможность участвовать в онлайн аукционах видео-свиданий в качестве участника торгов (Rater) и соискателя (Dater).</li>
       </ul>
-      <p>Dater – a registered user of Rate Date website, who places his or her profile on the online video date auction.</p>
-      <p>Rater – a registered user of Rate Date website, who participates in a tender on the online video date auction.</p>
-      <p>The primary goal of Rate Date Company is to unite as many lonely hearts as possible and make it easier for people to make acquaintances in the high tech age.</p>
+      <p>Dater - зарегистрированный пользователь сайта Rate Date, который выставляет свой профайл на онлайн аукцион видео свиданий.</p>
+      <p>Rater - зарегистрированный пользователь сайта Rate Date, который участвует в торгах онлайн аукциона видео свиданий.</p>
+      <p>Главной целью компании Rate Date является объединение как можно большего количества одиноких сердец и упрощение знакомства людей в эпоху высоких технологий.</p>
     </div>
   </div>
   <div class="row">
@@ -107,17 +108,17 @@
   <div class="row">
     <div class="col-xl-8 order-xl-2 align-self-center"><%= image_tag "tokens.png", class: 'img-fluid' %></div>
     <div class="col-xl-4 order-xl-1">
-      <h2 class="text-center p-3">Tokens</h2>
-      <p>To launch the investment program, Rate Date issues RDT for selling.</p>
-      <p>RDT token (Rate Date Token) – is an internal payment unit of the service, which grants the right to purchase additional services and participate in the online video date auctions.</p>
+      <h2 class="text-center p-3">Токены</h2>
+      <p>Для запуска инвестиционной программы Rate Date выпускает в продажу RDT.</p>
+      <p>Токен RDT (Rate Date Token) - это внутренняя платежная единица сервиса, которая предоставляет право приобретения дополнительных услуг и участия в онлайн аукционах видео свиданий.</p>
 
-      <p>All the RDT holders have an opportunity to make free use of token within Rate Date service, as well as for using them on the exchange.</p>
+      <p>Все держатели RDT имеют возможность свободно распоряжаться токенами в рамках сервиса Rate Date, а так же для использования на бирже.</p>
 
-      <p>The number of tokens is limited: 50,000,000 RDT, issued on Ethereum, ERC20.  For sale in ICO will be exposed 40 000 000 RDT.  During the ICO period, Rate Date plans to attract the maximum 10,000 ETH of investments.</p>
+      <p>Количество токенов ограничено: 50 000 000 RDT, выпущенные на платформе Ethereum, ERC20. Для реализации в ICO кампании выделяется 40 000 000 RDT с hardcup 10 000 ETH.</p>
 
-      <p>Purchase of RDT – is a favorable and promising investment. Unique opportunities of the resource assume high level of demand for chargeable functionalities that will trigger growth of RDT price and will generate the expected profit for investors.</p>
+      <p>Приобретение RDT - это выгодное и перспективное вложение. Уникальные возможности ресурса предполагают высокий спрос на платный функционал, что станет толчком для роста цен на RDT и принесет инвесторам ожидаемую прибыль.</p>
 
-      <p>In the wake of rising amount of new Rate Date users, tokens will be bought back in order to support the service’s ecosystem.</p>
+      <p>По мере роста числа новых пользователей сайта Rate Date будет осуществляться выкуп токенов для поддержания экосистемы сервиса.</p>
     </div>
   </div>
   <div class="row">
@@ -133,18 +134,18 @@
   <div class="row">
     <div class="col-xl-8 align-self-center"><%= image_tag "business-model.png", class: 'img-fluid' %></div>
     <div class="col-xl-4 ">
-      <h2 class="text-center p-3">Business model</h2>
-      <p>The key idea of the project is to hold online video date auctions.
+      <h2 class="text-center p-3">Бизнес-модель</h2>
+      <p>Основная идея проекта – это проведение онлайн аукциона видео свиданий.</p>
 
-      <p>Any registered user can place his or her profile on an auction as a Dater and make bets at other auctions as a Rater. When creating an auction, the Dater has an opportunity to select bet ticks and auction timeframes at his own discretion.</p>
+      <p>Любой зарегистрированный пользователь сможет выставлять свой профайл на торги в качестве Dater и делать ставки на других аукционах в качестве Rater. Создавая аукцион, Dater имеет возможность самостоятельно выбирать шаги ставок и временные рамки торгов.</p>
 
-      <p>Dater will get access to the funds from the winning bet after the video date has taken place, in case of the absence of complaints from either of the parties. Rate Date service charges commission for every successful deal amounting to 20% of the winning bet. All the funds received from the online auction can be use within the service, as well as withdrawn to your personal wallet.</p>
+      <p>По окончанию аукциона средства от выигрышной ставки замораживаются на счету Dater и будут доступны после состоявшегося видео свидания, в случае отсутствия жалоб любой из сторон. Сервис Rate Date взымает комиссию от каждой удачной сделки в размере 20% от выигрышной ставки. Все средства полученные от онлайн аукциона можно использовать внутри сервиса, а так же выводить на персональный кошелек.</p>
 
-      <p>Monetization Methods and using RDT in the service:
+      <p>Способы монетизации проекта и использование RDT внутри сервиса:
       <ul>
-        <li>the acquisition of premium accounts with enhanced functionality;</li>
-        <li>additional services for communication (gifts, emoji, etc.);</li>
-        <li>participation on the online video date auctions.</li>
+        <li>возможность приобретения премиум-аккаунтов с расширенным функционалом;</li>
+        <li>дополнительные услуги сервиса для общения (подарки, эмоджи и т.д.);</li>
+        <li>участие в онлайн аукционах видео свиданий.</li>
       </ul>
       </p>
     </div>
@@ -163,8 +164,8 @@
   <div class="row">
     <div class="col-xl-8 order-xl-2 align-self-center"><%= image_tag "charity.png", class: 'img-fluid' %></div>
     <div class="col-xl-4 order-xl-1">
-      <h2 class="text-center p-3">Charitable online video date auction</h2>
-      <p>The company Rate Date provides an opportunity to participate in a charity event on the RateDate.net resource. The special function of the site will be a section with the holding of charity online video date auction. All funds received from the auctions will be transferred to charitable foundations.</p>
+      <h2 class="text-center p-3">Благотворительный онлайн аукцион видео свиданий</h2>
+      <p>Компания Rate Date предоставляет возможность каждому пользователю поучаствовать в благотворительной акции на базе ресурса RateDate.net. Отдельной функцией сайта будет раздел с проведением благотворительных аукционов видео свиданий. Все средства полученные от аукционов такого типа будут переданы благотворительным фондам.</p>
     </div>
   </div>
   <div class="row">
@@ -235,8 +236,8 @@
     <div class="col-xl-8 align-self-center"><%= image_tag "bounty.png", class: 'img-fluid' %></div>
     <div class="col-xl-4 ">
       <h2 class="text-center p-3">Bounty</h2>
-      <p>Rate Date provides an opportunity to receive RDT by attracting investors.  For the bounty program 2 500 000 RDT have been appropriated that will be proportionally allocated between the participants according to a deposit amount of the attracted investors. </p>
-      <p>You can get the referral link in your personal account after registration.</p>
+      <p>Rate Date предоставляет возможность получить RDT привлекая инвесторов. Для bounty программы выделено 2 500 000 RDT, которые будут пропорционально распределены между участниками относительно вкладов привлеченных инвесторов. </p>
+      <p>Реферальную ссылку можно получить в личном кабинете после регистрации.</p>
     </div>
   </div>
   <div class="row">
@@ -259,12 +260,12 @@
     <div class="col-xl-4 order-xl-1">
       <h2 class="text-center p-3">Stages</h2>
       <h3><span class="badge badge-light badge-pill">Stage # 1</span></h3>
-      <p>150 000 $  -  a minimum amount, required for project implementation. The dating site with online video date auction.</p>
+      <p>$150 000 - минимальная сумма необходимая для реализации проекта. Сайт знакомств с онлайн аукционом видео свиданий.</p>
 
       <h3><span class="badge badge-light badge-pill">Stage # 2</span></h3>
-      <p>400 000 $ -  a mobile application, enhanced PR campaign</p>
+      <p>$400 000 -  мобильное приложение, усиленная PR компания.</p>
       <h3><span class="badge badge-light badge-pill">Stage # 3</span></h3>
-      <p>1 000 000 $ - entry into new regions’ markets, expansion of technical support, development and introduction of new chargeable services.</p>
+      <p>$1 000 000 - выход на рынки новых регионов, расширение технической поддержки, разработка и внедрение новых платных услуг.</p>
     </div>
   </div>
   <div class="row">
@@ -364,7 +365,7 @@
           <%= image_tag "katerina.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
         </div>
         <div class="card-body">
-          <h4 class="card-title">Katerina Usatenko</h4>
+          <h4 class="card-title">Усатенко Екатерина</h4>
           <p class="card-text font-italic">Founder, CEO</p>
         </div>
       </div>
@@ -375,8 +376,8 @@
           <%= image_tag "michail.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
         </div>
         <div class="card-body">
-          <h4 class="card-title">Mikhail Kruglichenko</h4>
-          <p class="card-text font-italic">Strategic Planning Manager</p>
+          <h4 class="card-title">Кругличенко Михаил</h4>
+          <p class="card-text font-italic">Менеджер по стратегическому планированию</p>
         </div>
       </div>
     </div>
@@ -386,8 +387,8 @@
           <%= image_tag "cheshire.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
         </div>
         <div class="card-body">
-          <h4 class="card-title">Dmitry Nadsadin</h4>
-          <p class="card-text font-italic">Project Manager, Developer</p>
+          <h4 class="card-title">Надссадин Дмитрий</h4>
+          <p class="card-text font-italic">Проект менеджер, разработчик</p>
         </div>
       </div>
     </div>
@@ -397,8 +398,8 @@
           <%= image_tag "heyan.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
         </div>
         <div class="card-body">
-          <h4 class="card-title">Denis Goroshko</h4>
-          <p class="card-text font-italic">Web-Designer, Front-End Developer</p>
+          <h4 class="card-title">Горошко Денис</h4>
+          <p class="card-text font-italic">Дизайнер, Front-End разработчик</p>
         </div>
       </div>
     </div>
@@ -408,8 +409,8 @@
           <%= image_tag "ekaterina.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
         </div>
         <div class="card-body">
-          <h4 class="card-title">Katerina Voronkina</h4>
-          <p class="card-text font-italic">Designer, Illustrator</p>
+          <h4 class="card-title">Воронкина Екатерина</h4>
+          <p class="card-text font-italic">Дизайнер, Иллюстратор</p>
         </div>
       </div>
     </div>
@@ -420,7 +421,7 @@
     <div class="col-md-4"><i class="icon-logo h1 text-light"></i></div>
     <div class="col-md-4 text-center">Copyright © Rate Date<br>info@ratedate.com</div>
     <div class="col-md-4 text-right">
-      <div>Follow Us:</div>
+      <div>Следите за развитием проекта:</div>
       <div class="nav justify-content-end">
         <a href="https://www.facebook.com/Rate-Date-861947790626663/" class="icon-facebook h4 nav-link text-light"></a>
         <a href="https://twitter.com/RateDate2" class="icon-twitter h4 nav-link text-light"></a>
