@@ -10,28 +10,28 @@
     <div class="collapse navbar-collapse nav-lp" id="navbarICO">
       <ul class="navbar-nav mx-auto ">
         <li class="nav-item">
-          <a class="nav-link" href="#about"><%= t :about %></a>
+          <a class="nav-link m" href="#about"><%= t :about %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#tokens">token</a>
+          <a class="nav-link m" href="#tokens">token</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#bonus">bonus</a>
+          <a class="nav-link m" href="#bonus">bonus</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#bounty">bounty</a>
+          <a class="nav-link m" href="#bounty">bounty</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#roadmap">road map</a>
+          <a class="nav-link m" href="#roadmap">road map</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#team">team</a>
+          <a class="nav-link m" href="#team">team</a>
         </li>
         <li class="nav-item">
           <%= link_to "download white paper", asset_path("white_paper_eng_1.1.pdf"), {class: "nav-link", target: "_blank"} %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/ru">ru</a>
+          <%= link_to "ru", { locale: :ru }, class: "nav-link" %>
         </li>
       </ul>
     </div>
