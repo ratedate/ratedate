@@ -15,7 +15,7 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
-//= require_tree .
+// require_tree .
 
 $(document).ready(function(){
 //   variables
@@ -32,7 +32,7 @@ $(document).ready(function(){
     var secText = "#tSecText";
 //   variables
 
-    var countDownDate = new Date("Decjavascripts 1, 2017 00:00:00").getTime();
+    var countDownDate = new Date("2017-12-01T14:00:00+00:00").getTime();
 
     var x = setInterval(function(){
         var now = new Date().getTime();
