@@ -39,6 +39,11 @@ gem 'bootstrap', '~> 4.0.0.beta'
 
 gem 'devise'
 gem 'devise-i18n'
+
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-google'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
