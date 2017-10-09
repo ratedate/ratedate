@@ -97,10 +97,10 @@ $brand-danger: #ba1f1f;
     bottom: 0;
     position: absolute;
     content: " ";
-    width: 3px;
+    width: 16px;
     background-color: #eeeeee;
     left: 50%;
-    margin-left: -1.5px;
+    margin-left: -8px;
   }
   .timeline-item {
     margin-bottom: 70px;
@@ -114,7 +114,7 @@ $brand-danger: #ba1f1f;
       clear: both;
     }
     .timeline-badge {
-      color: $bordo;
+      color: $red-icon;
       width: 120px;
       height: 120px;
       line-height: 52px;
@@ -125,7 +125,6 @@ $brand-danger: #ba1f1f;
       left: 50%;
       margin-left: -60px;
       background-color: $grey-bg;
-      border: 3px solid $body-bg;
       z-index: 100;
       border-top-right-radius: 50%;
       border-top-left-radius: 50%;
@@ -135,9 +134,15 @@ $brand-danger: #ba1f1f;
       .fa,
       .glyphicon {
         position: relative;
-        font-size: 4.5rem;
-        top: 20px;
-        left: 0px;
+        font-size: 3rem;
+        top: 10px;
+        left: 10px;
+        display: block;
+        border: #c4412f solid 14px;
+        width: 99px;
+        height: 99px;
+        border-radius: 50%;
+        padding-top: 10px;
       }
       &.primary {
         background-color: $brand-primary;
@@ -161,8 +166,7 @@ $brand-danger: #ba1f1f;
       top: 13px;
       float: left;
       right: 16px;
-      border: 1px solid $gray-light;
-      background: $body-bg;
+      background: $gray-lighter;
       border-radius: 2px;
       padding: 20px;
       -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
@@ -173,8 +177,8 @@ $brand-danger: #ba1f1f;
         right: -16px;
         display: inline-block;
         border-top: 16px solid transparent;
-        border-left: 16px solid $gray-light;
-        border-right: 0 solid $gray-light;
+        border-left: 16px solid $gray-lighter;
+        border-right: 0 solid $gray-lighter;
         border-bottom: 16px solid transparent;
         content: " ";
       }
@@ -188,6 +192,9 @@ $brand-danger: #ba1f1f;
       }
       .timeline-body > p + p {
         margin-top: 5px;
+      }
+      .timeline-body > .time{
+        color: $gray-light;
       }
     }
   }
@@ -285,6 +292,9 @@ $brand-danger: #ba1f1f;
           border-right-width: 14px;
           left: -14px;
           right: auto;
+        }
+        .timeline-title{
+          font-size: 1.2rem;
         }
       }
     }
