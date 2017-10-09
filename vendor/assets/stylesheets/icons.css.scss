@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  font-url('icomoon.eot?f2hqj2');
-  src:  font-url('icomoon.eot?f2hqj2#iefix') format('embedded-opentype'),
-    font-url('icomoon.ttf?f2hqj2') format('truetype'),
-    font-url('icomoon.woff?f2hqj2') format('woff'),
-    font-url('icomoon.svg?f2hqj2#icomoon') format('svg');
+  src:  font-url('icomoon.eot?cwa8mk');
+  src:  font-url('icomoon.eot?cwa8mk#iefix') format('embedded-opentype'),
+    font-url('icomoon.ttf?cwa8mk') format('truetype'),
+    font-url('icomoon.woff?cwa8mk') format('woff'),
+    font-url('icomoon.svg?cwa8mk#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,14 +24,23 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-rdt:before {
-  content: "\e907";
-}
-.icon-ico:before {
+.icon-beta:before {
   content: "\e903";
 }
-.icon-beta:before {
+.icon-coin:before {
   content: "\e904";
+}
+.icon-prototype:before {
+  content: "\e905";
+}
+.icon-phone:before {
+  content: "\e906";
+}
+.icon-sale:before {
+  content: "\e908";
+}
+.icon-video-camera:before {
+  content: "\e909";
 }
 .icon-logo_big:before {
   content: "\e901";
@@ -42,17 +51,8 @@
 .icon-ethereum:before {
   content: "\e902";
 }
-.icon-money:before {
-  content: "\e905";
-}
-.icon-design:before {
-  content: "\e906";
-}
 .icon-heart:before {
   content: "\f004";
-}
-.icon-video-camera:before {
-  content: "\f03d";
 }
 .icon-twitter:before {
   content: "\f099";
@@ -60,11 +60,8 @@
 .icon-facebook:before {
   content: "\f09a";
 }
-.icon-mobile-phone:before {
-  content: "\f10b";
-}
-.icon-slack:before {
-  content: "\f198";
+.icon-linkedin:before {
+  content: "\f0e1";
 }
 .icon-telegram:before {
   content: "\f2c6";
