@@ -28,7 +28,7 @@
           <a class="nav-link m" href="#team">команда</a>
         </li>
         <li class="nav-item">
-          <%= link_to "загрузить white paper", "/assets/white_paper_ru.pdf", {class: "nav-link", target: "_blank"} %>
+          <%= link_to "загрузить white paper", "/assets/white_paper_ru_1.1.pdf", {class: "nav-link", target: "_blank"} %>
         </li>
         <li class="nav-item">
           <%= link_to "en", { locale: :en }, class: "nav-link" %>
@@ -104,36 +104,10 @@
     </div>
   </div>
 </div>
-<div class="container-fluid bg-grey" id="tokens">
-  <div class="row">
-    <div class="col-xl-8 order-xl-2 align-self-center"><%= image_tag "tokens.png", class: 'img-fluid' %></div>
-    <div class="col-xl-4 order-xl-1">
-      <h2 class="text-center p-3">Токены</h2>
-      <p>Для запуска инвестиционной программы Rate Date выпускает в продажу RDT.</p>
-      <p>Токен RDT (Rate Date Token) - это внутренняя платежная единица сервиса, которая предоставляет право приобретения дополнительных услуг и участия в онлайн аукционах видео свиданий.</p>
-
-      <p>Все держатели RDT имеют возможность свободно распоряжаться токенами в рамках сервиса Rate Date, а так же для использования на бирже.</p>
-
-      <p>Количество токенов ограничено: 50 000 000 RDT, выпущенные на платформе Ethereum, ERC20. Для реализации в ICO кампании выделяется 37 000 000 RDT с hardcup 10 000 ETH.</p>
-
-      <p>Приобретение RDT - это выгодное и перспективное вложение. Уникальные возможности ресурса предполагают высокий спрос на платный функционал, что станет толчком для роста цен на RDT и принесет инвесторам ожидаемую прибыль.</p>
-
-      <p>По мере роста числа новых пользователей сайта Rate Date будет осуществляться выкуп токенов для поддержания экосистемы сервиса.</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="text-center p-3 display-4 text-bordo">
-        <span class="icon-heart"></span>
-        <span class="icon-heart"></span>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="container-fluid bg-bordo" id="business_model">
   <div class="row">
-    <div class="col-xl-8 align-self-center"><%= image_tag "business-model.png", class: 'img-fluid' %></div>
-    <div class="col-xl-4 ">
+    <div class="col-xl-8  order-xl-2"><%= image_tag "business-model.png", class: 'img-fluid' %></div>
+    <div class="col-xl-4  order-xl-1">
       <h2 class="text-center p-3">Бизнес-модель</h2>
       <p>Основная идея проекта – это проведение онлайн аукциона видео свиданий.</p>
 
@@ -155,6 +129,30 @@
       <div class="text-center p-3 display-4">
         <span class="icon-heart"></span>
         <span class="icon-heart"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid bg-grey">
+  <div class="row">
+    <div class="col-xl-8"><%= image_tag "restrictions.png", class: 'img-fluid mx-auto d-block' %></div>
+    <div class="col-xl-4 ">
+      <h2 class="text-center p-3">Безопасность и ограничения</h2>
+      <p>Сервис Rate Date против использования любого вида мошенничества.</p><p>
+        Не является основным способом заработка денежных средств для
+        пользователей. Во избежание использования сайта в коммерческих целях
+        количество аукционов для Dater (организатор торгов) будет ограничено,
+        не распространяется на возможности Rater (участник торгов) и
+      благотворительные аукционы.</p><p>
+        Запрещается использовать ресурсы сервиса для проявления любого вида
+        эротических услуг.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="text-center p-3 display-4 text-bordo">
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
         <span class="icon-heart"></span>
       </div>
     </div>
@@ -162,9 +160,9 @@
 </div>
 <div class="container-fluid bg-grey" id="charity">
   <div class="row">
-    <div class="col-xl-8 order-xl-2 align-self-center"><%= image_tag "charity.png", class: 'img-fluid' %></div>
+    <div class="col-xl-8 order-xl-2 align-self-center"><%= image_tag "charity.png", class: 'img-fluid mx-auto d-block' %></div>
     <div class="col-xl-4 order-xl-1">
-      <h2 class="text-center p-3">Благотворительный онлайн аукцион видео свиданий</h2>
+      <h2 class="text-center p-3 h3">Благотворительный онлайн аукцион видео свиданий</h2>
       <p>Компания Rate Date предоставляет возможность каждому пользователю поучаствовать в благотворительной акции на базе ресурса RateDate.net. Отдельной функцией сайта будет раздел с проведением благотворительных аукционов видео свиданий. Все средства полученные от аукционов такого типа будут переданы благотворительным фондам.</p>
     </div>
   </div>
@@ -179,13 +177,26 @@
     </div>
   </div>
 </div>
-<div class="container-fluid" id="graphs">
+<div class="container-fluid justify-content-center btn-toolbar p-3">
+  <a href="/assets/white_paper_en_1.1.pdf" class="btn btn-outline-secondary m-1">Download White Paper En</a>
+  <a href="/assets/white_paper_ru_1.1.pdf" class="btn btn-outline-secondary m-1">Download White Paper Ru</a>
+  <a href="https://ratedate.net/" class="btn btn-outline-secondary m-1">RateDate Website</a>
+</div>
+<div class="container-fluid bg-grey" id="tokens">
   <div class="row">
-    <div class="col-lg-6">
-      <%= image_tag "graphs1.png", class: "img-fluid" %>
-    </div>
-    <div class="col-lg-6">
-      <%= image_tag "graphs2.png", class: "img-fluid" %>
+    <div class="col-xl-8 align-self-center"><%= image_tag "tokens.png", class: 'img-fluid' %></div>
+    <div class="col-xl-4">
+      <h2 class="text-center p-3">Токены</h2>
+      <p>Для запуска инвестиционной программы Rate Date выпускает в продажу RDT.</p>
+      <p>Токен RDT (Rate Date Token) - это внутренняя платежная единица сервиса, которая предоставляет право приобретения дополнительных услуг и участия в онлайн аукционах видео свиданий.</p>
+
+      <p>Все держатели RDT имеют возможность свободно распоряжаться токенами в рамках сервиса Rate Date, а так же для использования на бирже.</p>
+
+      <p>Количество токенов ограничено: 50 000 000 RDT, выпущенные на платформе Ethereum, ERC20. Для реализации в ICO кампании выделяется 37 000 000 RDT с hardcup 10 000 ETH.</p>
+
+      <p>Приобретение RDT - это выгодное и перспективное вложение. Уникальные возможности ресурса предполагают высокий спрос на платный функционал, что станет толчком для роста цен на RDT и принесет инвесторам ожидаемую прибыль.</p>
+
+      <p>По мере роста числа новых пользователей сайта Rate Date будет осуществляться выкуп токенов для поддержания экосистемы сервиса.</p>
     </div>
   </div>
   <div class="row">
@@ -200,27 +211,50 @@
     </div>
   </div>
 </div>
-<div class="container-fluid bg-bordo" id="pre_sale">
+<div class="container-fluid" id="graphs">
   <div class="row">
-    <div class="col-xl-6">
+    <div class="col-lg-6">
+      <%= image_tag "graphs-1.png", class: "img-fluid" %>
+    </div>
+    <div class="col-lg-6">
+      <%= image_tag "graphs2.png", class: "img-fluid" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="text-center p-3 display-4 text-bordo">
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-bordo-wh" id="bonus">
+  <div class="row">
+    <div class="col-xl m-3 rounded bg-white">
       <h2 class="text-center">Pre-Sale #1</h2>
-      <p>+50% <br>
-        1 ETH=4500 RDT <br>
+      <p class="text-center">+50%<br>
+        1 ETH = 4500 RDT <br>
         Hard Cup = 1 000 ETH <br>
         01.12.17 - 24.12.17
       </p>
     </div>
-    <div class="col-xl-6">
+    <div class="col-xl m-3 rounded bg-white">
       <h2 class="text-center">Pre-Sale #2</h2>
-      <p>+40% <br>
-        1 ETH=4200 RDT <br>
+      <p class="text-center">+40% <br>
+        1 ETH = 4200 RDT <br>
         Hard Cup = 2 000 ETH <br>
         25.12.17 - 14.01.18
       </p>
     </div>
   </div>
 </div>
-<div class="container-fluid bg-bordo" id="bonus">
+<div class="container-fluid bg-bordo" >
   <div class="row justify-content-center">
     <div class="col-md-2 col-sm-3">
       <%= image_tag "bonus1.png", class: "img-fluid" %>
@@ -241,6 +275,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="text-center p-3 display-4">
+        <span class="icon-heart"></span>
         <span class="icon-heart"></span>
         <span class="icon-heart"></span>
         <span class="icon-heart"></span>
@@ -270,27 +305,27 @@
         <span class="icon-heart"></span>
         <span class="icon-heart"></span>
         <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
       </div>
     </div>
   </div>
 </div>
 <div class="container-fluid bg-bordo" id="stages">
   <div class="row">
-    <div class="col-xl-8 order-xl-2 align-self-center"><%= image_tag "stages.png", class: 'img-fluid' %></div>
+    <div class="col-xl-8 order-xl-2 align-self-center"><%= image_tag "heart.png", class: 'img-fluid mx-auto d-block' %></div>
     <div class="col-xl-4 order-xl-1">
       <h2 class="text-center p-3">Stages</h2>
-      <h3><span class="badge badge-light badge-pill">Stage # 1</span></h3>
-      <p>$150 000 - минимальная сумма необходимая для реализации проекта. Сайт знакомств с онлайн аукционом видео свиданий.</p>
+      <h3><span class="badge badge-light badge-pill">soft cap</span></h3>
+      <p>1 000 ETH - минимальная сумма необходимая для реализации cайта знакомств с онлайн аукционом видео свиданий, создания мобильного приложения.</p>
 
-      <h3><span class="badge badge-light badge-pill">Stage # 2</span></h3>
-      <p>$400 000 -  мобильное приложение, усиленная PR компания.</p>
-      <h3><span class="badge badge-light badge-pill">Stage # 3</span></h3>
-      <p>$1 000 000 - выход на рынки новых регионов, расширение технической поддержки, разработка и внедрение новых платных услуг.</p>
+      <h3><span class="badge badge-light badge-pill">hard cap</span></h3>
+      <p>10 000 ETH - расширение технической поддержки, разработка и внедрение новых платных услуг, проведение PR компании для привлечения более 1 000 000 пользователей.</p>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
       <div class="text-center p-3 display-4">
+        <span class="icon-heart"></span>
         <span class="icon-heart"></span>
         <span class="icon-heart"></span>
         <span class="icon-heart"></span>
@@ -400,7 +435,6 @@
       <div class="card card-team h-100">
         <div class="card-img-top p-3">
           <%= image_tag "michail.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
-          <a class="team-social-1 icon-linkedin" href="https://www.linkedin.com/in/katerina-usatenko-9260b1139/"></a>
         </div>
         <div class="card-body">
           <h4 class="card-title">Кругличенко Михаил</h4>
@@ -450,7 +484,7 @@
       <div class="card card-team h-100">
         <div class="card-img-top p-3">
           <%= image_tag "ekaterina.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
-          <a class="team-social-1 icon-linkedin" href="https://www.linkedin.com/in/katerina-usatenko-9260b1139/"></a>
+          <a class="team-social-1 icon-facebook" href="https://www.facebook.com/profile.php?id=100000531726638"></a>
         </div>
         <div class="card-body">
           <h4 class="card-title">Воронкина Екатерина</h4>
@@ -472,7 +506,7 @@
       <div class="card card-team h-100">
         <div class="card-img-top p-3">
           <%= image_tag "romanliashko_200x200.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
-          <a class="team-social-1 icon-linkedin" href="https://www.linkedin.com/in/katerina-usatenko-9260b1139/"></a>
+          <a class="team-social-1 icon-linkedin" href="https://www.linkedin.com/in/liashko/"></a>
         </div>
         <div class="card-body">
           <h4 class="card-title">Роман Ляшко</h4>
