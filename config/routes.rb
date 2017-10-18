@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-
-
-  scope "/:locale", locale: /#{I18n.available_locales.join("|")}/, defaults: {locale: "en"}  do
-    get 'static_pages/home'
-    get 'static_pages/in_develop'
-  end
   constraints subdomain: 'ico' do
     scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/, defaults: {locale: "en"}  do
       scope module: 'ico', as: 'ico' do
@@ -17,6 +11,10 @@ Rails.application.routes.draw do
     end
     root 'static_pages#ico_landing', module: 'ico'
   end
-
   root 'static_pages#in_develop'
+  scope "/:locale", locale: /#{I18n.available_locales.join("|")}/, defaults: {locale: "en"}  do
+    get 'static_pages/home'
+    get 'static_pages/in_develop'
+    root 'static_pages#in_develop'
+  end
 end

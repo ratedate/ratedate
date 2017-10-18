@@ -28,7 +28,7 @@
           <a class="nav-link m" href="#team">команда</a>
         </li>
         <li class="nav-item">
-          <%= link_to "загрузить white paper", asset_path("white_paper_rus.1.1.pdf"), {class: "nav-link", target: "_blank"} %>
+          <%= link_to "загрузить white paper", "/assets/white_paper_ru_1.1.pdf", {class: "nav-link", target: "_blank"} %>
         </li>
         <li class="nav-item">
           <%= link_to "en", { locale: :en }, class: "nav-link" %>
@@ -44,7 +44,7 @@
   </div>
   <div class="row justify-content-md-center">
     <div class="col-lg-4 col-md-6 text-center text-light pt-3">
-      <h2>Pre-ICO Start</h2>
+      <h2>Pre-Sale Start</h2>
       <div class="row">
         <div class="col-3">
           <small>Дни</small>
@@ -104,36 +104,10 @@
     </div>
   </div>
 </div>
-<div class="container-fluid bg-grey" id="tokens">
-  <div class="row">
-    <div class="col-xl-8 order-xl-2 align-self-center"><%= image_tag "tokens.png", class: 'img-fluid' %></div>
-    <div class="col-xl-4 order-xl-1">
-      <h2 class="text-center p-3">Токены</h2>
-      <p>Для запуска инвестиционной программы Rate Date выпускает в продажу RDT.</p>
-      <p>Токен RDT (Rate Date Token) - это внутренняя платежная единица сервиса, которая предоставляет право приобретения дополнительных услуг и участия в онлайн аукционах видео свиданий.</p>
-
-      <p>Все держатели RDT имеют возможность свободно распоряжаться токенами в рамках сервиса Rate Date, а так же для использования на бирже.</p>
-
-      <p>Количество токенов ограничено: 50 000 000 RDT, выпущенные на платформе Ethereum, ERC20. Для реализации в ICO кампании выделяется 40 000 000 RDT с hardcup 10 000 ETH.</p>
-
-      <p>Приобретение RDT - это выгодное и перспективное вложение. Уникальные возможности ресурса предполагают высокий спрос на платный функционал, что станет толчком для роста цен на RDT и принесет инвесторам ожидаемую прибыль.</p>
-
-      <p>По мере роста числа новых пользователей сайта Rate Date будет осуществляться выкуп токенов для поддержания экосистемы сервиса.</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="text-center p-3 display-4 text-bordo">
-        <span class="icon-heart"></span>
-        <span class="icon-heart"></span>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="container-fluid bg-bordo" id="business_model">
   <div class="row">
-    <div class="col-xl-8 align-self-center"><%= image_tag "business-model.png", class: 'img-fluid' %></div>
-    <div class="col-xl-4 ">
+    <div class="col-xl-8  order-xl-2"><%= image_tag "business-model.png", class: 'img-fluid' %></div>
+    <div class="col-xl-4  order-xl-1">
       <h2 class="text-center p-3">Бизнес-модель</h2>
       <p>Основная идея проекта – это проведение онлайн аукциона видео свиданий.</p>
 
@@ -155,16 +129,40 @@
       <div class="text-center p-3 display-4">
         <span class="icon-heart"></span>
         <span class="icon-heart"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid bg-grey">
+  <div class="row">
+    <div class="col-xl-8"><%= image_tag "restrictions.png", class: 'img-fluid mx-auto d-block' %></div>
+    <div class="col-xl-4 ">
+      <h2 class="text-center p-3">Безопасность и ограничения</h2>
+      <p>Сервис Rate Date против использования любого вида мошенничества.</p><p>
+        Не является основным способом заработка денежных средств для
+        пользователей. Во избежание использования сайта в коммерческих целях
+        количество аукционов для Dater (организатор торгов) будет ограничено,
+        не распространяется на возможности Rater (участник торгов) и
+      благотворительные аукционы.</p><p>
+        Запрещается использовать ресурсы сервиса для проявления любого вида
+        эротических услуг.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="text-center p-3 display-4 text-bordo">
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
         <span class="icon-heart"></span>
       </div>
     </div>
   </div>
 </div>
-<div class="container-fluid bg-grey" id="charity">
+<div class="container-fluid" id="charity">
   <div class="row">
-    <div class="col-xl-8 order-xl-2 align-self-center"><%= image_tag "charity.png", class: 'img-fluid' %></div>
+    <div class="col-xl-8 order-xl-2 align-self-center"><%= image_tag "charity.png", class: 'img-fluid mx-auto d-block' %></div>
     <div class="col-xl-4 order-xl-1">
-      <h2 class="text-center p-3">Благотворительный онлайн аукцион видео свиданий</h2>
+      <h2 class="text-center p-3 h3">Благотворительный онлайн аукцион видео свиданий</h2>
       <p>Компания Rate Date предоставляет возможность каждому пользователю поучаствовать в благотворительной акции на базе ресурса RateDate.net. Отдельной функцией сайта будет раздел с проведением благотворительных аукционов видео свиданий. Все средства полученные от аукционов такого типа будут переданы благотворительным фондам.</p>
     </div>
   </div>
@@ -179,13 +177,25 @@
     </div>
   </div>
 </div>
-<div class="container-fluid" id="graphs">
+<div class="container-fluid justify-content-around btn-toolbar p-5 bg-bordo-wh">
+  <a href="/assets/white_paper_ru_1.1.pdf" class="btn btn-lg btn-secondary m-3 text-uppercase font-weight-bold"  target="_blank">Загрузить White Paper</a>
+  <a href="https://ratedate.net/" class="btn btn-lg btn-secondary m-3 text-uppercase font-weight-bold" target="_blank">Rate Date сайт</a>
+</div>
+<div class="container-fluid bg-grey" id="tokens">
   <div class="row">
-    <div class="col-lg-6">
-      <%= image_tag "graphs1.png", class: "img-fluid" %>
-    </div>
-    <div class="col-lg-6">
-      <%= image_tag "graphs2.png", class: "img-fluid" %>
+    <div class="col-xl-8 align-self-center"><%= image_tag "tokens.png", class: 'img-fluid' %></div>
+    <div class="col-xl-4">
+      <h2 class="text-center p-3">Токены</h2>
+      <p>Для запуска инвестиционной программы Rate Date выпускает в продажу RDT.</p>
+      <p>Токен RDT (Rate Date Token) - это внутренняя платежная единица сервиса, которая предоставляет право приобретения дополнительных услуг и участия в онлайн аукционах видео свиданий.</p>
+
+      <p>Все держатели RDT имеют возможность свободно распоряжаться токенами в рамках сервиса Rate Date, а так же для использования на бирже.</p>
+
+      <p>Количество токенов ограничено: 50&nbsp000&nbsp000 RDT, выпущенные на платформе Ethereum, ERC20. Для реализации в ICO кампании выделяется 37&nbsp000&nbsp000 RDT с hardcup 10&nbsp000 ETH.</p>
+
+      <p>Приобретение RDT - это выгодное и перспективное вложение. Уникальные возможности ресурса предполагают высокий спрос на платный функционал, что станет толчком для роста цен на RDT и принесет инвесторам ожидаемую прибыль.</p>
+
+      <p>По мере роста числа новых пользователей сайта Rate Date будет осуществляться выкуп токенов для поддержания экосистемы сервиса.</p>
     </div>
   </div>
   <div class="row">
@@ -200,7 +210,49 @@
     </div>
   </div>
 </div>
-<div class="container-fluid bg-bordo" id="bonus">
+<div class="container-fluid" id="graphs">
+  <div class="row">
+    <div class="col-lg-6">
+      <%= image_tag "graphs-1.png", class: "img-fluid" %>
+    </div>
+    <div class="col-lg-6">
+      <%= image_tag "graphs2.png", class: "img-fluid" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="text-center p-3 display-4 text-bordo">
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid bg-bordo-wh" id="bonus">
+  <div class="row">
+    <div class="col-xl m-3 rounded bg-white">
+      <h2 class="text-center">PRE-SALE #1</h2>
+      <p class="text-center">+50%<br>
+        1 ETH = 4500 RDT <br>
+        HARD CAP = 1 000 ETH <br>
+        15.01.18 - 21.01.18
+      </p>
+    </div>
+    <div class="col-xl m-3 rounded bg-white">
+      <h2 class="text-center">PRE-SALE #2</h2>
+      <p class="text-center">+40% <br>
+        1 ETH = 4200 RDT <br>
+        HARD CAP = 2 000 ETH <br>
+        22.01.18 - 04.02.18
+      </p>
+    </div>
+  </div>
+</div>
+<div class="container-fluid bg-bordo" >
   <div class="row justify-content-center">
     <div class="col-md-2 col-sm-3">
       <%= image_tag "bonus1.png", class: "img-fluid" %>
@@ -227,6 +279,7 @@
         <span class="icon-heart"></span>
         <span class="icon-heart"></span>
         <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
       </div>
     </div>
   </div>
@@ -236,7 +289,7 @@
     <div class="col-xl-8 align-self-center"><%= image_tag "bounty.png", class: 'img-fluid' %></div>
     <div class="col-xl-4 ">
       <h2 class="text-center p-3">Bounty</h2>
-      <p>Rate Date предоставляет возможность получить RDT привлекая инвесторов. Для bounty программы выделено 2 500 000 RDT, которые будут пропорционально распределены между участниками относительно вкладов привлеченных инвесторов. </p>
+      <p>Rate Date предоставляет возможность получить RDT привлекая инвесторов. Для bounty программы выделено 2&nbsp500&nbsp000 RDT, которые будут пропорционально распределены между участниками относительно вкладов привлеченных инвесторов. </p>
       <p>Реферальную ссылку можно получить в личном кабинете после регистрации.</p>
     </div>
   </div>
@@ -250,27 +303,27 @@
         <span class="icon-heart"></span>
         <span class="icon-heart"></span>
         <span class="icon-heart"></span>
+        <span class="icon-heart"></span>
       </div>
     </div>
   </div>
 </div>
 <div class="container-fluid bg-bordo" id="stages">
   <div class="row">
-    <div class="col-xl-8 order-xl-2 align-self-center"><%= image_tag "stages.png", class: 'img-fluid' %></div>
+    <div class="col-xl-8 order-xl-2 align-self-center"><%= image_tag "heart.png", class: 'img-fluid mx-auto d-block' %></div>
     <div class="col-xl-4 order-xl-1">
       <h2 class="text-center p-3">Stages</h2>
-      <h3><span class="badge badge-light badge-pill">Stage # 1</span></h3>
-      <p>$150 000 - минимальная сумма необходимая для реализации проекта. Сайт знакомств с онлайн аукционом видео свиданий.</p>
+      <h3><span class="badge badge-light badge-pill">soft cap</span></h3>
+      <p>1 000 ETH - минимальная сумма необходимая для реализации cайта знакомств с онлайн аукционом видео свиданий, создания мобильного приложения.</p>
 
-      <h3><span class="badge badge-light badge-pill">Stage # 2</span></h3>
-      <p>$400 000 -  мобильное приложение, усиленная PR компания.</p>
-      <h3><span class="badge badge-light badge-pill">Stage # 3</span></h3>
-      <p>$1 000 000 - выход на рынки новых регионов, расширение технической поддержки, разработка и внедрение новых платных услуг.</p>
+      <h3><span class="badge badge-light badge-pill">hard cap</span></h3>
+      <p>10 000 ETH - расширение технической поддержки, разработка и внедрение новых платных услуг, проведение PR компании для привлечения более 1&nbsp000&nbsp000 пользователей.</p>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
       <div class="text-center p-3 display-4">
+        <span class="icon-heart"></span>
         <span class="icon-heart"></span>
         <span class="icon-heart"></span>
         <span class="icon-heart"></span>
@@ -294,7 +347,7 @@
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h4 class="timeline-title">Разработка прототипа сайта RateDate.net</h4>
-              <small>Q4 2017</small>
+              <div class="timeline-body"><p class="time">Q4 2017</p></div>
             </div>
           </div>
         </li>
@@ -303,7 +356,7 @@
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h4 class="timeline-title">Pre Sale</h4>
-              <small>Q4 2017</small>
+              <div class="timeline-body"><p class="time">Q4 2017</p></div>
             </div>
           </div>
         </li>
@@ -312,16 +365,7 @@
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h4 class="timeline-title">ICO</h4>
-              <small>Q1 2018</small>
-            </div>
-          </div>
-        </li>
-        <li class="timeline-item">
-          <div class="timeline-badge"><i class="icon-coin"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Распределение RDT</h4>
-              <small>Q1 2018</small>
+              <div class="timeline-body"><p class="time">Q1 2018</p></div>
             </div>
           </div>
         </li>
@@ -330,7 +374,16 @@
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h4 class="timeline-title">Beta версия сайта RateDate.net</h4>
-              <small>Q1 2018</small>
+              <div class="timeline-body"><p class="time">Q1 2018</p></div>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-badge"><i class="icon-coin"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Распределение RDT</h4>
+              <div class="timeline-body"><p class="time">Q2 2018</p></div>
             </div>
           </div>
         </li>
@@ -339,7 +392,7 @@
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h4 class="timeline-title">Запуск онлайн аукциона видео-свиданий</h4>
-              <small>Q2 2018</small>
+              <div class="timeline-body"><p class="time">Q2 2018</p></div>
             </div>
           </div>
         </li>
@@ -348,7 +401,7 @@
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h4 class="timeline-title">Запуск мобильного приложения</h4>
-              <small>Q3 2018</small>
+              <div class="timeline-body"><p class="time">Q3 2018</p></div>
             </div>
           </div>
         </li>
@@ -357,60 +410,106 @@
   </div>
 </div>
 <div class="container-fluid bg-grey" id="team">
-  <h2 class="text-center p-3">Our Team</h2>
-  <div class="row justify-content-center card-group">
-    <div class="col-xl-2 col-lg col-sm-6 mb-3">
+  <h2 class="text-center p-3">Наша команда</h2>
+  <div class="row justify-content-center">
+    <div class="col-xl-3 col-sm-6 mb-3">
       <div class="card card-team h-100">
         <div class="card-img-top p-3">
           <%= image_tag "katerina.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
+          <a class="team-social-1 icon-linkedin" href="https://www.linkedin.com/in/katerina-usatenko-9260b1139/"></a>
         </div>
         <div class="card-body">
           <h4 class="card-title">Усатенко Екатерина</h4>
-          <p class="card-text font-italic">Founder, CEO</p>
+          <p class="card-subtitle font-italic">Founder, CEO</p>
+          <p class="card-text">Специалист внешнеэкономической деятельности. 5 лет опыта успешной
+            разработки бизнес-процессов предприятия, внедрения во всех областях
+            коммерческой деятельности, опыт разработки стратегии долгосрочного
+            развития бизнеса и неоднократного построения различных систем
+            маркетинга.</p>
         </div>
       </div>
     </div>
-    <div class="col-xl-2 col-lg col-sm-6 mb-3">
+    <div class="col-xl-3  col-sm-6 mb-3">
       <div class="card card-team h-100">
         <div class="card-img-top p-3">
           <%= image_tag "michail.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
         </div>
         <div class="card-body">
           <h4 class="card-title">Кругличенко Михаил</h4>
-          <p class="card-text font-italic">Менеджер по стратегическому планированию</p>
+          <p class="card-subtitle font-italic">Менеджер по стратегическому планированию</p>
+          <p class="card-text">Кандидат экономических наук. Опыт работы в
+            сфере экономического развития 8 лет. Участник
+            международных экономических форумов и
+            семинаров.</p>
         </div>
       </div>
     </div>
-    <div class="col-xl-2 col-lg col-sm-6 mb-3">
+    <div class="col-xl-3  col-sm-6 mb-3">
       <div class="card card-team h-100">
         <div class="card-img-top p-3">
           <%= image_tag "cheshire.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
+          <a class="team-social-1 icon-linkedin" href="https://www.linkedin.com/in/dmitriy-nadsadin-06303599/"></a>
         </div>
         <div class="card-body">
           <h4 class="card-title">Надсадин Дмитрий</h4>
-          <p class="card-text font-italic">Проект менеджер, разработчик</p>
+          <p class="card-subtitle font-italic">Проект менеджер, разработчик</p>
+          <p class="card-text">Опыт работы 4 года.
+            Занял призовое место в международном Конкурсе компаний AT Consulting и
+            Oracle «Программирование: SQL».
+            Опыт командной разработки с использованием Git и Redmine. Опыт работы с
+            Североамериканским рынком.</p>
         </div>
       </div>
     </div>
-    <div class="col-xl-2 col-lg col-sm-6 mb-3">
+    <div class="col-xl-3  col-sm-6 mb-3">
       <div class="card card-team h-100">
         <div class="card-img-top p-3">
           <%= image_tag "heyan.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
+          <a class="team-social-1 icon-linkedin" href="https://www.linkedin.com/in/denis-goroshko-004150107/"></a>
         </div>
         <div class="card-body">
           <h4 class="card-title">Горошко Денис</h4>
-          <p class="card-text font-italic">Дизайнер, Front-End разработчик</p>
+          <p class="card-subtitle font-italic">Дизайнер, Front-End разработчик</p>
+          <p class="card-text">Опыт работы 8 лет.
+            Работал над запущенными на данный момент проектами в
+            России (Москва, Санкт-Петербург, Севастополь).
+            Занимал 1 места в международном конкурсе World It Planet при поддержке
+            компании Huawei в номинации 3D-моделирование. </p>
         </div>
       </div>
     </div>
-    <div class="col-xl-2 col-lg col-sm-6 mb-3">
+    <div class="col-xl-3  col-sm-6 mb-3">
       <div class="card card-team h-100">
         <div class="card-img-top p-3">
           <%= image_tag "ekaterina.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
+          <a class="team-social-1 icon-facebook" href="https://www.facebook.com/profile.php?id=100000531726638"></a>
         </div>
         <div class="card-body">
           <h4 class="card-title">Воронкина Екатерина</h4>
-          <p class="card-text font-italic">Дизайнер, Иллюстратор</p>
+          <p class="card-subtitle font-italic">Дизайнер, Иллюстратор</p>
+          <p class="card-text">Опыт работы 9 лет. Соучредитель СММ агентства "Умная реклама" с 2009
+            года. Одержала победу во всеукраинском фотопроекте "Образы женщины"
+            от журнала Oblik.media в 2014 году, в котором
+            участвовала в качестве ретушера. На данный момент работает дизайнером в
+            развивающемся СММ Агентстве "Level up" в городе Санкт-Петербург.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid bg-grey" id="advisors">
+  <h2 class="text-center p-3">Консультанты</h2>
+  <div class="row justify-content-center">
+    <div class="col-xl-3  col-sm-6 mb-3">
+      <div class="card card-team h-100">
+        <div class="card-img-top p-3">
+          <%= image_tag "romanliashko_200x200.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
+          <a class="team-social-1 icon-linkedin" href="https://www.linkedin.com/in/liashko/"></a>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Ляшко Роман</h4>
+          <p class="card-subtitle font-italic">Инвестор и специалист по развитию бизнеса.</p>
+          <p class="card-text">Опыт построения и развития компаний от Startup до IPO с капитализацией $364m. Участвовал в развитии одной из наиболее успешных в ЕС Social Trading Network (xsocial.eu).</p>
         </div>
       </div>
     </div>

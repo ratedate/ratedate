@@ -32,7 +32,7 @@ $(document).ready(function(){
     var secText = "#tSecText";
 //   variables
 
-    var countDownDate = new Date("2017-12-01T14:00:00+00:00").getTime();
+    var countDownDate = new Date("2018-01-15T14:00:00+00:00").getTime();
 
     var x = setInterval(function(){
         var now = new Date().getTime();
