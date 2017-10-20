@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+
+  has_many :referrals, class_name: "User", foreign_key: "referred_by"
+
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
 

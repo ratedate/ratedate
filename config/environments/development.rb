@@ -55,7 +55,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   # General Settings
-  config.app_domain = 'localhost:3000'
+  config.app_domain = 'http://localhost:3000'
 
   # Email
   config.action_mailer.delivery_method = :smtp

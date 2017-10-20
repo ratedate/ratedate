@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ratedate ICO</title>
+  <%= csrf_meta_tags %>
+  <%= meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+  <%= google_analytics %>
+  <%= ya_metric %>
+</head>
+
+<body>
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between fixed-top navbar-ico">
+    <a class="navbar-brand" href="https://ico.ratedate.net/">
+      <span class="icon-logo display-3"></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarICO" aria-controls="navbarICO" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse nav-lp" id="navbarICO">
+      <ul class="navbar-nav mx-auto ">
+        <li class="nav-item">
+          <%= link_to "download white paper", "/assets/white_paper_en_1.1.pdf", {class: "nav-link", target: "_blank"} %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ru", { locale: :ru }, class: "nav-link" %>
+        </li>
+        <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "sign out", ico_sign_out_path, method: :delete, class: "nav-link" %>
+            </li>
+        <% else %>
+            <li class="nav-item">
+              <%= link_to "sign in", ico_sign_in_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "sign up", ico_sign_up_path, class: "nav-link" %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</div>
+<%= yield %>
+</body>
+</html>

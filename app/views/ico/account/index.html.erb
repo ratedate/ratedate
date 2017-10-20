@@ -1,0 +1,7 @@
+<div class="container">
+  <% if current_user.eth_wallet.nil? %>
+      <%= render 'eth_form' %>
+  <% else %>
+      <%= ref_link %>
+  <% end %>
+</div>
