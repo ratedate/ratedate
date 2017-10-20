@@ -1,4 +1,9 @@
 module ApplicationHelper
+
+  def ref_link
+    ref = 'https://ico.ratedate.net/?ref='+current_user.id.to_s
+    ref.html_safe
+  end
   def meta_tags
     tags = '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
     tags.html_safe

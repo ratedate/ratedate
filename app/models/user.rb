@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 
-  def self.find_for_oauth(auth, signed_in_resource = nil)
+  def self.find_for_oauth(auth, signed_in_resource = nil, ref)
 
     # Get the identity and user if they exist
     identity = Identity.find_for_oauth(auth)
@@ -39,7 +39,8 @@ class User < ApplicationRecord
             name: auth.extra.raw_info.name,
             #username: auth.info.nickname || auth.uid,
             email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
-            password: Devise.friendly_token[0,20]
+            password: Devise.friendly_token[0,20],
+            referred_by: ref
         )
         user.skip_confirmation!
         user.save!

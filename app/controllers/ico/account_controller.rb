@@ -5,6 +5,7 @@ class Ico::AccountController <  Ico::IcoController
   end
 
   def add_eth
+
   end
 
 end
