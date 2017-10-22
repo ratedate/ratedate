@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  font-url('icomoon.eot?cwa8mk');
-  src:  font-url('icomoon.eot?cwa8mk#iefix') format('embedded-opentype'),
-    font-url('icomoon.ttf?cwa8mk') format('truetype'),
-    font-url('icomoon.woff?cwa8mk') format('woff'),
-    font-url('icomoon.svg?cwa8mk#icomoon') format('svg');
+  src:  font-url('icomoon.eot?c1s29p');
+  src:  font-url('icomoon.eot?c1s29p#iefix') format('embedded-opentype'),
+    font-url('icomoon.ttf?c1s29p') format('truetype'),
+    font-url('icomoon.woff?c1s29p') format('woff'),
+    font-url('icomoon.svg?c1s29p#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -48,11 +48,17 @@
 .icon-logo:before {
   content: "\e900";
 }
+.icon-bitcoin:before {
+  content: "\e907";
+}
 .icon-ethereum:before {
   content: "\e902";
 }
 .icon-heart:before {
   content: "\f004";
+}
+.icon-linkedin-square:before {
+  content: "\f08c";
 }
 .icon-twitter:before {
   content: "\f099";
