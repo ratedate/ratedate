@@ -104,6 +104,15 @@ body{
     color: $white;
   }
 }
+.g-recaptcha{
+  -webkit-box-pack: center !important;
+  -ms-flex-pack: center !important;
+  justify-content: center !important;
+  display: flex;
+}
+.devise-form .form-group, .devise-form .btn{
+  width: 304px;
+}
 @mixin grayscale_element($value) {
   -webkit-filter: #{"grayscale(#{$value})"};
   -moz-filter: #{"grayscale(#{$value})"};

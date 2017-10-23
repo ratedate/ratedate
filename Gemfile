@@ -45,6 +45,9 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 # gem 'omniauth-google'
 gem 'omniauth-google-oauth2'
+
+# recaptcha gem from google
+gem "recaptcha", require: "recaptcha/rails"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
