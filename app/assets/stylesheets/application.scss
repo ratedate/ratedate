@@ -28,7 +28,7 @@ body{
   background-image: image_url("bg.jpg");
   background-size: cover;
 }
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .nav-lp{
     margin-left: -188px;
   }
@@ -68,6 +68,9 @@ body{
 }
 .text-bordo{
   color: $bordo;
+}
+.text-red{
+  color: $red-icon;
 }
 .card-team{
   border-color: #777;
@@ -116,14 +119,34 @@ body{
     opacity: 1;
     text-decoration: none;
   }
-  .icon-bitcoin{
-    &:before{
-      color: #e47d32;
-      padding-right: 0.25rem;
+}
+
+.col-featured{
+  @include make-col-ready();
+  padding: 0;
+  height: 90px;
+  width: 300px;
+  border-radius: 0.5rem;
+  border-color: $gray-700;
+  border-width: 2px;
+  border-style: solid;
+  margin: 0.5rem;
+  transition: all 200ms ease-in-out;
+  span{
+    font-size: 35px;
+  }
+  &:hover{
+    background-color: $gray-700;
+  }
+  a{
+    color: $gray-700;
+    transition: all 200ms ease-in-out;
+    &:hover{
+      color: $white;
+      text-decoration: none;
     }
   }
 }
-
 //$body-bg: #ffffff;
 //$text-color: #373737;
 $gray-base: #494949;
