@@ -15,7 +15,7 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "variables";
 @import "bootstrap";
-// develop rake icons:update['icon_archive_name.zip']
+// develop rake icons:update['rd.zip']
 @import "icons";
 body{
   padding-top: 101px;
@@ -73,11 +73,11 @@ body{
   color: $red-icon;
 }
 .card-team{
-  border-color: #777;
+  border-color: $gray-500;
   border-width: 5px;
 }
 .card-team .img-thumbnail{
-  background-color: #eee;
+  background-color: $gray-200;
   padding: 0.5rem;
 }
 .card-team .card-text{
@@ -88,10 +88,10 @@ body{
   left: 50%;
   margin-left: 30px;
   top: 190px;
-  background-color: #aaa;
+  background-color: $gray-500;
   width: 40px;
   height: 40px;
-  border: 4px solid #eee;
+  border: 4px solid $gray-200;
   border-radius: 50%;
   text-align: center;
   color: white;
@@ -100,7 +100,7 @@ body{
   text-decoration: none;
   &:hover{
     text-decoration: none;
-    background-color: #777;
+    background-color: $gray-700;
     color: $white;
   }
 }
@@ -120,14 +120,14 @@ body{
     text-decoration: none;
   }
 }
-
+$featured-color: $gray-700;
 .col-featured{
   @include make-col-ready();
   padding: 0;
   height: 90px;
   width: 300px;
   border-radius: 0.5rem;
-  border-color: $gray-700;
+  border-color: $featured-color;
   border-width: 2px;
   border-style: solid;
   margin: 0.5rem;
@@ -136,10 +136,10 @@ body{
     font-size: 35px;
   }
   &:hover{
-    background-color: $gray-700;
+    background-color: $featured-color;
   }
   a{
-    color: $gray-700;
+    color: $featured-color;
     transition: all 200ms ease-in-out;
     &:hover{
       color: $white;
