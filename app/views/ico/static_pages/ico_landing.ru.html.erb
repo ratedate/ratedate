@@ -33,6 +33,21 @@
         <li class="nav-item">
           <%= link_to "загрузить white paper", "/assets/white_paper_ru_1_2.pdf", {class: "btn btn-secondary", target: "_blank"} %>
         </li>
+        <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to t(:sign_out), ico_sign_out_path(:locale => params[:locale]), method: :delete, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to t(:account), ico_account_path(:locale => params[:locale]), class: "nav-link" %>
+            </li>
+        <% else %>
+            <li class="nav-item">
+              <%= link_to t(:sign_in), ico_sign_in_path(:locale => params[:locale]), class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to t(:sign_up), ico_sign_up_path(:locale => params[:locale]), class: "nav-link" %>
+            </li>
+        <% end %>
       </ul>
     </div>
   </nav>

@@ -1,17 +1,11 @@
 Rails.application.routes.draw do
 
 
-  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks', registrations: "registrations" }
-  devise_scope :user do
-    get 'sign_in', to: 'devise/sessions#new'
-    delete 'sign_out', to: 'devise/sessions#destroy'
-    get 'sign_up', to: 'devise/registrations#new'
-  end
+
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
   constraints subdomain: 'ico' do
     scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/, defaults: {locale: "en"}  do
       scope module: 'ico', as: 'ico' do
-        devise_for :users, skip: :omniauth_callbacks
         devise_scope :user do
           get 'sign_in', to: 'sessions#new'
           delete 'sign_out', to: 'sessions#destroy'
@@ -33,5 +27,11 @@ Rails.application.routes.draw do
     get 'static_pages/home'
     get 'static_pages/in_develop'
     root 'static_pages#in_develop'
+    devise_scope :user do
+      get 'sign_in', to: 'devise/sessions#new'
+      delete 'sign_out', to: 'devise/sessions#destroy'
+      get 'sign_up', to: 'devise/registrations#new'
+    end
   end
+  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks', registrations: "registrations" }
 end

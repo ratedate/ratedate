@@ -1,3 +1,7 @@
 ru:
   about: "о нас"
-  eth_wallet: "ETH кошелек"
+  eth_wallet: "Введите Ваш ETH-кошелек(address)"
+  sign_in: "Войти"
+  sign_up: "Регистрация"
+  sign_out: "Выйти"
+  account: "аккаунт"

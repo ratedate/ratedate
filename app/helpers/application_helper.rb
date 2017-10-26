@@ -53,4 +53,11 @@ module ApplicationHelper
 <!-- /Yandex.Metrika counter -->"
     ym.html_safe
   end
+  def locale_link
+    if I18n.locale==:ru
+      link_to "en", { locale: :en }, class: "nav-link"
+    else
+      link_to "ru", { locale: :ru }, class: "nav-link"
+    end
+  end
 end

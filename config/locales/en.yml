@@ -32,4 +32,8 @@
 en:
   hello: "Hello world"
   about: "about"
-  eth_wallet: "ETH wallet"
+  eth_wallet: "Enter your ETH-wallet"
+  sign_in: "Sign in"
+  sign_up: "Sign up"
+  sign_out: "Sign out"
+  account: "account"

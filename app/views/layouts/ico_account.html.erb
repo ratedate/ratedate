@@ -25,18 +25,19 @@
           <%= link_to "download white paper", "/assets/white_paper_en_1.1.pdf", {class: "nav-link", target: "_blank"} %>
         </li>
         <li class="nav-item">
-          <%= link_to "ru", { locale: :ru }, class: "nav-link" %>
+          <%= locale_link %>
         </li>
+
         <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to "sign out", ico_sign_out_path, method: :delete, class: "nav-link" %>
+              <%= link_to t(:sign_out), ico_sign_out_path, method: :delete, class: "nav-link" %>
             </li>
         <% else %>
             <li class="nav-item">
-              <%= link_to "sign in", ico_sign_in_path, class: "nav-link" %>
+              <%= link_to t(:sign_in), ico_sign_in_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "sign up", ico_sign_up_path, class: "nav-link" %>
+              <%= link_to t(:sign_up), ico_sign_up_path, class: "nav-link" %>
             </li>
         <% end %>
       </ul>
