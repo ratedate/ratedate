@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def ref_link
-    ref = 'https://ico.ratedate.net/?ref='+current_user.id.to_s
+    ref = 'https://ico.ratedate.net/?ref='+current_ico_user.id.to_s
     ref.html_safe
   end
   def meta_tags
@@ -58,6 +58,13 @@ module ApplicationHelper
       link_to "en", { locale: :en }, class: "nav-link"
     else
       link_to "ru", { locale: :ru }, class: "nav-link"
+    end
+  end
+  def wp_link
+    if I18n.locale==:ru
+      link_to "download white paper", "/assets/white_paper_ru_1.1.pdf", {class: "btn btn-outline-secondary", target: "_blank"}
+    else
+      link_to "download white paper", "/assets/white_paper_en_1.1.pdf", {class: "btn btn-outline-secondary", target: "_blank"}
     end
   end
 end

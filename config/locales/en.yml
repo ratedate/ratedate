@@ -37,3 +37,12 @@ en:
   sign_up: "Sign up"
   sign_out: "Sign out"
   account: "account"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "can not to be blank"
+            password:
+              blank: "can not to be blank"

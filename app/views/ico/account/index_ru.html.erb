@@ -1,0 +1,22 @@
+<div class="container">
+  <h1></h1>
+  <div>
+    <h2>SMART CONTRACT ADDRESS</h2>
+    coming soon
+    <ul>
+      <li>Min pledge is 0.1 ETH;</li>
+      <li>Set GAS 300 000 (unused gas will be returned to you);</li>
+      <li>We recommend to use https://myetherwallet.com/</li>
+    </ul>
+    <p>Any user who has a website, blog or social network account can participate in the Rate Date Bounty program. Bonus 10 RDT is charged for each attracted potential investor before and during the ICO. And also in the case of making funds attracted by the investor, the participant is credited with 100RDT, regardless of the amount of funds sent. Remuneration shall be paid to the balance of the purse specified in your account.</p>
+    <p>ATTENTION! Do not use the exchanges addresses, or share your email address, use only the address, which is fully in control (and you can get a private key). Otherwise your RDT may be lost.</p>
+    <p>
+      <% if current_ico_user.eth_wallet.nil? %>
+          <%= render 'eth_form' %>
+      <% else %>
+          Ваша реферальная ссылка для участия в Bounty програме:
+          <%= ref_link %>
+      <% end %>
+    </p>
+  </div>
+</div>

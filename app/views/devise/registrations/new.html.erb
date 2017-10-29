@@ -1,5 +1,7 @@
 <h2><%= t('.sign_up') %></h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => "devise-form"}) do |f| %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
   <%= devise_error_messages! %>
   <%= flash[:recaptcha_error] %>
 
@@ -24,3 +26,4 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+<div class="small">By clicking Sign Up, I confirm that I am not U.S., China or Singapore citizen, I do not have a primary residence or domicile in the U.S., in China or in Singapore and I am not currently on the territory of those countries nor I am transferring cryptocurrency on behalf of such person or entity.</div>

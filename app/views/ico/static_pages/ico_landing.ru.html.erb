@@ -33,7 +33,7 @@
         <li class="nav-item">
           <%= link_to "загрузить white paper", "/assets/white_paper_ru_1_2.pdf", {class: "btn btn-secondary", target: "_blank"} %>
         </li>
-        <% if user_signed_in? %>
+        <% if ico_user_signed_in? %>
             <li class="nav-item">
               <%= link_to t(:sign_out), ico_sign_out_path(:locale => params[:locale]), method: :delete, class: "nav-link" %>
             </li>

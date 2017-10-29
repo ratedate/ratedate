@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  protect_from_forgery prepend: :true, with: :exception
   before_action :set_locale
   before_action :capture_referal
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_mailer_host, if: :devise_controller?
 
   def ensure_signup_complete
     # Ensure we don't go into an infinite loop
@@ -33,5 +34,20 @@ class ApplicationController < ActionController::Base
     else
       request.env['omniauth.origin'] || stored_location_for(resource) || root_path(:locale => I18n.locale)
     end
+  end
+  def after_confirmation_path_for(resource_name, resource)
+    if signed_in?(resource_name)
+      signed_in_root_path(resource)
+    else
+      if request.subdomain == "ico"
+        ico_sign_in_path(resource_name)
+      else
+        sign_in_path(resource_name)
+      end
+    end
+  end
+  def set_mailer_host
+    ActionMailer::Base.default_url_options[:host] = request.host_with_port
+    Devise::Mailer.default_url_options[:locale] = I18n.locale
   end
 end

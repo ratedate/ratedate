@@ -27,3 +27,6 @@ passenger*
 .idea/tasks.xml
 config/secrets.yml
 
+
+# Ignore encrypted secrets key file.
+config/secrets.yml.key

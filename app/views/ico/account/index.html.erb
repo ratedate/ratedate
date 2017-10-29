@@ -1,21 +1,23 @@
 <div class="container">
   <h1></h1>
   <div>
-    <h2>SMART CONTRACT ADDRESS</h2>
-    coming soon
+    <h2>SMART CONTRACT</h2>
+    <strong>Address(coming soon)</strong>
     <ul>
       <li>Min pledge is 0.1 ETH;</li>
       <li>Set GAS 300 000 (unused gas will be returned to you);</li>
       <li>We recommend to use https://myetherwallet.com/</li>
     </ul>
-    <p>Any user who has a website, blog or social network account can participate in the Rate Date Bounty program. Bonus 10 RDT is charged for each attracted potential investor before and during the ICO. And also in the case of making funds attracted by the investor, the participant is credited with 100RDT, regardless of the amount of funds sent. Remuneration shall be paid to the balance of the purse specified in your account.</p>
-    <p>ATTENTION! Do not use the exchanges addresses, or share your email address, use only the address, which is fully in control (and you can get a private key). Otherwise your RDT may be lost.</p>
+    <h2>Bounty Program</h2>
+    <p>Any user who has an own website, blog or social network account can take our Bounty Rate Date program. User is rewarded with 10RTD for each potential investor, engaged by him before starting ICO or during it. User can receive additional rewarding of 100RTD if investor engaged by him deposits any funds into ICO program. Rewarding arrives in a wallet balance, pointed in a personal account.</p>
+    <p><strong>ATTENTION!</strong> Do not use online exchanges addresses or another’s ones. Use only your own addresses which you can fully control. Otherwise your RDT would be lost.</p>
     <p>
-      <% if current_user.eth_wallet.nil? %>
-          <%= render 'eth_form' %>
+      <% if current_ico_user.eth_wallet.nil? %>
+        <%= render 'eth_form' %>
       <% else %>
-          Your referral link to participate in the Bounty program:
-          <%= ref_link %>
+        Your referral link to participate in the Bounty program:
+        <strong><%= ref_link %></strong>
+        <p class="h2">Engaged users: <%= current_ico_user.referrals.count %></p>
       <% end %>
     </p>
   </div>

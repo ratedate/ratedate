@@ -13,19 +13,5 @@
       <a href="https://twitter.com/RateDate2" class="icon-twitter h1 nav-link text-light"></a>
       <a href="https://t.me/joinchat/FnaGEQvA8Z54oH4AM2vIIQ" class="icon-telegram h1 nav-link text-light"></a>
     </div>
-    <div class="col-lg-3 justify-content-center pt-3 nav">
-      <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "sign out", sign_out_path, method: :delete, class: "nav-link" %>
-          </li>
-      <% else %>
-          <li class="nav-item">
-            <%= link_to "sign in", sign_in_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "sign up", sign_up_path, class: "nav-link" %>
-          </li>
-      <% end %>
-    </div>
   </div>
 </div>

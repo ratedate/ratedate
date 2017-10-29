@@ -12,6 +12,9 @@ Rails.application.configure do
   # for subdomain
   config.action_dispatch.tld_length = 0
 
+  config.read_encrypted_secrets = true
+
+
   # Show full error reports.
   config.consider_all_requests_local = true
 
@@ -65,8 +68,8 @@ Rails.application.configure do
       address: 'smtp.gmail.com',
       port: '587',
       enable_starttls_auto: true,
-      user_name: 'set',
-      password: 'ENV[mail_pass]',
+      user_name: Rails.application.secrets.mail_login,
+      password: Rails.application.secrets.mail_password,
       authentication: :plain,
       domain: 'google.com'
   }

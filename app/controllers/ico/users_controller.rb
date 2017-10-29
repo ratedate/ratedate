@@ -56,7 +56,7 @@ class Ico::UsersController < Ico::IcoController
   end
 
   def user_params
-    accessible = [ :name, :email ] # extend with your own params
+    accessible = [ :name, :email, :referred_by ] # extend with your own params
     accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
     params.require(:user).permit(accessible)
   end
