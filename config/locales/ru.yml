@@ -4,7 +4,8 @@ ru:
   sign_in: "Войти"
   sign_up: "Регистрация"
   sign_out: "Выйти"
-  account: "аккаунт"
+  account: "Аккаунт"
+  submit: "Отправить"
   activerecord:
     errors:
       models:

@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  font-url('icomoon.eot?pmdfkz');
-  src:  font-url('icomoon.eot?pmdfkz#iefix') format('embedded-opentype'),
-    font-url('icomoon.ttf?pmdfkz') format('truetype'),
-    font-url('icomoon.woff?pmdfkz') format('woff'),
-    font-url('icomoon.svg?pmdfkz#icomoon') format('svg');
+  src:  font-url('icomoon.eot?ilggo8');
+  src:  font-url('icomoon.eot?ilggo8#iefix') format('embedded-opentype'),
+    font-url('icomoon.ttf?ilggo8') format('truetype'),
+    font-url('icomoon.woff?ilggo8') format('woff'),
+    font-url('icomoon.svg?ilggo8#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,6 +24,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-logo:before {
+  content: "\e900";
+}
 .icon-btalk:before {
   content: "\e90a";
 }
@@ -56,12 +59,6 @@
 }
 .icon-video-camera:before {
   content: "\e909";
-}
-.icon-logo_big:before {
-  content: "\e901";
-}
-.icon-logo:before {
-  content: "\e900";
 }
 .icon-bitcoin:before {
   content: "\e907";

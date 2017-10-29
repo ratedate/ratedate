@@ -29,7 +29,7 @@ namespace :icons do
 
       # Copy the stylesheet
       puts 'Copying the stylesheet'
-      stylesheet = File.join(vendorcssdir, 'icons.css.scss')
+      stylesheet = File.join(vendorcssdir, 'icons.scss')
       system "cp #{File.join(tmpdir, 'style.css')} #{stylesheet}"
 
       # Replace the font urls in the stylesheet

@@ -2,8 +2,8 @@ class User < ApplicationRecord
 
   has_many :referrals, class_name: "User", foreign_key: "referred_by"
 
-  TEMP_EMAIL_PREFIX = 'change@me'
-  TEMP_EMAIL_REGEX = /\Achange@me/
+  TEMP_EMAIL_PREFIX = 'user@ratedate'
+  TEMP_EMAIL_REGEX = /\Auser@ratedate/
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
@@ -11,6 +11,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
+
+  scope :confirmed, ->{where("confirmed_at IS NOT NULL")}
 
   def self.find_for_oauth(auth, signed_in_resource = nil, ref)
 

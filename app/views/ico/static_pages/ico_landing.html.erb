@@ -28,24 +28,24 @@
           <a class="nav-link m" href="#team">team</a>
         </li>
         <li class="nav-item">
-          <%= link_to "ru", { locale: :ru }, class: "nav-link" %>
+          <%= locale_link %>
         </li>
         <li class="nav-item">
-          <%= link_to "download white paper", "/assets/white_paper_en_1_2.pdf", {class: "btn btn-secondary", target: "_blank"} %>
+          <%= wp_link "btn btn-outline-secondary my-1 my-xl-0 mx-0 mx-xl-1" %>
         </li>
         <% if ico_user_signed_in? %>
             <li class="nav-item">
-              <%= link_to t(:sign_out), ico_sign_out_path, method: :delete, class: "nav-link" %>
+              <%= link_to t(:sign_out), ico_sign_out_path, method: :delete, class: "btn btn-outline-secondary my-1 my-xl-0 mx-0 mx-xl-1" %>
             </li>
             <li class="nav-item">
-              <%= link_to t(:account), ico_account_path, class: "nav-link" %>
+              <%= link_to t(:account), ico_account_path, class: "btn btn-outline-secondary my-1 my-xl-0 mx-0 mx-xl-1" %>
             </li>
         <% else %>
             <li class="nav-item">
-              <%= link_to t(:sign_in), ico_sign_in_path(:locale => params[:locale]), class: "nav-link" %>
+              <%= link_to t(:sign_in), ico_sign_in_path(:locale => params[:locale]), class: "btn btn-outline-secondary my-1 my-xl-0 mx-0 mx-xl-1" %>
             </li>
             <li class="nav-item">
-              <%= link_to t(:sign_up), ico_sign_up_path(:locale => params[:locale]), class: "nav-link" %>
+              <%= link_to t(:sign_up), ico_sign_up_path(:locale => params[:locale]), class: "btn btn-outline-secondary my-1 my-xl-0 mx-0 mx-xl-1" %>
             </li>
         <% end %>
       </ul>
@@ -152,7 +152,7 @@
 </div>
 <div class="container-fluid bg-grey">
   <div class="row">
-    <div class="col-xl-8 align-self-center"><%= image_tag "restrictions.png", class: 'img-fluid mx-auto d-block' %></div>
+    <div class="col-xl-8 align-self-center"><%= image_tag "secure.png", class: 'img-fluid mx-auto d-block' %></div>
     <div class="col-xl-4 order-xl-1">
       <h2 class="text-center p-3">Security and Restrictions</h2>
       <p>Service Rate Date against using any type of fraud.</p><p>

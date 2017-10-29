@@ -12,20 +12,20 @@
 
 <body>
 <div class="container-fluid">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between fixed-top navbar-ico">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-ico">
     <a class="navbar-brand" href="https://ico.ratedate.net/">
       <span class="icon-logo display-3"></span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarICO" aria-controls="navbarICO" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse nav-lp" id="navbarICO">
-      <ul class="navbar-nav mx-auto ">
+    <div class="collapse navbar-collapse container" id="navbarICO">
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <%= locale_link %>
         </li>
         <li class="nav-item">
-          <%= wp_link %>
+          <%= wp_link "btn btn-outline-secondary my-1 my-lg-0 mx-0 mx-lg-1" %>
         </li>
 
         <% if ico_user_signed_in? %>

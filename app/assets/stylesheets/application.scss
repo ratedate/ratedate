@@ -42,8 +42,16 @@ body{
   background-image: none;
   border-color: #890901;
 }
-.icon-logo_big{
-  font-size: 16em;
+.big-logo{
+  font-size: 10rem;
+}
+.bg-fade .btn-outline-secondary{
+  color: #fff;
+  border-color: #fff;
+  &:hover{
+    color: $red-icon;
+    background-color: #fff;
+  }
 }
 .bg-bordo-wh{
   background-color: $bordo;

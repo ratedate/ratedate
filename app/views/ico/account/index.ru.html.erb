@@ -1,0 +1,27 @@
+<div class="container">
+  <h1></h1>
+  <div>
+    <h2>SMART CONTRACT</h2>
+    <strong>Address (coming soon)</strong>
+    <ul>
+      <li>Мин. взнос - 0.1 ETH;</li>
+      <li>Cтавьте GAS не менее 300 000 (излишки вам вернутся);</li>
+      <li>Рекомендуем использовать кошелек https://myetherwallet.com/</li>
+    </ul>
+    <p>В Bounty программе Rate Date может принять участие любой пользователь у которого есть свой сайт, блог или аккаунт в социальной сети. Вознаграждение составляет 10 RDT за каждого привлеченного потенциального инвестора до начала и во время проведения ICO.  А также дополнительное вознаграждение  100 RDT в случае внесения средств привлеченным инвестором,  независимо от суммы отправленных средств.  Вознаграждение выплачивается на баланс кошелька указанного в личном кабинете. </p>
+    <p><strong>ВНИМАНИЕ!</strong> Не используйте адреса бирж или чужие адреса, используйте только адрес, который полностью контролируете (и можете получить private key). Иначе ваши RDT могут быть потеряны.</p>
+    <p>
+      <% if current_ico_user.eth_wallet.nil? %>
+          <%= form_tag controller: 'account', action: 'add_eth', method: 'POST', class: 'inline-form' do %>
+              <%= label_tag 'Введите Ваш ETH-кошелек(address), чтоб получить реферальную ссылку' %><br>
+              <%= text_field_tag :eth_wallet, '', class: "form-control"  %>
+              <%= submit_tag t(:submit), class: "btn btn-secondary" %>
+          <% end %>
+      <% else %>
+          Ваша реферальная ссылка для участия в Bounty программе:
+          <%= ref_link %>
+      <% end %>
+    </p>
+    <p class="h2">Привлечено пользователей: <%= current_ico_user.referrals.confirmed.count %></p>
+  </div>
+</div>

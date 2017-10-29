@@ -60,11 +60,11 @@ module ApplicationHelper
       link_to "ru", { locale: :ru }, class: "nav-link"
     end
   end
-  def wp_link
+  def wp_link(html_class)
     if I18n.locale==:ru
-      link_to "download white paper", "/assets/white_paper_ru_1.1.pdf", {class: "btn btn-outline-secondary", target: "_blank"}
+      link_to "загрузить white paper", "/assets/white_paper_ru_1.1.pdf", {class: html_class, target: "_blank"}
     else
-      link_to "download white paper", "/assets/white_paper_en_1.1.pdf", {class: "btn btn-outline-secondary", target: "_blank"}
+      link_to "download white paper", "/assets/white_paper_en_1.1.pdf", {class: html_class, target: "_blank"}
     end
   end
 end
