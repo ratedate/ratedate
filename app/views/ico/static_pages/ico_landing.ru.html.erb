@@ -1,6 +1,6 @@
 
 <div class="container-fluid container-start">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-fade justify-content-between fixed-top navbar-ico">
+  <nav class="navbar navbar-expand-xl navbar-dark bg-fade justify-content-between fixed-top navbar-ico">
     <a class="navbar-brand" href="#">
       <span class="icon-logo display-3"></span>
     </a>
@@ -8,7 +8,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse nav-lp" id="navbarICO">
-      <ul class="navbar-nav mx-auto ">
+      <ul class="navbar-nav mx-auto text-capitalize font-weight-bold">
         <li class="nav-item">
           <a class="nav-link m" href="#about">о проекте</a>
         </li>
@@ -28,10 +28,10 @@
           <a class="nav-link m" href="#team">команда</a>
         </li>
         <li class="nav-item">
-          <%= link_to "загрузить white paper", "/assets/white_paper_ru_1.1.pdf", {class: "nav-link", target: "_blank"} %>
+          <%= link_to "en", { locale: :en }, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "en", { locale: :en }, class: "nav-link" %>
+          <%= link_to "загрузить white paper", "/assets/white_paper_ru_1_2.pdf", {class: "btn btn-secondary", target: "_blank"} %>
         </li>
       </ul>
     </div>
@@ -191,7 +191,7 @@
 
       <p>Все держатели RDT имеют возможность свободно распоряжаться токенами в рамках сервиса Rate Date, а так же для использования на бирже.</p>
 
-      <p>Количество токенов ограничено: 50&nbsp000&nbsp000 RDT, выпущенные на платформе Ethereum, ERC20. Для реализации в ICO кампании выделяется 37&nbsp000&nbsp000 RDT с hardcup 10&nbsp000 ETH.</p>
+      <p>Количество токенов ограничено: 50&nbsp000&nbsp000 RDT, выпущенные на платформе Ethereum, ERC20. Для реализации в ICO кампании выделяется 37&nbsp000&nbsp000 RDT с hardcap 10&nbsp000 ETH.</p>
 
       <p>Приобретение RDT - это выгодное и перспективное вложение. Уникальные возможности ресурса предполагают высокий спрос на платный функционал, что станет толчком для роста цен на RDT и принесет инвесторам ожидаемую прибыль.</p>
 
@@ -253,6 +253,7 @@
   </div>
 </div>
 <div class="container-fluid bg-bordo" >
+  <h2 class="text-center p-3">ICO duration:<br> February 12, 2018 - March 28, 2018</h2>
   <div class="row justify-content-center">
     <div class="col-md-2 col-sm-3">
       <%= image_tag "bonus1.png", class: "img-fluid" %>
@@ -289,8 +290,16 @@
     <div class="col-xl-8 align-self-center"><%= image_tag "bounty.png", class: 'img-fluid' %></div>
     <div class="col-xl-4 ">
       <h2 class="text-center p-3">Bounty</h2>
-      <p>Rate Date предоставляет возможность получить RDT привлекая инвесторов. Для bounty программы выделено 2&nbsp500&nbsp000 RDT, которые будут пропорционально распределены между участниками относительно вкладов привлеченных инвесторов. </p>
-      <p>Реферальную ссылку можно получить в личном кабинете после регистрации.</p>
+      <p>Для Bounty программы будет выделено 2 500 00 RDT.</p>
+      <p>За привлечение каждого зарегистрированного потенциального инвестора, в рамках bounty программы, во время проведения ICO, а так же после запуска сервиса RateDate.net за привлечение пользователя будет начислено 10 RDT.</p>
+      <p>За каждого привлеченного инвестора, который проинвестировал проект будет начислено дополнительно 100 RDT на счет участника Bounty программы.</p>
+      <p>Преимущества Bounty Rate Date:</p>
+      <ol>
+        <li>Исключает возможность резкого падения курса RDT за счет размораживания пула Bounty.</li>
+        <li>Привлечение до 250 000 новых пользователей на ресурс RateDate.net .</li>
+        <li>Каждый зарегистрированный пользователь в рамках сервиса RateDate.net имеет возможность привлекать пользователей посредству Bounty программы и использовать токены в рамках ресурса на свое усмотрение (все заработанные RDT остаются на счете участника программы).</li>
+      </ol>
+      <p>Программа будет действовать до тех пор, пока резерв выделенных токенов для Bounty не будет исчерпан.</p>
     </div>
   </div>
   <div class="row">
@@ -311,8 +320,7 @@
 <div class="container-fluid bg-bordo" id="stages">
   <div class="row">
     <div class="col-xl-8 order-xl-2 align-self-center"><%= image_tag "heart.png", class: 'img-fluid mx-auto d-block' %></div>
-    <div class="col-xl-4 order-xl-1">
-      <h2 class="text-center p-3">Stages</h2>
+    <div class="col-xl-4 order-xl-1 pt-4">
       <h3><span class="badge badge-light badge-pill">soft cap</span></h3>
       <p>1 000 ETH - минимальная сумма необходимая для реализации cайта знакомств с онлайн аукционом видео свиданий, создания мобильного приложения.</p>
 
@@ -409,6 +417,36 @@
     </div>
   </div>
 </div>
+<div class="container-fluid bg-grey">
+  <h2 class="text-center p-3">Featured On</h2>
+  <div class="row p-3 justify-content-center">
+    <div class="col-featured">
+      <a href="https://www.icoalert.com/" class="h-100 d-flex align-items-center justify-content-center">
+        <span class="icon-icoalert d-block"></span>
+      </a>
+    </div>
+    <div class="col-featured">
+      <a href="https://www.kickico.com/campaigns/35008/rate-date" class="h-100 d-flex align-items-center justify-content-center">
+        <span class="icon-kickico d-block"></span>
+      </a>
+    </div>
+    <div class="col-featured">
+      <a href="https://bitcointalk.org/index.php?topic=2284274" class="h-100 d-flex align-items-center justify-content-center">
+        <span class="icon-btalk d-block"></span>
+      </a>
+    </div>
+    <div class="col-featured">
+      <a href="https://icobench.com/ico/rate-date" class="h-100 d-flex align-items-center justify-content-center">
+        <span class="icon-icobench d-block"></span>
+      </a>
+    </div>
+    <div class="col-featured">
+      <a href="https://icoholder.com/ico/rate-date-4104" class="h-100 d-flex align-items-center justify-content-center">
+        <span class="icon-icoholder d-block"></span>
+      </a>
+    </div>
+  </div>
+</div>
 <div class="container-fluid bg-grey" id="team">
   <h2 class="text-center p-3">Наша команда</h2>
   <div class="row justify-content-center">
@@ -433,6 +471,7 @@
       <div class="card card-team h-100">
         <div class="card-img-top p-3">
           <%= image_tag "michail.jpg", class: "rounded-circle img-thumbnail mx-auto d-block" %>
+          <a class="team-social-1 icon-linkedin" href="https://www.linkedin.com/in/%D0%BC%D0%B8%D1%85%D0%B0%D0%B8%D0%BB-%D0%BA%D1%80%D1%83%D0%B3%D0%BB%D0%B8%D1%87%D0%B5%D0%BD%D0%BA%D0%BE-583084152/"></a>
         </div>
         <div class="card-body">
           <h4 class="card-title">Кругличенко Михаил</h4>
@@ -522,9 +561,10 @@
     <div class="col-md-4 text-right">
       <div>Следите за развитием проекта:</div>
       <div class="nav justify-content-end">
-        <a href="https://www.facebook.com/Rate-Date-861947790626663/" class="icon-facebook h4 nav-link text-light"></a>
-        <a href="https://twitter.com/RateDate2" class="icon-twitter h4 nav-link text-light"></a>
-        <a href="https://t.me/joinchat/FnaGEQvA8Z54oH4AM2vIIQ" class="icon-telegram h4 nav-link text-light"></a>
+        <a href="https://www.facebook.com/Rate-Date-861947790626663/" class="icon-facebook h4 nav-link text-light" target="_blank"></a>
+        <a href="https://twitter.com/RateDate2" class="icon-twitter h4 nav-link text-light" target="_blank"></a>
+        <a href="https://t.me/joinchat/FnaGEQvA8Z54oH4AM2vIIQ" class="icon-telegram h4 nav-link text-light" target="_blank"></a>
+        <a href="https://medium.com/@usatenko.katerina" class="icon-medium h4 nav-link text-light" target="_blank"></a>
       </div>
     </div>
   </div>
