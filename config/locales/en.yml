@@ -38,6 +38,7 @@ en:
   sign_out: "Sign out"
   account: "Account"
   submit: "Submit"
+  wrong_eth: "Wrong ETH-wallet"
   activerecord:
     errors:
       models:

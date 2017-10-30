@@ -2,7 +2,11 @@
   <h1></h1>
   <div>
     <h2>SMART CONTRACT</h2>
-    <strong>Address(coming soon)</strong>
+    <% if current_ico_user.eth_wallet.nil? %>
+        <strong>Please fill in you ETH wallet below</strong>
+    <% else %>
+        <strong>The smart contract address will be available on January 15, 2018</strong>
+    <% end %>
     <ul>
       <li>Min pledge is 0.1 ETH;</li>
       <li>Set GAS 300 000 (unused gas will be returned to you);</li>

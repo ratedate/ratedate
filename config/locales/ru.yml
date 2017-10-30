@@ -6,6 +6,7 @@ ru:
   sign_out: "Выйти"
   account: "Аккаунт"
   submit: "Отправить"
+  wrong_eth: "Неверный ETH-кошелек"
   activerecord:
     errors:
       models:
