@@ -70,7 +70,7 @@ class Ico::RegistrationsController < Devise::RegistrationsController
   end
   def after_inactive_sign_up_path_for(resource)
     if request.subdomain == "ico"
-      request.env['omniauth.origin'] || stored_location_for(resource) || ico_sign_in_path
+      request.env['omniauth.origin'] || stored_location_for(resource) || ico_sign_in_path(:locale => I18n.locale)
     else
       request.env['omniauth.origin'] || stored_location_for(resource) || root_path(resource)
     end
