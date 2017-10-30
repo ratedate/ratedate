@@ -46,13 +46,6 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-  def after_inactive_sign_up_path_for(resource)
-    if request.subdomain == "ico"
-      request.env['omniauth.origin'] || stored_location_for(resource) || ico_account_path(resource)
-    else
-      request.env['omniauth.origin'] || stored_location_for(resource) || root_path(resource)
-    end
-  end
   def set_mailer_host
     ActionMailer::Base.default_url_options[:host] = request.host_with_port
     Devise::Mailer.default_url_options[:locale] = I18n.locale
