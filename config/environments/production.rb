@@ -99,6 +99,6 @@ Rails.application.configure do
       user_name: Rails.application.secrets.mail_login,
       password: Rails.application.secrets.mail_password,
       authentication: :plain,
-      domain: 'google.com'
+      domain: 'ratedate.net'
   }
 end
