@@ -44,6 +44,11 @@
     </div>
   </nav>
 </div>
+<div class="container">
+  <% if alert %>
+    <div class="alert alert-danger"><%= alert %></div>
+  <% end %>
+</div>
 <%= yield %>
 </body>
 </html>
