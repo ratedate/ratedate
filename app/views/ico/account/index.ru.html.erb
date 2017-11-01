@@ -18,13 +18,14 @@
     <p>
       <% if current_ico_user.eth_wallet.nil? %>
           <%= form_tag controller: 'account', action: 'add_eth', method: 'POST', class: 'inline-form' do %>
-              <%= label_tag 'Введите Ваш ETH-кошелек(address), чтоб получить реферальную ссылку' %><br>
+              <%= label_tag 'Введите Ваш ETH-кошелек(address), чтоб получить реферальную ссылку и адрес смарт-контракта' %><br>
               <%= text_field_tag :eth_wallet, '', class: "form-control"  %>
               <%= submit_tag t(:submit), class: "btn btn-secondary" %>
           <% end %>
       <% else %>
           Ваша реферальная ссылка для участия в Bounty программе:
-          <%= ref_link %>
+          <strong><%= ref_link %></strong><br>
+          Your ETH-wallet: <%= current_ico_user.eth_wallet %>
       <% end %>
     </p>
     <p class="h2">Привлечено пользователей: <%= current_ico_user.referrals.confirmed.count %></p>
