@@ -1,0 +1,62 @@
+<%= form_with(model: profile, local: true) do |form| %>
+  <% if profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :profile_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :surname %>
+    <%= form.text_field :surname, id: :profile_surname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hide_surname %>
+    <%= form.check_box :hide_surname, id: :profile_hide_surname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nickname %>
+    <%= form.text_field :nickname, id: :profile_nickname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :avatar %>
+    <%= form.file_field :avatar, id: :profile_avatar %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dob %>
+    <%= form.date_select :dob, id: :profile_dob %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hide_dob %>
+    <%= form.check_box :hide_dob, id: :profile_hide_dob %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender %>
+    <%= form.text_field :gender, id: :profile_gender %>
+  </div>
+
+  <div class="field">
+    <%= form.label :about %>
+    <%= form.text_area :about, id: :profile_about %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
