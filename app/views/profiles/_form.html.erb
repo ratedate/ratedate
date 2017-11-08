@@ -11,50 +11,47 @@
     </div>
   <% end %>
 
-  <div class="form-group">
+  <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, id: :profile_name %>
   </div>
 
-  <div class="form-group">
+  <div class="field">
     <%= form.label :surname %>
     <%= form.text_field :surname, id: :profile_surname %>
   </div>
 
-  <div class="form-group">
+  <div class="field">
     <%= form.label :hide_surname %>
     <%= form.check_box :hide_surname, id: :profile_hide_surname %>
   </div>
 
-  <div class="form-group">
+  <div class="field">
     <%= form.label :nickname %>
     <%= form.text_field :nickname, id: :profile_nickname %>
   </div>
 
-  <div class="form-group">
-    <span class="btn btn-default btn-file">
-    <img id="img_prev" src="#" alt="Avatar" class="img-thumbnail"/> <br/>
-    <%= form.file_field :avatar, id: :profile_avatar, class: "btn btn-default btn-file" %>
-  </span>
-    <%= form.hidden_field :avatar_cache %>
+  <div class="field">
+    <%= form.label :avatar %>
+    <%= form.file_field :avatar, id: :profile_avatar %>
   </div>
 
-  <div class="form-group">
+  <div class="field">
     <%= form.label :dob %>
     <%= form.date_select :dob, id: :profile_dob %>
   </div>
 
-  <div class="form-group">
+  <div class="field">
     <%= form.label :hide_dob %>
     <%= form.check_box :hide_dob, id: :profile_hide_dob %>
   </div>
 
-  <div class="form-group">
+  <div class="field">
     <%= form.label :gender %>
     <%= form.text_field :gender, id: :profile_gender %>
   </div>
 
-  <div class="form-group">
+  <div class="field">
     <%= form.label :about %>
     <%= form.text_area :about, id: :profile_about %>
   </div>
