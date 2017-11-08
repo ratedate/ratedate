@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @profile.name %>
+</p>
+
+<p>
+  <strong>Surname:</strong>
+  <%= @profile.surname %>
+</p>
+
+<p>
+  <strong>Hide surname:</strong>
+  <%= @profile.hide_surname %>
+</p>
+
+<p>
+  <strong>Nickname:</strong>
+  <%= @profile.nickname %>
+</p>
+
+<p>
+  <strong>Avatar:</strong>
+  <%= @profile.avatar %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @profile.dob %>
+</p>
+
+<p>
+  <strong>Hide dob:</strong>
+  <%= @profile.hide_dob %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @profile.gender %>
+</p>
+
+<p>
+  <strong>About:</strong>
+  <%= @profile.about %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

@@ -48,6 +48,14 @@ gem 'omniauth-google-oauth2'
 
 # recaptcha gem from google
 gem "recaptcha", require: "recaptcha/rails"
+
+# crrierwave for files upload and avatar
+gem 'carrierwave', '~> 1.0'
+# minimagick for cropping
+gem "mini_magick"
+# image croping
+gem 'jcrop-rails-v2'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

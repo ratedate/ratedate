@@ -35,7 +35,7 @@ $(document).ready(function(){
     var countDownDate = new Date("2018-01-15T14:00:00+00:00").getTime();
 
     var x = setInterval(function(){
-        var now = new Date().getTime();
+        var now = Date.now();
         var distance = countDownDate - now;
 
         var days = Math.floor(distance / (1000 * 60 * 60 * 24));
