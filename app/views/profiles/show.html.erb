@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= image_tag @profile.avatar %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @profile.name %>
 </p>
@@ -20,10 +24,6 @@
   <%= @profile.nickname %>
 </p>
 
-<p>
-  <strong>Avatar:</strong>
-  <%= @profile.avatar %>
-</p>
 
 <p>
   <strong>Dob:</strong>

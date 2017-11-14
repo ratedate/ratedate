@@ -14,5 +14,8 @@ ready = ->
     $('#img_prev').removeClass 'hidden'
     readURL this
     return
+  options = {types: ['(cities)']}
+  input = document.getElementById('profile_address');
+  autocomplete = new google.maps.places.Autocomplete(input, options);
   return
 $(document).on('turbolinks:load', ready)

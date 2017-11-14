@@ -12,6 +12,13 @@
   <% end %>
 
   <div class="form-group">
+    <% img_src = @profile.avatar.present? ? @profile.avatar.url : "#" %>
+    <img id="img_prev" src="<%= img_src %>" alt="Avatar" class="img-thumbnail"/> <br/>
+    <%= form.file_field :avatar, id: :profile_avatar, class: "btn btn-default btn-file" %>
+    <%= form.hidden_field :avatar_cache %>
+  </div>
+
+  <div class="form-group">
     <%= form.label :name %>
     <%= form.text_field :name, id: :profile_name %>
   </div>
@@ -32,12 +39,10 @@
   </div>
 
   <div class="form-group">
-    <span class="btn btn-default btn-file">
-    <img id="img_prev" src="#" alt="Avatar" class="img-thumbnail"/> <br/>
-    <%= form.file_field :avatar, id: :profile_avatar, class: "btn btn-default btn-file" %>
-  </span>
-    <%= form.hidden_field :avatar_cache %>
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :profile_address %>
   </div>
+
 
   <div class="form-group">
     <%= form.label :dob %>
