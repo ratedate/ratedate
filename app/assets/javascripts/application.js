@@ -16,6 +16,7 @@
 //= require popper
 //= require bootstrap
 //= require profiles
+//= require jquery.Jcrop
 // require_tree .
 
 $(document).ready(function(){
