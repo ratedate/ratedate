@@ -14,23 +14,24 @@ class AvatarUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  version :thumb do
-    resize_to_fill(100, 100)
+  version :small_avatar do
+    process :crop_img
+    process resize_to_fill: [150, 150]
   end
 
-  version :large do
-    resize_to_limit(600, 600)
+  def customize?
+    !model.crop_x.blank? && !model.crop_y.blank? && !model.crop_w.blank? && !model.crop_h.blank?
   end
 
-  def crop
-    if model.crop_x.present?
-      resize_to_limit(600, 600)
+  def crop_img
+    if customize?
       manipulate! do |img|
         x = model.crop_x.to_i
         y = model.crop_y.to_i
         w = model.crop_w.to_i
         h = model.crop_h.to_i
-        img.crop!(x, y, w, h)
+        img.crop("#{w}x#{h}+#{x}+#{y}")
+        img
       end
     end
   end
