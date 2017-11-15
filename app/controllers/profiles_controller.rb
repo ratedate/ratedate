@@ -24,10 +24,13 @@ class ProfilesController < ApplicationController
   # POST /profiles
   # POST /profiles.json
   def create
-    @profile = Profile.new(profile_params)
+    @profile = current_user.build_profile(profile_params)
 
     respond_to do |format|
       if @profile.save
+        if params['profile']['crop_x']
+          @profile.avatar.recreate_versions!
+        end
         format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
       else
@@ -42,6 +45,9 @@ class ProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @profile.update(profile_params)
+        if params['profile']['crop_x']
+          @profile.avatar.recreate_versions!
+        end
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
         format.json { render :show, status: :ok, location: @profile }
       else
@@ -69,6 +75,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:name, :surname, :hide_surname, :nickname, :avatar, :dob, :hide_dob, :gender, :about)
+      params.require(:profile).permit(:name, :surname, :hide_surname, :nickname, :avatar, :dob, :hide_dob, :gender, :about, :crop_x, :crop_y, :crop_w, :crop_h)
     end
 end
