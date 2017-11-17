@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rate Date – is a dating site, providing a unique opportunity to hold an online video date auction. This service makes it possible not only to find and communicate with interesting people, but create and take part in video date auctions as well.
 
-Things you may want to cover:
+Rate Date includes a wide range of opportunities:
 
-* Ruby version
+* easy access to the service;
+* unlimited communication;
+* opportunity to take part in the online video date auction as a Rater and a Dater.
 
-* System dependencies
+Dater – a registered user of Rate Date website, who places his or her profile on the online video date auction.
 
-* Configuration
+Rater – a registered user of Rate Date website, who participates in a tender on the online video date auction.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The primary goal of Rate Date Company is to unite as many lonely hearts as possible and make it easier for people to make acquaintances in the high tech age.
