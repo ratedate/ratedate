@@ -28,12 +28,12 @@
 
   <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :profile_name %>
+    <%= form.text_field :name, id: :profile_name, class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= form.label :surname %>
-    <%= form.text_field :surname, id: :profile_surname %>
+    <%= form.text_field :surname, id: :profile_surname, class: 'form-control' %>
   </div>
 
   <div class="form-group">
@@ -43,12 +43,12 @@
 
   <div class="form-group">
     <%= form.label :nickname %>
-    <%= form.text_field :nickname, id: :profile_nickname %>
+    <%= form.text_field :nickname, id: :profile_nickname, class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= form.label :address %>
-    <%= form.text_field :address, id: :profile_address %>
+    <%= form.text_field :address, id: :profile_address, class: 'form-control' %>
   </div>
 
 
@@ -64,12 +64,15 @@
 
   <div class="form-group">
     <%= form.label :gender %>
-    <%= form.text_field :gender, id: :profile_gender %>
+    <%= form.radio_button :gender, "male", id: :profile_gender %>
+    <%= form.label :gender, "Male" %>
+    <%= form.radio_button :gender, "female", id: :profile_gender %>
+    <%= form.label :gender, "Female" %>
   </div>
 
   <div class="form-group">
     <%= form.label :about %>
-    <%= form.text_area :about, id: :profile_about %>
+    <%= form.text_area :about, id: :profile_about, class: 'form-control' %>
   </div>
 
   <div class="form-group">
@@ -78,15 +81,15 @@
   </div>
   <div class="form-group">
     <%= form.label :film_list %>
-    <%= form.text_field :film_list, id: :film_list, value: @profile.film_list.join(', ') %>
+    <%= form.text_field :film_list, id: :film_list, value: @profile.film_list.join(', '), 'data-role' => 'tagsinput' %>
   </div>
   <div class="form-group">
     <%= form.label :music_list %>
-    <%= form.text_field :music_list, id: :music_list, value: @profile.music_list.join(', ') %>
+    <%= form.text_field :music_list, id: :music_list, value: @profile.music_list.join(', '), 'data-role' => 'tagsinput' %>
   </div>
   <div class="form-group">
     <%= form.label :book_list %>
-    <%= form.text_field :book_list, id: :book_list, value: @profile.book_list.join(', ') %>
+    <%= form.text_field :book_list, id: :book_list, value: @profile.book_list.join(', '), 'data-role' => 'tagsinput' %>
   </div>
 
   <div class="actions">
