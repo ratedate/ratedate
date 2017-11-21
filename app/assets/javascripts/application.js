@@ -17,6 +17,7 @@
 //= require bootstrap
 //= require profiles
 //= require jquery.Jcrop
+//= require tagsinput
 // require_tree .
 
 $(document).ready(function(){

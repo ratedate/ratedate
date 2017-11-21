@@ -14,6 +14,9 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/new
   def new
+    if current_user.profile.present?
+      redirect_to current_user.profile
+    end
     @profile = Profile.new
   end
 
@@ -75,6 +78,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:name, :surname, :hide_surname, :nickname, :avatar, :dob, :hide_dob, :gender, :about, :crop_x, :crop_y, :crop_w, :crop_h)
+      params.require(:profile).permit(:name, :surname, :hide_surname, :nickname, :avatar, :dob, :hide_dob, :gender, :about, :crop_x, :crop_y, :crop_w, :crop_h, :hobby_list, :music_list, :film_list, :book_list)
     end
 end

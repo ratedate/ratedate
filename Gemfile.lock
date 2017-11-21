@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/mbleigh/acts-as-taggable-on
+  revision: 4d9a10c25e106bd2467662baea58510a17809ca2
+  specs:
+    acts-as-taggable-on (5.0.0)
+      activerecord (>= 4.2.8)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -49,6 +56,8 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       popper_js (~> 1.11.1)
       sass (>= 3.4.19)
+    bootstrap-tagsinput-rails (0.4.2.1)
+      railties (>= 3.1)
     builder (3.2.3)
     byebug (9.1.0)
     capybara (2.15.1)
@@ -243,7 +252,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on!
   bootstrap (~> 4.0.0.beta)
+  bootstrap-tagsinput-rails (~> 0.4.2.1)
   byebug
   capybara (~> 2.13)
   carrierwave (~> 1.0)

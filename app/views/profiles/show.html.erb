@@ -45,5 +45,22 @@
   <%= @profile.about %>
 </p>
 
+<p>
+  <strong>Hobbies:</strong>
+  <%= @profile.hobby_list %>
+</p>
+<p>
+  <strong>Music:</strong>
+  <%= @profile.music_list %>
+</p>
+<p>
+  <strong>Films:</strong>
+  <%= @profile.film_list %>
+</p>
+<p>
+  <strong>Books:</strong>
+  <%= @profile.book_list %>
+</p>
+
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>

@@ -4,6 +4,7 @@
 
 
 ready = ->
+  $('#hobby_list').tagsinput({tagClass: 'badge-secondary'})
   window.jcropInitialized = undefined
   initializeJcrop = ->
     w = Math.min($('#img_preview')[0].width,$('#img_preview')[0].height)

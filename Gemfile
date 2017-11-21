@@ -56,6 +56,8 @@ gem "mini_magick"
 # image croping
 gem 'jcrop-rails-v2'
 
+gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

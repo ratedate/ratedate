@@ -54,7 +54,7 @@
 
   <div class="form-group">
     <%= form.label :dob %>
-    <%= form.date_select :dob, id: :profile_dob %>
+    <%= form.date_select :dob, id: :profile_dob, start_year: Date.today.year-18, end_year: 1920 %>
   </div>
 
   <div class="form-group">
@@ -70,6 +70,23 @@
   <div class="form-group">
     <%= form.label :about %>
     <%= form.text_area :about, id: :profile_about %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :hobby_list %>
+    <%= form.text_field :hobby_list, id: :hobby_list, value: @profile.hobby_list.join(', '), 'data-role' => 'tagsinput'  %>
+  </div>
+  <div class="form-group">
+    <%= form.label :film_list %>
+    <%= form.text_field :film_list, id: :film_list, value: @profile.film_list.join(', ') %>
+  </div>
+  <div class="form-group">
+    <%= form.label :music_list %>
+    <%= form.text_field :music_list, id: :music_list, value: @profile.music_list.join(', ') %>
+  </div>
+  <div class="form-group">
+    <%= form.label :book_list %>
+    <%= form.text_field :book_list, id: :book_list, value: @profile.book_list.join(', ') %>
   </div>
 
   <div class="actions">
