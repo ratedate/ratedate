@@ -53,17 +53,17 @@
   <div class="form-group row">
     <div class="col-lg">
       <%= form.label :city %>
-      <%= form.text_field :city_name, id: :profile_city, class: 'form-control', readonly: true %>
+      <%= form.text_field :city_name, id: :profile_city, class: 'form-control', readonly: true, value: @profile.city.city if @profile.city.present? %>
     </div>
     <div class="col-lg">
       <%= form.label :state %>
-      <%= form.text_field :state, id: :profile_state, class: 'form-control', disabled: true %>
+      <%= form.text_field :state, id: :profile_state, class: 'form-control', disabled: true, value: @profile.city.administrative_area_level_1+@profile.city.administrative_area_level_2 if @profile.city.present? %>
       <%= form.hidden_field :administrative_area_level_1, id: :administrative_area_level_1 %>
       <%= form.hidden_field :administrative_area_level_2, id: :administrative_area_level_2 %>
     </div>
     <div class="col-lg">
       <%= form.label :country %>
-      <%= form.text_field :country, id: :profile_country, class: 'form-control', readonly: true %>
+      <%= form.text_field :country, id: :profile_country, class: 'form-control', readonly: true, value: @profile.city.country if @profile.city.present? %>
       <%= form.hidden_field :country_code, id: :profile_country_code %>
     </div>
   </div>
