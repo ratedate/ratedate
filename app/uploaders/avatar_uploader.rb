@@ -14,9 +14,13 @@ class AvatarUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  version :small_avatar do
+  version :large_avatar do
     process :crop_img
-    process resize_to_fill: [150, 150]
+    process resize_to_fill: [760, 760]
+  end
+
+  version :small_avatar, from_version: :large_avatar do
+    process resize_to_fill: [50,50]
   end
 
   def customize?

@@ -1,81 +1,46 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <%= image_tag @profile.avatar.small_avatar.url %>
+  <%= image_tag @profile.avatar.large_avatar.url %>
 </p>
 
 
 
 <h2>
-  <%= @profile.name  %> "<%= @profile.nickname %>" <%= @profile.surname %>
+  <%= @profile.name  %> "<%= @profile.nickname %>" <%= @profile.surname if !@profile.hide_surname %>
 </h2>
 <div>
   <%= @profile.age %> <%= t '.years_old' %>
 </div>
-<div>
-  <%= @profile %>
-</div>
-
 <p>
-  <strong>Name:</strong>
-  <%= @profile.name %>
-</p>
-
-<p>
-  <strong>Surname:</strong>
-  <%= @profile.surname %>
-</p>
-
-<p>
-  <strong>Hide surname:</strong>
-  <%= @profile.hide_surname %>
-</p>
-
-<p>
-  <strong>Nickname:</strong>
-  <%= @profile.nickname %>
-</p>
-
-
-<p>
-  <strong>Dob:</strong>
-  <%= @profile.dob %>
-</p>
-
-<p>
-  <strong>Hide dob:</strong>
-  <%= @profile.hide_dob %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @profile.gender %>
-</p>
-
-<p>
-  <strong>City:</strong>
+  <%= @profile.city.country %>
   <%= @profile.city.city %>
 </p>
 
 <p>
   <strong>About:</strong>
+  <br>
   <%= @profile.about %>
 </p>
 
 <p>
   <strong>Hobbies:</strong>
+  <br>
   <%= @profile.hobby_list %>
 </p>
 <p>
   <strong>Music:</strong>
+  <br>
   <%= @profile.music_list %>
 </p>
 <p>
   <strong>Films:</strong>
+  <br>
   <%= @profile.film_list %>
 </p>
 <p>
   <strong>Books:</strong>
+  <br>
   <%= @profile.book_list %>
 </p>
 
