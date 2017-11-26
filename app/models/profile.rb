@@ -10,6 +10,8 @@ class Profile < ApplicationRecord
   # acts_as_taggable
   acts_as_ordered_taggable_on :hobbies, :musics, :films, :books
 
+
+
   def set_city
     if self.city_name
       city = City.find_or_create_by(city: self.city_name, country: self.country, country_code: self.country_code, administrative_area_level_1: self.administrative_area_level_1, administrative_area_level_2: self.administrative_area_level_2)
