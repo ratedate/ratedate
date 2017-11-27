@@ -1,4 +1,6 @@
 class Profile < ApplicationRecord
+  include Filterable
+
   belongs_to :user
   belongs_to :city
   # Used for user avatar image edit
@@ -10,8 +12,11 @@ class Profile < ApplicationRecord
   # acts_as_taggable
   acts_as_ordered_taggable_on :hobbies, :musics, :films, :books
 
-
-
+  scope :by_country, -> (country) {where city_id: City.where(country: country) }
+  scope :by_city, -> (city) {where city_id: city }
+  scope :by_gender, -> (gender) {where gender: gender}
+  scope :by_age_from, -> (age_from) {where 'dob <= ?', Date.today - age_from.to_i.year}
+  scope :by_age_to, -> (age_to) {where 'dob >= ?', Date.today - age_to.to_i.year}
   def set_city
     if self.city_name
       city = City.find_or_create_by(city: self.city_name, country: self.country, country_code: self.country_code, administrative_area_level_1: self.administrative_area_level_1, administrative_area_level_2: self.administrative_area_level_2)

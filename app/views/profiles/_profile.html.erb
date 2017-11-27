@@ -1,0 +1,11 @@
+<div class="col-lg-3 col-md-4 col-sm-6 justify-content-center">
+  <%= image_tag profile.avatar.small_avatar.url, class: 'img-thumbnail' %>
+  <div class="h4"><%= profile.name %> "<%= profile.nickname %>" <%= profile.surname if !profile.hide_surname %></div>
+  <div>
+    <%= profile.age %> <%= t '.years_old' %>
+  </div>
+  <div>
+    <%= profile.city.country %>
+    <%= profile.city.city %>
+  </div>
+</div>
