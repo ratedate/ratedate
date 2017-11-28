@@ -3,10 +3,11 @@
 <h1>Profiles</h1>
 
 <%= render 'search_form' %>
-
-<% @profiles.each do |profile| %>
-  <%= render profile %>
-<% end %>
+<div class="row">
+  <% @profiles.each do |profile| %>
+      <%= render profile %>
+  <% end %>
+</div>
 
 <br>
 
