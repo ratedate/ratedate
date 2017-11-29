@@ -21,7 +21,6 @@ ready = ->
       return)
     return
   setCoords = (c) ->
-    console.log('setCoords')
     #    get width of scaled jcrop and divide to natural image width to obtain scale
     scale = $('#img_preview')[0].width/$('.jcrop-holder').width()
     $('#crop_x').val(Math.round(c.x*scale))
@@ -34,9 +33,7 @@ ready = ->
       initializeJcrop()
       return
   readURL = (input) ->
-    console.log(input)
     if input.files and input.files[0]
-      console.log('input')
       reader = new FileReader
       reader.onload = (e) ->
         $('#img_preview').attr 'src', e.target.result
@@ -54,6 +51,15 @@ ready = ->
     $('#img_preview').removeClass 'hidden'
     readURL this
     return
+  $('[id$="photo"]').change ->
+    input = this
+    if input.files and input.files[0]
+      photo_reader = new FileReader
+      photo_reader.onload = (e) ->
+        input.previousElementSibling.src = e.target.result
+        return
+      photo_reader.readAsDataURL input.files[0]
+      return
   options = {types: ['(cities)']}
   input = document.getElementById('profile_address');
   window.autocomplete = new google.maps.places.Autocomplete(input, options);
