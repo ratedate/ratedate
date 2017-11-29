@@ -45,6 +45,11 @@
 
   </div>
 </div>
+<div class="row pt-2">
+  <% @profile.photos.each do |photo| %>
+      <div class="col-lg-2"><%= image_tag photo.photo.url(:thumb), class: 'img-fluid' %></div>
+  <% end %>
+</div>
 
 <p>
 </p>

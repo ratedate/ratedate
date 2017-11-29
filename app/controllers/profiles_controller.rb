@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /profiles
   # GET /profiles.json
@@ -14,14 +15,22 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/new
   def new
+    console
     if current_user.profile.present?
       redirect_to current_user.profile
     end
     @profile = Profile.new
+    6.times {@profile.photos.build}
   end
 
   # GET /profiles/1/edit
   def edit
+    if @profile.photos.any?
+      (6-@profile.photos.count).times {@profile.photos.build}
+    else
+      6.times {@profile.photos.build}
+    end
+    console
   end
 
   # POST /profiles
@@ -78,6 +87,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:name, :surname, :hide_surname, :nickname, :avatar, :dob, :hide_dob, :gender, :about, :crop_x, :crop_y, :crop_w, :crop_h, :hobby_list, :music_list, :film_list, :book_list, :country, :country_code, :city_name, :administrative_area_level_1, :administrative_area_level_2)
+      params.require(:profile).permit(:name, :surname, :hide_surname, :nickname, :avatar, :dob, :hide_dob, :gender, :about, :crop_x, :crop_y, :crop_w, :crop_h, :hobby_list, :music_list, :film_list, :book_list, :country, :country_code, :city_name, :administrative_area_level_1, :administrative_area_level_2, photos_attributes:[:id,:photo,:remove_photo])
     end
 end
