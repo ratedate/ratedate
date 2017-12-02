@@ -15,7 +15,7 @@
     <% img_src = @profile.avatar.present? ? @profile.avatar.url : "#" %>
     <div class="row">
       <div class="col-xl-6">
-        <img id="img_preview" src="<%= img_src %>" alt="Avatar" class="img-thumbnail"/>
+        <img id="img_preview" src="<%= img_src %>" alt="Avatar" class="img-fluid"/>
       </div>
     </div>
     <%= form.file_field :avatar, id: :profile_avatar %>

@@ -27,8 +27,8 @@ Rails.application.routes.draw do
   root 'static_pages#in_develop'
   scope "/:locale", locale: /#{I18n.available_locales.join("|")}/, defaults: {locale: "en"}  do
     resources :profiles
-    get 'static_pages/home'
-    get 'static_pages/in_develop'
+    get 'my_profile', to: 'profiles#show', as: 'my_profile'
+    get 'my_profile/edit', to: 'profiles#edit', as: 'edit_my_profile'
     root 'static_pages#in_develop'
     devise_for :users, skip: :omniauth_callbacks, :controllers => { registrations: "registrations" }
     devise_scope :user do
