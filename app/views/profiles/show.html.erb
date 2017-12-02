@@ -6,8 +6,9 @@
   </div>
   <div class="col-lg-6">
     <h2>
-      <%= @profile.name  %> "<%= @profile.nickname %>" <%= @profile.surname if !@profile.hide_surname %>
+      <%= @profile.name  %> "<%= @profile.nickname %>" <%= @profile.surname if !@profile.hide_surname||@profile==current_user.profile %>
     </h2>
+    <%= link_to('Edit Profile', edit_my_profile_path, class: 'btn btn-secondary') if @profile==current_user.profile %>
     <div>
       <%= @profile.age %> <%= t '.years_old' %>
     </div>
@@ -55,7 +56,3 @@
 </p>
 
 
-
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
