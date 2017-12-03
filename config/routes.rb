@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   end
   root 'static_pages#in_develop'
   scope "/:locale", locale: /#{I18n.available_locales.join("|")}/, defaults: {locale: "en"}  do
-    resources :profiles
+    resources :profiles, except: [:edit, :destroy]
     get 'my_profile', to: 'profiles#show', as: 'my_profile'
     get 'my_profile/edit', to: 'profiles#edit', as: 'edit_my_profile'
     root 'static_pages#in_develop'

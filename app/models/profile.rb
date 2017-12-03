@@ -5,7 +5,7 @@ class Profile < ApplicationRecord
   belongs_to :city
   has_many :photos
   # Used for user avatar image edit
-  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h, :city_name, :administrative_area_level_1, :administrative_area_level_2, :country, :country_code
+  attr_accessor :city_name, :administrative_area_level_1, :administrative_area_level_2, :country, :country_code
   accepts_nested_attributes_for :photos, allow_destroy: true
 
   before_validation :set_city
