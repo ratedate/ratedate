@@ -22,7 +22,7 @@ ready = ->
     return
   setCoords = (c) ->
     #    get width of scaled jcrop and divide to natural image width to obtain scale
-    scale = $('#img_preview')[0].width/$('.jcrop-holder').width()
+    scale = $('#img_preview')[0].naturalWidth/$('.jcrop-holder').width()
     $('#crop_x').val(Math.round(c.x*scale))
     $('#crop_y').val(Math.round(c.y*scale))
     $('#crop_w').val(Math.round(c.w*scale))
@@ -30,7 +30,20 @@ ready = ->
     return
   if $('#img_preview').attr('src')!='#'
     $('#img_preview').on 'load', (e) ->
-      initializeJcrop()
+      scale = $('#img_preview')[0].naturalWidth/$('#img_preview').width()
+      x = Math.round($('#crop_x').val()/scale)
+      y = Math.round($('#crop_y').val()/scale)
+      w = x+Math.round($('#crop_w').val()/scale)
+      h = y+Math.round($('#crop_h').val()/scale)
+      $('#img_preview').Jcrop({
+        onSelect: setCoords,
+        onChange: setCoords,
+        setSelect: [x,y,w,h],
+        minSize: [Math.round(760/scale),Math.round(760/scale)]
+        aspectRatio: 1
+      }, ->
+        window.jcropInitialized = this
+        return)
       return
   readURL = (input) ->
     if input.files and input.files[0]
