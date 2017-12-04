@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  layout "wide"
+
   def home
   end
 

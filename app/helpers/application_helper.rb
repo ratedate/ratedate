@@ -67,4 +67,22 @@ module ApplicationHelper
       link_to "download white paper", "/assets/white_paper_en_3_5.pdf", {class: html_class, target: "_blank"}
     end
   end
+
+  # helper_method :resource_name, :resource, :devise_mapping, :resource_class
+
+  def resource_name
+    :user
+  end
+
+  def resource
+    @resource ||= User.new
+  end
+
+  def resource_class
+    User
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
 end

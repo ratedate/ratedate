@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     end
     root 'static_pages#ico_landing', module: 'ico'
   end
-  root 'static_pages#in_develop'
+  root 'static_pages#home'
   scope "/:locale", locale: /#{I18n.available_locales.join("|")}/, defaults: {locale: "en"}  do
     resources :profiles, except: [:edit, :destroy]
     get 'my_profile', to: 'profiles#show', as: 'my_profile'
