@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ratedate</title>
+  <%= csrf_meta_tags %>
+  <%= meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZtLop0Yk-dl1d9Ord1Hc7nsrak_Mat44&libraries=places"></script>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+  <%= google_analytics %>
+  <%= ya_metric %>
+</head>
+
+<body>
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top">
+    <a class="navbar-brand" href="https://ratedate.net/">
+      <span class="icon-logo display-4"></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarICO" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to 'Profiles', profiles_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Auctions', profiles_path, class: "nav-link" %>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to 'My Profile', my_profile_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to t(:sign_out), sign_out_path, method: :delete, class: "nav-link" %>
+            </li>
+            </ul>
+            <%= image_tag current_user.profile.avatar.url(:small_avatar), class: 'rounded-circle' %>
+        <% else %>
+            <li class="nav-item">
+              <%= link_to t(:sign_in), sign_in_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to t(:sign_up), sign_up_path, class: "nav-link" %>
+            </li>
+            </ul>
+        <% end %>
+        </div>
+  </nav>
+</div>
+  <%= yield %>
+</body>
+</html>

@@ -1,20 +1,31 @@
 <div class="container-fluid container-start">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-fade justify-content-between fixed-top">
-    <a class="navbar-brand" href="http://ratedate.net/">
-      <span class="icon-logo display-2"></span>
-    </a>
-  </nav>
-  <div class="row justify-content-md-center">
-    <div class="col-md-8 text-center">
-      <div class="h2">RateDate is under development. Take a cup of tea or coffee and follow us:</div>
-    </div>
+  <div class="nav justify-content-center">
+    <span class="icon-logo text-light display-1"></span>
   </div>
   <div class="row justify-content-md-center">
-    <div class="col-md-4 text-center text-light pt-3">
-      <a href="https://www.facebook.com/Rate-Date-861947790626663/" class="icon-facebook display-2"></a>
-      <a href="https://twitter.com/RateDate2" class="icon-twitter display-2"></a>
-      <a href="https://t.me/joinchat/FnaGEQvA8Z54oH4AM2vIIQ" class="icon-telegram display-2"></a>
-      <a href="https://ratedate.slack.com/messages/@slackbot/" class="icon-slack display-2"></a>
+    <div class="col-md-8 text-center">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= form_for(:user, as: resource_name, url: session_path(resource_name), :html => {:class => "devise-form"}) do |f| %>
+          <div class="form-group mx-auto d-block">
+            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email"   %>
+          </div>
+
+          <div class="form-group mx-auto d-block">
+            <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+              <div class="form-group mx-auto d-block text-white">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+          <% end %>
+
+          <div class="actions">
+            <%= f.submit t('.sign_in'), class: "btn btn-secondary mb-3  mx-auto d-block" %>
+          </div>
+      <% end %>
     </div>
   </div>
 </div>
