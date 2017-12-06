@@ -58,6 +58,12 @@ gem 'jcrop-rails-v2'
 
 gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on'
 
+# jqery gem for select fields
+gem 'select2-rails'
+
+# gem for languages select
+gem 'countries_and_languages', :require => 'countries_and_languages/rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
