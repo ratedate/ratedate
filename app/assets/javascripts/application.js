@@ -18,6 +18,7 @@
 //= require profiles
 //= require jquery.Jcrop
 //= require tagsinput
+//= require select2
 // require_tree .
 
 $(document).ready(function(){

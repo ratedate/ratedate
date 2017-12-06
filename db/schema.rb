@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203184017) do
+ActiveRecord::Schema.define(version: 20171206194505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 20171203184017) do
     t.integer "crop_y"
     t.integer "crop_w"
     t.integer "crop_h"
+    t.string "languages", array: true
+    t.index ["languages"], name: "index_profiles_on_languages", using: :gin
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|

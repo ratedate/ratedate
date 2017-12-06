@@ -8,6 +8,7 @@ ready = ->
   $('#film_list').tagsinput({tagClass: 'badge-secondary'})
   $('#music_list').tagsinput({tagClass: 'badge-secondary'})
   $('#book_list').tagsinput({tagClass: 'badge-secondary'})
+  $('#profile_languages').select2({theme: "bootstrap", placeholder: "Select languages"});
   window.jcropInitialized = undefined
   initializeJcrop = ->
     w = Math.min($('#img_preview')[0].width,$('#img_preview')[0].height)
