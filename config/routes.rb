@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'personal_messages/create'
+
+  get 'personal_messages/new'
 
   devise_for :users, skip: [:session, :password, :registration, :confirmation], :controllers => { omniauth_callbacks: 'omniauth_callbacks'}
 
@@ -29,6 +32,8 @@ Rails.application.routes.draw do
     resources :profiles, except: [:edit, :destroy]
     get 'my_profile', to: 'profiles#show', as: 'my_profile'
     get 'my_profile/edit', to: 'profiles#edit', as: 'edit_my_profile'
+    resources :personal_messages, only: [:new,  :create]
+    resources :conversations, only: [:index, :show]
     root 'static_pages#in_develop'
     devise_for :users, skip: :omniauth_callbacks, :controllers => { registrations: "registrations" }
     devise_scope :user do
