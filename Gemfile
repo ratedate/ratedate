@@ -64,6 +64,9 @@ gem 'select2-rails'
 # gem for languages select
 gem 'countries_and_languages', :require => 'countries_and_languages/rails'
 
+# use redis for user.is_online?
+gem 'redis'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

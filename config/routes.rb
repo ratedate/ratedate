@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'personal_messages/create'
-
-  get 'personal_messages/new'
+  mount ActionCable.server => '/cable'
 
   devise_for :users, skip: [:session, :password, :registration, :confirmation], :controllers => { omniauth_callbacks: 'omniauth_callbacks'}
 

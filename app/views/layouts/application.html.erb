@@ -39,7 +39,7 @@
                 <%= link_to t(:sign_out), sign_out_path, method: :delete, class: "nav-link" %>
               </li>
             </ul>
-            <%= image_tag current_user.profile.avatar.url(:small_avatar), class: 'rounded-circle' %>
+            <%= image_tag current_user.profile.avatar.url(:small_avatar), class: 'rounded-circle', id: 'signed-user' %>
           <% else %>
               <li class="nav-item">
                 <%= link_to t(:sign_in), sign_in_path, class: "nav-link" %>

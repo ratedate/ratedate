@@ -63,4 +63,8 @@ class User < ApplicationRecord
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end
+
+  def online?
+    !Redis.new.get("user_#{self.id}_online").nil?
+  end
 end
