@@ -2,9 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery(document).on 'turbolinks:load', ->
-  messages = $('#conversation-main')
+  messages = $('#conversation-body')
+  messages_wrap = $('#conversation-main')
   messages_to_bottom = ->
-    messages.scrollTop(messages.prop("scrollHeight"))
+    messages_wrap.scrollTop(messages_wrap.prop("scrollHeight"))
     return
   if $('#signed-user').length > 0
     App.personal_chat = App.cable.subscriptions.create {
@@ -19,6 +20,7 @@ jQuery(document).on 'turbolinks:load', ->
     received: (data) ->
       if messages.length > 0 && messages.data('conversation-id') is data['conversation_id']
         messages.append data['message']
+        $('#conversation-'+data['conversation_id']+' em').text(data['truncated_message'])
         messages_to_bottom()
       else
         $.getScript('/conversations') if $('#conversations').length > 0
@@ -35,8 +37,9 @@ jQuery(document).on 'turbolinks:load', ->
     $('#new_personal_message').submit (e) ->
       $this = $(this)
       textarea = $this.find('#personal_message_body')
-      if $.trim(textarea.val()).length > 1
+      if $.trim(textarea.val()).length > 0
         App.personal_chat.send_message textarea.val(), $this.find('#conversation_id').val()
         textarea.val('')
       e.preventDefault()
       return false
+    return

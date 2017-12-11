@@ -1,29 +1,29 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-2" id="conversations">
-      <%= render @conversations %>
+<div>
+  <div class="row no-gutters">
+    <div class="col-lg-3 col-xl-2" id="conversations">
+      <%= render @conversations, current_conversation: @conversation.id %>
     </div>
     <div class="col-lg-8">
       <div id="conversation-main" class="conversation-main">
         <div id="conversation-body" data-conversation-id="<%= @conversation.id %>">
-          <%= render @conversation.personal_messages %>
+          <%= render @conversation.personal_messages, current_user_id: current_user.id %>
         </div>
       </div>
 
       <%= form_for @personal_message do |f| %>
           <%= hidden_field_tag 'conversation_id', @conversation.id %>
-          <div class="row">
+          <div class="row" data-turbolinks="false">
             <div class="col">
-              <%= f.text_area :body, class: "form-control" %>
+              <%= f.text_field :body, class: "form-control" %>
             </div>
-            <div class="col-1">
+            <div class="col-auto">
               <%= f.submit 'Send', class: "btn btn-secondary h-100" %>
             </div>
           </div>
 
       <% end %>
     </div>
-    <div class="col-lg-2">
+    <div class="col-xl-2 d-none d-xl-block">
       <% profile = @conversation.with(current_user).profile %>
       <%= image_tag profile.avatar.url(:large_avatar), class: 'img-fluid' %>
       <div>

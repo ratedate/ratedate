@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => '/cable'
 
+  resources :conversations, only: [:index]
+
+
   devise_for :users, skip: [:session, :password, :registration, :confirmation], :controllers => { omniauth_callbacks: 'omniauth_callbacks'}
 
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup

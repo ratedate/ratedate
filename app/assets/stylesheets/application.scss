@@ -36,9 +36,28 @@ body{
   .close {cursor: pointer}
 }
 
+
 .conversation-main{
   overflow-y: auto;
   height: 80vh;
+}
+.conversation{
+  display: block;
+  padding: 10px;
+  border-bottom: 1px solid theme-color-level(secondary, -5);
+  text-decoration: none;
+  color: $gray-700;
+  &.current{
+    background-color: theme-color-level(secondary, -10);
+  }
+  &:hover{
+    background-color: theme-color-level(secondary, -10);
+    text-decoration: none;
+    color: theme-color-level(secondary, 1);
+  }
+  em{
+    color: $gray-600;
+  }
 }
 
 .container-start{
