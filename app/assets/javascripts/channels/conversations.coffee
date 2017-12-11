@@ -2,9 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery(document).on 'turbolinks:load', ->
-  messages_to_bottom = -> messages.scrollTop(messages.prop("scrollHeight"))
-  messages = $('#conversation-body')
-
+  messages = $('#conversation-main')
+  messages_to_bottom = ->
+    messages.scrollTop(messages.prop("scrollHeight"))
+    return
   if $('#signed-user').length > 0
     App.personal_chat = App.cable.subscriptions.create {
       channel: "NotificationsChannel"

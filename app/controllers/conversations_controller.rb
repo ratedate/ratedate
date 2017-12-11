@@ -1,6 +1,9 @@
 class ConversationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_conversation, except: [:index]
   before_action :check_participating!, except: [:index]
+
+  layout "wide"
 
   def index
     @conversations = Conversation.participating(current_user).order('updated_at DESC')
@@ -11,6 +14,7 @@ class ConversationsController < ApplicationController
   end
 
   def show
+    @conversations = Conversation.participating(current_user).order('updated_at DESC')
     @personal_message = PersonalMessage.new
   end
 

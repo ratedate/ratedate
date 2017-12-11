@@ -1,4 +1,6 @@
-<p><%= personal_message.body %></p>
-<p>at <strong><%= personal_message.created_at %></strong><br>
-  by <strong><%= personal_message.user.profile.name %></strong></p>
-<hr>
+<div class="p-3 d-flex <%= personal_message.user!=current_user ? 'justify-content-start' : 'justify-content-end' %>">
+  <div class="bg-grey rounded-right d-inline-block ">
+    <%= personal_message.body %><br>
+    <small><%= personal_message.created_at.to_formatted_s(:short)  %></small>
+  </div>
+</div>
