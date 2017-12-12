@@ -28,6 +28,7 @@ jQuery(document).on 'turbolinks:load', ->
         messages.append data['message']
         $('#conversation-'+data['conversation_id']+' em').text(data['truncated_message'])
         messages_to_bottom()
+        $.getScript('/conversations/'+data['conversation_id']) if $('#conversations').length > 0
       else
         $.getScript('/conversations') if $('#conversations').length > 0
         $('body').append(data['notification']) if data['notification']

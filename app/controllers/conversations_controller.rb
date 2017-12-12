@@ -16,6 +16,10 @@ class ConversationsController < ApplicationController
   def show
     @conversations = Conversation.participating(current_user).order('updated_at DESC')
     @personal_message = PersonalMessage.new
+    respond_to do |format|
+      format.html
+      format.js {render layout: false}
+    end
   end
 
   private
