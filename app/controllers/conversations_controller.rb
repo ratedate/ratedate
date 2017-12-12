@@ -9,7 +9,7 @@ class ConversationsController < ApplicationController
     @conversations = Conversation.participating(current_user).order('updated_at DESC')
     respond_to do |format|
       format.html
-      format.js
+      format.js {render layout: false}
     end
   end
 

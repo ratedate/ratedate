@@ -3,11 +3,16 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery(document).on 'turbolinks:load', ->
   messages = $('#conversation-body')
-  messages_wrap = $('#conversation-main')
+  #  first check if action cable subscription present
+  pm_subscribed = false
   messages_to_bottom = ->
+    messages_wrap = $('#conversation-main')
     messages_wrap.scrollTop(messages_wrap.prop("scrollHeight"))
     return
-  if $('#signed-user').length > 0
+  App.cable.subscriptions.subscriptions.forEach (item) ->
+    if JSON.parse(item["identifier"])["channel"]=="NotificationsChannel"
+      pm_subscribed = true
+  if $('#signed-user').length > 0 && !pm_subscribed
     App.personal_chat = App.cable.subscriptions.create {
       channel: "NotificationsChannel"
     },
@@ -18,6 +23,7 @@ jQuery(document).on 'turbolinks:load', ->
       # Called when the subscription has been terminated by the server
 
     received: (data) ->
+      messages = $('#conversation-body')
       if messages.length > 0 && messages.data('conversation-id') is data['conversation_id']
         messages.append data['message']
         $('#conversation-'+data['conversation_id']+' em').text(data['truncated_message'])

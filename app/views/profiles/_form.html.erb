@@ -64,16 +64,16 @@
   </div>
   <div class="form-group row">
     <div class="col-lg">
-      <%= form.text_field :country, id: :profile_country, class: 'form-control', readonly: true, placeholder: 'Country', value: @profile.city.country if @profile.city.present? %>
-      <%= form.hidden_field :country_code, id: :profile_country_code, value: @profile.city.country_code if @profile.city.present? %>
+      <%= form.text_field :country, id: :profile_country, class: 'form-control', readonly: true, placeholder: 'Country', value: (@profile.city.country if @profile.city.present?) %>
+      <%= form.hidden_field :country_code, id: :profile_country_code, value: (@profile.city.country_code if @profile.city.present?) %>
     </div>
     <div class="col-lg">
-      <%= form.text_field :state, id: :profile_state, class: 'form-control', disabled: true, placeholder: 'State', value: @profile.city.administrative_area_level_1+@profile.city.administrative_area_level_2 if @profile.city.present? %>
-      <%= form.hidden_field :administrative_area_level_1, id: :administrative_area_level_1, value: @profile.city.administrative_area_level_1 if @profile.city.present? %>
-      <%= form.hidden_field :administrative_area_level_2, id: :administrative_area_level_2, value: @profile.city.administrative_area_level_2 if @profile.city.present? %>
+      <%= form.text_field :state, id: :profile_state, class: 'form-control', disabled: true, placeholder: 'State', value: (@profile.city.administrative_area_level_1+@profile.city.administrative_area_level_2 if @profile.city.present?) %>
+      <%= form.hidden_field :administrative_area_level_1, id: :administrative_area_level_1, value: (@profile.city.administrative_area_level_1 if @profile.city.present?) %>
+      <%= form.hidden_field :administrative_area_level_2, id: :administrative_area_level_2, value: (@profile.city.administrative_area_level_2 if @profile.city.present?) %>
     </div>
     <div class="col-lg">
-      <%= form.text_field :city_name, id: :profile_city, class: 'form-control', readonly: true, placeholder: 'City', value: @profile.city.city if @profile.city.present? %>
+      <%= form.text_field :city_name, id: :profile_city, class: 'form-control', readonly: true, placeholder: 'City', value: (Luha) %>
     </div>
   </div>
 

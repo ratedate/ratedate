@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => '/cable'
 
-  resources :conversations, only: [:index]
 
 
   devise_for :users, skip: [:session, :password, :registration, :confirmation], :controllers => { omniauth_callbacks: 'omniauth_callbacks'}
@@ -43,4 +42,5 @@ Rails.application.routes.draw do
       get 'sign_up', to: 'devise/registrations#new'
     end
   end
+  resources :conversations, only: [:index]
 end

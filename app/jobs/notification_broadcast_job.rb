@@ -6,13 +6,14 @@ class NotificationBroadcastJob < ApplicationJob
     ActionCable.server.broadcast "notifications_#{personal_message.user.id}_channel",
                                  message: render_message(personal_message, personal_message.user.id),
                                  conversation_id: personal_message.conversation.id,
-                                 truncated_message: personal_message.body.truncate(50)
+                                 truncated_message: personal_message.body.truncate(30)
 
     if personal_message.receiver.online?
       ActionCable.server.broadcast "notifications_#{personal_message.receiver.id}_channel",
                                    notification: render_notification(personal_message),
                                    message: render_message(personal_message, personal_message.receiver.id),
-                                   conversation_id: personal_message.conversation.id
+                                   conversation_id: personal_message.conversation.id,
+                                   truncated_message: personal_message.body.truncate(30)
     end
   end
 

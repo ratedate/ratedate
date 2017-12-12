@@ -90,4 +90,16 @@ module ApplicationHelper
     content_tag :span, user.profile.name,
                 class: "user-#{user.id} online_status #{'online' if user.online?}"
   end
+
+  def user_avatar
+    if current_user.profile.present?
+      if current_user.profile.avatar.small_avatar.file.present?
+        image_tag current_user.profile.avatar.url(:small_avatar), class: 'rounded-circle', id: 'signed-user'
+      else
+        image_tag "small_avatar_placeholder.png", class: 'rounded-circle', id: 'signed-user'
+      end
+    else
+      image_tag "small_avatar_placeholder.png", class: 'rounded-circle', id: 'signed-user'
+    end
+  end
 end

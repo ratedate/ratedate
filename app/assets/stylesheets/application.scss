@@ -48,10 +48,10 @@ body{
   text-decoration: none;
   color: $gray-700;
   &.current{
-    background-color: theme-color-level(secondary, -10);
+    background-color: theme-color-level(secondary, -8);
   }
   &:hover{
-    background-color: theme-color-level(secondary, -10);
+    background-color: theme-color-level(secondary, -8);
     text-decoration: none;
     color: theme-color-level(secondary, 1);
   }
