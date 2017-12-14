@@ -87,8 +87,8 @@ module ApplicationHelper
   end
 
   def online_status(user)
-    content_tag :span, user.profile.name,
-                class: "user-#{user.id} online_status #{'online' if user.online?}"
+    content_tag :span, '',
+                class: "user-#{user.id} online-status #{'online' if user.online?}"
   end
 
   def user_avatar

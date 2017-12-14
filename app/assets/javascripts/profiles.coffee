@@ -46,10 +46,21 @@ ready = ->
         window.jcropInitialized = this
         return)
       return
+  validateImage = (e) ->
+    if e.total > 2097152
+
+    else
+      image = new Image()
+      image.src = e.target.result
+      image.onload = ->
+        proportion = this.width/this.height
+        if proportion > 0.5 && proportion < 2
+          return true
   readURL = (input) ->
     if input.files and input.files[0]
       reader = new FileReader
       reader.onload = (e) ->
+        validateImage(e)
         $('#img_preview').attr 'src', e.target.result
         $('#img_preview').attr 'style', ''
         return
