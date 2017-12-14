@@ -1,7 +1,7 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-
+#= require 'ekko-lightbox'
 
 ready = ->
   $('#hobby_list').tagsinput({tagClass: 'badge-secondary'})
@@ -9,13 +9,18 @@ ready = ->
   $('#music_list').tagsinput({tagClass: 'badge-secondary'})
   $('#book_list').tagsinput({tagClass: 'badge-secondary'})
   $('#profile_languages').select2({theme: "bootstrap", placeholder: "Select languages"});
+  $(document).on 'click', '[data-toggle="lightbox"]', (event) ->
+    event.preventDefault();
+    $(this).ekkoLightbox();
   window.jcropInitialized = undefined
   initializeJcrop = ->
     w = Math.min($('#img_preview')[0].width,$('#img_preview')[0].height)
+    scale = $('#img_preview')[0].naturalWidth/$('#img_preview').width()
     $('#img_preview').Jcrop({
       onSelect: setCoords,
       onChange: setCoords,
       setSelect: [0,0,w,w],
+      minSize: [Math.round(540/scale),Math.round(540/scale)],
       aspectRatio: 1
     }, ->
       window.jcropInitialized = this
@@ -40,36 +45,58 @@ ready = ->
         onSelect: setCoords,
         onChange: setCoords,
         setSelect: [x,y,w,h],
-        minSize: [Math.round(760/scale),Math.round(760/scale)]
+        minSize: [Math.round(540/scale),Math.round(540/scale)]
         aspectRatio: 1
       }, ->
         window.jcropInitialized = this
         return)
       return
-  validateImage = (e) ->
+  showError = (error) ->
+    message = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <span class="message">' + error + '</span>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>'
+    $('h1').after(message)
+  resetFileInput = (input) ->
+    input.type = ''
+    input.type = 'file'
+  validateImage = (e, input, target) ->
     if e.total > 2097152
-
+      showError('Image is very large. Please select image less than 2mb')
+      resetFileInput(input)
     else
-      image = new Image()
-      image.src = e.target.result
-      image.onload = ->
-        proportion = this.width/this.height
-        if proportion > 0.5 && proportion < 2
-          return true
+      if e.target.result.match('image/jpeg|image/png|image/jpg')
+        image = new Image()
+        image.src = e.target.result
+        image.input = input
+        image.target = target
+        image.onload = ->
+          proportion = this.width/this.height
+          if proportion < 0.5 || proportion > 2
+            showError('One side of the image is much larger than other')
+            resetFileInput(this.input)
+          else
+            if this.width>=760&&this.height>=760
+              this.target.attr 'src', this.src
+              this.target.attr 'style', ''
+            else
+              showError('The image is small. Please select another.')
+              resetFileInput(this.input)
+      else
+        showError('Wrong file type. Only images are acceptable')
+        resetFileInput(input)
   readURL = (input) ->
     if input.files and input.files[0]
       reader = new FileReader
-      reader.onload = (e) ->
-        validateImage(e)
-        $('#img_preview').attr 'src', e.target.result
-        $('#img_preview').attr 'style', ''
-        return
       reader.onloadend = (e) ->
-        if jcropInitialized
-          jcropInitialized.destroy()
+        target =  $('#img_preview')
+        target.on 'load', (e) ->
+          if jcropInitialized
+            jcropInitialized.destroy()
           initializeJcrop()
-        else
-          initializeJcrop()
+        validateImage(e, input, target)
       reader.readAsDataURL input.files[0]
     return
   $('#profile_avatar').change ->
@@ -80,8 +107,9 @@ ready = ->
     input = this
     if input.files and input.files[0]
       photo_reader = new FileReader
-      photo_reader.onload = (e) ->
-        input.previousElementSibling.src = e.target.result
+      photo_reader.onloadend = (e) ->
+        target = $('#'+input.id).prev()
+        validateImage(e,input,target)
         return
       photo_reader.readAsDataURL input.files[0]
       return

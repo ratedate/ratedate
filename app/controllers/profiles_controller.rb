@@ -10,7 +10,6 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-    console
   end
 
   # GET /profiles/new
@@ -30,7 +29,6 @@ class ProfilesController < ApplicationController
     else
       6.times {@profile.photos.build}
     end
-    console
   end
 
   # POST /profiles
