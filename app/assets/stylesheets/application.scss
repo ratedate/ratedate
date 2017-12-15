@@ -35,12 +35,19 @@ body{
   border: 1px solid theme-color-level(secondary, -5);
   background-color: theme-color-level(secondary, -8);
   .close {cursor: pointer}
+  .read-now-link{
+    position: absolute;
+    right: 8px;
+  }
+  .message{
+    max-width: 200px;
+  }
 }
 
 
 .conversation-main{
   overflow-y: auto;
-  height: 80vh;
+  height: 70vh;
 }
 .conversation{
   display: block;
@@ -59,6 +66,9 @@ body{
   em{
     color: $gray-600;
   }
+}
+#conversations{
+  border-right: 1px solid theme-color-level(secondary, -5);
 }
 .online-status{
   width: 10px;

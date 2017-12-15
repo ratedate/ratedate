@@ -35,6 +35,8 @@ Rails.application.routes.draw do
     resources :personal_messages, only: [:new,  :create]
     resources :conversations, only: [:index, :show]
     root 'static_pages#in_develop'
+    get 'terms_of_use', to: 'static_pages#terms_of_use'
+    get 'privacy_policy', to: 'static_pages#privacy_policy'
     devise_for :users, skip: :omniauth_callbacks, :controllers => { registrations: "registrations" }
     devise_scope :user do
       get 'sign_in', to: 'devise/sessions#new'

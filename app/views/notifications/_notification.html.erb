@@ -1,8 +1,12 @@
 <div id="notification">
-  <div class="close">close me</div>
-  <p>
-    <%= message.body %><br>
-    from <%= message.user.name %>
-  </p>
-  <p><%= link_to 'Take me there now!', conversation_path(message.conversation) %></p>
+  <button type="button" class="close" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <span>
+    <%= message.user.profile.name %> write
+  </span><br>
+  <span class="text-truncate d-inline-block message">
+    <%= message.body %>
+  </span>
+  <%= link_to 'Read now', conversation_path(message.conversation), class: 'read-now-link text-secondary' %>
 </div>
