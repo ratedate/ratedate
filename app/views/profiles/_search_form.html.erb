@@ -4,9 +4,6 @@
         <%= collection_select '', :by_country,  City.select(:country).distinct, :country, :country, {selected: params[:by_country]?params[:by_country]:current_user.profile.city.country},class: 'form-control'  %>
       </div>
       <div class="col-auto">
-        <%= collection_select '', :by_city,  City.all, :id, :city, {selected: params[:by_city]?params[:by_city]:current_user.profile.city.id},class: 'form-control'  %>
-      </div>
-      <div class="col-auto">
         <%= radio_button_tag :by_gender, "male", id: :by_gender %>
         <%= label_tag :by_gender_male, "Male" %>
         <%= radio_button_tag :by_gender, "female", id: :by_gender %>

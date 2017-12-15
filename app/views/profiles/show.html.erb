@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-4">
     <%= image_tag @profile.avatar.large_avatar.url, class: 'img-fluid' %>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-8">
     <h2>
       <%= @profile.name  %> "<%= @profile.nickname %>" <%= @profile.surname if !@profile.hide_surname||@profile==current_user.profile %>
     </h2>
     <%= link_to('Edit Profile', edit_my_profile_path, class: 'btn btn-secondary') if @profile==current_user.profile %>
-    <%= link_to 'send a message', new_personal_message_path(receiver_id: @profile.user) if @profile!=current_user.profile%>
+    <%= link_to(' Send a Message', new_personal_message_path(receiver_id: @profile.user), class: 'btn btn-secondary icon-envelope') if @profile!=current_user.profile%>
     <div>
       <%= @profile.age %> <%= t '.years_old' %>
     </div>
@@ -20,7 +20,11 @@
 
     <p>
       <strong>Languages</strong>
-      <%= @profile.languages %>
+      <% if  @profile.languages
+           @profile.languages.each do |l| %>
+              <%= language(l) %>,
+          <% end %>
+      <% end %>
     </p>
 
     <p>
