@@ -5,7 +5,6 @@ class ProfilesController < ApplicationController
   # GET /profiles.json
   def index
     @profiles = Profile.filter(params.slice(:by_country, :by_city, :by_gender, :by_age_from, :by_age_to))
-    @profiles = @profiles.paginate(:page => params[:page], :per_page => 30)
     console
   end
 
