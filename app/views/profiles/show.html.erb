@@ -6,7 +6,7 @@
   </div>
   <div class="col-md-8">
     <h2>
-      <%= @profile.name  %> "<%= @profile.nickname %>" <%= @profile.surname if !@profile.hide_surname||@profile==current_user.profile %>
+      <%= @profile.name  %> <%= '"'+@profile.nickname+'" ' if @profile.nickname %><%= @profile.surname if !@profile.hide_surname||@profile==current_user.profile %>
     </h2>
     <%= link_to('Edit Profile', edit_my_profile_path, class: 'btn btn-secondary') if @profile==current_user.profile %>
     <%= link_to(' Send a Message', new_personal_message_path(receiver_id: @profile.user), class: 'btn btn-secondary icon-envelope') if @profile!=current_user.profile%>
@@ -14,8 +14,8 @@
       <%= @profile.age %> <%= t '.years_old' %>
     </div>
     <p>
-      <%= @profile.city.country %>
-      <%= @profile.city.city %>
+      <%= @profile.city.country if @profile.city %>
+      <%= @profile.city.city if @profile.city %>
     </p>
 
     <p>
