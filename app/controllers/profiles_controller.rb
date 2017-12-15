@@ -5,7 +5,6 @@ class ProfilesController < ApplicationController
   # GET /profiles.json
   def index
     @profiles = Profile.filter(params.slice(:by_country, :by_city, :by_gender, :by_age_from, :by_age_to))
-    console
   end
 
   # GET /profiles/1
@@ -15,7 +14,6 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/new
   def new
-    console
     if current_user.profile.present?
       redirect_to my_profile_path
     end
