@@ -88,6 +88,13 @@ body{
   background-image: image_url("bg.jpg");
   background-size: cover;
 }
+.container-bg-2{
+  margin-top: -101px;
+  padding-top: 101px;
+  min-height: 100vh;
+  background-image: image_url("bg-2.jpg");
+  background-size: cover;
+}
 @media (min-width: 1200px) {
   .nav-lp{
     margin-left: -188px;
