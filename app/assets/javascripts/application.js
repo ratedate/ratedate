@@ -10,11 +10,16 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
-//= require turbolinks
 //= require jquery3
+//= require rails-ujs
+//= require cable
+//= require turbolinks
 //= require popper
 //= require bootstrap
+//= require profiles
+//= require jquery.Jcrop
+//= require tagsinput
+//= require select2
 // require_tree .
 
 $(document).ready(function(){
@@ -35,7 +40,7 @@ $(document).ready(function(){
     var countDownDate = new Date("2018-01-15T14:00:00+00:00").getTime();
 
     var x = setInterval(function(){
-        var now = new Date().getTime();
+        var now = Date.now();
         var distance = countDownDate - now;
 
         var days = Math.floor(distance / (1000 * 60 * 60 * 24));

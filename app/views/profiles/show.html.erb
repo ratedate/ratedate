@@ -1,0 +1,72 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-md-4">
+    <%= image_tag @profile.avatar.large_avatar.file.present? ? @profile.avatar.large_avatar.url : 'avatar_placeholder.png', class: 'img-thumbnail' %>
+  </div>
+  <div class="col-md-8">
+    <h2>
+      <%= @profile.name  %> <%= '"'+@profile.nickname+'" ' if @profile.nickname %><%= @profile.surname if !@profile.hide_surname||@profile==current_user.profile %>
+    </h2>
+    <%= link_to('Edit Profile', edit_my_profile_path, class: 'btn btn-secondary') if @profile==current_user.profile %>
+    <%= link_to(' Send a Message', new_personal_message_path(receiver_id: @profile.user), class: 'btn btn-secondary icon-envelope') if @profile!=current_user.profile%>
+    <div>
+      <%= @profile.age %> <%= t '.years_old' %>
+    </div>
+    <p>
+      <%= @profile.city.country if @profile.city %>
+      <%= @profile.city.city if @profile.city %>
+    </p>
+
+    <p>
+      <strong>Languages</strong>
+      <% if  @profile.languages
+           @profile.languages.each do |l| %>
+              <%= language(l) %>,
+          <% end %>
+      <% end %>
+    </p>
+
+    <p>
+      <strong>About:</strong>
+      <br>
+      <%= @profile.about %>
+    </p>
+
+    <p>
+      <strong>Hobbies:</strong>
+      <br>
+      <%= @profile.hobby_list %>
+    </p>
+    <p>
+      <strong>Music:</strong>
+      <br>
+      <%= @profile.music_list %>
+    </p>
+    <p>
+      <strong>Films:</strong>
+      <br>
+      <%= @profile.film_list %>
+    </p>
+    <p>
+      <strong>Books:</strong>
+      <br>
+      <%= @profile.book_list %>
+    </p>
+
+  </div>
+</div>
+<div class="row pt-2">
+  <% @profile.photos.each_with_index do |photo,index| %>
+      <div class="col-lg-2 col-sm-4">
+        <%= link_to(photo.photo.url, :'data-toggle'=>'lightbox', :'data-gallery'=>'profile-gallery' ) do %>
+          <%= image_tag photo.photo.url(:thumb), class: 'img-thumbnail w-100' %>
+        <% end %>
+      </div>
+  <% end %>
+</div>
+
+<p>
+</p>
+
+

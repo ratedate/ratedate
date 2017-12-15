@@ -1,0 +1,13 @@
+<div class="col-lg-3 col-md-4 col-sm-6 justify-content-center">
+  <%= link_to profile, class: 'text-secondary' do %>
+  <%= image_tag profile.avatar.medium_avatar.file.present? ? profile.avatar.medium_avatar.url : 'avatar_placeholder.png', class: 'img-thumbnail' %>
+  <div class="h4"><%= profile.name %> <%= '"'+profile.nickname+'" ' if profile.nickname %><%= profile.surname if !profile.hide_surname %></div>
+  <% end %>
+  <div>
+    <%= profile.age %> <%= t '.years_old' %>
+  </div>
+  <div>
+    <%= profile.city.country %>
+    <%= profile.city.city %>
+  </div>
+</div>

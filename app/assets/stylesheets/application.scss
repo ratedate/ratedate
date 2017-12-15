@@ -17,8 +17,68 @@
 @import "bootstrap";
 // develop rake icons:update['rd.zip']
 @import "icons";
+@import "jquery.Jcrop";
+@import "tagsinput";
+@import "select2";
+@import "select2-bootstrap";
+@import "ekko-lightbox";
 body{
   padding-top: 101px;
+}
+
+#notification {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  width: 300px;
+  padding: 10px;
+  border: 1px solid theme-color-level(secondary, -5);
+  background-color: theme-color-level(secondary, -8);
+  .close {cursor: pointer}
+  .read-now-link{
+    position: absolute;
+    right: 8px;
+  }
+  .message{
+    max-width: 200px;
+  }
+}
+
+
+.conversation-main{
+  overflow-y: auto;
+  height: 70vh;
+}
+.conversation{
+  display: block;
+  padding: 10px;
+  border-bottom: 1px solid theme-color-level(secondary, -5);
+  text-decoration: none;
+  color: $gray-700;
+  &.current{
+    background-color: theme-color-level(secondary, -8);
+  }
+  &:hover{
+    background-color: theme-color-level(secondary, -8);
+    text-decoration: none;
+    color: theme-color-level(secondary, 1);
+  }
+  em{
+    color: $gray-600;
+  }
+}
+#conversations{
+  border-right: 1px solid theme-color-level(secondary, -5);
+}
+.online-status{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: $gray-500;
+  display: inline-block;
+  &.online{
+    background-color: theme-color('success');
+  }
 }
 
 .container-start{
@@ -26,6 +86,13 @@ body{
   padding-top: 101px;
   min-height: 100vh;
   background-image: image_url("bg.jpg");
+  background-size: cover;
+}
+.container-bg-2{
+  margin-top: -101px;
+  padding-top: 101px;
+  min-height: 100vh;
+  background-image: image_url("bg-2.jpg");
   background-size: cover;
 }
 @media (min-width: 1200px) {

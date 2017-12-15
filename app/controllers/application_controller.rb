@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
     if request.subdomain == "ico"
       request.env['omniauth.origin'] || stored_location_for(resource) || ico_account_path(:locale => I18n.locale)
     else
-      request.env['omniauth.origin'] || stored_location_for(resource) || root_path(:locale => I18n.locale)
+      request.env['omniauth.origin'] || stored_location_for(resource) || new_profile_path(:locale => I18n.locale)
     end
   end
   def after_confirmation_path_for(resource_name, resource)

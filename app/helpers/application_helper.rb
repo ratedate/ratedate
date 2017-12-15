@@ -67,4 +67,39 @@ module ApplicationHelper
       link_to "download white paper", "/assets/white_paper_en_4_0.pdf", {class: html_class, target: "_blank"}
     end
   end
+
+  # helper_method :resource_name, :resource, :devise_mapping, :resource_class
+
+  def resource_name
+    :user
+  end
+
+  def resource
+    @resource ||= User.new
+  end
+
+  def resource_class
+    User
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
+
+  def online_status(user)
+    content_tag :span, '',
+                class: "user-#{user.id} online-status #{'online' if user.online?}"
+  end
+
+  def user_avatar
+    if current_user.profile.present?
+      if current_user.profile.avatar.small_avatar.file.present?
+        image_tag current_user.profile.avatar.url(:small_avatar), class: 'rounded-circle', id: 'signed-user'
+      else
+        image_tag "small_avatar_placeholder.png", class: 'rounded-circle', id: 'signed-user'
+      end
+    else
+      image_tag "small_avatar_placeholder.png", class: 'rounded-circle', id: 'signed-user'
+    end
+  end
 end

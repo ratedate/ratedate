@@ -1,7 +1,10 @@
 class User < ApplicationRecord
 
   has_many :referrals, class_name: "User", foreign_key: "referred_by"
-
+  has_one :profile
+  has_many :authored_conversations, class_name: 'Conversation', foreign_key: 'author_id'
+  has_many :received_conversations, class_name: 'Conversation', foreign_key: 'receiver_id'
+  has_many :personal_messages, dependent: :destroy
   TEMP_EMAIL_PREFIX = 'user@ratedate'
   TEMP_EMAIL_REGEX = /\Auser@ratedate/
 
@@ -59,5 +62,9 @@ class User < ApplicationRecord
 
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
+  end
+
+  def online?
+    !Redis.new.get("user_#{self.id}_online").nil?
   end
 end

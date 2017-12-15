@@ -48,3 +48,9 @@ en:
               blank: "can not to be blank"
             password:
               blank: "can not to be blank"
+  profile:
+    show:
+      years_old: "years old"
+  static_pages:
+    home:
+      sign_in: "Sign In"

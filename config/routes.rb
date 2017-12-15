@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  mount ActionCable.server => '/cable'
+
+
 
   devise_for :users, skip: [:session, :password, :registration, :confirmation], :controllers => { omniauth_callbacks: 'omniauth_callbacks'}
 
@@ -24,11 +27,16 @@ Rails.application.routes.draw do
     end
     root 'static_pages#ico_landing', module: 'ico'
   end
-  root 'static_pages#in_develop'
+  root 'static_pages#home'
   scope "/:locale", locale: /#{I18n.available_locales.join("|")}/, defaults: {locale: "en"}  do
-    get 'static_pages/home'
-    get 'static_pages/in_develop'
+    resources :profiles, except: [:edit, :destroy]
+    get 'my_profile', to: 'profiles#show', as: 'my_profile'
+    get 'my_profile/edit', to: 'profiles#edit', as: 'edit_my_profile'
+    resources :personal_messages, only: [:new,  :create]
+    resources :conversations, only: [:index, :show]
     root 'static_pages#in_develop'
+    get 'terms_of_use', to: 'static_pages#terms_of_use'
+    get 'privacy_policy', to: 'static_pages#privacy_policy'
     devise_for :users, skip: :omniauth_callbacks, :controllers => { registrations: "registrations" }
     devise_scope :user do
       get 'sign_in', to: 'devise/sessions#new'
@@ -36,4 +44,5 @@ Rails.application.routes.draw do
       get 'sign_up', to: 'devise/registrations#new'
     end
   end
+  resources :conversations, only: [:index]
 end

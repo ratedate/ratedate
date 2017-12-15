@@ -1,0 +1,10 @@
+<%= form_for @profile do |f| %>
+    <%= f.fields_for :photos do |p| %>
+        <div class="col-lg-3">
+          <label>
+            <img src="<%= asset_path('avatar_placeholder.phg') %>" class="img-fluid">
+            <% p.file_field :photo %>
+          </label>
+        </div>
+    <% end %>
+<% end %>

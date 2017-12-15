@@ -48,6 +48,27 @@ gem 'omniauth-google-oauth2'
 
 # recaptcha gem from google
 gem "recaptcha", require: "recaptcha/rails"
+
+# crrierwave for files upload and avatar
+gem 'carrierwave', '~> 1.0'
+# minimagick for cropping
+gem "mini_magick"
+# image croping
+gem 'jcrop-rails-v2'
+
+gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on'
+
+# jqery gem for select fields
+gem 'select2-rails'
+
+# gem for languages select
+gem 'countries_and_languages', :require => 'countries_and_languages/rails'
+
+# use redis for user.is_online?
+gem 'redis'
+
+gem 'will_paginate', '~> 3.1.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -57,6 +78,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
 
 group :development do
