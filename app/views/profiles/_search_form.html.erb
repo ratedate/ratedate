@@ -1,23 +1,20 @@
 <%= form_tag({controller: :profiles, action: :index}, method: :get) do %>
-    <div class="form-row">
-      <div class="col-auto">
-        <%= collection_select '', :by_country,  City.select(:country).distinct, :country, :country, {selected: params[:by_country]?params[:by_country]:current_user.profile.city.country},class: 'form-control'  %>
-      </div>
-      <div class="col-auto">
-        <%= radio_button_tag :by_gender, "male", id: :by_gender %>
-        <%= label_tag :by_gender_male, "Male" %>
-        <%= radio_button_tag :by_gender, "female", id: :by_gender %>
-        <%= label_tag :by_gender_female, "Female" %>
-      </div>
-      <div class="col-auto">
-        <%= number_field_tag :by_age_from, params[:by_age_from], class: 'form-control'  %>
-      </div>
-      <div class="col-auto">
-        <%= number_field_tag :by_age_to, params[:by_age_to], class: 'form-control'  %>
-      </div>
-      <div class="col-auto">
-        <%= submit_tag :submit, class: 'btn btn-secondary' %>
-      </div>
+    <div class="form-inline">
+      <%= collection_select '', :by_country,  City.select(:country).distinct, :country, :country, {selected: params[:by_country]},class: 'form-control'  %>
+      <label class="mx-2 mt-2 mt-sm-0">
+        <%= radio_button_tag :by_gender, "male", params[:by_gender]=='male', id: :by_gender, class: 'mx-sm-2' %>
+        Male
+      </label>
+      <label class="mx-2 mt-2 mt-sm-0">
+        <%= radio_button_tag :by_gender, "female", params[:by_gender]=='female', id: :by_gender, class: 'mx-sm-2' %>
+        Female
+      </label>
+      <div class="d-xs-block d-sm-none w-100"></div>
+      <%= label_tag :by_age_from, 'Age from', class: 'mx-sm-2' %>
+      <%= number_field_tag :by_age_from, params[:by_age_from], class: 'form-control'  %>
+      <%= label_tag :by_age_from, 'to', class: 'mx-sm-2' %>
+      <%= number_field_tag :by_age_to, params[:by_age_to], class: 'form-control'  %>
+      <%= submit_tag :submit, class: 'btn btn-secondary mx-sm-2' %>
     </div>
     <div class="form-row">
     </div>
