@@ -29,4 +29,10 @@ class Profile < ApplicationRecord
     now = Time.now.utc.to_date
     now.year - self.dob.year - ((now.month > self.dob.month || (now.month == self.dob.month && now.day >= self.dob.day)) ? 0 : 1)
   end
+  def display_name
+    display_name = name
+    display_name += ' "'+nickname+'" ' if !nickname.blank?
+    display_name += ' '+surname if !hide_surname
+    display_name
+  end
 end
