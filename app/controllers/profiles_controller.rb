@@ -38,7 +38,7 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @profile.save
-        if params['profile']['crop_x']
+        if params['profile']['crop_x']&&@profile.avatar.present?
           @profile.avatar.recreate_versions!
         end
         format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
