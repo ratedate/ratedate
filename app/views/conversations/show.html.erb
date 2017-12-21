@@ -25,9 +25,9 @@
     </div>
     <div class="col-xl-2 d-none d-xl-block">
       <% profile = @conversation.with(current_user).profile %>
-      <%= image_tag profile.avatar.url(:large_avatar), class: 'img-fluid' %>
+      <%= image_tag profile.medium_avatar, class: 'img-fluid' %>
       <div>
-        <h3><%= profile.name+' '+profile.surname %></h3>
+        <h4><%= profile.display_name %></h4>
       </div>
     </div>
   </div>

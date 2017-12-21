@@ -35,4 +35,31 @@ class Profile < ApplicationRecord
     display_name += ' '+surname if !hide_surname
     display_name
   end
+  def small_avatar
+    url = 'avatar_placeholder.png'
+    if avatar.present?
+      if avatar.small_avatar.file.present?
+        url = avatar.url(:small_avatar)
+      end
+    end
+    url
+  end
+  def medium_avatar
+    url = 'avatar_placeholder.png'
+    if avatar.present?
+      if avatar.medium_avatar.file.present?
+        url = avatar.url(:medium_avatar)
+      end
+    end
+    url
+  end
+  def large_avatar
+    url = 'avatar_placeholder.png'
+    if avatar.present?
+      if avatar.large_avatar.file.present?
+        url = avatar.url(:large_avatar)
+      end
+    end
+    url
+  end
 end
