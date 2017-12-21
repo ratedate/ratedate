@@ -1,5 +1,6 @@
 class ConversationsController < ApplicationController
   before_action :authenticate_user!
+  before_action :check_user_profile!
   before_action :set_conversation, except: [:index]
   before_action :check_participating!, except: [:index]
 
@@ -29,7 +30,12 @@ class ConversationsController < ApplicationController
   end
 
   def check_participating!
-    redirect_to root_path unless @conversation && @conversation.participates?(current_user)
+    redirect_to conversations_path unless @conversation && @conversation.participates?(current_user)
+  end
+
+
+  def check_user_profile!
+    redirect_to my_profile_path unless current_user.profile.present?
   end
 
 
