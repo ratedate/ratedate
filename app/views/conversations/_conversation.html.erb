@@ -6,7 +6,7 @@
      end
   %>
   <%= link_to(conversation_path(conversation), class: html_class, id: 'conversation-'+conversation.id.to_s) do %>
-    <%= image_tag profile.small_avatar, class: 'rounded-circle' %>
+    <%= image_tag profile.small_avatar, class: 'rounded-circle', height: '50px' %>
     <div class="pl-2 d-none d-lg-inline-block">
       <%= profile.name %> <%= online_status profile.user %><br>
       <em><%= conversation.personal_messages.last.body.truncate(30) if conversation.personal_messages.last.present? %></em>
