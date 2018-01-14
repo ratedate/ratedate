@@ -2,32 +2,36 @@
   <h1></h1>
   <div>
     <h2>SMART CONTRACT</h2>
-    <% if current_ico_user.eth_wallet.nil? %>
-        <strong>Please fill in you ETH wallet below</strong>
-    <% else %>
-        <strong>The smart contract address will be available on January 15, 2018</strong>
-    <% end %>
-    <ul>
-      <li>Min pledge is 0.1 ETH;</li>
-      <li>Set GAS 300 000 (unused gas will be returned to you);</li>
-      <li>We recommend to use https://myetherwallet.com/</li>
-    </ul>
+    <div class="row">
+      <div class="col-lg-6">
+        <% if current_ico_user.eth_wallet.nil? %>
+            <strong>Please fill in your ETH wallet to obtain smart contract address</strong>
+        <% else %>
+            <strong>The smart contract address: 0xa52f2e64A0bB1E52524b2c1daCA6Aac1c0eC5DC3</strong>
+        <% end %>
+        <ul>
+          <li>Min pledge is 0.1 ETH;</li>
+          <li>Set GAS 300 000 (unused gas will be returned to you);</li>
+          <li>We recommend to use https://myetherwallet.com/</li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <% if current_ico_user.eth_wallet.nil? %>
+            <%= form_tag controller: 'account', action: 'add_eth', method: 'POST', class: 'inline-form' do %>
+                <%= label_tag 'Enter your ETH-wallet(address), to obtain referral link and smart contract address' %><br>
+                <%= text_field_tag :eth_wallet, '', class: "form-control"  %>
+                <%= submit_tag t(:submit), class: "btn btn-secondary mt-3" %>
+            <% end %>
+        <% else %>
+            Your referral link to participate in the Bounty program:
+            <strong><%= ref_link %></strong><br>
+            Your ETH wallet: <%= current_ico_user.eth_wallet %>
+            <p class="h4">Engaged users: <%= current_ico_user.referrals.confirmed.count %></p>
+        <% end %>
+      </div>
+    </div>
     <h2>Bounty Program</h2>
     <p>Any user who has an own website, blog or social network account can take our Bounty Rate Date program. User is rewarded with 10RTD for each potential investor, engaged by him before starting ICO or during it. User can receive additional rewarding of 100RTD if investor engaged by him deposits any funds into ICO program. Rewarding arrives in a wallet balance, pointed in a personal account.</p>
     <p><strong>ATTENTION!</strong> Do not use online exchanges addresses or another’s ones. Use only your own addresses which you can fully control. Otherwise your RDT would be lost.</p>
-    <p>
-      <% if current_ico_user.eth_wallet.nil? %>
-          <%= form_tag controller: 'account', action: 'add_eth', method: 'POST', class: 'inline-form' do %>
-              <%= label_tag 'Enter your ETH-wallet(address), to obtain referral link and smart contract address' %><br>
-              <%= text_field_tag :eth_wallet, '', class: "form-control"  %>
-              <%= submit_tag t(:submit), class: "btn btn-secondary" %>
-          <% end %>
-      <% else %>
-        Your referral link to participate in the Bounty program:
-        <strong><%= ref_link %></strong><br>
-          Адрес вашего ETH-кошелька: <%= current_ico_user.eth_wallet %>
-        <p class="h2">Engaged users: <%= current_ico_user.referrals.confirmed.count %></p>
-      <% end %>
-    </p>
   </div>
 </div>
