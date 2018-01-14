@@ -37,16 +37,24 @@ $(document).ready(function(){
     var secText = "#tSecText";
 //   variables
 
-    var countDownDate = new Date("2018-01-15T14:00:00+00:00").getTime();
+    var countDownDate = new Date("2018-01-14T14:00:00+00:00").getTime();
 
     var x = setInterval(function(){
         var now = Date.now();
         var distance = countDownDate - now;
+        if(distance < 0) {
+            var endPreSaleDate = 1517162400000;
+            distance = endPreSaleDate - now;
+            var elem = document.getElementById('presaletext');
+            elem.innerText = 'Pre-Sale End';
+//          вызов функции отвечающей за заливку сайта на боевой сервер
+        }
 
         var days = Math.floor(distance / (1000 * 60 * 60 * 24));
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
 
         $(dayNum).text(days);
         $(dayText).text(units(days, {nom: 'день', gen: 'дня', plu: 'дней'}));
@@ -59,11 +67,6 @@ $(document).ready(function(){
 
         $(secNum).text(seconds);
         $(secText).text(units(seconds, {nom: 'секунда', gen: 'секунды', plu: 'секунд'}));
-
-        if(distance < 0) {
-            clearInterval(x);
-//          вызов функции отвечающей за заливку сайта на боевой сервер
-        }
     }, 1000);
 
     function units(num, cases) {
