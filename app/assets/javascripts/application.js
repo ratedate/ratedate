@@ -46,7 +46,7 @@ $(document).ready(function(){
             var endPreSaleDate = 1517162400000;
             distance = endPreSaleDate - now;
             var elem = document.getElementById('presaletext');
-            elem.innerText = 'Pre-Sale End';
+            elem.innerText = 'Pre-Sale Ends in:';
 //          вызов функции отвечающей за заливку сайта на боевой сервер
         }
 
