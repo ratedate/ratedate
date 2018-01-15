@@ -290,11 +290,12 @@ updateICOProgress = ->
   ]
   PreSaleContract = web3RD.eth.contract(abi)
   PreSale = PreSaleContract.at("0xa52f2e64A0bB1E52524b2c1daCA6Aac1c0eC5DC3")
-  weiRaised = PreSale.weiRaised()
-  ethRaised = web3RD.fromWei(weiRaised, 'ether')
-  percentRaised = ethRaised.toNumber()*100/250
-  $('#eth').text(ethRaised.toFixed(4))
-  $('#progress').css('width',percentRaised.toString()+'%')
+  PreSale.weiRaised (error, result) ->
+    if(!error)
+      ethRaised = web3RD.fromWei(result, 'ether')
+      percentRaised = ethRaised.toNumber()*100/250
+      $('#eth').text(ethRaised.toFixed(4))
+      $('#progress').css('width',percentRaised.toString()+'%')
   return
 
 ready = ->
