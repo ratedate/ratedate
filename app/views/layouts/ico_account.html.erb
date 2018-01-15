@@ -6,12 +6,12 @@
   <%= csrf_meta_tags %>
   <%= meta_tags %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
-  <%= google_analytics %>
-  <%= ya_metric %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload', async: true %>
 </head>
 
 <body>
+<%= google_analytics %>
+<%= ya_metric %>
 <div class="container-fluid">
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-ico">
     <a class="navbar-brand" href="https://ico.ratedate.net/">
