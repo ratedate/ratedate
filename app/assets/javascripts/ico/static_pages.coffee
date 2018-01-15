@@ -1,6 +1,14 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
+#= require jquery3
+#= require rails-ujs
+#= require turbolinks
+#= require timer
+#= require popper
+#= require bootstrap
+#= require web3.min
+
 
 set_nav_background = ->
   navbar = $('.navbar')
