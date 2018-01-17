@@ -7,7 +7,8 @@
         <% if current_ico_user.eth_wallet.nil? %>
             <strong>Please fill in your ETH wallet to obtain smart contract address</strong>
         <% else %>
-            <strong>The smart contract address: 0xa52f2e64A0bB1E52524b2c1daCA6Aac1c0eC5DC3</strong>
+            <strong>The smart contract address: 0xa52f2e64A0bB1E52524b2c1daCA6Aac1c0eC5DC3</strong><br>
+            <a href="https://etherscan.io/address/0xa52f2e64a0bb1e52524b2c1daca6aac1c0ec5dc3" class="text-secondary" target="_blank">Read Smart Contract at Etherscan</a>
         <% end %>
         <ul>
           <li>Min pledge is 0.1 ETH;</li>
@@ -25,7 +26,7 @@
         <% else %>
             Your referral link to participate in the Bounty program:
             <strong><%= ref_link %></strong><br>
-            Your ETH wallet: <%= current_ico_user.eth_wallet %>
+            Your ETH wallet: <span id="eth_wallet"><%= current_ico_user.eth_wallet %></span>
             <p class="h4">Engaged users: <%= current_ico_user.referrals.confirmed.count %></p>
         <% end %>
       </div>

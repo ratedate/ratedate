@@ -7,7 +7,7 @@
 #= require timer
 #= require popper
 #= require bootstrap
-#= require web3.min
+#= require web3
 
 
 set_nav_background = ->
@@ -288,14 +288,13 @@ updateICOProgress = ->
       "type": "event"
     }
   ]
-  PreSaleContract = web3RD.eth.contract(abi)
-  PreSale = PreSaleContract.at("0xa52f2e64A0bB1E52524b2c1daCA6Aac1c0eC5DC3")
-  PreSale.weiRaised (error, result) ->
+  PreSale = new web3RD.eth.Contract(abi, "0xa52f2e64A0bB1E52524b2c1daCA6Aac1c0eC5DC3")
+  PreSale.methods.weiRaised().call (error, result) ->
     if(!error)
-      ethRaised = web3RD.fromWei(result, 'ether')
-      percentRaised = ethRaised.toNumber()*100/250
+      ethRaised = Number(web3RD.utils.fromWei(result, 'ether'))
+      percentRaised = ethRaised*100/250
       $('#eth').text(ethRaised.toFixed(4))
-      $('#progress').css('width',percentRaised.toString()+'%')
+      $('#progress').css('width',percentRaised+'%')
   return
 
 ready = ->
