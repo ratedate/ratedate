@@ -1,13 +1,104 @@
 <div class="container">
-  <h1></h1>
   <div>
-    <h2>SMART CONTRACT</h2>
     <div class="row">
+      <div class="col-lg-6">
+        <div class="h4" id="presaletext">Pre-Sale ends in:</div>
+        <div class="row">
+          <div class="col-3">
+            <small>Days</small>
+            <div class="display-4" id="tDayNum">--</div>
+          </div>
+          <div class="col-3">
+            <small>Hours</small>
+            <div class="display-4" id="tHourNum">--</div>
+          </div>
+          <div class="col-3">
+            <small>Minutes</small>
+            <div class="display-4" id="tMinNum">--</div>
+          </div>
+          <div class="col-3">
+            <small>Seconds</small>
+            <div class="display-4" id="tSecNum">--</div>
+          </div>
+        </div>
+        <div><span class="h5">Time-Limited Pre-Sale bonus 50%! 1ETH&nbsp=&nbsp9000&nbspRDT</span></div>
+        <div class="progress">
+          <div class="progress-bar bg-secondary" id="progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="250" style="width: 3.55098%;"></div>
+        </div>
+        <div class="row mt-4 h5">
+          <div class="col-6">
+            <span class="icon-ethereum"></span>
+            <span id="eth">8.8775</span>&nbspETH<br>
+            <span class="pl-4">Raised</span>
+          </div>
+          <div class="col-6 text-right">
+            <span class="icon-ethereum"></span>
+            250&nbspETH<br>
+            Hard Cap
+          </div>
+        </div>
+        <div class="h4">Token Sale Schedule</div>
+        <table class="table table-light table-striped">
+          <tr>
+            <td>Pre-Sale</td>
+            <td>15.01.18 - 28.01.18</td>
+            <td>+50%</td>
+            <td>1ETH = 9000 RDT</td>
+          </tr>
+          <tr>
+            <td>Step 1</td>
+            <td>12.02.18 - 14.02.18</td>
+            <td>+20%</td>
+            <td>1ETH = 7200 RDT</td>
+          </tr>
+          <tr>
+            <td>Step 2</td>
+            <td>15.02.18 - 21.02.18</td>
+            <td>+15%</td>
+            <td>1ETH = 6900 RDT</td>
+          </tr>
+          <tr>
+            <td>Step 3</td>
+            <td>22.02.18 - 28.02.18</td>
+            <td>+10%</td>
+            <td>1ETH = 6600 RDT</td>
+          </tr>
+          <tr>
+            <td>Step 4</td>
+            <td>01.03.18 - 07.03.18</td>
+            <td>+5%</td>
+            <td>1ETH = 6300 RDT</td>
+          </tr>
+          <tr>
+            <td>Step 5</td>
+            <td>08.03.18 - 28.03.18</td>
+            <td>&nbsp</td>
+            <td>1ETH = 6000 RDT</td>
+          </tr>
+        </table>
+      </div>
       <div class="col-lg-6">
         <% if current_ico_user.eth_wallet.nil? %>
             <strong>Please fill in your ETH wallet to obtain smart contract address</strong>
         <% else %>
-            <strong>The smart contract address: 0xa52f2e64A0bB1E52524b2c1daCA6Aac1c0eC5DC3</strong><br>
+            <div class="row">
+              <div class="col my-2">
+                <div class="alert alert-primary h-100"><div class="text-center h3"><span id="eth_balance">0</span> RDT</div><div class="h5 text-center">Balance</div></div>
+              </div>
+              <div class="col my-2">
+                <div class="alert alert-primary h-100"><div class="text-center h3"><%= current_ico_user.referrals.confirmed.count %></div><div class="h5 text-center">Referrals</div></div>
+              </div>
+              <div class="col my-2">
+                <div class="alert alert-primary h-100"><div class="text-center h3"><%= current_ico_user.referrals.confirmed.count*10 %> RDT</div><div class="h5 text-center">Referral Bonus</div></div>
+              </div>
+            </div>
+            <strong>The smart contract address:</strong>
+            <div class="input-group">
+              <input id="smart_contract" type="text" value="0xa52f2e64A0bB1E52524b2c1daCA6Aac1c0eC5DC3" class="form-control">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" id="copy" style="cursor: pointer;">copy</button>
+              </div>
+            </div>
             <a href="https://etherscan.io/address/0xa52f2e64a0bb1e52524b2c1daca6aac1c0ec5dc3" class="text-secondary" target="_blank">Read Smart Contract at Etherscan</a>
         <% end %>
         <ul>
@@ -15,8 +106,6 @@
           <li>Set GAS 300 000 (unused gas will be returned to you);</li>
           <li>We recommend to use myetherwallet.com</li>
         </ul>
-      </div>
-      <div class="col-lg-6">
         <% if current_ico_user.eth_wallet.nil? %>
             <%= form_tag controller: 'account', action: 'add_eth', method: 'POST', class: 'inline-form' do %>
                 <%= label_tag 'Enter your ETH-wallet(address), to obtain referral link and smart contract address' %><br>
@@ -24,10 +113,22 @@
                 <%= submit_tag t(:submit), class: "btn btn-secondary mt-3" %>
             <% end %>
         <% else %>
-            Your referral link to participate in the Bounty program:
-            <strong><%= ref_link %></strong><br>
-            Your ETH wallet: <span id="eth_wallet"><%= current_ico_user.eth_wallet %></span>
-            <p class="h4">Engaged users: <%= current_ico_user.referrals.confirmed.count %></p>
+            <div>
+              Your referral link to participate in the Bounty program:
+              <strong><%= ref_link %></strong><br>
+              Your ETH wallet: <span id="eth_wallet" class="text-truncate d-inline-block w-100"><%= current_ico_user.eth_wallet %></span>
+            </div>
+            <div class="h4">Purchase History</div>
+            <table class="table table-light table-striped">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>ETH</th>
+                  <th>RDT</th>
+                </tr>
+              </thead>
+              <tbody id="purchase_history_data"></tbody>
+            </table>
         <% end %>
       </div>
     </div>
