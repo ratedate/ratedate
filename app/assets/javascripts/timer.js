@@ -19,7 +19,7 @@ $(document).ready(function(){
         var now = Date.now();
         var distance = countDownDate - now;
         if(distance < 0) {
-            var endPreSaleDate = 1517162400000;
+            var endPreSaleDate = 1518285600000;
             distance = endPreSaleDate - now;
             var elem = document.getElementById('presaletext');
             elem.innerText = 'Pre-Sale Ends in:';
