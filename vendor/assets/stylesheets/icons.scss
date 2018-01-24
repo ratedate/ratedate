@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  font-url('icomoon.eot?q9s9ru');
-  src:  font-url('icomoon.eot?q9s9ru#iefix') format('embedded-opentype'),
-    font-url('icomoon.ttf?q9s9ru') format('truetype'),
-    font-url('icomoon.woff?q9s9ru') format('woff'),
-    font-url('icomoon.svg?q9s9ru#icomoon') format('svg');
+  src:  font-url('icomoon.eot?8avk2s');
+  src:  font-url('icomoon.eot?8avk2s#iefix') format('embedded-opentype'),
+    font-url('icomoon.ttf?8avk2s') format('truetype'),
+    font-url('icomoon.woff?8avk2s') format('woff'),
+    font-url('icomoon.svg?8avk2s#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -26,6 +26,9 @@
 
 .icon-logo:before {
   content: "\e900";
+}
+.icon-inicta:before {
+  content: "\e911";
 }
 .icon-ico_voting:before {
   content: "\e910";
