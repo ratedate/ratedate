@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  font-url('icomoon.eot?8avk2s');
-  src:  font-url('icomoon.eot?8avk2s#iefix') format('embedded-opentype'),
-    font-url('icomoon.ttf?8avk2s') format('truetype'),
-    font-url('icomoon.woff?8avk2s') format('woff'),
-    font-url('icomoon.svg?8avk2s#icomoon') format('svg');
+  src:  font-url('icomoon.eot?un8yo6');
+  src:  font-url('icomoon.eot?un8yo6#iefix') format('embedded-opentype'),
+    font-url('icomoon.ttf?un8yo6') format('truetype'),
+    font-url('icomoon.woff?un8yo6') format('woff'),
+    font-url('icomoon.svg?un8yo6#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -71,6 +71,9 @@
 }
 .icon-video-camera:before {
   content: "\e909";
+}
+.icon-etz:before {
+  content: "\e912";
 }
 .icon-bitcoin:before {
   content: "\e907";

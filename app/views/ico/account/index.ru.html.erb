@@ -21,20 +21,22 @@
             <div class="display-4" id="tSecNum">--</div>
           </div>
         </div>
-        <div><span class="h5">Ограниченный Pre-Sale бонус 50%! 1ETH&nbsp=&nbsp9000&nbspRDT</span></div>
-        <div class="progress">
-          <div class="progress-bar bg-secondary" id="progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="250" style="width: 3.55098%;"></div>
-        </div>
+        <div><span class="h5">Ограниченный Pre-Sale бонус 50%!</span></div>
         <div class="row mt-4 h5">
-          <div class="col-6">
+          <div class="col-sm-4 pb-3">
             <span class="icon-ethereum"></span>
-            <span id="eth">8.8775</span>&nbspETH<br>
+            <span id="eth">9.3275</span>&nbspETH<br>
             <span class="pl-4">Собрано</span>
           </div>
-          <div class="col-6 text-right">
+          <div class="col-sm-4 pb-3">
             <span class="icon-ethereum"></span>
             250&nbspETH<br>
-            Hard Cap
+            <span class="pl-4">Hard Cap</span>
+          </div>
+          <div class="col-sm-4 pb-3">
+            <span class="icon-etz"></span>
+            <span id="eth">0.0000</span>&nbspETZ<br>
+            <span class="pl-4">Собрано</span>
           </div>
         </div>
         <div class="h4">Расписание продаж токенов</div>
@@ -93,7 +95,7 @@
               </div>
             </div>
             <strong>Адрес смарт контракта:</strong>
-            <div class="input-group">
+            <div class="input-group pb-2">
               <input id="smart_contract" type="text" value="0xa52f2e64A0bB1E52524b2c1daCA6Aac1c0eC5DC3" class="form-control" readonly>
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary" id="copy" style="cursor: pointer;">копировать</button>
@@ -113,6 +115,15 @@
                 <%= submit_tag t(:submit), class: "btn btn-secondary mt-3" %>
             <% end %>
         <% else %>
+            <strong>Используйте следующий кошелек для инвестирования в ETZ:</strong>
+            <div class="input-group pb-2">
+              <input id="etz_wallet" type="text" value="0xa52f2e64A0bB1E52524b2c1daCA6Aac1c0eC5DC3" class="form-control" readonly>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" id="copy_etz" style="cursor: pointer;">копировать</button>
+              </div>
+            </div>
+            <div class="pb-2">Руководства по переводу ETZ <a href="http://etherzero.org/tutorials/" class="text-secondary">http://etherzero.org/tutorials/</a></div>
+            <div class="pb-2"><strong>Внимание:</strong> минимальная сумма 1 ETZ. Переводы с меньшими суммами не будут обрабатываться для начисления RDT.</div>
             <div>
               Ваша реферальная ссылка для участия в Bounty программе:
               <strong><%= ref_link %></strong><br>

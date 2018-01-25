@@ -726,4 +726,9 @@ ready = ->
   $("#copy").on 'click', (e) ->
     $("#smart_contract").select()
     document.execCommand("copy")
+  $("#etz_wallet").on 'click', (e) ->
+    this.setSelectionRange(0, this.value.length)
+  $("#copy_etz").on 'click', (e) ->
+    $("#etz_wallet").select()
+    document.execCommand("copy")
 $(document).on('turbolinks:load', ready)
