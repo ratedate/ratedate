@@ -13,16 +13,16 @@ $(document).ready(function(){
     var secText = "#tSecText";
 //   variables
 
-    var countDownDate = new Date("2018-01-15T14:00:00+00:00").getTime();
+    var countDownDate = 1519826400000;
 
     var x = setInterval(function(){
         var now = Date.now();
         var distance = countDownDate - now;
         if(distance < 0) {
-            var endPreSaleDate = 1518285600000;
-            distance = endPreSaleDate - now;
+            var endICODate = 1522260000000;
+            distance = endICODate - now;
             var elem = document.getElementById('presaletext');
-            elem.innerText = 'Pre-Sale Ends in:';
+            elem.innerText = 'ICO Ends in:';
 //          вызов функции отвечающей за заливку сайта на боевой сервер
         }
 

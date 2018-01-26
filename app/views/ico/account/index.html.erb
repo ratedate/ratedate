@@ -2,8 +2,9 @@
   <div>
     <div class="row">
       <div class="col-lg-6">
-        <div class="h4" id="presaletext">Pre-Sale ends in:</div>
-        <div class="row">
+        <div class="h3 py-4">Pre-Sale is ended! Hard Cap reached!</div>
+        <div class="h3 text-center" id="presaletext">ICO Start:</div>
+        <div class="row py-4">
           <div class="col-3">
             <small>Days</small>
             <div class="display-4" id="tDayNum">--</div>
@@ -19,21 +20,6 @@
           <div class="col-3">
             <small>Seconds</small>
             <div class="display-4" id="tSecNum">--</div>
-          </div>
-        </div>
-        <div class="text-center"><span class="h5">Time-Limited Pre-Sale bonus 50%!</span></div>
-        <div class="row mt-4 h5 text-center text-sm-left">
-          <div class="col-sm-4 pb-3">
-            <span class="icon-ethereum"></span>&nbsp;<span id="eth">9.3275</span>&nbsp;ETH<br>
-            <span class="pl-4">Raised</span>
-          </div>
-          <div class="col-sm-4 pb-3">
-            <span class="icon-ethereum"></span>&nbsp;250&nbsp;ETH<br>
-            <span class="pl-4">Hard Cap</span>
-          </div>
-          <div class="col-sm-4 pb-3">
-            <span class="icon-etz"></span>&nbsp;<span id="eth"><%= etz_raised %></span>&nbsp;ETZ<br>
-            <span class="pl-4">Raised</span>
           </div>
         </div>
         <div class="h4">Token Sale Schedule</div>
@@ -92,13 +78,7 @@
               </div>
             </div>
             <strong>The smart contract address:</strong>
-            <div class="input-group pb-2">
-              <input id="smart_contract" type="text" value="0xa52f2e64A0bB1E52524b2c1daCA6Aac1c0eC5DC3" class="form-control" readonly>
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary" id="copy" style="cursor: pointer;">copy</button>
-              </div>
-            </div>
-            <a href="https://etherscan.io/address/0xa52f2e64a0bb1e52524b2c1daca6aac1c0ec5dc3" class="text-secondary" target="_blank">Read Smart Contract at Etherscan</a>
+            <div class="text-secondary">The smart contract will be available on February 24</div>
         <% end %>
         <ul>
           <li>Min pledge is 0.1 ETH;</li>
@@ -112,13 +92,7 @@
                 <%= submit_tag t(:submit), class: "btn btn-secondary mt-3" %>
             <% end %>
         <% else %>
-            <strong>Use this wallet for ETZ investing:</strong>
-            <div class="input-group pb-2">
-              <input id="etz_wallet" type="text" value="0x2C46fAC5025AEb567A610Cf025907BCDd92246F9" class="form-control" readonly>
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary" id="copy_etz" style="cursor: pointer;">copy</button>
-              </div>
-            </div>
+            <strong>The ETZ wallet for investing will be available on February 24</strong>
             <div class="pb-2">Transfer ETZ tutorials for all possible wallets <a href="http://etherzero.org/tutorials/" class="text-secondary">http://etherzero.org/tutorials/</a></div>
             <div class="pb-2"><strong>Attention:</strong> minimal amount 1 ETZ. The fee is less than the amount claimed for the accrual of RDT will not be processed. Amount of RDT will be calculated on ETZ/ETH by yobit at the transaction time.</div>
             <div>
