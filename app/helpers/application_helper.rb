@@ -104,6 +104,6 @@ module ApplicationHelper
   end
 
   def etz_raised
-    '6108.0000'
+    '6110.0000'
   end
 end
