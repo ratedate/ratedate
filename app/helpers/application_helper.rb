@@ -102,4 +102,8 @@ module ApplicationHelper
       image_tag "small_avatar_placeholder.png", class: 'rounded-circle', id: 'signed-user'
     end
   end
+
+  def etz_raised
+    '108.0000'
+  end
 end
