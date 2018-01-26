@@ -21,21 +21,18 @@
             <div class="display-4" id="tSecNum">--</div>
           </div>
         </div>
-        <div><span class="h5">Ограниченный Pre-Sale бонус 50%!</span></div>
-        <div class="row mt-4 h5">
+        <div class="text-center"><span class="h5">Ограниченный Pre-Sale бонус 50%!</span></div>
+        <div class="row mt-4 h5 text-center text-sm-left">
           <div class="col-sm-4 pb-3">
-            <span class="icon-ethereum"></span>
-            <span id="eth">9.3275</span>&nbspETH<br>
+            <span class="icon-ethereum"></span>&nbsp;<span id="eth">9.3275</span>&nbsp;ETH<br>
             <span class="pl-4">Собрано</span>
           </div>
           <div class="col-sm-4 pb-3">
-            <span class="icon-ethereum"></span>
-            250&nbspETH<br>
+            <span class="icon-ethereum"></span>&nbsp;250&nbsp;ETH<br>
             <span class="pl-4">Hard Cap</span>
           </div>
           <div class="col-sm-4 pb-3">
-            <span class="icon-etz"></span>
-            <span id="eth">0.0000</span>&nbspETZ<br>
+            <span class="icon-etz"></span>&nbsp;<span id="eth">0.0000</span>&nbsp;ETZ<br>
             <span class="pl-4">Собрано</span>
           </div>
         </div>
@@ -117,13 +114,13 @@
         <% else %>
             <strong>Используйте следующий кошелек для инвестирования в ETZ:</strong>
             <div class="input-group pb-2">
-              <input id="etz_wallet" type="text" value="0xa52f2e64A0bB1E52524b2c1daCA6Aac1c0eC5DC3" class="form-control" readonly>
+              <input id="etz_wallet" type="text" value="0x2C46fAC5025AEb567A610Cf025907BCDd92246F9" class="form-control" readonly>
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary" id="copy_etz" style="cursor: pointer;">копировать</button>
               </div>
             </div>
             <div class="pb-2">Руководства по переводу ETZ <a href="http://etherzero.org/tutorials/" class="text-secondary">http://etherzero.org/tutorials/</a></div>
-            <div class="pb-2"><strong>Внимание:</strong> минимальная сумма 1 ETZ. Переводы с меньшими суммами не будут обрабатываться для начисления RDT.</div>
+            <div class="pb-2"><strong>Внимание:</strong> минимальная сумма 1 ETZ. Переводы с меньшими суммами не будут обрабатываться для начисления RDT. Количество RDT будет рассчитываться по курсу ETH/ETZ от yobit на момент транзакции.</div>
             <div>
               Ваша реферальная ссылка для участия в Bounty программе:
               <strong><%= ref_link %></strong><br>
