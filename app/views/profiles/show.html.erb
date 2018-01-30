@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div class="row">
+<div class="row ">
   <div class="col-md-4">
     <%= image_tag @profile.large_avatar, class: 'img-thumbnail' %>
   </div>
@@ -10,6 +10,39 @@
     </h2>
     <%= link_to('Edit Profile', edit_my_profile_path, class: 'btn btn-secondary') if @profile==current_user.profile %>
     <%= link_to(' Send a Message', new_personal_message_path(receiver_id: @profile.user), class: 'btn btn-secondary icon-envelope') if @profile!=current_user.profile%>
+    <% if @profile!=current_user.profile%>
+        <button type="button" class="btn btn-secondary icon-gift" data-toggle="modal" data-target="#giftModal">
+          Send a gift
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="giftModal" tabindex="-1" role="dialog" aria-labelledby="giftModalTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="giftModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-3"><img src="/assets/images/gifts/1/64.png" alt=""></div>
+                  <div class="col-3"><img src="/assets/images/gifts/1/64.png" alt=""></div>
+                  <div class="col-3"><img src="/assets/images/gifts/1/64.png" alt=""></div>
+                  <div class="col-3"><img src="/assets/images/gifts/1/64.png" alt=""></div>
+                </div>
+                <div class="py-3">
+                  <input type="text" class="form-control" placeholder="Message">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary">Send a Gift</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
     <div>
       <%= @profile.age %> <%= t '.years_old' %>
     </div>
@@ -57,7 +90,7 @@
   </div>
 </div>
 <div class="row pt-2">
-  <% @profile.photos.each_with_index do |photo,index| %>
+  <% @profile.photos.each do |photo| %>
       <div class="col-lg-2 col-sm-4">
         <%= link_to(photo.photo.url, :'data-toggle'=>'lightbox', :'data-gallery'=>'profile-gallery' ) do %>
           <%= image_tag photo.photo.url(:thumb), class: 'img-thumbnail w-100' %>
@@ -66,7 +99,6 @@
   <% end %>
 </div>
 <div class="row py-3 justify-content-center">
-  div
-  <img src="/assets/images/presents/1/256.png" alt="" class="img-thumbnail">
+  <img src="/assets/images/gifts/1/256.png" alt="" class="img-thumbnail">
 </div>
 

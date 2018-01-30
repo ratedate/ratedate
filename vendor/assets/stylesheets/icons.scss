@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  font-url('icomoon.eot?un8yo6');
-  src:  font-url('icomoon.eot?un8yo6#iefix') format('embedded-opentype'),
-    font-url('icomoon.ttf?un8yo6') format('truetype'),
-    font-url('icomoon.woff?un8yo6') format('woff'),
-    font-url('icomoon.svg?un8yo6#icomoon') format('svg');
+  src:  font-url('icomoon.eot?f5e2i8');
+  src:  font-url('icomoon.eot?f5e2i8#iefix') format('embedded-opentype'),
+    font-url('icomoon.ttf?f5e2i8') format('truetype'),
+    font-url('icomoon.woff?f5e2i8') format('woff'),
+    font-url('icomoon.svg?f5e2i8#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -83,6 +83,9 @@
 }
 .icon-heart:before {
   content: "\f004";
+}
+.icon-gift:before {
+  content: "\f06b";
 }
 .icon-comment:before {
   content: "\f075";
