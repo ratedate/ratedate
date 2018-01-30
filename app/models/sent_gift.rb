@@ -1,0 +1,2 @@
+class SentGift < ApplicationRecord
+end

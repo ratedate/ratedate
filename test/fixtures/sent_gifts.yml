@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sender_id: 1
+  receiver_id: 1
+  gift_id: 1
+  message: MyString
+  anonim: false
+  hide: false
+
+two:
+  sender_id: 1
+  receiver_id: 1
+  gift_id: 1
+  message: MyString
+  anonim: false
+  hide: false

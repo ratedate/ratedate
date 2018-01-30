@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207163818) do
+ActiveRecord::Schema.define(version: 20180128194225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,12 @@ ActiveRecord::Schema.define(version: 20171207163818) do
     t.index ["author_id", "receiver_id"], name: "index_conversations_on_author_id_and_receiver_id", unique: true
     t.index ["author_id"], name: "index_conversations_on_author_id"
     t.index ["receiver_id"], name: "index_conversations_on_receiver_id"
+  end
+
+  create_table "gifts", force: :cascade do |t|
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "identities", force: :cascade do |t|
@@ -81,6 +87,25 @@ ActiveRecord::Schema.define(version: 20171207163818) do
     t.integer "crop_h"
     t.string "languages", array: true
     t.index ["languages"], name: "index_profiles_on_languages", using: :gin
+  end
+
+  create_table "sent_gifts", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "receiver_id"
+    t.integer "gift_id"
+    t.string "message"
+    t.boolean "anonim", default: false, null: false
+    t.boolean "hide", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receiver_id"], name: "index_sent_gifts_on_receiver_id"
+    t.index ["sender_id"], name: "index_sent_gifts_on_sender_id"
+  end
+
+  create_table "site_settings", force: :cascade do |t|
+    t.string "etz_raized"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
