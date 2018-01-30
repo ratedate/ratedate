@@ -9,9 +9,6 @@ ready = ->
   $('#music_list').tagsinput({tagClass: 'badge-secondary'})
   $('#book_list').tagsinput({tagClass: 'badge-secondary'})
   $('#profile_languages').select2({theme: "bootstrap", placeholder: "Select languages"});
-  $(document).on 'click', '[data-toggle="lightbox"]', (event) ->
-    event.preventDefault();
-    $(this).ekkoLightbox();
   window.jcropInitialized = undefined
   initializeJcrop = ->
     w = Math.min($('#img_preview')[0].width,$('#img_preview')[0].height)
@@ -139,3 +136,6 @@ ready = ->
     window.autocomplete.addListener('place_changed', fillInAddress)
   return
 $(document).on('turbolinks:load', ready)
+$(document).on 'click', '[data-toggle="lightbox"]', (event) ->
+  event.preventDefault();
+  $(this).ekkoLightbox();
