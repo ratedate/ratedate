@@ -17,6 +17,8 @@
         <!-- Modal -->
         <div class="modal fade" id="giftModal" tabindex="-1" role="dialog" aria-labelledby="giftModalTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
+            <%= form_with scope: :profile_sent_gifts, url: profile_sent_gifts_path do |form| %>
+            <%= hidden_field_tag 'profile[id]', @profile.id %>
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="giftModalLongTitle">Modal title</h5>
@@ -26,20 +28,41 @@
               </div>
               <div class="modal-body">
                 <div class="row">
-                  <div class="col-3"><img src="/assets/images/gifts/1/64.png" alt=""></div>
-                  <div class="col-3"><img src="/assets/images/gifts/1/64.png" alt=""></div>
-                  <div class="col-3"><img src="/assets/images/gifts/1/64.png" alt=""></div>
-                  <div class="col-3"><img src="/assets/images/gifts/1/64.png" alt=""></div>
+                  <div class="col-3">
+                    <label >
+                      <img src="/assets/images/gifts/1/64.png" alt="">
+                      <input type="radio" name="profile_sent_gifts[gift_id]" value="1" class="fade">
+                    </label>
+                  </div>
+                  <div class="col-3">
+                    <label >
+                      <img src="/assets/images/gifts/1/64.png" alt="">
+                      <input type="radio" name="profile_sent_gifts[gift_id]" value="1" class="fade">
+                    </label>
+                  </div>
+                  <div class="col-3">
+                    <label >
+                      <img src="/assets/images/gifts/1/64.png" alt="">
+                      <input type="radio" name="profile_sent_gifts[gift_id]" value="1" class="fade">
+                    </label>
+                  </div>
+                  <div class="col-3">
+                    <label >
+                      <img src="/assets/images/gifts/1/64.png" alt="">
+                      <input type="radio" name="profile_sent_gifts[gift_id]" value="1" class="fade">
+                    </label>
+                  </div>
                 </div>
                 <div class="py-3">
-                  <input type="text" class="form-control" placeholder="Message">
+                  <%= form.text_field 'message', class: 'form-control', placeholder: 'Message' %>
                 </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-secondary">Send a Gift</button>
+                <%= form.submit 'Send a Gift', class: 'btn btn-secondary' %>
               </div>
             </div>
+            <% end %>
           </div>
         </div>
     <% end %>

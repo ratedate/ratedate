@@ -4,6 +4,8 @@ class Profile < ApplicationRecord
   belongs_to :user
   belongs_to :city
   has_many :photos
+  has_many :sent_gifts, class_name: 'SentGifts', foreign_key: 'sender_id'
+  has_many :received_gifts, class_name: 'SentGifts', foreign_key: 'receiver_id'
   # Used for user avatar image edit
   attr_accessor :city_name, :administrative_area_level_1, :administrative_area_level_2, :country, :country_code
   accepts_nested_attributes_for :photos, allow_destroy: true
