@@ -1,0 +1,70 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#KYCForm">
+  Fill Identity Authentication Form
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="KYCForm" tabindex="-1" role="dialog" aria-labelledby="KYCFormTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <%= form_with url: ico_kyc_create_path, scope: :kyc, method: 'post', local: true do |form| %>
+      <div class="modal-header">
+        <h5 class="modal-title" id="KYCFormLongTitle">Identity Authentication</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6 py-2">
+            <%= form.text_field :firstname, class: 'form-control', placeholder: 'First Name', :required => true %>
+          </div>
+          <div class="col-md-6 py-2">
+            <%= form.text_field :lastname, class: 'form-control', placeholder: 'Last Name', :required => true %>
+          </div>
+        </div>
+        <% if current_ico_user.eth_wallet.nil? %>
+        <div class="py-2">
+          <%= form.text_field :wallet, class: 'form-control', placeholder: 'ETH/ETZ Wallet', :required => true %>
+        </div>
+        <% end %>
+        <div class="row">
+          <div class="col-md-6 py-2">
+            <%= form.text_field :address_line_1, class: 'form-control', placeholder: 'Address line 1', :required => true %>
+          </div>
+          <div class="col-md-6 py-2">
+            <%= form.text_field :address_line_2, class: 'form-control', placeholder: 'Address line 2' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 py-2">
+            <%= form.text_field :city, class: 'form-control', placeholder: 'City', :required => true %>
+          </div>
+          <div class="col-md-3 py-2">
+            <%= form.text_field :state, class: 'form-control', placeholder: 'State', :required => true %>
+          </div>
+          <div class="col-md-3 py-2">
+            <%= form.text_field :postal_code, class: 'form-control', placeholder: 'ZIP/Postal code', :required => true %>
+          </div>
+        </div>
+        <div class="py-2">
+          <%= form.text_field :country, class: 'form-control', placeholder: 'Country', :required => true %>
+        </div>
+        <div class="py-2">
+          Upload photo of your ID, driver license or passport to verify your identity.<br>
+          <%= form.file_field :identity_photo, :required => true %>
+        </div>
+        <div class="py-2">
+          Upload photo of your utility bill or bank statement to verify your address.<br>
+          <%= form.file_field :address_photo, :required => true %>
+        </div>
+        <div class="py-2"><%= form.check_box :terms_accept, :required => true %> By agreeing with the <a href="/assets/Rate Date ICO PRIVACY POLICY.pdf" target="_blank">Privacy Policy</a>, I confirm that Rate Date Project will process my personal data.</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+        <%= form.submit 'Send', class: 'btn btn-secondary' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
