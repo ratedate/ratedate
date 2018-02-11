@@ -13,7 +13,7 @@ $(document).ready(function(){
     var secText = "#tSecText";
 //   variables
 
-    var countDownDate = 1519826400000;
+    var countDownDate = 1519480800000;
 
     var x = setInterval(function(){
         var now = Date.now();
