@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207163818) do
+ActiveRecord::Schema.define(version: 20180205192225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,12 @@ ActiveRecord::Schema.define(version: 20171207163818) do
     t.index ["receiver_id"], name: "index_conversations_on_receiver_id"
   end
 
+  create_table "gifts", force: :cascade do |t|
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "identities", force: :cascade do |t|
     t.bigint "user_id"
     t.string "provider"
@@ -42,6 +48,23 @@ ActiveRecord::Schema.define(version: 20171207163818) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_identities_on_user_id"
+  end
+
+  create_table "kycs", force: :cascade do |t|
+    t.string "wallet"
+    t.integer "user_id"
+    t.string "firstname"
+    t.string "lastname"
+    t.string "country"
+    t.string "address_line_1"
+    t.string "address_line_2"
+    t.string "state"
+    t.string "province"
+    t.string "postal_code"
+    t.string "identity_photo"
+    t.string "address_photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "personal_messages", force: :cascade do |t|
@@ -81,6 +104,25 @@ ActiveRecord::Schema.define(version: 20171207163818) do
     t.integer "crop_h"
     t.string "languages", array: true
     t.index ["languages"], name: "index_profiles_on_languages", using: :gin
+  end
+
+  create_table "sent_gifts", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "receiver_id"
+    t.integer "gift_id"
+    t.string "message"
+    t.boolean "anonim", default: false, null: false
+    t.boolean "hide", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receiver_id"], name: "index_sent_gifts_on_receiver_id"
+    t.index ["sender_id"], name: "index_sent_gifts_on_sender_id"
+  end
+
+  create_table "site_settings", force: :cascade do |t|
+    t.string "etz_raized"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|

@@ -47,7 +47,10 @@
 </div>
 <div class="container">
   <% if alert %>
-    <div class="alert alert-danger"><%= alert %></div>
+    <div class="alert alert-danger"><%= alert.html_safe %></div>
+  <% end %>
+  <% if notice %>
+    <div class="alert alert-success"><%= notice %></div>
   <% end %>
 </div>
 <%= yield %>

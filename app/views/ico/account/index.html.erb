@@ -63,8 +63,8 @@
         </table>
       </div>
       <div class="col-lg-6">
-        <% if current_ico_user.eth_wallet.nil? %>
-            <strong>Please fill in your ETH wallet to obtain smart contract address</strong>
+        <% if current_ico_user.kyc.nil? %>
+            <strong>Please fill in identity authentication form to obtain smart contract address</strong>
         <% else %>
             <div class="row">
               <div class="col my-2">
@@ -85,12 +85,8 @@
           <li>Set GAS 300 000 (unused gas will be returned to you);</li>
           <li>We recommend to use myetherwallet.com</li>
         </ul>
-        <% if current_ico_user.eth_wallet.nil? %>
-            <%= form_tag controller: 'account', action: 'add_eth', method: 'POST', class: 'inline-form' do %>
-                <%= label_tag 'Enter your ETH-wallet(address), to obtain referral link and smart contract address' %><br>
-                <%= text_field_tag :eth_wallet, '', class: "form-control"  %>
-                <%= submit_tag t(:submit), class: "btn btn-secondary mt-3" %>
-            <% end %>
+        <% if current_ico_user.kyc.nil? %>
+            <%= render 'kyc_form' %>
         <% else %>
             <strong>The ETZ wallet for investing will be available on February 24</strong>
             <div class="pb-2">Transfer ETZ tutorials for all possible wallets <a href="http://etherzero.org/tutorials/" class="text-secondary">http://etherzero.org/tutorials/</a></div>
