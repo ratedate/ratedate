@@ -1,0 +1,45 @@
+.stats-section {
+    padding: $base-offset * 4 0 $base-offset * 2;
+    &-wrap { @include sized(); }
+    text-align: center;
+
+    & .stats-item {
+        $circle-size: 128px;
+        max-width: 350px;
+        margin: 0 auto;
+        min-height: 200px;
+        z-index: 1;
+        &-value {
+            position: relative;
+            font-weight: 600;
+            font-size: 48px;
+            margin-bottom: $base-offset * 2;
+
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                width: $circle-size;
+                height: $circle-size;
+
+                left: 50%;
+                top: 50%;
+                transform: translate3d(-50%, -50%, 0);
+                z-index: -1;
+
+                background-color: $red;
+                border-radius: 100%;
+            }
+        }
+        &-text {
+            font-size: 16px;
+        }
+    }
+
+    @media screen and (max-width: $screen-md) {
+        
+        & .stats-item {
+            max-width: 300px;
+        }
+    }
+}

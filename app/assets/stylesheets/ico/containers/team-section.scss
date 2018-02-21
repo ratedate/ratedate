@@ -1,0 +1,27 @@
+.team-section {
+    color: #fff;
+
+    &-wrap {
+        @include sized();
+    }
+
+    & h3 {
+        margin-bottom: $base-offset * 4;
+    }
+
+    & .participants {
+        @include overflow();
+        margin-bottom: $base-offset * 4;
+    }
+
+    & .participant.horizontal {
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    @media screen and (max-width: $screen-sm) {
+        h3 {
+            text-align: center;
+        }
+    }
+}

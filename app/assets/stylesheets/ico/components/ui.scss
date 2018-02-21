@@ -1,0 +1,149 @@
+.nav-link {
+    display: inline-block;
+    position: relative;
+    line-height: $base-offset * 2;
+    font-size: 12px;
+    color: $red;
+
+    padding: $base-offset; 
+
+    &.active {
+        &::after {
+            content: '';
+            display: block;
+            height: 2px;
+            width: 100%;
+
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            border-radius: 2px;
+            background-color: $red;
+        }
+    }
+
+    &:hover {
+        color: rgba($red, .8);
+        @include transition(.3s);
+    }
+}
+
+.btn-link {
+    display: inline-block;
+    position: relative;
+    line-height: $base-offset * 2;
+    font-size: 12px;
+    color: #fff;
+
+    padding: $base-offset $base-offset * 2;
+
+    // border: 1px solid #fff;
+    box-shadow: 0 0 0 2px #fff;
+    border-radius: 100px;
+
+    &.trigger {
+        $circle-radius: $base-offset;
+        @include overflow();
+        padding: 0;
+
+        & .trigger-left, & .trigger-right {
+            @include transition(.3s);
+            opacity: 0;
+            box-sizing: border-box;
+            float: left;
+            text-align: center;
+            width: 50%;
+            padding: $base-offset 0;
+
+            &.active {
+                @include transition(.3s);
+                opacity: 1;
+            }
+        }
+
+        & .trigger-left {
+            @include transition(.3s);
+            opacity: 1;
+            padding-left: $base-offset * 2;
+        } 
+        
+        & .trigger-right {
+            @include transition(.3s);
+            opacity: 0;
+            padding-right: $base-offset * 2;
+        }
+
+        &::after {
+            @include transition(.3s);
+            content: '';
+            display: block;
+            position: absolute;
+
+            z-index: 2;
+            background-color: #fff;
+            width: $base-offset * 2;
+            height: $base-offset * 2;
+
+            top: 0;
+            right: 0;
+            
+            border: $base-offset solid $red;
+            border-radius: 100%;
+        }
+
+        &.active {
+            & .trigger-left {
+                @include transition(.3s);
+                opacity: 0;
+            }
+            & .trigger-right {
+                @include transition(.3s);
+                opacity: 1;
+            }
+
+            &::after {
+                @include transition(.3s);
+                right: calc(100% - #{$base-offset} * 4)
+            }
+        }
+    }
+    
+    &:hover {
+        color: rgba(#fff, .8);
+        border-color: rgba(#fff, .8);
+
+        @include transition(.3s);
+    }
+}
+
+.button, button {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 24px;
+    padding: $base-offset * 2 $base-offset * 4;
+    border-radius: 6px;
+    border: none;
+    background-color: none;
+
+    &:focus {
+        outline: none;
+    }
+
+    &.white {
+        background-color: #fff;
+        color: $red;
+
+        &:hover {
+            @include transition(.3s);
+            background-color: rgba(#fff, .8);
+        }
+    }
+}
+
+@media screen and (max-width: $screen-sm) {
+    .button, button {
+        font-size: 16px;
+        padding: $base-offset $base-offset * 2;
+    }
+}

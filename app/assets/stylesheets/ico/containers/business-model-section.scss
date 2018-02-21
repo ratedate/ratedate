@@ -1,0 +1,54 @@
+.business-model-section {
+    padding: $base-offset * 2;
+    @include clear();
+
+    &-wrap {
+        @include sized();
+    }
+
+    & .left, & .right {
+        float: left;
+    }
+
+    & .left {
+        padding-right: $base-offset * 8;
+        width: 70%;
+    }
+
+    & .right {
+        position: relative;
+        width: 30%;
+    }
+
+    & h3, & p {
+        margin-bottom: $base-offset * 3;
+
+        &.no-offset {
+            margin-bottom: 0;
+        }
+    }
+
+    & .complex-contour {
+        display: block;
+        width: 100%;
+
+        & img {
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: $screen-md) {
+
+        & .left {
+            padding-right: 0;
+            width: 100%;
+        }
+    
+        & .right {
+            float: none;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto $base-offset * 2;
+        }
+    }
+}

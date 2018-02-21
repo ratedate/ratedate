@@ -1,0 +1,21 @@
+.partner {
+    display: block;
+    color: $red;
+    text-align: center;
+    // background-color: $red;
+    // border-radius: 6px; 
+    padding: $base-offset * 2;
+
+    font-size: 32px;
+    line-height: 32px;
+
+    &:hover {
+        @include transition(.3s);
+        color: rgba($red, .8);
+    }
+
+    @media screen and (max-width: $screen-lg) {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,62 @@
+.screenshots-section {
+    @include clear();
+    color: #fff;
+
+    &-wrap {
+        @include sized();
+    }
+
+    & .left, & .right {
+        float: left;
+    }
+
+    & .left {
+        width: 60%;
+
+        & img {
+            width: 100%;
+        }
+    }
+
+    & h3 {
+        margin-bottom: $base-offset * 4;
+    }
+
+    & .right {
+        width: 40%;
+        padding-left: $base-offset * 4;
+
+        & p {
+            margin-bottom: $base-offset * 2;
+            &:last-of-type {
+                margin-bottom: $base-offset * 4;
+            }
+        }
+
+        & .button {
+            float: right;
+        }
+    }
+
+    @media screen and (max-width: $screen-lg) {
+        & .left, & .right {
+            width: 100%;
+        }
+
+        & .left {
+            float: none;
+            max-width: 600px;
+            margin: 0 auto $base-offset * 2;
+        }
+
+        & .right {
+            padding: 0;
+        }
+    }
+
+    @media screen and (max-width: $screen-md) {
+        & .left {
+            max-width: 400px;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+.text-section {
+    padding: $base-offset * 12 0;
+
+    &-wrap {
+        @include sized();
+    }
+
+    text-align: center;
+
+    & p {
+        margin-bottom: $base-offset * 2;
+    }
+
+    & .title {
+        margin-bottom: $base-offset * 6;
+    }
+
+    & .additional-offset {
+        margin-bottom: $base-offset * 8;
+    }
+}

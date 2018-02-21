@@ -1,0 +1,101 @@
+.participant {
+    $image-size: 112px;
+    position: relative;
+    color: #000;
+    padding: $base-offset * 4;
+    background-color: #fff;
+    text-align: center;
+
+    &-image {
+        // @include overflow();
+        display: block;
+        width: $image-size;
+        height: $image-size;
+        margin: 0 auto $base-offset * 2;
+
+        & img {
+            width: 100%;
+            height: 100%;
+            border-radius: 100%;
+            @include transition(.3s);
+            transform: scale(1);
+        }
+
+        &::after {
+            $size: 24px;
+            content: '\f0e1';
+            
+            display: block;
+            width: $size;
+            height: $size;
+
+            line-height: $size;
+            text-align: center;
+            font-family: icomoon;
+            font-size: 16px;
+            color: #fff;
+            background-color: $red;
+            box-shadow: 0 0 0 2px #fff;
+            border-radius: 100%;
+
+            position: absolute;
+            bottom: 15%;
+            right: 15%;
+
+            transform: translate3d(50%, 50%, 0);
+        }
+
+        &:hover {
+            & img {
+                @include transition(.3s);
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    &-name {
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    &-position {
+        font-size: 14px;
+    }
+
+    &-text {
+        font-weight: 400;
+        font-size: 12px;
+    }
+
+    & p {
+        @include overflow();
+        margin: 0 0 $base-offset * 2;
+        &:last-of-type {
+            margin: 0;
+        }
+    }
+
+    &.horizontal {
+        text-align: left;
+        @include overflow();
+        & .participant-image {
+            float: left;
+            margin: 0 $base-offset * 4 0;
+        }
+    }
+
+    @media screen and (max-width: $screen-md) {
+        margin: 0 auto;
+        max-width: 300px;
+
+        &.horizontal {
+            text-align: center;
+            @include overflow();
+            & .participant-image {
+                float: none;
+                // margin: 0 auto;
+                margin: 0 auto $base-offset * 4;
+            }
+        }
+    }
+}

@@ -8,6 +8,8 @@
 #= require popper
 #= require bootstrap
 #= require web3
+#= require ico/headerBehaviour
+#= require velocity.min
 
 
 set_nav_background = ->
@@ -298,20 +300,19 @@ updateICOProgress = ->
   return
 
 ready = ->
-  set_nav_background()
-  $(window).scroll ->
-    set_nav_background()
+  $('header').headerBehaviour()
+  $('.btn-link.trigger').on 'click', () ->
+    $(this).toggleClass('active')
+  $('.anchor').on 'click', (event) ->
+    anchorTo = $(this).data('anchorTo')
+    $container = $('#' + anchorTo)
+    $container.velocity('scroll', { duration: 600, easing: 'linear' })
+    event.preventDefault()
     return
-  $('.nav-link').click ->
-    $a = $($(this).attr('href'))
-    $('.navbar-collapse').collapse('hide')
-    $('html,body').animate({ scrollTop: $a.offset().top - 101}, 500)
-    false
-  $('.navbar-toggler').click ->
-    navbar = $('.navbar')
-    navbar.addClass('navbar-light bg-light')
-    navbar.removeClass('navbar-dark bg-fade')
-    return
+  $('.scrollspy').scrollspy({
+    nav: '.menu.nav-links > li > a',
+    className: 'active'
+  })
   updateICOProgress()
   return
 $(document).on('turbolinks:load', ready)

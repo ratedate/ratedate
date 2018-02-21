@@ -1,0 +1,163 @@
+.road-map-section {
+    color: #fff;
+
+    &-wrap {
+        @include sized();
+    }
+
+
+
+    & h3 {
+        margin-bottom: $base-offset * 4;
+    }
+
+    & .roadmap-list {
+        text-align: center;
+        & .roadmap-item {
+            $icon-size: 64px + $base-offset * 2;
+            display: inline-block;
+            margin-bottom: $base-offset * 8;
+
+            position: relative;
+            
+            & .icon-wrap {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    border-radius: 100%;
+
+                    top: 50%;
+                    left: 50%;
+
+                    transform: translate3d(-50%, -50%, 0);
+                    width: $icon-size  + $base-offset * 2;
+                    height: $icon-size + $base-offset * 2;
+
+                    background-color: #fff;
+                    z-index: -1;
+                }
+
+                &::after {
+                    content: '';
+                    display: block;
+                    border-radius: 100%;
+                    width: $icon-size;
+                    height: $icon-size / 2;
+                    background-color: #BE123E;
+
+                    position: absolute;
+                    left: 50%;
+                    bottom: 0;
+                    z-index: -2;
+
+                    transform: translate3d(-50%, 70%, 0);
+                }
+            }
+
+            & .icon {
+                z-index: 1;
+                position: relative;
+                color: $red;
+
+                display: block;
+                font-size: 32px;
+                line-height: $icon-size - $base-offset * 4;
+                text-align: center;
+                width: $icon-size;
+                height: $icon-size;
+                padding: $base-offset;
+
+                background-color: #fff;
+                border-radius: 100%;
+                border: $base-offset solid $red;
+            }
+
+            & .road-bubble {
+                $width: 280px;
+                padding: $base-offset * 2;
+                border-radius: 4px;
+                background-color: #fff;
+                text-align: left;
+
+                
+                position: absolute;
+                width: $width;
+
+                top: 50%;
+                left: $icon-size + $base-offset * 4;
+                transform: translate3d(0, -50%, 0);
+
+                &::after {
+                    content: '';
+                    right: 100%;
+                    top: 50%;
+                    border: solid transparent;
+                    height: 0;
+                    width: 0;
+                    position: absolute;
+                    pointer-events: none;
+                    border-color: transparent;
+                    border-right-color: #fff;
+                    border-width: 16px;
+                    margin-top: -16px;
+                }
+
+                &.to-left {
+                    left: -($base-offset * 4);
+                    transform: translate3d(-100%, -50%, 0);
+
+                    &::after {
+                        content: '';
+                        right: auto;
+                        left: 100%;
+                        top: 50%;
+                        border: solid transparent;
+                        height: 0;
+                        width: 0;
+                        position: absolute;
+                        pointer-events: none;
+                        border-color: transparent;
+                        border-left-color: #fff;
+                        border-width: 16px;
+                        margin-top: -16px;
+                    }
+                }
+
+                &-title {
+                    display: block;
+                    color: $grey;
+                    font-weight: 600;
+                    font-size: 14px;
+                    margin-bottom: $base-offset * 2;
+                }
+                &-text {
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 18px;
+                    min-height: 36px;
+                    color: $dark;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: $screen-md) {
+        & .roadmap-list {
+            & .roadmap-item {
+                margin-bottom: $base-offset * 10 + 102px;
+                & .road-bubble, & .road-bubble.to-left {
+                    left: 50%;
+                    top: 100%;
+                    transform: translate3d(-50%, $base-offset * 5, 0);
+
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

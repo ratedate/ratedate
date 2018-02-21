@@ -1,0 +1,92 @@
+@import "normalize";
+@import "config";
+@import "mixins";
+@import "font";
+@import "vendor/font-awesome/font-awesome";
+
+body {
+
+	font-family: Montserrat;
+	font-size: 18px;
+	color: $dark;
+
+	& .section {
+		padding: 0 $base-offset * 4;
+	}
+
+    & * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }    
+
+	-ms-overflow-style: none;
+	&::-webkit-scrollbar { 
+		display: none; 
+	}
+
+	@include overflow(hidden, scroll);
+
+    p { margin: 0; }
+
+    a {
+		color: inherit;
+		text-decoration: none;
+		// &:hover, &:focus, &:active, &:visited {
+		// 	color: inherit;
+		// 	text-decoration: none;
+		// }
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+    }
+
+    & .clear {
+        @include clear();
+	}
+	
+	& .center {
+		text-align: center;
+	}
+
+	& .nowrap {
+		white-space: nowrap;
+	}
+
+	main {
+		width: 100vw;
+    	overflow: hidden;
+	}
+
+    //COMPONENTS
+	@import "components/header";
+	@import "components/footer";
+	@import "components/ui";
+	@import "components/text";
+	@import "components/bubble";
+	@import "components/partner";
+	@import "components/participant";
+
+    //CONTAINERS
+	@import "containers/base-section";
+	@import "containers/text-section";
+	@import "containers/description-section";
+	@import "containers/business-model-section";
+	@import "containers/tokens-section";
+	@import "containers/images-section";
+	@import "containers/screenshots-section";
+	@import "containers/bonuses-section";
+	@import "containers/road-map-section";
+	@import "containers/partners-section";
+	@import "containers/team-section";
+	@import "containers/stats-section";
+
+	@media screen and (max-width: $screen-sm) {
+		font-size: 14px;
+		& .section {
+			padding: 0 $base-offset * 2;
+		}
+	}
+}

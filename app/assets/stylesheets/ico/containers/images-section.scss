@@ -1,0 +1,34 @@
+.images-section {
+    padding: $base-offset * 8 0;
+    &-wrap {
+        @include sized();
+    }
+
+    & .image {
+        width: 100%;
+        &-title {
+            font-weight: 600;
+            font-size: 21px;
+            margin-bottom: $base-offset * 2;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: $screen-md) {
+        & .image {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+    }
+
+    @media screen and (max-width: $screen-sm) {
+        & .image {
+            &-title {
+                font-size: 16px;
+            }
+        }
+    }
+}

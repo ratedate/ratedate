@@ -1,0 +1,40 @@
+.partners-section {
+    padding: $base-offset * 8 0;
+
+    &-wrap {
+        @include sized();
+    }
+
+    & h3 {
+        margin-bottom: $base-offset * 4;
+    }
+    
+    & .grid-wrap {
+        margin-bottom: $base-offset * 8;
+    }
+
+    & *[class^="grid-xs"] {
+        margin: (-$base-offset);
+        & .cell {
+            padding: $base-offset;
+        }
+    }
+
+    & .partner.alone {
+        width: calc(100% / 3);
+        margin: 0 auto;
+    }
+
+    @media screen and (max-width: $screen-lg) {
+        & .partner.alone {
+            max-width: 300px;
+            width: calc(100% / 2);
+            margin: 0 auto;
+        }
+    }
+    @media screen and (max-width: $screen-md) {
+        & .partner.alone {
+            width: 100%;
+        }
+    }
+}

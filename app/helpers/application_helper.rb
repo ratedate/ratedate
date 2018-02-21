@@ -62,9 +62,9 @@ module ApplicationHelper
   end
   def wp_link(html_class)
     if I18n.locale==:ru
-      link_to "загрузить white paper", "/assets/white_paper_ru_4_0.pdf", {class: html_class, target: "_blank"}
+      link_to "White Paper", "/assets/white_paper_ru_4_0.pdf", {class: html_class, target: "_blank"}
     else
-      link_to "download white paper", "/assets/white_paper_en_4_0.pdf", {class: html_class, target: "_blank"}
+      link_to "White Paper", "/assets/white_paper_en_4_0.pdf", {class: html_class, target: "_blank"}
     end
   end
 
