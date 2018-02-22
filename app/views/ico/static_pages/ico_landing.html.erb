@@ -24,6 +24,7 @@
           <span class="timer-digit-value" id="tSecNum">32</span>
         </p>
       </div>
+      <%= link_to 'Join/KYC', ico_sign_up_path(:locale => params[:locale]), class: "button white" %>
     </div>
   </div>
 </div>
@@ -235,13 +236,11 @@
         period, Rate Date plans to attract the maximum 5&nbsp;000&nbsp;ETH of investments.
       </p>
       <p>
-        Purchase of RDT – is a favorable and promising investment.
-        Unique opportunities of the resource assume high level of demand for
-        chargeable functionalities that will trigger growth of RDT price and
-        will generate the expected profit for investors.
+        In the wake of rising amount of new Rate Date users, tokens will
+        be bought back in order to support the service’s ecosystem.
       </p>
 
-      <%= link_to 'Join/KYC', ico_sign_up_path(:locale => params[:locale]), class: "button white" %>
+      <%= link_to t('sign_up'), ico_sign_up_path(:locale => params[:locale]), class: "button white" %>
     </div>
   </div>
 </div>

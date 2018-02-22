@@ -92,6 +92,14 @@
                 }
             }
         }
+
+        & .button{
+            margin: 0 auto;
+            display: block;
+            width: 180px;
+            text-align: center;
+            margin-top: $base-offset * 2;
+        }
     }
 
     @media screen and (max-width: $screen-md) {

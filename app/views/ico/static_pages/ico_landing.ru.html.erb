@@ -24,6 +24,7 @@
           <span class="timer-digit-value" id="tSecNum">32</span>
         </p>
       </div>
+      <%= link_to 'Join/KYC', ico_sign_up_path(:locale => params[:locale]), class: "button white" %>
     </div>
   </div>
 </div>
@@ -203,10 +204,8 @@
       <p>Все держатели RDT имеют возможность свободно распоряжаться токенами в рамках сервиса Rate Date, а так же для использования на бирже.</p>
 
       <p>Количество токенов ограничено: 50&nbsp000&nbsp000 RDT, выпущенные на платформе Ethereum, ERC20. Для реализации в ICO кампании выделяется 37&nbsp000&nbsp000 RDT с hardcap 5&nbsp000 ETH.</p>
-
-      <p>Приобретение RDT - это выгодное и перспективное вложение. Уникальные возможности ресурса предполагают высокий спрос на платный функционал, что станет толчком для роста цен на RDT и принесет инвесторам ожидаемую прибыль.</p>
-
-      <%= link_to 'Участвовать/KYC', ico_sign_up_path(:locale => params[:locale]), class: "button white" %>
+      <p>По мере роста числа новых пользователей сайта Rate Date будет осуществляться выкуп токенов для поддержания экосистемы сервиса.</p>
+      <%= link_to t('sign_up'), ico_sign_up_path(:locale => params[:locale]), class: "button white" %>
     </div>
   </div>
 </div>
