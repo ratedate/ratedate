@@ -44,6 +44,11 @@
 
             transform: translate3d(50%, 50%, 0);
         }
+        &.facebook{
+          &::after{
+            content: '\f09a';
+          }
+        }
 
         &:hover {
             & img {

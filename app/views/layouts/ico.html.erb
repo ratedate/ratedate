@@ -47,16 +47,19 @@
             <%= link_to t(:sign_up), ico_sign_up_path(:locale => params[:locale]), class: "btn-link" %>
           </li>
       <% end %>
-      <li class="no-mobile"><a class="btn-link trigger" href="javascript:void(0)">
-        <span class="trigger-left">EN</span>
-        <span class="trigger-right">RU</span>
-      </a></li>
+      <li class="no-mobile">
+        <%= locale_link(false) %>
+        <!--<a class="btn-link trigger" href="javascript:void(0)">-->
+          <!--<span class="trigger-left">EN</span>-->
+          <!--<span class="trigger-right">RU</span>-->
+        <!--</a>-->
+      </li>
     </ul>
 
     <ul class="menu nav-links">
       <li><a class="anchor nav-link" data-anchor-to="about" href="#about">About</a></li>
       <li><a class="anchor nav-link" data-anchor-to="token" href="#token">Token</a></li>
-      <li><a class="anchor nav-link" data-anchor-to="screenshots" href="#screenshots">Screenshots</a></li>
+      <!--<li><a class="anchor nav-link" data-anchor-to="screenshots" href="#screenshots">Screenshots</a></li>-->
       <li><a class="anchor nav-link" data-anchor-to="bonus" href="#bonus">Bonus</a></li>
       <li><a class="anchor nav-link" data-anchor-to="road-map" href="#road-map">Road map</a></li>
       <li><a class="anchor nav-link" data-anchor-to="team" href="#team">Team</a></li>
@@ -71,10 +74,7 @@
     <i class="fa fa-bars"></i>
   </a>
 
-  <a class="btn-link trigger mobile" href="javascript:void(0)">
-    <span class="trigger-left">EN</span>
-    <span class="trigger-right">RU</span>
-  </a>
+  <%= locale_link(true) %>
 </header>
 
 <main>

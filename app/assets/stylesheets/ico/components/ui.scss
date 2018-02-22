@@ -139,6 +139,15 @@
             background-color: rgba(#fff, .8);
         }
     }
+    &.red {
+        background-color: $red;
+        color: #fff;
+
+        &:hover {
+            @include transition(.3s);
+            background-color: rgba($red, .8);
+        }
+    }
 }
 
 @media screen and (max-width: $screen-sm) {

@@ -15,7 +15,7 @@
             font-size: 48px;
             margin-bottom: $base-offset * 2;
 
-            &::before {
+            &.circle::before {
                 content: '';
                 display: block;
                 position: absolute;

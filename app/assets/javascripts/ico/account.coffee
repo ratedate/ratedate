@@ -8,6 +8,8 @@
 #= require bootstrap
 #= require timer
 #= require web3
+#= require ico/headerBehaviour
+#= require velocity.min
 
 updateICOProgress = ->
   wallet = $('#eth_wallet').text()
@@ -720,6 +722,19 @@ updateICOProgress = ->
               console.log(block)
   return
 ready = ->
+  $('header').headerBehaviour()
+  $('.btn-link.trigger').on 'click', () ->
+    $(this).toggleClass('active')
+  $('.anchor').on 'click', (event) ->
+    anchorTo = $(this).data('anchorTo')
+    $container = $('#' + anchorTo)
+    $container.velocity('scroll', { duration: 600, easing: 'linear' })
+    event.preventDefault()
+    return
+  $('.scrollspy').scrollspy({
+    nav: '.menu.nav-links > li > a',
+    className: 'active'
+  })
   updateICOProgress()
   $("#smart_contract").on 'click', (e) ->
     this.setSelectionRange(0, this.value.length)

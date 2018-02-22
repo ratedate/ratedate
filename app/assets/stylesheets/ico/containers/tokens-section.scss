@@ -3,6 +3,10 @@
 
     &-wrap {
         @include sized();
+        & .button{
+          float: right;
+          margin-top: 24px;
+        }
     }
     & h3 {
         margin-bottom: $base-offset * 3;

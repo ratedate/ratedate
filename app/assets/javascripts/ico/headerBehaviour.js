@@ -6,6 +6,7 @@
     var $header = null;
     var $mobileMenu = null;
     var mScrollHandler = null;
+    window.scrollInitiated = false;
 
     function getScrollHandler() {
         return _.throttle(function() {
@@ -51,7 +52,10 @@
         mLastScrollValue = mScrollElement.scrollTop;
         mScrollHandler = getScrollHandler();
 
-        $(window).on('scroll', mScrollHandler);
+        if(!window.scrollInitiated){
+            $(window).on('scroll', mScrollHandler);
+            window.scrollInitiated = true;
+        }
     }
 
     $.fn.headerBehaviour = init;

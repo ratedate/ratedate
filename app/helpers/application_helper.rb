@@ -53,11 +53,20 @@ module ApplicationHelper
 <!-- /Yandex.Metrika counter -->"
     ym.html_safe
   end
-  def locale_link
+  def locale_link(is_mobile)
+    tr = '<span class="trigger-left">EN</span><span class="trigger-right">RU</span>'
+    html_class = 'btn-link trigger'
+    if is_mobile
+      html_class += ' mobile'
+    end
     if I18n.locale==:ru
-      link_to "en", { locale: :en }, class: "nav-link"
+      link_to({locale: :en}, html_options= {class: html_class+" active"}) do
+        tr.html_safe
+      end
     else
-      link_to "ru", { locale: :ru }, class: "nav-link"
+      link_to({locale: :ru}, html_options={class: html_class}) do
+        tr.html_safe
+      end
     end
   end
   def wp_link(html_class)
