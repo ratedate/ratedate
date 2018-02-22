@@ -1,28 +1,28 @@
-<div class="container">
+<div class="container account">
   <div>
     <div class="row">
       <div class="col-lg-6">
-        <div class="h3 py-4 text-center">Pre-Sale is ended! Hard Cap reached!</div>
-        <div class="h3 text-center" id="presaletext">ICO Start:</div>
-        <div class="row py-4">
-          <div class="col-3">
-            <small>Days</small>
-            <div class="display-4" id="tDayNum">--</div>
-          </div>
-          <div class="col-3">
-            <small>Hours</small>
-            <div class="display-4" id="tHourNum">--</div>
-          </div>
-          <div class="col-3">
-            <small>Minutes</small>
-            <div class="display-4" id="tMinNum">--</div>
-          </div>
-          <div class="col-3">
-            <small>Seconds</small>
-            <div class="display-4" id="tSecNum">--</div>
-          </div>
+        <div class="timer">
+          <p class="timer-title">ICO START: </p>
+
+          <p class="timer-digit">
+            <span class="timer-digit-label">DAYS</span>
+            <span class="timer-digit-value" id="tDayNum">--</span>
+          </p>
+          <p class="timer-digit">
+            <span class="timer-digit-label">HOURS</span>
+            <span class="timer-digit-value" id="tHourNum">--</span>
+          </p>
+          <p class="timer-digit">
+            <span class="timer-digit-label">MINUTES</span>
+            <span class="timer-digit-value" id="tMinNum">--</span>
+          </p>
+          <p class="timer-digit">
+            <span class="timer-digit-label">SECONDS</span>
+            <span class="timer-digit-value" id="tSecNum">--</span>
+          </p>
         </div>
-        <div class="h4">Token Sale Schedule</div>
+        <div class="h4 center">Token Sale Schedule</div>
         <table class="table table-light table-striped">
           <tr>
             <td>Pre-Sale</td>
@@ -64,7 +64,7 @@
       </div>
       <div class="col-lg-6">
         <% if current_ico_user.kyc.nil? %>
-            <strong>Please fill in identity authentication form to obtain smart contract address</strong>
+            <p><strong>Please fill in identity authentication form to obtain smart contract address</strong></p>
         <% else %>
             <div class="row">
               <div class="col my-2">
@@ -110,7 +110,7 @@
         <% end %>
       </div>
     </div>
-    <h2>Bounty Program</h2>
+    <p class="h4">Bounty Program</p>
     <p>Any user who has an own website, blog or social network account can take our Bounty Rate Date program. User is rewarded with 10RTD for each potential investor, engaged by him before starting ICO or during it. User can receive additional rewarding of 100RTD if investor engaged by him deposits any funds into ICO program. Rewarding arrives in a wallet balance, pointed in a personal account.</p>
     <p><strong>ATTENTION!</strong> Do not use online exchanges addresses or another’s ones. Use only your own addresses which you can fully control. Otherwise your RDT would be lost.</p>
   </div>

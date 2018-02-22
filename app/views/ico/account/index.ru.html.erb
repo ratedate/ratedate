@@ -1,28 +1,28 @@
-<div class="container">
+<div class="container account">
   <div>
     <div class="row">
       <div class="col-lg-6">
-        <div class="h3 py-4 text-center">Pre-Sale окончен! Достигнут Hard Cap!</div>
-        <div class="h3 text-center" id="presaletext">ICO Start:</div>
-        <div class="row py-4">
-          <div class="col-3">
-            <small>Days</small>
-            <div class="display-4" id="tDayNum">--</div>
-          </div>
-          <div class="col-3">
-            <small>Hours</small>
-            <div class="display-4" id="tHourNum">--</div>
-          </div>
-          <div class="col-3">
-            <small>Minutes</small>
-            <div class="display-4" id="tMinNum">--</div>
-          </div>
-          <div class="col-3">
-            <small>Seconds</small>
-            <div class="display-4" id="tSecNum">--</div>
-          </div>
+        <div class="timer">
+          <p class="timer-title">ICO START: </p>
+
+          <p class="timer-digit">
+            <span class="timer-digit-label">DAYS</span>
+            <span class="timer-digit-value" id="tDayNum">--</span>
+          </p>
+          <p class="timer-digit">
+            <span class="timer-digit-label">HOURS</span>
+            <span class="timer-digit-value" id="tHourNum">--</span>
+          </p>
+          <p class="timer-digit">
+            <span class="timer-digit-label">MINUTES</span>
+            <span class="timer-digit-value" id="tMinNum">--</span>
+          </p>
+          <p class="timer-digit">
+            <span class="timer-digit-label">SECONDS</span>
+            <span class="timer-digit-value" id="tSecNum">--</span>
+          </p>
         </div>
-        <div class="h4">Расписание продаж токенов</div>
+        <div class="h4 center">Расписание продаж токенов</div>
         <table class="table table-light table-striped">
           <tr>
             <td>Pre-Sale</td>
@@ -64,7 +64,7 @@
       </div>
       <div class="col-lg-6">
         <% if current_ico_user.kyc.nil? %>
-            <strong>Заполните форму аутентификации личности для доступа к смарт контракту и bounty.</strong>
+            <p><strong>Заполните форму аутентификации личности для доступа к смарт контракту и bounty.</strong></p>
         <% else %>
             <div class="row">
               <div class="col my-2">
