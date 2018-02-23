@@ -22,7 +22,23 @@ $(document).ready(function(){
             var endICODate = 1522260000000;
             distance = endICODate - now;
             var elem = document.getElementById('presaletext');
-            elem.innerText = 'ICO Ends in:';
+            elem.innerText = 'Token Sale Live!';
+
+            var bonusEndDate = null;
+            var bonus = '';
+            var bonusEnd1 = 1519689599000;
+            var bonusEnd2 = 1520294399000;
+            var bonusEnd3 = 1520899199000;
+            var bonusEnd4 = 1521503999000;
+            if(now<=bonusEnd1) {bonusEndDate = bonusEnd1; bonus = '20%'}
+            if(now>bonusEnd1 && now<=bonusEnd2) {bonusEndDate = bonusEnd2; bonus = '15%'}
+            if(now>bonusEnd2 && now<=bonusEnd3) {bonusEndDate = bonusEnd3; bonus = '10%'}
+            if(now>bonusEnd3 && now<=bonusEnd4) {bonusEndDate = bonusEnd4; bonus = '5%'}
+            var distanceBonus = bonusEndDate - now;
+            var daysB = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hoursB = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutesB = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var secondsB = Math.floor((distance % (1000 * 60)) / 1000);
 //          вызов функции отвечающей за заливку сайта на боевой сервер
         }
 
@@ -43,6 +59,8 @@ $(document).ready(function(){
 
         $(secNum).text(seconds);
         $(secText).text(units(seconds, {nom: 'секунда', gen: 'секунды', plu: 'секунд'}));
+
+
     }, 1000);
 
     function units(num, cases) {
