@@ -59,7 +59,7 @@
 
         & .timer {
             text-align: center;
-            margin-top: $base-offset * 12;
+            margin-top: $base-offset * 8;
 
             &-title {
                 width: 100%;
@@ -99,6 +99,11 @@
             width: 180px;
             text-align: center;
             margin-top: $base-offset * 2;
+        }
+        & .bonus-timer{
+            padding-top: $base-offset*2;
+            font-weight: 700;
+            font-size: 24px;
         }
     }
 

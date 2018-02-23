@@ -35,10 +35,15 @@ $(document).ready(function(){
             if(now>bonusEnd2 && now<=bonusEnd3) {bonusEndDate = bonusEnd3; bonus = '10%'}
             if(now>bonusEnd3 && now<=bonusEnd4) {bonusEndDate = bonusEnd4; bonus = '5%'}
             var distanceBonus = bonusEndDate - now;
-            var daysB = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hoursB = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutesB = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var secondsB = Math.floor((distance % (1000 * 60)) / 1000);
+            var daysB = Math.floor(distanceBonus / (1000 * 60 * 60 * 24));
+            var hoursB = Math.floor((distanceBonus % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutesB = Math.floor((distanceBonus % (1000 * 60 * 60)) / (1000 * 60));
+            var secondsB = Math.floor((distanceBonus % (1000 * 60)) / 1000);
+            $('#bonusp').text(bonus);
+            $('#daysb').text(daysB);
+            $('#hoursb').text(hoursB);
+            $('#minutesb').text(minutesB);
+            $('#bonus-timer').show();
 //          вызов функции отвечающей за заливку сайта на боевой сервер
         }
 
