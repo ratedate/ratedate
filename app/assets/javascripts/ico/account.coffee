@@ -10,6 +10,7 @@
 #= require web3
 #= require ico/headerBehaviour
 #= require velocity.min
+#= require clipboard.min
 
 window.eth_balance = undefined;
 updateICOProgress = ->
@@ -1141,14 +1142,5 @@ ready = ->
     className: 'active'
   })
   updateICOProgress()
-  $("#smart_contract").on 'click', (e) ->
-    this.setSelectionRange(0, this.value.length)
-  $("#copy").on 'click', (e) ->
-    $("#smart_contract").select()
-    document.execCommand("copy")
-  $("#etz_wallet").on 'click', (e) ->
-    this.setSelectionRange(0, this.value.length)
-  $("#copy_etz").on 'click', (e) ->
-    $("#etz_wallet").select()
-    document.execCommand("copy")
+  clipboard = new Clipboard('.button')
 $(document).on('turbolinks:load', ready)
