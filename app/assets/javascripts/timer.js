@@ -50,10 +50,10 @@ $(document).ready(function(){
         $(secText).text(units(seconds, {nom: 'секунда', gen: 'секунды', plu: 'секунд'}));
         var bonusEndDate = null;
         var bonus = '';
-        var bonusEnd1 = 1519689599000;
-        var bonusEnd2 = 1520294399000;
-        var bonusEnd3 = 1520899199000;
-        var bonusEnd4 = 1521503999000;
+        var bonusEnd1 = 1519689600000;
+        var bonusEnd2 = 1520294400000;
+        var bonusEnd3 = 1520899200000;
+        var bonusEnd4 = 1521504000000;
         if(now<=bonusEnd1) {bonusEndDate = bonusEnd1; bonus = '20%'}
         if(now>bonusEnd1 && now<=bonusEnd2) {bonusEndDate = bonusEnd2; bonus = '15%'}
         if(now>bonusEnd2 && now<=bonusEnd3) {bonusEndDate = bonusEnd3; bonus = '10%'}
@@ -67,6 +67,7 @@ $(document).ready(function(){
         $('#daysb').text(daysB);
         $('#hoursb').text(fix_len(hoursB));
         $('#minutesb').text(fix_len(minutesB));
+        $('#secondsb').text(fix_len(secondsB));
 
 
     }, 1000);

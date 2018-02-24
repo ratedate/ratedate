@@ -96,21 +96,25 @@
           display: block;
           margin: 0 auto;
           margin-top: $base-offset * 2;
-          width: 524px;
+          width: 570px;
           & .button{
-            width: 150px;
+            width: 145px;
             text-align: center;
             display: inline-block;
             padding: $base-offset*2;
           }
           & .bonus-timer{
-            width: 369px;
+            width: 420px;
             padding: $base-offset*2;
             border-radius: 6px;
             font-weight: 700;
             font-size: 24px;
             display: inline-block;
             background-color: rgba(255,255,255,0.2);
+            & .time{
+              width: 34px;
+              display: inline-block;
+            }
           }
         }
 
@@ -170,10 +174,13 @@
         & .bonus-wrap{
           width: 260px;
           & .bonus-timer{
-            font-size: 16px;
+            font-size: 14px;
             display: block;
             width: 100%;
             margin-bottom: $base-offset;
+            & .time{
+              width: 18px;
+            }
           }
           & .button{
             display: block;
