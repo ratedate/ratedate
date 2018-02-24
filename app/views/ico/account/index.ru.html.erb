@@ -78,8 +78,14 @@
               </div>
             </div>
             <strong>Адрес смарт контракта:</strong>
-            <div class="text-secondary">Адрес будет доступен 24 Февраля</div>
-        <% end %>
+            <div class="input-group pb-2">
+              <input id="smart_contract" type="text" value="0xa95AC0D22379c428FB73296446a6399962c1A93A" class="form-control" readonly>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" id="copy" style="cursor: pointer;">copy</button>
+              </div>
+            </div>
+
+      <% end %>
         <ul>
           <li>Мин. взнос - 0.1 ETH;</li>
           <li>Cтавьте GAS не менее 300 000 (излишки вам вернутся);</li>
@@ -88,13 +94,19 @@
         <% if current_ico_user.kyc.nil? %>
             <%= render 'kyc_form' %>
         <% else %>
-            <strong>Кошелек для инвестирования в ETZ будет доступен 24 февраля.</strong>
+            <strong>Кошелек для инвестирования в ETZ:</strong>
+            <div class="input-group pb-2">
+              <input id="etz_wallet" type="text" value="0xC7be27cFB787bf3606Cb1D4130Affbf798361781" class="form-control" readonly>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" id="copy_etz" style="cursor: pointer;">copy</button>
+              </div>
+            </div>
             <div class="pb-2">Руководства по переводу ETZ <a href="http://etherzero.org/tutorials/" class="text-secondary">http://etherzero.org/tutorials/</a></div>
             <div class="pb-2"><strong>Внимание:</strong> минимальная сумма 1 ETZ. Переводы с меньшими суммами не будут обрабатываться для начисления RDT. Количество RDT будет рассчитываться по курсу ETH/ETZ от yobit на момент транзакции.</div>
             <div>
               Ваша реферальная ссылка для участия в Bounty программе:
               <strong><%= ref_link %></strong><br>
-              Адрес вашего ETH кошелька: <span id="eth_wallet" class="text-truncate d-inline-block w-100"><%= current_ico_user.eth_wallet %></span>
+              Адрес вашего ETH кошелька: <span id="eth_wallet" class="text-truncate d-inline-block w-100"><%= current_ico_user.kyc.wallet %></span>
             </div>
             <div class="h4">История покупок(ETH)</div>
             <table class="table table-light table-striped">

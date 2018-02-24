@@ -719,7 +719,6 @@ updateICOProgress = ->
             $('#purchase_history_data').append(temp)
             web3RD.eth.getBlock event.blockNumber, (error, block) ->
               $('#'+block.number).text(new Date(block.timestamp*1000).toLocaleString())
-              console.log(block)
   return
 ready = ->
   $('header').headerBehaviour()

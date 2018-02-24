@@ -24,8 +24,10 @@
           <span class="timer-digit-value" id="tSecNum">32</span>
         </p>
       </div>
-      <%= link_to 'Join/KYC', ico_sign_up_path(:locale => params[:locale]), class: "button white" %>
-      <p class="center bonus-timer" id="bonus-timer" style="display: none;">Бонус <span id="bonusp"></span> закончится через <span id="daysb"></span>:<span id="hoursb"></span>:<span id="minutesb"></span></p>
+      <div class="bonus-wrap">
+        <p class="center bonus-timer" id="bonus-timer" >Бонус <span id="bonusp"></span> закончится через <span id="daysb"></span>:<span id="hoursb"></span>:<span id="minutesb"></span></p>
+        <%= link_to 'Join/KYC', ico_sign_up_path(:locale => params[:locale]), class: "button white" %>
+      </div>
     </div>
   </div>
 </div>
