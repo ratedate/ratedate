@@ -672,6 +672,10 @@ updateICOProgress = ->
     }
   ]
   ICO = new web3RD.eth.Contract(icoabi, "0xa95AC0D22379c428FB73296446a6399962c1A93A")
+  ICO.methods.weiRaised().call (error, result) ->
+    if(!error)
+      ethRaised = Number(web3RD.utils.fromWei(result, 'ether'))
+      $('#eth').text(ethRaised.toFixed(4))
   if(wallet)
     rdtabi = [
       {
