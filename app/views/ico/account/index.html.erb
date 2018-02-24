@@ -71,17 +71,17 @@
                 <div class="alert alert-primary h-100"><div class="text-center h3"><span id="eth_balance">0</span> RDT</div><div class="h5 text-center">Balance</div></div>
               </div>
               <div class="col my-2">
-                <div class="alert alert-primary h-100"><div class="text-center h3"><%= current_ico_user.referrals.confirmed.count %></div><div class="h5 text-center">Referrals</div></div>
+                <div class="alert alert-primary h-100"><div class="text-center h3"><%= @referrals %></div><div class="h5 text-center">Referrals</div></div>
               </div>
               <div class="col my-2">
-                <div class="alert alert-primary h-100"><div class="text-center h3"><%= current_ico_user.referrals.confirmed.count*10 %> RDT</div><div class="h5 text-center">Referral Bonus</div></div>
+                <div class="alert alert-primary h-100"><div class="text-center h3"><%= @referrals*10 %> RDT</div><div class="h5 text-center">Referral Bonus</div></div>
               </div>
             </div>
             <strong>The smart contract address:</strong>
             <div class="input-group pb-2">
               <input id="smart_contract" type="text" value="0xa95AC0D22379c428FB73296446a6399962c1A93A" class="form-control" readonly>
               <div class="input-group-append">
-                <button class="btn btn-outline-secondary" id="copy" style="cursor: pointer;">copy</button>
+                <button class="button red" id="copy" style="cursor: pointer;">copy</button>
               </div>
             </div>
         <% end %>
@@ -97,11 +97,11 @@
             <div class="input-group pb-2">
               <input id="etz_wallet" type="text" value="0xC7be27cFB787bf3606Cb1D4130Affbf798361781" class="form-control" readonly>
               <div class="input-group-append">
-                <button class="btn btn-outline-secondary" id="copy_etz" style="cursor: pointer;">copy</button>
+                <button class="button red" id="copy_etz" style="cursor: pointer;">copy</button>
               </div>
             </div>
             <div class="pb-2">Transfer ETZ tutorials for all possible wallets <a href="http://etherzero.org/tutorials/" class="text-secondary">http://etherzero.org/tutorials/</a></div>
-            <div class="pb-2"><strong>Attention:</strong> minimal amount 1 ETZ. The fee is less than the amount claimed for the accrual of RDT will not be processed. Amount of RDT will be calculated on ETZ/ETH by yobit at the transaction time.</div>
+            <div class="pb-2"><strong>Attention:</strong> minimal amount 10 ETZ. The fee is less than the amount claimed for the accrual of RDT will not be processed. Amount of RDT will be calculated on ETZ/ETH by yobit at the transaction time.</div>
             <div>
               Your referral link to participate in the Bounty program:
               <strong><%= ref_link %></strong><br>

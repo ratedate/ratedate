@@ -49,7 +49,7 @@ class KycUploader < CarrierWave::Uploader::Base
   end
 
   def size_range
-    16384...2097152
+    16384...4194304
   end
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
