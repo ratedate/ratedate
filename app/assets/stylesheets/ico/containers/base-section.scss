@@ -98,12 +98,13 @@
           margin-top: $base-offset * 2;
           width: 524px;
           & .button{
-            width: 160px;
+            width: 150px;
             text-align: center;
             display: inline-block;
             padding: $base-offset*2;
           }
           & .bonus-timer{
+            width: 369px;
             padding: $base-offset*2;
             border-radius: 6px;
             font-weight: 700;
