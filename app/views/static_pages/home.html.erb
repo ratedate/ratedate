@@ -6,6 +6,7 @@
     <div class="col-md-8 text-center">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
+      <p class="h3">Update Coming Soon</p>
       <%= form_for(:user, as: resource_name, url: session_path(resource_name), :html => {:class => "devise-form"}) do |f| %>
           <div class="form-group mx-auto d-block">
             <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email"   %>
