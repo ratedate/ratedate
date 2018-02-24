@@ -2,7 +2,7 @@ class Ico::AccountController <  Ico::IcoController
   layout "ico_account"
   before_action :authenticate_ico_user!
   def index
-
+    @referrals = Kyc.where(user_id: current_ico_user.referral_ids).count
   end
 
   def add_eth
