@@ -5,7 +5,7 @@ module ApplicationHelper
     ref.html_safe
   end
   def meta_tags
-    tags = '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 user-scalable=no">'
+    tags = '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">'
     tags.html_safe
   end
   def google_analytics
