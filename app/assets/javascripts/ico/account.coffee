@@ -1129,6 +1129,7 @@ updateICOProgress = ->
   return
 ready = ->
   $('header').headerBehaviour()
+  clipboard = new Clipboard('.button')
   $('.btn-link.trigger').on 'click', () ->
     $(this).toggleClass('active')
   $('.anchor').on 'click', (event) ->
@@ -1142,5 +1143,4 @@ ready = ->
     className: 'active'
   })
   updateICOProgress()
-  clipboard = new Clipboard('.button')
 $(document).on('turbolinks:load', ready)
