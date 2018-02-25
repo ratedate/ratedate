@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  font-url('icomoon.eot?7wizuc');
-  src:  font-url('icomoon.eot?7wizuc#iefix') format('embedded-opentype'),
-    font-url('icomoon.ttf?7wizuc') format('truetype'),
-    font-url('icomoon.woff?7wizuc') format('woff'),
-    font-url('icomoon.svg?7wizuc#icomoon') format('svg');
+  src:  font-url('icomoon.eot?kq4rbm');
+  src:  font-url('icomoon.eot?kq4rbm#iefix') format('embedded-opentype'),
+    font-url('icomoon.ttf?kq4rbm') format('truetype'),
+    font-url('icomoon.woff?kq4rbm') format('woff'),
+    font-url('icomoon.svg?kq4rbm#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -26,6 +26,9 @@
 
 .icon-logo:before {
   content: "\e900";
+}
+.icon-cryptonext:before {
+  content: "\e915";
 }
 .icon-icorating:before {
   content: "\e913";

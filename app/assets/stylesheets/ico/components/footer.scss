@@ -13,13 +13,12 @@ footer {
         z-index: 0;
         display: block;
         position: absolute;
-        left: -5%;
-        width: 110%;
+        left: 0%;
+        width: 100%;
         // height: $base-offset * 12;
         height: 100%;
-        background-size: 100% auto;
-
-        top: -2px; 
+        background-size: 110% auto;
+        top: -2px;
         background-position: center top;
 
         @include backgroundImage('left-top.png');
