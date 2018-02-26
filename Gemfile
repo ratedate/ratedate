@@ -57,6 +57,7 @@ gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
 # image croping
 gem 'jcrop-rails-v2'
+gem 'jquery-slick-rails'
 
 gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on'
 

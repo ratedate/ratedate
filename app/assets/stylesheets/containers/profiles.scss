@@ -1,0 +1,129 @@
+.profiles {
+    padding: $base-offset * 4 $base-offset * 2 $base-offset * 8;
+
+    &-wrap {
+        width: 100%;
+        max-width: 1240px;
+        margin: 0 auto;
+    }
+
+    & .filter-bar {
+        font-size: 16px;
+        line-height: 16px;
+        @include clear();
+        margin-bottom: $base-offset * 4;
+
+        & .toggle-filter {
+            float: left;
+            margin-right: $base-offset * 10;
+            display: block;
+            padding: $base-offset 0;
+
+            & .fa {
+                margin-right: $base-offset * 3;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        
+        & .selected-filters {
+            &-wrap {
+                margin: (-$base-offset);
+                @include overflow(hidden);
+                float: left;
+            }
+            & li {
+                float: left;
+                margin: $base-offset;
+            }
+            & .filter {
+                position: relative;
+                width: 100%;
+                padding: $base-offset $base-offset * 2;
+                background-color: #fff;
+                border-radius: 100px;
+                min-width: 150px;
+                box-shadow: 0px 1px 4px 0px rgba(1, 1, 1, 0.05);
+
+                & .remove-filter {
+                    position: absolute;
+                    top: 50%;
+                    color: $grey;
+                    right: $base-offset * 2;
+                    transform: translateY(-50%);
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+    & .filter-form {
+        z-index: 50;
+        position: fixed;
+        left: 0;
+        top: 50px + $base-offset * 2;
+        bottom: 0;
+        // height: calc(100vh - (50px + $base-offset * 2));
+        width: 320px;
+        background-color: #fff;
+        
+        @include overflow(hidden, scroll);
+        @include transition(.3s);
+        transform: translateX(-100%);
+        box-shadow: 0 0 0 0px rgba(1, 1, 1, 0.12);
+
+        & .input, & .round-btn {
+            margin-bottom: $base-offset * 8;
+        }
+
+        
+        padding: $base-offset * 4;
+
+        &.show {
+            @include transition(.3s);
+            transform: translateX(0);
+            box-shadow: 11px 0px 27px 0px rgba(1, 1, 1, 0.12);
+        }
+
+        &-title {
+            font-weight: 500;
+            font-size: 26px;
+            line-height: 16px + $base-offset * 2;
+            margin-bottom: $base-offset * 8;
+        }
+
+        &-close {
+
+            display: block;
+            position: absolute;
+            
+            top: $base-offset * 4 - 1px;
+            right: $base-offset * 4;
+
+            font-size: 16px;
+            line-height: 16px;
+            text-align: center;
+
+            width: 16px + $base-offset * 2 + 2;
+            height: 16px + $base-offset * 2 + 2;
+            padding: $base-offset;
+
+            border: 1px solid $grey;
+            border-radius: 100%;
+        }
+    }
+
+    @media screen and (max-width: $screen-md) {
+        & .filter-bar {
+            & .toggle-filter {
+                width: 100%;
+                text-align: center;
+            }
+            & .selected-filters {
+                display: none;
+            }
+        }
+    }
+}

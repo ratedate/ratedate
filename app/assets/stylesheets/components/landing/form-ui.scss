@@ -1,0 +1,159 @@
+.input {
+    input {
+        font-size: 18px;
+        padding: $base-offset * 1.5 0;
+        border: none;
+        width: 100%;
+        border-bottom: 2px solid $light-grey;
+    }
+    
+    // color: $grey;
+}
+
+.link {
+    font-size: 12px;
+    font-weight: 500;
+
+    &.underline {
+        text-decoration: underline;
+    }
+
+    &.medium {
+        font-size: 16px;
+    }
+}
+
+.info-text {
+    color: $grey;
+}
+
+.trigger {
+    position: relative;
+    border-radius: 100px;
+    padding: $base-offset * 2 0;
+    background-color: $light-grey;
+    font-size: 18px;
+
+    @include clear();
+
+    & .left, & .right {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        width: 50%;
+        float: left;
+    }
+
+    & .left {
+        padding-right: $base-offset / 2;
+    }
+
+    & .right {
+        padding-left: $base-offset / 2;
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 2px;
+        bottom: 2px;
+
+        width: calc(50% - #{$base-offset} / 2);
+
+        background-color: #fff;
+        border-radius: 100px;
+
+        @include transition(.3s);
+        left: 2px;
+    }
+
+    &.active {
+        &::before {
+            @include transition(.3s);
+            left: calc(50% - 2px + #{$base-offset / 2});
+        }
+    }
+}
+
+.round-btn {
+    display: inline-block;
+    text-align: center;
+    border: none;
+    border-radius: 100px;
+    padding: $base-offset * 2 $base-offset * 4;
+    background-color: $red;
+    font-size: 18px;
+    color: #fff;
+    min-width: 170px;
+    box-shadow: 0px 8px 9px 0px rgba(1, 1, 1, 0.1);
+
+    &.white {
+        background-color: #fff;
+        color: $red;
+    }
+
+    &.transparent {
+        background-color: transparent;
+        color: $dark;
+        box-shadow: 0 0 0 1px $light-grey;
+    }
+}
+
+.checkbox {
+    $checkbox-size: 24px;
+
+    & input {
+        display: none;
+    }
+
+    & label {
+        cursor: pointer;
+        position: relative;
+        padding: 0 0 0 $checkbox-size + $base-offset;
+        color: $grey;
+
+        display: inline-block;
+        line-height: $checkbox-size;
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+
+            top: 0;
+            left: 0;
+            width: $checkbox-size;
+            height: $checkbox-size;
+            border: 1px solid $grey;
+            border-radius: 4px;
+        }
+
+        &::after {
+            content: '\f00c';
+            font-size: 18px;
+            line-height: $checkbox-size;
+            text-align: center;
+            font-family: FontAwesome;
+            display: block;
+            position: absolute;
+            color: $dark;
+
+            top: 0;
+            left: 0;
+
+            @include transition(.3s);
+            @include overflow();
+            width: 0;
+            height: $checkbox-size;
+            margin: 0 3px;
+        }
+    }
+
+    & input:checked + label {
+        &::after {
+            @include transition(.3s);
+            width: $checkbox-size - 6px;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+.second-section {
+    background-color: $red;
+    width: 100vw;
+    height: 100vh;
+
+    @include backgroundImage('second-screen-back.png');
+    background-position: -10vw center;
+    background-size: contain;
+}

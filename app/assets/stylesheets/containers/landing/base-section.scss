@@ -1,0 +1,235 @@
+.base-section {
+    padding: $base-offset * 3 68px 0;
+    background-color: $red;
+    width: 100vw;
+    height: 100vh;
+
+    & .video-circle {
+        position: absolute;
+        overflow: hidden;
+        width: 120vmin;
+        height: 120vmin;
+        border-radius: 100%;
+        top: -10vmin;
+        right: -30vmin;
+        z-index: 1;
+
+        & video {
+            position: absolute;
+            height: 100%;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+        }
+    }
+    
+    & .logo {
+        position: relative;
+        z-index: 2;
+        margin-top: $base-offset * 2;
+        font-size: 64px;
+        color: #fff;
+    }
+
+    & .round-btn {
+        display: none;
+        position: absolute;
+        top: $base-offset * 3;
+        right: 68px;
+        z-index: 2;
+    }
+
+    & .revolution {
+        z-index: 2;
+        position: absolute;
+        top: $base-offset * 3;
+        right: 68px;
+        & p {
+            font-family: VarelaRound;
+            font-size: 14px;
+
+            & .nowrap {
+                display: block;
+
+            }
+        }
+    }
+
+    & .happiness {
+        position: absolute;
+        z-index: 2;
+        bottom: $base-offset * 13;
+        left: 68px;
+
+        &.to-second {
+            animation: moveTextToSecondSection ease-out .8s forwards;
+        }
+
+        &.to-first {
+            animation: moveTextToFirstSection ease-out .8s forwards;
+        }
+
+        & .nowrap {
+            display: block;
+        }
+
+        & .hidden-text-wrap {
+            @include overflow();
+        }
+
+        & .hidden-text {
+            opacity: 0;
+            margin-top: -30%;
+            font-size: 18px;
+            line-height: 36px;
+            color: #fff;
+            max-width: 600px;
+
+            &.show {
+                animation: showExtraText ease-out forwards .8s;
+            }
+
+            &.hide {
+                animation: hideExtraText ease-out forwards 1s;
+            }
+        }
+
+        @keyframes moveTextToSecondSection {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        @keyframes moveTextToFirstSection {
+            from {
+                transform: translateY(100vh);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes hideExtraText {
+            0% {
+                opacity: 1;
+                margin-top: $base-offset * 2;
+            }
+            10% {
+                opacity: 0;
+                margin-top: $base-offset * 2;
+            }
+            100% {
+                opacity: 0;
+                margin-top: -30%;
+            }
+        }
+
+        @keyframes showExtraText {
+            0% {
+                opacity: 0;
+                margin-top: -30%;
+            }
+            90% {
+                opacity: 0;
+                margin-top: $base-offset * 2;
+            }
+            100% {
+                opacity: 1;
+                margin-top: $base-offset * 2;
+            }
+        }
+    }
+    
+    @media screen and (max-width: $screen-lg) {
+        & .round-btn {
+            display: block;
+        }
+        & .happiness {
+            bottom: $base-offset * 8;
+            & .hidden-text {
+                font-size: 16px;
+                line-height: 32px;
+            }
+        }
+
+        & .revolution {
+            position: absolute;
+            top: $base-offset * 11;
+            right: auto;
+            left: 68px;
+        }
+        
+    }
+
+    @media screen and (max-width: $screen-md) {
+        padding: $base-offset $base-offset 0;
+        @media screen and (orientation: portrait) {
+            & .video-circle {
+                top: 15vmin;
+                right: -50vmin; 
+            }
+        }
+        & .revolution {
+            left: $base-offset;
+            top: $base-offset * 8;
+            & p {
+                font-size: 12px;
+            }
+        }
+
+        & .happiness {
+            max-width: 95vw;
+            bottom: $base-offset * 2;
+            left: $base-offset;
+            & .hidden-text {
+                margin-top: -100%;
+                font-size: 14px;
+                line-height: 24px;
+            }
+
+            @keyframes hideExtraText {
+                0% {
+                    opacity: 1;
+                    margin-top: $base-offset * 2;
+                }
+                10% {
+                    opacity: 0;
+                    margin-top: $base-offset * 2;
+                }
+                100% {
+                    opacity: 0;
+                    margin-top: -100%;
+                }
+            }
+    
+            @keyframes showExtraText {
+                0% {
+                    opacity: 0;
+                    margin-top: -100%;
+                }
+                90% {
+                    opacity: 0;
+                    margin-top: $base-offset * 2;
+                }
+                100% {
+                    opacity: 1;
+                    margin-top: $base-offset * 2;
+                }
+            }
+        }
+
+        & .round-btn {
+            // position: absolute;
+            top: $base-offset * 2;
+            right: $base-offset;
+            // z-index: 2;
+
+            padding: $base-offset $base-offset * 2;
+            font-size: 16px;
+            min-width: 110px;
+        }
+    }
+}

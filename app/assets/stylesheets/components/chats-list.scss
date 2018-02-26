@@ -1,0 +1,103 @@
+.chats-list {
+    $image-size: 50px;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: $base-offset * 4 0;
+
+    &-title {
+        padding: 0 $base-offset * 3;
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 500;
+        margin-bottom: $base-offset * 4;
+    }
+
+    & ul {
+        min-height: $image-size + $base-offset * 2;
+        max-height: ($image-size + $base-offset * 4) * 4;
+        @include overflow(hidden, scroll);
+        margin: -$base-offset * 2 0;
+        padding: $base-offset * 2 0;
+    }
+    
+    & .chat-person {
+
+        display: block;
+        padding: $base-offset $base-offset $base-offset $base-offset * 3;
+        @include clear();
+
+        margin-bottom: $base-offset;
+
+        & .image {
+            position: relative;
+            float: left;
+            margin-right: $base-offset;
+            display: block;
+            width: $image-size;
+            height: $image-size;
+
+            border-radius: 100%;
+            @include overflow();
+
+            & img {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate3d(-50%, -50%, 0);
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        & .name {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: $base-offset / 2;
+        }
+
+        & .short-message {
+            font-size: 12px;
+            color: $grey;
+        }
+
+        &.new {
+            position: relative;
+            &::before {
+                content: 'new';
+                position: absolute;
+                display: block;
+                padding: $base-offset / 4 $base-offset;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: 500;
+                color: #fff;
+                background-color: $red;
+
+                top: 0;
+                right: $base-offset * 2;
+                transform: translateY(-70%);
+            }
+        }
+
+        &.active {
+            background-color: $light-grey;
+        }
+    }
+
+    @media screen and (max-width: 1280px) {
+
+        background-color: $lighter-grey;
+
+        border-radius: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+
+        & ul {
+            min-height: auto;
+            max-height: 100%;
+        }
+    }
+}

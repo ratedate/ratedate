@@ -32,38 +32,3 @@ ready = ->
 $(document).ready(ready)
 $(document).on('turbolinks:load', ready)
 
-
-#function set_nav_bg() {
-#    var scrollPos = $(window).scrollTop(),
-#        navbar = $('.navbar');
-#
-#    if (scrollPos > 60) {
-#        navbar.addClass('navbar-light bg-light')
-#        navbar.removeClass('navbar-dark bg-fade')
-#    } else {
-#        navbar.removeClass('navbar-light bg-light')
-#        navbar.addClass('navbar-dark bg-fade')
-#    }
-#
-#}
-#var ready;
-#ready = function () {
-#    console.log('page loaded');
-#    set_nav_bg();
-#    $(window).scroll(function() {
-#        set_nav_bg();
-#    });
-#    $('.m').on('click', function () {
-#        $a = $($(this).attr('href'));
-#        $('.navbar-collapse').collapse('hide');
-#        $('html,body').animate({ scrollTop: $a.offset().top - 101}, 500);
-#        return false;
-#    });
-#    $('.navbar-toggler').on('click',function () {
-#        var navbar = $('.navbar');
-#        navbar.addClass('navbar-light bg-light');
-#        navbar.removeClass('navbar-dark bg-fade');
-#    });
-#};
-#jQuery(document).ready(ready);
-#$(document).on('turbolinks:load', ready);

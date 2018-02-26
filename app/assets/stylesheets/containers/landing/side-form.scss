@@ -1,0 +1,223 @@
+.side-form {
+    background-color: #fff;
+    z-index: 60;
+    width: 40vw;
+    max-width: 480px;
+    float: right;
+    top: 0;
+    right: 0;
+    height: 100vh;
+
+    padding: $base-offset * 3 68px 0;
+
+    @include overflow(hidden, scroll);
+    
+    // -webkit-overflow-scrolling: touch;
+
+    &-head {
+        display: none;
+        position: relative;
+        // @include overflow();
+        & .logo {
+            color: $red;
+            font-size: 48px;
+            // float: left;
+        }
+
+        & .close-menu {
+            font-size: 24px;
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-50%);
+        }
+    }
+
+    & .signup,
+    & .check-mail,
+    & .forgot,
+    & .login {
+        @include overflow();
+        min-height: calc(100vh - 88px);
+        opacity: 0;
+        display: none;
+
+        &.show {
+            @include transition(.3s);
+            opacity: 1;
+            display: block;
+        }
+    }
+
+    & .signup, & .login {
+        & .trigger {
+            margin: $base-offset * 3 0 $base-offset * 6;
+        }
+    
+        & .input {
+            margin: 0 0 $base-offset * 2 0;
+        }
+    
+        & .captcha {
+            margin-bottom: $base-offset * 3;
+            text-align: center;
+            &-wrap {
+                display: inline-block;
+                & > * {
+                    float: left;
+                }
+            }
+        }
+    
+        & .round-btn {
+            margin-bottom: $base-offset * 3;
+        }
+    
+        & .instructions {
+            display: block;
+            margin-bottom: $base-offset * 2;
+        }
+    
+        & .description {
+            margin-bottom: $base-offset * 3;
+        }
+
+        & .signup-form, & .login-form {
+            display: none;
+
+            &.active {
+                display: block;
+            }
+        }
+    }
+
+    & .check-mail {
+        &-icon {
+            margin: $base-offset * 4 auto;
+            $circle-offset: $base-offset * 2;
+            $size: 60px;
+
+            position: relative;
+            display: block;
+            width: $size;
+            height: $size;
+
+            border-radius: 100%;
+            border: 1px solid rgba($grey, .6);
+
+            &::before, &::after {
+                content: '';
+                display: block;
+                position: absolute;
+
+                top: 50%;
+                left: 50%;
+
+                transform: translate3d(-50%, -50%, 0);
+                
+                border-radius: 100%;
+            }
+
+            &::before {
+                border: 1px solid rgba($grey, .3);
+                width: calc(100% + #{$circle-offset});
+                height: calc(100% + #{$circle-offset});
+            }
+
+            &::after {
+                border: 1px solid rgba($grey, .15);
+                width: calc(100% + #{$circle-offset} * 2);
+                height: calc(100% + #{$circle-offset} * 2);
+            }
+
+            @include backgroundImage('red-envelope.png');
+            @include backgroundImage('red-envelope.svg');
+            background-size: 70%;
+            background-position: center;
+        }
+        &-text {
+            font-size: 18px;
+            width: 220px;
+            margin: 0 auto $base-offset * 7;
+        }
+    }
+
+    & .forgot {
+        &-title {
+            font-size: 18px;
+            margin: $base-offset * 5 0 $base-offset * 8;
+        }
+
+        & .input {
+            margin-bottom: $base-offset * 5;
+        }
+
+        & .round-btn {
+            margin-bottom: $base-offset * 2;
+        }
+        & .link {
+            margin: 0 $base-offset;
+        }
+    }
+
+    & .login {
+        & .forgot-link {
+            display: block;
+            float: right;
+            font-size: 14px;
+            line-height: 20px;
+        }
+    
+        & .checkbox {
+            margin-bottom: $base-offset * 5;
+        }
+    
+        & .round-btn {
+            margin-bottom: $base-offset * 10;
+        }
+    }
+
+    & .info-links {
+        margin-bottom: $base-offset * 3;
+        @include clear();
+        float: right;
+
+        & a {
+            margin-left: $base-offset;
+        }
+    }
+
+    @media screen and (max-width: $screen-lg) {
+        &-head {
+            display: block;
+        }
+        position: fixed;
+        width: 360px;
+        @include transition(.3s);
+        transform: translateX(100%);
+
+        padding: $base-offset * 2 $base-offset * 2 0;
+        box-shadow: 0 0 0 0 rgba($dark, .8);
+
+        &.show {
+            box-shadow: 0 -3px 10px 0 rgba($dark, .8);
+            @include transition(.3s);
+            transform: translateX(0);
+        }
+    }
+
+    @media screen and (max-width: $screen-md) {
+        width: 320px;
+        padding: $base-offset * 2 $base-offset * 2 0;
+
+        & .signup {
+            @include overflow(visible);
+            & .captcha {
+                margin-left: -$base-offset * 2;
+                margin-right: -$base-offset * 2;
+                
+            }
+        }
+    }
+}

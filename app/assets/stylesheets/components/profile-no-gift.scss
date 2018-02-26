@@ -1,0 +1,31 @@
+.profile-no-gift {
+    $icon-size: $base-offset * 14;
+    display: block;
+
+    background-color: $light-grey;
+    border-radius: 4px;
+    padding: $base-offset * 6;
+    text-align: center;
+    &-icon {
+        position: relative;
+        width: $icon-size;
+        height: $icon-size;
+        margin: 0 auto $base-offset * 2;
+        border-radius: 100%;
+        background-color: #fff;
+        font-size: 72px;
+        color: $grey;
+
+        & .fa {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+        }
+    }
+    &-caption {
+        width: 100%;
+        font-size: 14px;
+        color: $grey;
+    }
+}

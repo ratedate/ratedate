@@ -1,0 +1,66 @@
+.third-section {
+    position: relative;
+    padding: $base-offset * 3 68px 0;
+    background-color: $red;
+    width: 100vw;
+    height: 100vh;
+
+    & .section-title {
+        position: absolute;
+        left: 68px;
+        top: 50%;
+
+        transform: translateY(-50%);
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 70vmin;
+        height: 70vmin;
+        border-radius: 100%;
+        border: 20vmin solid $orange;
+        top: -15vmin;
+        right: 30vmin; 
+    }
+
+    &-back {
+        position: absolute;
+        bottom: 0;
+        right: 10vmin;
+        display: block;
+        height: 130vmin;
+        width: 130vmin;
+        @include backgroundImage('third-screen-back.png');
+        background-size: contain;
+        background-position: center 45vmin;
+    }
+
+    @media screen and (max-width: $screen-lg) {
+        &::before {right: -18vmin;}
+        &-back {right: -40vmin;}
+    }
+
+    @media screen and (max-width: $screen-md) {
+        @media screen and (orientation: portrait) {
+            & .section-title {
+                left: $base-offset;
+                top: 10vmin;
+                transform: none;
+            }
+
+            &::before {
+                top: 25vmin;
+                right: 10vmin;
+            }
+
+            &-back {
+                right: -25vmin;
+                height: 130vmin;
+                width: 140vmin;
+                background-position: center 56vmin;
+            }
+        }
+    }
+}

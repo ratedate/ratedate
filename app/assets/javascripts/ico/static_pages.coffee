@@ -313,6 +313,5 @@ ready = ->
     nav: '.menu.nav-links > li > a',
     className: 'active'
   })
-  updateICOProgress()
   return
 $(document).on('turbolinks:load', ready)
