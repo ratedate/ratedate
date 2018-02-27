@@ -135,12 +135,11 @@
     }
 
     @media screen and (max-width: $screen-lg) {
-        &:not(.edit) {
-            padding: 0;
-            background: none;
-            &-title {
-                display: none;
-            }
+        
+        padding: 0;
+        background: none;
+        &-title {
+            display: none;
         }
 
         & ul {
@@ -167,6 +166,14 @@
                         }
                     }
                 }
+            }
+        }
+
+        &.edit {
+            padding: $base-offset * 4;
+            background-color: #fff;
+            &-title {
+                display: block;
             }
         }
     }

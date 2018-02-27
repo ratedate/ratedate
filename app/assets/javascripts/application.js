@@ -27,8 +27,8 @@
 
 var $navLinks = null;
 
-$(document).ready(function() {
-
+var ready = function() {
+    myVideo = document.getElementById('circle-video');
     var galleryConfig = {
         arrows: false,
         dots: true,
@@ -149,6 +149,9 @@ $(document).ready(function() {
         navigationPosition: 'right',
         easingcss3: 'ease-out',
         menu: '.nav-dots',
+        afterLoad: function(anchor, index) {
+            index == 1 && myVideo.play && myVideo.play();
+        },
         anchors: ['section-1', 'section-2', 'section-3', 'section-4', 'section-5', 'foot-section'],
         onLeave: handleFullpageOnLeave
     });
@@ -183,9 +186,9 @@ $(document).ready(function() {
         $('.signup-form').addClass('active');
         $('.login-form').removeClass('active');
     });
-});
+};
 
-
+$(document).on('turbolinks:load', ready)
 
 function handleFullpageOnLeave(index, nextIndex, direction) {
     if (nextIndex > 2) {

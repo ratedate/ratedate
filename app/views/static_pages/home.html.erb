@@ -15,7 +15,7 @@
       </p>
 
       <div class="login-form active">
-        <%= form_for(:user, as: resource_name, url: session_path(resource_name), :html => {:class => "devise-form"}) do |f| %>
+        <%= form_for(:user, as: resource_name, url: session_path(resource_name)) do |f| %>
             <p class="input">
               <%= f.email_field :email, autofocus: true, placeholder: "E-mail"   %>
             </p>
@@ -38,49 +38,42 @@
               Didn't receive confirmation instructions?
             </a>
 
-            <p class="info-text description">
-              By clicking Sign Up, I confirm that I am not U.S.,
-              China or Singapore citizen, I do not have a primary
-              residence or domicile in the U.S., in China or in Singapore
-              and I am not currently on the territory of those countries
-              nor I am transferring cryptocurrency on behalf of such person or entity.
-            </p>
         <% end %>
       </div>
 
       <div class="signup-form">
-        <p class="input">
-          <input type="text" name="email" placeholder="E-mail" />
-        </p>
-        <p class="input">
-          <input type="password" name="pass" placeholder="Password" />
-        </p>
-        <p class="input">
-          <input type="password" name="pass2" placeholder="Repeat password" />
-        </p>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+            <%= devise_error_messages! %>
+            <%= flash[:recaptcha_error] %>
 
-        <div class="captcha">
-          <div class="captcha-wrap">
-            <!-- INSERT CAPTCHA HERE -->
-            <img src=<%=image_url('captcha.png')%> />
-          </div>
-        </div>
+            <%= f.hidden_field :referred_by, :value => session[:referred_by] %>
+            <p class="input">
+              <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+            </p>
 
-        <div class="center">
-          <button type="submit" class="round-btn">Sign Up</button>
-        </div>
+            <p class="input">
+              <%= f.password_field :password, autocomplete: "off",  placeholder: "Password" %>
+            </p>
 
+            <p class="input">
+              <%= f.password_field :password_confirmation, autocomplete: "off",  placeholder: "Repeat password" %>
+            </p>
+            <div class="captcha">
+              <div class="captcha-wrap">
+                <!-- INSERT CAPTCHA HERE -->
+                <%= recaptcha_tags %>
+              </div>
+            </div>
+            <div class="center">
+              <%= f.submit t('sign_up'), class: 'round-btn' %>
+            </div>
+        <% end %>
         <a class="link underline medium instructions" href="javascript:void(0)">
           Didn't receive confirmation instructions?
         </a>
 
-        <p class="info-text description">
-          By clicking Sign Up, I confirm that I am not U.S.,
-          China or Singapore citizen, I do not have a primary
-          residence or domicile in the U.S., in China or in Singapore
-          and I am not currently on the territory of those countries
-          nor I am transferring cryptocurrency on behalf of such person or entity.
-        </p>
       </div>
     </div>
 
@@ -156,7 +149,7 @@
         </div>
 
         <div class="video-circle">
-          <video autoplay loop poster=<%=image_url('video-poster.jpg')%>>
+          <video id="circle-video" loop poster=<%=image_url('video-poster.jpg')%>>
             <source src="/videos/first-video.m4v" type="video/mp4" />
             <source src="/videos/first-video.webm" type="video/webm" />
             <source src="/videos/first-video.ogv" type="video/ogg" />

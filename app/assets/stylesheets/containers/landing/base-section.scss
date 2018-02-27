@@ -1,8 +1,9 @@
 .base-section {
     padding: $base-offset * 3 68px 0;
     background-color: $red;
-    width: 100vw;
-    height: 100vh;
+    // width: 100vw;
+    height: 100%;
+    width: 100%;
 
     & .video-circle {
         position: absolute;
@@ -157,7 +158,7 @@
 
         & .revolution {
             position: absolute;
-            top: $base-offset * 11;
+            top: $base-offset * 12;
             right: auto;
             left: 68px;
         }
@@ -174,7 +175,7 @@
         }
         & .revolution {
             left: $base-offset;
-            top: $base-offset * 8;
+            top: $base-offset * 10;
             & p {
                 font-size: 12px;
             }

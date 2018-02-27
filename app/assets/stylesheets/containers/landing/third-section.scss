@@ -2,8 +2,10 @@
     position: relative;
     padding: $base-offset * 3 68px 0;
     background-color: $red;
-    width: 100vw;
-    height: 100vh;
+    // width: 100vw;
+    // height: 100vh;
+    height: 100%;
+    width: 100%;
 
     & .section-title {
         position: absolute;
@@ -22,13 +24,13 @@
         border-radius: 100%;
         border: 20vmin solid $orange;
         top: -15vmin;
-        right: 30vmin; 
+        right: -18vmin; 
     }
 
     &-back {
         position: absolute;
         bottom: 0;
-        right: 10vmin;
+        right: -40vmin;
         display: block;
         height: 130vmin;
         width: 130vmin;
