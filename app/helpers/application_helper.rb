@@ -115,4 +115,9 @@ module ApplicationHelper
   def etz_raised
     '70.0000'
   end
+  def languages_list(languages)
+    tmp = []
+    languages.each{|l| tmp<<language(l)}
+    tmp.join(', ')
+  end
 end

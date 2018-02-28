@@ -90,4 +90,9 @@ body {
 	@import 'containers/profiles';
 	@import 'containers/profile-page';
 	@import 'containers/chat';
+
+    /*LANDING COMPONENTS*/
+    @import 'components/landing/form-ui';
+    @import 'components/landing/text';
+    @import 'components/landing/nav-dots';
 }

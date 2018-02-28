@@ -1,72 +1,97 @@
-<p id="notice"><%= notice %></p>
-
-<div class="row">
-  <div class="col-md-4">
-    <%= image_tag @profile.large_avatar, class: 'img-thumbnail' %>
-  </div>
-  <div class="col-md-8">
-    <h2>
-      <%= @profile.display_name %> <%= @profile.surname if @profile.hide_surname&&@profile==current_user.profile%>
-    </h2>
-    <%= link_to('Edit Profile', edit_my_profile_path, class: 'btn btn-secondary') if @profile==current_user.profile %>
-    <%= link_to(' Send a Message', new_personal_message_path(receiver_id: @profile.user), class: 'btn btn-secondary icon-envelope') if @profile!=current_user.profile%>
-    <div>
-      <%= @profile.age %> <%= t '.years_old' %>
-    </div>
-    <p>
-      <%= @profile.city.country if @profile.city %>
-      <%= @profile.city.city if @profile.city %>
-    </p>
-
-    <p>
-      <strong>Languages</strong>
-      <% if  @profile.languages
-           @profile.languages.each do |l| %>
-              <%= language(l) %>,
+<div class="profile-page">
+  <div class="profile-page-wrap">
+    <div class="main">
+      <div class="profile-big">
+        <div class="profile-big-image">
+          <%= image_tag @profile.large_avatar %>
+        </div>
+        <div class="profile-big-info">
+          <p class="name"><%= @profile.display_name %> <%= @profile.surname if @profile.hide_surname&&@profile==current_user.profile%>, <%= @profile.age %></p>
+          <p class="place"><%= @profile.city.country if @profile.city %>, <%= @profile.city.city if @profile.city %></p>
+          <% if @profile==current_user.profile %>
+              <button class="round-btn transparent edit" type="button">Edit profile</button>
+          <% else %>
+            <div class="buttons">
+              <button class="round-btn transparent send-message" type="button">
+                <i class="fa fa-comment"></i>
+                <span class="btn-text">Message</span>
+              </button>
+              <button class="round-btn transparent send-gift" type="button">
+                <i class="fa fa-gift"></i>
+                <span class="btn-text">Send a gift</span>
+              </button>
+            </div>
           <% end %>
-      <% end %>
-    </p>
+        </div>
+      </div>
+    </div>
+    <div class="side">
+      <div class="profile-gallery">
+        <p class="profile-gallery-title">
+          <span>Photos</span>
+          <a href="javascript:void(0)">View All</a>
+        </p>
 
-    <p>
-      <strong>About:</strong>
-      <br>
-      <%= @profile.about %>
-    </p>
+        <ul class="slider-lg" id="profile-gallery">
+          <% @profile.photos.each do |photo| %>
+              <li>
+                <span class="profile-gallery-image">
+                    <%= image_tag photo.photo.url(:thumb) %>
+                </span>
+              </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div class="side">
+      <div class="profile-about">
+        <p class="profile-about-title"> About </p>
+        <p class="profile-about-message"><%= @profile.about %></p>
 
-    <p>
-      <strong>Hobbies:</strong>
-      <br>
-      <%= @profile.hobby_list %>
-    </p>
-    <p>
-      <strong>Music:</strong>
-      <br>
-      <%= @profile.music_list %>
-    </p>
-    <p>
-      <strong>Movies:</strong>
-      <br>
-      <%= @profile.film_list %>
-    </p>
-    <p>
-      <strong>Books:</strong>
-      <br>
-      <%= @profile.book_list %>
-    </p>
+        <div class="profile-about-item">
+          <p class="title">Languages</p>
+          <p class="value">
+            <%= languages_list(@profile.languages) if  @profile.languages %>
+          </p>
+        </div>
 
+        <div class="profile-about-item">
+          <p class="title">Music</p>
+          <p class="value"><%= @profile.music_list %></p>
+        </div>
+
+        <div class="profile-about-item">
+          <p class="title">Movies</p>
+          <p class="value"><%= @profile.film_list %></p>
+        </div>
+
+        <div class="profile-about-item">
+          <p class="title">Books</p>
+          <p class="value"><%= @profile.book_list %></p>
+        </div>
+
+        <div class="profile-about-item">
+          <p class="title">Hobbies</p>
+          <p class="value"><%= @profile.hobby_list %></p>
+        </div>
+
+        <a class="read-more" href="javascript:void(0)">Read more</a>
+      </div>
+    </div>
+    <div class="main">
+      <ul class="slider-lg with-offset">
+        <li>
+          <a class="profile-no-gift" href="javascript:void(0)">
+            <p class="profile-no-gift-icon">
+              <i class="fa fa-gift"></i>
+            </p>
+            <p class="profile-no-gift-caption">
+              Be the first! Send a gift!
+            </p>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
-<div class="row pt-2">
-  <% @profile.photos.each_with_index do |photo,index| %>
-      <div class="col-lg-2 col-sm-4">
-        <%= link_to(photo.photo.url, :'data-toggle'=>'lightbox', :'data-gallery'=>'profile-gallery' ) do %>
-          <%= image_tag photo.photo.url(:thumb), class: 'img-thumbnail w-100' %>
-        <% end %>
-      </div>
-  <% end %>
-</div>
-
-<p>
-</p>
-
-
