@@ -73,9 +73,7 @@
         </table>
       </div>
       <div class="col-lg-6">
-        <% if current_ico_user.kyc.nil? %>
-            <p><strong>Купленные токены будут начислены 15 апреля после аутентификации личности.</strong></p>
-        <% else %>
+        <% if current_ico_user.kyc.present? %>
             <div class="row">
               <div class="col my-2">
                 <div class="alert alert-primary h-100"><div class="text-center h3"><span id="eth_balance">0</span> RDT</div><div class="h5 text-center">Баланс</div></div>
@@ -88,6 +86,7 @@
               </div>
             </div>
       <% end %>
+        <p><strong>Купленные токены будут начислены 15 апреля после аутентификации личности.</strong></p>
         <strong>Адрес смарт контракта:</strong>
         <div class="input-group pb-2">
           <input id="smart_contract" type="text" value="0xa95AC0D22379c428FB73296446a6399962c1A93A" class="form-control" readonly>
