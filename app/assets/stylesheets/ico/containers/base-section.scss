@@ -94,7 +94,7 @@
         }
         & .bonus-wrap{
           display: block;
-          margin: $base-offset * 2 auto;
+          margin: $base-offset * 4 auto 0;
           width: 570px;
           & .button{
             width: 145px;
@@ -115,6 +115,10 @@
               display: inline-block;
             }
           }
+        }
+        & .attention{
+          font-weight: 700;
+          padding-bottom: $base-offset*4;
         }
 
     }
@@ -172,6 +176,7 @@
         }
         & .bonus-wrap{
           width: 260px;
+          margin-top: $base-offset*2;
           & .bonus-timer{
             font-size: 14px;
             display: block;
@@ -185,6 +190,9 @@
             display: block;
             width: 100%;
           }
+        }
+        & .attention{
+          padding-bottom: $base-offset*2;
         }
     }
 
