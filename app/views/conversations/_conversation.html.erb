@@ -1,15 +1,15 @@
-<div>
-  <% profile = conversation.with(current_user).profile %>
-  <% html_class = 'conversation d-flex' %>
-  <% if local_assigns[:current_conversation]
-       html_class += ' current' if conversation.id == current_conversation
-     end
-  %>
-  <%= link_to(conversation_path(conversation), class: html_class, id: 'conversation-'+conversation.id.to_s) do %>
-    <%= image_tag profile.small_avatar, class: 'rounded-circle', height: '50px' %>
-    <div class="pl-2 d-none d-lg-inline-block">
-      <%= profile.name %> <%= online_status profile.user %><br>
-      <em><%= conversation.personal_messages.last.body.truncate(30) if conversation.personal_messages.last.present? %></em>
-    </div>
+<% profile = conversation.with(current_user).profile %>
+<% html_class = 'conversation d-flex' %>
+<% if local_assigns[:current_conversation]
+     html_class += ' current' if conversation.id == current_conversation
+   end
+%>
+<li>
+  <%= link_to(conversation_path(conversation), class: 'chat-person', id: 'conversation-'+conversation.id.to_s) do %>
+      <div class="image">
+        <%= image_tag profile.small_avatar %>
+      </div>
+      <p class="name"><%= profile.name %></p>
+      <p class="short-message"><%= conversation.personal_messages.last.body.truncate(25) if conversation.personal_messages.last.present? %></p>
   <% end %>
-</div>
+</li>

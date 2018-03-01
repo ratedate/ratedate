@@ -50,7 +50,7 @@
       <ul class="right-nav">
         <li><%= link_to 'My Profile', my_profile_path %></li>
         <li><%= link_to 'Edit Profile', edit_my_profile_path%></li>
-        <li><%= link_to t(:sign_out), sign_out_path, method: :delete%>></li>
+        <li><%= link_to t(:sign_out), sign_out_path, method: :delete%></li>
 
         <li class="links-row">
           <a class="left" href="javascript:void(0)">Terms of Use</a>
@@ -69,10 +69,10 @@
       <!--<i class="fa fa-bell-o"></i>-->
     <!--</a>-->
 
-    <a class="messages" href="javascript:void(0)">
+    <%= link_to(conversation_path(Conversation.participating_last(current_user)), class: 'messages') do %>
       <i class="fa fa-comment-o"></i>
       <!--<span class="unread">241</span>-->
-    </a>
+    <% end %>
 
     <a class="user-menu" href="javascript:void(0)">
       <%= user_avatar %>

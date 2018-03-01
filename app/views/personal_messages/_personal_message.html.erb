@@ -1,6 +1,4 @@
-<div class="p-3 d-flex <%= personal_message.user.id!=current_user_id ? 'justify-content-start' : 'justify-content-end' %>">
-  <div class="bg-grey rounded-right d-inline-block ">
-    <%= personal_message.body %><br>
-    <small><%= personal_message.created_at.to_formatted_s(:short)  %></small>
-  </div>
+<div class="bubble <%= 'from' if personal_message.user.id==current_user_id %>">
+  <p class="bubble-date"><%= personal_message.created_at.to_formatted_s(:short)  %></p>
+  <p class="bubble-message"><%= personal_message.body %></p>
 </div>

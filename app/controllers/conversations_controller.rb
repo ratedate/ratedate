@@ -4,14 +4,14 @@ class ConversationsController < ApplicationController
   before_action :set_conversation, except: [:index]
   before_action :check_participating!, except: [:index]
 
-  layout "wide"
 
   def index
-    @conversations = Conversation.participating(current_user).order('updated_at DESC')
-    respond_to do |format|
-      format.html
-      format.js {render layout: false}
-    end
+    redirect_to conversation_path(Conversation.participating_last(current_user))
+    # @conversations = Conversation.participating(current_user).order('updated_at DESC')
+    # respond_to do |format|
+    #   format.html
+    #   format.js {render layout: false}
+    # end
   end
 
   def show
