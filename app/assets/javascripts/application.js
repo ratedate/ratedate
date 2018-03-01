@@ -23,6 +23,7 @@
 //= require jquery.slick
 //= require fullpage
 //= require wNumb
+//= require nouislider
 // require_tree .
 
 var $navLinks = null;
@@ -85,8 +86,10 @@ var ready = function() {
 
     $('.range').each(function() {
         var self = this;
+        var from = $('#by_age_from').val()==''?18:$('#by_age_from').val();
+        var to = $('#by_age_to').val()==''?45:$('#by_age_to').val();
         var slider = noUiSlider.create(this, {
-            start: [18, 45],
+            start: [from, to],
             tooltips: true,
             step: 1,
             format: wNumb({

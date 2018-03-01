@@ -1,15 +1,18 @@
-<div class="col-lg-3 col-md-4 col-sm-6 justify-content-center">
-  <%= link_to profile, class: 'text-secondary' do %>
-  <%= image_tag profile.medium_avatar, class: 'img-thumbnail' %>
-  <div class="h4"><%= profile.display_name %></div>
-  <% end %>
-  <div>
-    <%= profile.age %> <%= t '.years_old' %>
-  </div>
-  <div>
-    <% if profile.city.present? %>
-      <%= profile.city.country %>
-      <%= profile.city.city %>
-    <% end %>
+<div class="cell">
+  <div class="profile">
+    <span class="profile-image">
+      <%= image_tag profile.medium_avatar %>
+    </span>
+    <div class="profile-info">
+      <p class="name"><%= profile.display_name+', '+profile.age.to_s %></p>
+      <p class="place">
+        <%= profile.city.country+', '+profile.city.city if profile.city.present? %>
+      </p>
+
+      <div class="profile-info-buttons">
+        <a class="red" href="javascript:void(0)"><i class="fa fa-gift"></i></a>
+        <%= link_to '<i class="fa fa-comment"></i>'.html_safe, new_personal_message_path(receiver_id: profile.user), class: 'yellow'%>
+      </div>
+    </div>
   </div>
 </div>
