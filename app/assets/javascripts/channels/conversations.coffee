@@ -7,7 +7,7 @@ jQuery(document).on 'turbolinks:load', ->
   #  first check if action cable subscription present
   pm_subscribed = false
   messages_to_bottom = ->
-    messages_wrap = $('#conversation-main')
+    messages_wrap = $('#conversation-body')
     messages_wrap.scrollTop(messages_wrap.prop("scrollHeight"))
     return
   App.cable.subscriptions.subscriptions.forEach (item) ->
@@ -27,11 +27,11 @@ jQuery(document).on 'turbolinks:load', ->
       messages = $('#conversation-body')
       if messages.length > 0 && messages.data('conversation-id') is data['conversation_id']
         messages.append data['message']
-        $('#conversation-'+data['conversation_id']+' em').text(data['truncated_message'])
+        $('#conversation-'+data['conversation_id']+' .short-message').text(data['truncated_message'])
         messages_to_bottom()
-        $.getScript('/conversations/'+data['conversation_id']) if $('#conversations').length > 0
+        $.getScript('/en/conversations/'+data['conversation_id']) if $('#conversations').length > 0
       else
-        $.getScript('/conversations') if $('#conversations').length > 0
+        $.getScript('/en/conversations') if $('#conversations').length > 0
         $('body').append(data['notification']) if data['notification']
 
     send_message: (message, conversation_id) ->

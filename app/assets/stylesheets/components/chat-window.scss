@@ -67,6 +67,12 @@
             background-color: $red;
             font-size: 14px;
             color: #fff;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            -webkit-hyphens: auto;
+            -ms-hyphens: auto;
+            -moz-hyphens: auto;
+            hyphens: auto;
         }
 
         &.from {
