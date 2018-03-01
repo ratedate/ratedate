@@ -94,8 +94,7 @@
         }
         & .bonus-wrap{
           display: block;
-          margin: 0 auto;
-          margin-top: $base-offset * 2;
+          margin: $base-offset * 2 auto;
           width: 570px;
           & .button{
             width: 145px;
