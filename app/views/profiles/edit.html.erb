@@ -1,5 +1,13 @@
-<h1>Editing Profile</h1>
-<%= render 'form', profile: @profile %>
+<% content_for :head do %>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZtLop0Yk-dl1d9Ord1Hc7nsrak_Mat44&libraries=places&language=en"></script>
 
-<%= link_to 'Show', @profile %> |
-<%= link_to 'Back', profiles_path %>
+<% end %>
+<div class="profile-page with-button">
+  <div class="profile-page-wrap">
+
+    <div class="top">
+      <%= link_to '<i class="fa fa-chevron-left"></i>Back'.html_safe, url_for(:back), class: 'back-link' %>
+    </div>
+    <%= render 'form', profile: @profile %>
+  </div>
+</div>

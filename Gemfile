@@ -56,6 +56,7 @@ gem 'carrierwave', '~> 1.0'
 # minimagick for cropping
 gem "mini_magick"
 # image croping
+gem 'croppie_rails'
 gem 'jcrop-rails-v2'
 gem 'jquery-slick-rails'
 

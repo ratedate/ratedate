@@ -1,17 +1,47 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-#= require 'ekko-lightbox'
-#= require 'jquery.Jcrop'
+#= require 'croppie'
 #= require 'tagsinput'
 
-ready = ->
-  $('#hobby_list').tagsinput({tagClass: 'badge-secondary'})
-  $('#film_list').tagsinput({tagClass: 'badge-secondary'})
-  $('#music_list').tagsinput({tagClass: 'badge-secondary'})
-  $('#book_list').tagsinput({tagClass: 'badge-secondary'})
-  $('#profile_languages').select2({theme: "bootstrap", placeholder: "Select languages"});
+ready_profiles = ->
+#  $('#hobby_list').tagsinput({tagClass: 'badge-secondary'})
+#  $('#film_list').tagsinput({tagClass: 'badge-secondary'})
+#  $('#music_list').tagsinput({tagClass: 'badge-secondary'})
+#  $('#book_list').tagsinput({tagClass: 'badge-secondary'})
+  $('#profile_languages').select2({placeholder: "Select languages"});
   window.jcropInitialized = undefined
+  window.crop = $('#avatar-image').croppie({
+    boundary: {
+      width: 400,
+      height: 400
+    },
+    viewport: {
+      width: 350,
+      height: 350
+    }
+  })
+  $('[data-modal-target="#edit-avatar"]').on 'click', ->
+    x = $('#crop_x').val()*1
+    y = $('#crop_y').val()*1
+    w = x+$('#crop_w').val()*1
+    h = y+$('#crop_h').val()*1
+    prop = {
+      url: crop[0].src,
+      points: [x,y,w,h]
+    }
+    crop.croppie('bind', prop)
+  $('#avatar-ok').on 'click', ->
+    crop_result = crop.croppie('get').points
+    c = new Object()
+    c.x = crop_result[0]
+    c.y = crop_result[1]
+    c.w = crop_result[2] - c.x
+    c.h = crop_result[3] - c.y
+    setCoords(c)
+    crop.croppie('result','base64').then (result) ->
+      $('#avatar').attr 'src', result
+      $('.modal').removeClass('show');
   initializeJcrop = ->
     w = Math.min($('#img_preview')[0].width,$('#img_preview')[0].height)
     scale = $('#img_preview')[0].naturalWidth/$('#img_preview').width()
@@ -27,11 +57,10 @@ ready = ->
     return
   setCoords = (c) ->
     #    get width of scaled jcrop and divide to natural image width to obtain scale
-    scale = $('#img_preview')[0].naturalWidth/$('.jcrop-holder').width()
-    $('#crop_x').val(Math.round(c.x*scale))
-    $('#crop_y').val(Math.round(c.y*scale))
-    $('#crop_w').val(Math.round(c.w*scale))
-    $('#crop_h').val(Math.round(c.h*scale))
+    $('#crop_x').val(Math.round(c.x))
+    $('#crop_y').val(Math.round(c.y))
+    $('#crop_w').val(Math.round(c.w))
+    $('#crop_h').val(Math.round(c.h))
     return
   if $('#img_preview').attr('src')!='#'
     $('#img_preview').on 'load', (e) ->
@@ -78,8 +107,8 @@ ready = ->
             resetFileInput(this.input)
           else
             if this.width>=760&&this.height>=760
+              crop.croppie('bind',{url: this.src})
               this.target.attr 'src', this.src
-              this.target.attr 'style', ''
             else
               showError('The image is small. Please select another.')
               resetFileInput(this.input)
@@ -95,7 +124,7 @@ ready = ->
           if jcropInitialized
             jcropInitialized.destroy()
           initializeJcrop()
-        validateImage(e, input, target)
+        validateImage(e, input, crop)
       reader.readAsDataURL input.files[0]
     return
   $('#profile_avatar').change ->
@@ -137,7 +166,4 @@ ready = ->
       document.getElementById('profile_state').value = state
     window.autocomplete.addListener('place_changed', fillInAddress)
   return
-$(document).on('turbolinks:load', ready)
-$(document).on 'click', '[data-toggle="lightbox"]', (event) ->
-  event.preventDefault();
-  $(this).ekkoLightbox();
+$(document).on('turbolinks:load', ready_profiles)

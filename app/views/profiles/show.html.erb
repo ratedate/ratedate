@@ -9,14 +9,14 @@
           <p class="name"><%= @profile.display_name %> <%= @profile.surname if @profile.hide_surname&&@profile==current_user.profile%>, <%= @profile.age %></p>
           <p class="place"><%= @profile.city.country if @profile.city %>, <%= @profile.city.city if @profile.city %></p>
           <% if @profile==current_user.profile %>
-              <button class="round-btn transparent edit" type="button">Edit profile</button>
+              <%= link_to 'Edit profile', edit_my_profile_path, class: 'round-btn transparent edit' %>
           <% else %>
             <div class="buttons">
-              <button class="round-btn transparent send-message" type="button">
+              <%= link_to  new_personal_message_path(receiver_id: @profile.user), class: 'round-btn transparent send-message' do %>
                 <i class="fa fa-comment"></i>
                 <span class="btn-text">Message</span>
-              </button>
-              <button class="round-btn transparent send-gift" type="button">
+              <% end %>
+              <button class="round-btn transparent send-gift" type="button" data-modal-target="#gifts">
                 <i class="fa fa-gift"></i>
                 <span class="btn-text">Send a gift</span>
               </button>
@@ -82,7 +82,7 @@
     <div class="main">
       <ul class="slider-lg with-offset">
         <li>
-          <a class="profile-no-gift" href="javascript:void(0)">
+          <a class="profile-no-gift" href="javascript:void(0)" data-modal-target="#gifts">
             <p class="profile-no-gift-icon">
               <i class="fa fa-gift"></i>
             </p>
@@ -95,3 +95,4 @@
     </div>
   </div>
 </div>
+<%= render 'gifts' %>

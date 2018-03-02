@@ -89,6 +89,7 @@ GEM
     concurrent-ruby (1.0.5)
     countries_and_languages (0.2.0)
       i18n_data
+    croppie_rails (2.4.0)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -276,6 +277,7 @@ DEPENDENCIES
   carrierwave (~> 1.0)
   coffee-rails (~> 4.2)
   countries_and_languages
+  croppie_rails
   devise
   devise-i18n
   faker!

@@ -16,15 +16,13 @@
 //= require turbolinks
 //= require popper
 //= require bootstrap
-// require profiles
-// require jquery.Jcrop
-// require tagsinput
 //= require select2
 //= require jquery.slick
 //= require fullpage
 //= require wNumb
 //= require nouislider
-// require_tree .
+//= require lightbox
+//= require profiles
 
 var $navLinks = null;
 
@@ -107,8 +105,8 @@ var ready = function() {
     });
 
     //SHOW HIDE MODAL
-    $('#policy').on('click', function() {
-        $('.modal').addClass('show');
+    $('[data-modal-target]').on('click', function() {
+        $($(this).data('modal-target')).addClass('show');
     });
 
     $('.modal-close').on('click', function() {

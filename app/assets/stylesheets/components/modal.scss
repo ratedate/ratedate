@@ -71,6 +71,16 @@
             font-size: 14px;
             margin-bottom: $base-offset * 4;
         }
+        ul{
+          font-weight: 300;
+          font-size: 14px;
+          margin-bottom: $base-offset * 4;
+          list-style-type: disc;
+          list-style-position: inside;
+          li{
+            margin-bottom: $base-offset * 2;
+          }
+        }
     }
 
     &.show {

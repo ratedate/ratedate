@@ -36,7 +36,7 @@ class Profile < ApplicationRecord
     display_name
   end
   def small_avatar
-    url = 'avatar_placeholder.png'
+    url = ActionController::Base.helpers.asset_url 'avatar_placeholder.png'
     if avatar.present?
       if avatar.small_avatar.file.present?
         url = avatar.url(:small_avatar)
@@ -45,7 +45,7 @@ class Profile < ApplicationRecord
     url
   end
   def medium_avatar
-    url = 'avatar_placeholder.png'
+    url = ActionController::Base.helpers.asset_url 'avatar_placeholder.png'
     if avatar.present?
       if avatar.medium_avatar.file.present?
         url = avatar.url(:medium_avatar)
@@ -54,7 +54,7 @@ class Profile < ApplicationRecord
     url
   end
   def large_avatar
-    url = 'avatar_placeholder.png'
+    url = ActionController::Base.helpers.asset_url 'avatar_placeholder.png'
     if avatar.present?
       if avatar.large_avatar.file.present?
         url = avatar.url(:large_avatar)
