@@ -189,7 +189,7 @@ var ready = function() {
     });
 };
 
-$(document).on('turbolinks:load', ready)
+$(document).on('turbolinks:load ready', ready)
 
 function handleFullpageOnLeave(index, nextIndex, direction) {
     if (nextIndex > 2) {
