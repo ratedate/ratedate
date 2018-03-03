@@ -25,6 +25,7 @@
 //= require profiles
 
 var $navLinks = null;
+window.fullPageInit = false;
 
 var ready = function() {
     myVideo = document.getElementById('circle-video');
@@ -144,18 +145,21 @@ var ready = function() {
     })
 
     //FULLPAGE CONFIG
-    $('#fullpage').fullpage({
-        scrollingSpeed: 800,
-        // navigation: 'true',
-        navigationPosition: 'right',
-        easingcss3: 'ease-out',
-        menu: '.nav-dots',
-        afterLoad: function(anchor, index) {
-            index == 1 && myVideo.play && myVideo.play();
-        },
-        anchors: ['section-1', 'section-2', 'section-3', 'section-4', 'section-5', 'foot-section'],
-        onLeave: handleFullpageOnLeave
-    });
+    if(!window.fullPageInit){
+        $('#fullpage').fullpage({
+            scrollingSpeed: 800,
+            // navigation: 'true',
+            navigationPosition: 'right',
+            easingcss3: 'ease-out',
+            menu: '.nav-dots',
+            afterLoad: function(anchor, index) {
+                index == 1 && myVideo.play && myVideo.play();
+            },
+            anchors: ['section-1', 'section-2', 'section-3', 'section-4', 'section-5', 'foot-section'],
+            onLeave: handleFullpageOnLeave
+        });
+        window.fullPageInit = true;
+    }
 
     //TOGGLE SIDE FORM
     $('#show-menu').on('click', function() {
