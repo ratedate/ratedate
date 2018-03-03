@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.filter(params.slice(:by_country, :by_city, :by_gender, :by_age_from, :by_age_to))
+    @profiles = Profile.filter(params.slice(:by_country, :by_city, :by_gender, :by_age_from, :by_age_to)).where.not(id: current_user.profile.id)
   end
 
   # GET /profiles/1
@@ -41,7 +41,7 @@ class ProfilesController < ApplicationController
         if params['profile']['crop_x']&&@profile.avatar.present?
           @profile.avatar.recreate_versions!
         end
-        format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
+        format.html { redirect_to my_profile_path, notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
       else
         format.html { render :new }
@@ -58,7 +58,7 @@ class ProfilesController < ApplicationController
         if params['profile']['crop_x']
           @profile.avatar.recreate_versions!
         end
-        format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
+        format.html { redirect_to my_profile_path, notice: 'Profile was successfully updated.' }
         format.json { render :show, status: :ok, location: @profile }
       else
         format.html { render :edit }

@@ -14,6 +14,10 @@
         <a href="javascript:void(0)" class="right">Sign Up</a>
       </p>
 
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= devise_error_messages! %>
+      <%= flash[:recaptcha_error] %>
       <div class="login-form active">
         <%= form_for(:user, as: resource_name, url: session_path(resource_name)) do |f| %>
             <p class="input">
@@ -43,10 +47,6 @@
 
       <div class="signup-form">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
-            <%= devise_error_messages! %>
-            <%= flash[:recaptcha_error] %>
 
             <%= f.hidden_field :referred_by, :value => session[:referred_by] %>
             <p class="input">
@@ -105,8 +105,8 @@
 
 
     <div class="info-links">
-      <a class="link" href="javascript:void(0)">Terms of Use</a>
-      <a class="link" href="javascript:void(0)">Policy</a>
+      <a class="link" href="javascript:void(0)" data-modal-target="#terms-of-use">Terms of Use</a>
+      <a class="link" href="javascript:void(0)" data-modal-target="#privacy-policy">Policy</a>
     </div>
 
     <p class="info-text">
@@ -193,8 +193,8 @@
     <div class="section fp-auto-height">
       <div class="foot-section">
         <div class="links-row">
-          <a href="javascript:void(0)">Terms of Use</a>
-          <a href="javascript:void(0)">Policy</a>
+          <a href="javascript:void(0)" data-modal-target="#terms-of-use">Terms of Use</a>
+          <a href="javascript:void(0)" data-modal-target="#privacy-policy">Policy</a>
         </div>
         <p class="copyright">Copyright © 2018 RateDate</p>
       </div>

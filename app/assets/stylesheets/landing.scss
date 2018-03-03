@@ -74,6 +74,9 @@ body {
 		}
 	}
 
+
+    @import 'components/modal';
+
 	/*LANDING COMPONENTS*/
 	@import 'components/landing/form-ui';
 	@import 'components/landing/text';

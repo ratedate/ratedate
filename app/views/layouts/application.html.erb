@@ -69,7 +69,7 @@
       <!--<i class="fa fa-bell-o"></i>-->
     <!--</a>-->
 
-    <%= link_to(conversation_path(Conversation.participating_last(current_user)), class: 'messages') do %>
+    <%= link_to(current_user.personal_messages.any? ? conversation_path(Conversation.participating_last(current_user)) : profiles_path, class: 'messages') do %>
       <i class="fa fa-comment-o"></i>
       <!--<span class="unread">241</span>-->
     <% end %>

@@ -1,29 +1,32 @@
 <h2><%= t('.sign_up') %></h2>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => "devise-form"}) do |f| %>
+<div class="login-form active">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   <%= devise_error_messages! %>
   <%= flash[:recaptcha_error] %>
 
   <%= f.hidden_field :referred_by, :value => session[:referred_by] %>
-  <div class="form-group mx-auto d-block">
+  <p class="input">
     <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
-  </div>
+  </p>
 
-  <div class="form-group mx-auto d-block">
+  <p class="input">
     <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
-  </div>
+  </p>
 
-  <div class="form-group mx-auto d-block">
+  <p class="input">
     <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Password confirmation" %>
+  </p>
+  <div class="captcha">
+    <div class="captcha-wrap">
+      <%= recaptcha_tags %>
+    </div>
   </div>
-  <div>
-    <%= recaptcha_tags %>
-  </div>
-  <div class="actions">
-    <%= f.submit t('.sign_up'), class: "btn btn-secondary mt-3 mb-3 mx-auto d-block" %>
+  <div class="center">
+    <%= f.submit t('.sign_up'), class: "round-btn" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
-<div class="small">By clicking Sign Up, I confirm that I am not U.S., China or Singapore citizen, I do not have a primary residence or domicile in the U.S., in China or in Singapore and I am not currently on the territory of those countries nor I am transferring cryptocurrency on behalf of such person or entity.</div>
+</div>

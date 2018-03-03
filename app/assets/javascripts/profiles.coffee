@@ -21,6 +21,16 @@ ready_profiles = ->
       height: 350
     }
   })
+  window.tmp_crop = $('#tmp-crop').croppie({
+    boundary: {
+      width: 400,
+      height: 400
+    },
+    viewport: {
+      width: 350,
+      height: 350
+    }
+  })
   $('[data-modal-target="#edit-avatar"]').on 'click', ->
     x = $('#crop_x').val()*1
     y = $('#crop_y').val()*1
@@ -107,8 +117,19 @@ ready_profiles = ->
             resetFileInput(this.input)
           else
             if this.width>=760&&this.height>=760
-              crop.croppie('bind',{url: this.src})
-              this.target.attr 'src', this.src
+              if this.target == crop
+                crop.croppie('bind',{url: this.src})
+                this.target.attr 'src', this.src
+              else
+                w = Math.min(this.width, this.height)
+                tmp_crop.target = this.target
+                tmp_crop.croppie('bind',{
+                  url: this.src
+                  points: [0,0,w,w]
+                }).then () ->
+                  tmp_crop.croppie('result','base64').then (result) ->
+                    tmp_crop.target.attr 'src', result
+                    tmp_crop.target.show()
             else
               showError('The image is small. Please select another.')
               resetFileInput(this.input)
@@ -136,34 +157,25 @@ ready_profiles = ->
     if input.files and input.files[0]
       photo_reader = new FileReader
       photo_reader.onloadend = (e) ->
-        target = $('#'+input.id).prev()
+        target = $(input).parent().find('img')
         validateImage(e,input,target)
         return
       photo_reader.readAsDataURL input.files[0]
       return
-  options = {types: ['(cities)']}
-  input = document.getElementById('profile_address');
-  if input
-    window.autocomplete = new google.maps.places.Autocomplete(input, options)
-    fillInAddress = ->
-      place = autocomplete.getPlace()
-      i = 0
-      state = ''
-      document.getElementById('administrative_area_level_1').value = ''
-      document.getElementById('administrative_area_level_2').value = ''
-      while i<place.address_components.length
-        addressType = place.address_components[i].types[0]
-        if addressType == "locality"
-          document.getElementById('profile_city').value = place.address_components[i]['long_name']
-        if addressType == "administrative_area_level_1" || addressType == "administrative_area_level_2"
-          state += ', ' if state!=''
-          state += place.address_components[i]['long_name']
-          document.getElementById(addressType).value = place.address_components[i]['long_name']
-        if addressType == "country"
-          document.getElementById('profile_country').value = place.address_components[i]['long_name']
-          document.getElementById('profile_country_code').value = place.address_components[i]['short_name']
-        i++
-      document.getElementById('profile_state').value = state
-    window.autocomplete.addListener('place_changed', fillInAddress)
-  return
+  $('label').on 'click', (e) ->
+    if $(this).hasClass('removable')
+      $(this).find('img').hide()
+      $(this).removeClass('removable').addClass('add')
+      $(this).find('i').removeClass('fa-trash').addClass('fa-plus')
+      target = $(this).parent().find('input[type="checkbox"]').attr('id')
+      if !target
+        target = 'false_hidden'
+      resetFileInput(document.getElementById($(this).parent().find('input[type="file"]').attr('id')))
+      $(this).attr('for', target)
+    else if $(this).hasClass('add')
+      $(this).removeClass('add').addClass('removable')
+      $(this).find('i').removeClass('fa-plus').addClass('fa-trash')
+      $(this).parent().find('input[type="checkbox"]').prop('checked', false)
+      target = $(this).parent().find('input[type="file"]').attr('id')
+      $(this).attr('for', target)
 $(document).on('turbolinks:load', ready_profiles)

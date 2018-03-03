@@ -26,5 +26,27 @@
     <%= yield %>
   </div>
 </main>
+<div class="modal" id="privacy-policy">
+  <a class="modal-close" href="javascript:void(0)">
+    <i class="fa fa-times"></i>
+  </a>
+
+  <div class="modal-window">
+    <div class="modal-content">
+      <%= render 'static_pages/privacy_policy', layout: false %>
+    </div>
+  </div>
+</div>
+<div class="modal" id="terms-of-use">
+  <a class="modal-close" href="javascript:void(0)">
+    <i class="fa fa-times"></i>
+  </a>
+
+  <div class="modal-window">
+    <div class="modal-content">
+      <%= render 'static_pages/terms_of_use', layout: false %>
+    </div>
+  </div>
+</div>
 </body>
 </html>

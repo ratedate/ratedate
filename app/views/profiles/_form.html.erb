@@ -49,6 +49,18 @@
               </div>
             </div>
           </div>
+          <div class="profile-input input">
+            <div class="radio-group">
+              <label class="radio-btn">
+                <%= form.radio_button :gender, "male", id: :profile_gender, hidden: true %>
+                <span class="radio-btn-view">Male</span>
+              </label>
+              <label class="radio-btn">
+                <%= form.radio_button :gender, "female", id: :profile_gender, hidden: true %>
+                <span class="radio-btn-view">Female</span>
+              </label>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -63,27 +75,28 @@
           <%= form.fields_for :photos do |p| %>
               <% if p.object.new_record? %>
                   <li>
-                    <a class="profile-gallery-image add" href="javascript:void(0)">
-                      <img src="#" />
+                    <%= p.label :photo, class: 'profile-gallery-image add' do %>
+                      <img src="#" style="display: none;">
                       <span class="icon">
                         <i class="fa fa-plus"></i>
                       </span>
-                    </a>
+                    <% end %>
                     <%= p.file_field :photo, hidden: true %>
                   </li>
               <% else %>
                   <li>
-                    <a class="profile-gallery-image removable" href="javascript:void(0)">
+                    <%= p.label :remove_photo, class: 'profile-gallery-image removable' do %>
                       <img src=<%= p.object.photo.url(:thumb) %> />
                       <span class="icon">
                         <i class="fa fa-trash"></i>
                       </span>
-                    </a>
+                    <% end %>
                     <%= p.check_box :remove_photo, hidden: true %>
                     <%= p.file_field :photo, hidden: true %>
                   </li>
               <% end %>
           <% end %>
+          <input type="hidden" id="false_hidden" disabled>
         </ul>
       </div>
     </div>
@@ -141,3 +154,6 @@
     <div class="clear"></div>
     <%= form.submit :Save, class: 'side-button round-btn' %>
 <% end %>
+<div style="position:absolute; left:-9999px;">
+  <img id="tmp-crop">
+</div>

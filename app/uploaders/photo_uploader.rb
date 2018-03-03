@@ -4,6 +4,11 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
+  after :remove, :delete_model
+  def delete_model
+    model.delete
+  end
+
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog

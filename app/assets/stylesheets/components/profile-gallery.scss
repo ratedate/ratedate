@@ -39,10 +39,11 @@
             float: left;
             padding: $base-offset / 4;
             width: 50%;
-            & > a, & > span {
+            & > a, & > span, & > label {
                 position: relative;
                 display: block;
                 width: 100%;
+                cursor: pointer;
                 height: $image-size;
 
                 @include overflow();
