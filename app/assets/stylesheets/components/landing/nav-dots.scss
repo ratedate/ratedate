@@ -1,0 +1,65 @@
+.nav-dots {
+    $dot-size: $base-offset * 1.5;
+
+    position: absolute;
+    top: 80vh;
+    right: 48px;
+    transform: translateY(-100%);
+
+    & li {
+        & a {
+            position: relative;
+            display: block;
+            width: $dot-size;
+            height: $dot-size;
+            margin: $base-offset 0;
+            border-radius: 100%;
+
+            &::before, &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                border-radius: 100%;
+                transform: translate3d(-50%, -50%, 0);
+
+                @include transition(.3s);
+            }
+
+            &::before {
+                border: 3px solid rgba($dark, .5);
+                width: 0;
+                height: 0;
+            }
+
+            &::after {
+                border: 3px solid transparent;
+                width: 0;
+                height: 0;
+            }
+        }
+
+        &.active {
+            border-radius: 100%;
+            background-color: rgba($dark, .2);
+            & a {
+                &::before {
+                    @include transition(.3s);
+                    border-color: #fff;
+                }
+
+                &::after {
+                    @include transition(.3s);
+                    width: $dot-size;
+                    height: $dot-size;
+                    border-color: #fff;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: $screen-md) {
+        display: none;
+    }
+}

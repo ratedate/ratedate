@@ -1,0 +1,175 @@
+.profile-big {
+    $height: 360px;
+    $height-md: 270px;
+    $height-sm: 180px;
+    $height-xs: $base-offset * 18;
+
+    height: $height;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 4px;
+    @include overflow();
+
+    &-image {
+        position: relative;
+        height: 100%;
+        width: $height;
+        float: left;
+        @include overflow();
+
+        & img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            height: auto;
+            width: 100%;
+        }
+
+        & .round-btn {
+            position: absolute;
+            left: 50%;
+            bottom: $base-offset * 2;
+
+            transform: translateX(-50%);
+
+            color: $dark !important;
+            font-size: 12px;
+            padding: $base-offset $base-offset * 2;
+            min-width: auto;
+        }
+    }
+
+    &-info {
+        position: relative;
+        height: 100%;
+        @include overflow();
+        padding: $base-offset * 4;
+
+        & .name {
+            font-size: 26px;
+            font-weight: 500;
+            margin-bottom: $base-offset  * 2;
+        }
+
+        & .place {
+            font-size: 14px;
+            margin-bottom: $base-offset  * 2;
+            color: $grey;
+        }
+
+        & .buttons {
+            margin: -$base-offset;
+            & button {
+                margin: $base-offset;
+            }
+            & a {
+                margin: $base-offset;
+            }
+            & span {
+                text-align: center;
+                width: 120px;
+                display: inline-block;
+            }
+            & .fa {
+                display: block;
+                float: left;
+                height: 18px;
+                width: 18px;
+            }
+            & .send-message {& .fa {color: $yellow;}}
+            & .send-gift {& .fa {color: $red;}}
+        }
+
+        & .edit, & .buttons {
+            position: absolute;
+            bottom: $base-offset * 4;
+            left: $base-offset * 4;
+        }
+    }
+
+    &-form {
+        @include overflow();
+        padding: $base-offset * 2;
+     
+        & .profile-input {
+            margin-bottom: 20px;
+        }
+    }
+
+    @media screen and (max-width: $screen-md) {
+        height: $height-md;
+        &-image {
+            width: $height-md;
+        }
+        &-info {
+            padding: $base-offset * 2;
+            & .edit {
+                bottom: $base-offset * 2;
+                left: $base-offset * 2;
+            }
+        }
+
+        &.edit {
+            height: auto;
+            .profile-big-image {
+                width: 100%;
+                margin: 0 auto;
+                float: none;
+                max-width: 320px;
+                height: $height-md;
+            }
+            .profile-big-form {
+                width: 100%;
+            }
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: $screen-sm) {
+        height: $height-sm;
+        &-image {
+            width: $height-sm;
+        }
+
+        &-info {
+            & .buttons {
+                bottom: $base-offset * 2;
+                left: $base-offset * 2;
+                margin: -$base-offset;
+                & button {
+                    float: left;
+                    margin: $base-offset;
+                    min-width: auto;
+                    padding: $base-offset * 2;
+                }
+                & span {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: $screen-xsc) {
+        height: $height-xs;
+        &-image {
+            width: 120px;
+        }
+        &-info {
+            @include overflow();
+
+            & .name {
+                font-size: 14px;
+            }
+            & .place {
+                font-size: 12px;
+            }
+            & .edit {
+                position: static;
+                font-size: 12px;
+                padding: $base-offset * 2;
+                min-width: 100px;
+            }
+        }
+    }
+}

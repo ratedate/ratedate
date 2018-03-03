@@ -1,0 +1,48 @@
+.fourth-section {
+    position: relative;
+    padding: $base-offset * 3 68px 0;
+    // width: 100vw;
+    // height: 100vh;
+    height: 100%;
+    width: 100%;
+
+    & .section-title {
+        position: absolute;
+        left: 68px;
+        top: 50%;
+
+        transform: translateY(-50%);
+    }
+
+    &-back {
+        position: absolute;
+        bottom: 0;
+        right: -80vmin;
+        display: block;
+        height: 100vmin;
+        width: 170vmin;
+        @include backgroundImage('fourth-screen-back.png');
+        background-size: contain;
+        background-position: right 5vmin;
+    }
+
+    @media screen and (max-width: $screen-lg) {
+        // &::before {right: -18vmin;}
+        &-back {right: -75vmin;}
+    }
+
+    @media screen and (max-width: $screen-md) {
+        @media screen and (orientation: portrait) {
+            & .section-title {
+                left: $base-offset;
+                top: 10vmin;
+                transform: none;
+            }
+
+            &-back {
+                right: -80vmin;
+                height: 100vmin;
+            }
+        }
+    }
+}

@@ -1,0 +1,137 @@
+.profile-gift {
+    $gift-size: 180px;
+    $gift-from-size: $base-offset * 6;
+    @include clear();
+
+    background-color: #fff;
+    border-radius: 4px;
+    padding: $base-offset * 4 $base-offset * 8 $base-offset * 4 0;
+
+    &-image {
+        position: relative;
+        float: left;
+        margin: 0 $base-offset * 5;
+        width: $gift-size;
+        height: $gift-size;
+
+        border-radius: 100%;
+        box-shadow: 0 0 0 1px $one-more-light-grey;
+
+        & img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &-text {
+        font-weight: 500;
+
+        &::before {
+            content: '“';
+            font-size: 72px;
+            color: $grey;
+            display: block;
+            margin-bottom: -32px;
+        }
+
+        font-size: 14px;
+
+        border-bottom: 1px solid $one-more-light-grey;
+        padding-bottom: $base-offset * 2;
+        margin-bottom: $base-offset * 2;
+        @include overflow();
+    }
+
+    &-from {
+        &::before {
+            content: 'From';
+            display: block;
+            height: $gift-from-size;
+            line-height: $gift-from-size;
+            font-size: 12px;
+            font-weight: 500;
+
+            float: left;
+            margin-right: $base-offset * 2;
+            color: $one-more-light-grey;
+        }
+
+        & .image {
+            position: relative;
+            width: $gift-from-size;
+            height: $gift-from-size;
+            float: left;
+            border-radius: 100%;
+            @include overflow();
+
+            margin-right: $base-offset * 2;
+
+            & img {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate3d(-50%, -50%, 0);
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        & .info {
+            @include overflow();
+        }
+
+        & .name {
+            font-weight: 500;
+            font-size: 16px;
+            margin-bottom: $base-offset;
+        }
+
+        & .date {
+            font-size: 12px;
+            color: $one-more-light-grey;
+        }
+
+    }
+
+    @media screen and (max-width: $screen-sm) {
+        padding: $base-offset * 4;
+        position: relative;
+
+        &-image {
+            position: absolute;
+            bottom: $base-offset * 4 + $gift-from-size + $base-offset * 3;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0;
+        }
+
+        &-text {
+            border: none;
+            margin-bottom: $base-offset * 4 + $gift-size;
+        }
+
+        &-from {
+            position: relative;
+            @include overflow();
+            padding: 16px 0 0 0;
+            margin: -16px 0 0 0;
+            &::before {
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                height: auto;
+                line-height: 1.1em;
+                margin: 0;
+            }
+            
+            & .name {
+                font-size: 14px;
+            }
+        }
+    }
+}

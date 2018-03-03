@@ -1,0 +1,29 @@
+//values
+$base-offset: 12px;
+// $icon-size: 24px;
+
+//Screen Size
+$screen-xs: 320px;
+$screen-xs-min: $screen-xs;
+
+// $screen-sm: 620px;
+// $screen-sm-min: $screen-sm;
+
+$screen-md: 768px;
+$screen-md-min: $screen-md;
+
+$screen-xsc: ($screen-xs + ($screen-md - $screen-xs) / 2);
+$screen-xsc-min: $screen-xsc;
+
+// $screen-smc: ($screen-sm + ($screen-md - $screen-sm) / 2);
+// $screen-smc-min: $screen-smc;
+
+$screen-lg: 1136px;
+$screen-lg-min: $screen-lg;
+
+$screen-mdc: ($screen-md + ($screen-lg - $screen-md) / 2);
+$screen-mdc-min: $screen-mdc;
+
+// $screen-xs-max: ($screen-sm-min - 1);
+$screen-sm-max: ($screen-md-min - 1);
+$screen-md-max: ($screen-lg-min - 1);

@@ -1,0 +1,60 @@
+.profile-about {
+    padding: $base-offset * 4;
+    background-color: #fff;
+    border-radius: 4px;
+
+    &-title {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 18px;
+        margin-bottom: $base-offset * 2;
+    }
+
+    &-message {
+        font-size: 14px;
+        color: $grey;
+        margin-bottom: $base-offset * 4;
+    }
+
+    &-item {
+        margin-bottom: $base-offset * 2;
+        font-size: 12px;
+
+        &:last-of-type {
+            margin: 0;
+        }
+
+        & .title {
+            font-weight: 500;
+        }
+        & .value {
+            color: $grey;
+        }
+    }
+
+    & .read-more {
+        display: none;
+        font-size: 12px;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    & .profile-input {
+        margin-bottom: 30px;
+    }
+    
+    @media screen and (max-width: $screen-lg) {
+
+        &-item {
+            display: none;
+        }
+
+        & .read-more {
+            display: block;
+        }
+    }
+
+    @media screen and (max-width: $screen-sm) {
+        padding: $base-offset * 4 $base-offset * 2 $base-offset * 2;
+    }
+}

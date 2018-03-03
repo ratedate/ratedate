@@ -1,0 +1,93 @@
+@import "normalize";
+@import "config";
+@import "mixins";
+@import "font";
+@import "font-awesome/font-awesome";
+@import "fullpage.js";
+@import "select2";
+@import "nouislider";
+@import "slick";
+
+body {
+
+	font-family: Montserrat;
+	font-size: 12px;
+	color: $dark;
+
+    & * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }    
+
+	-ms-overflow-style: none;
+	&::-webkit-scrollbar { 
+		display: none; 
+	}
+
+    p { margin: 0; }
+
+    a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+    }
+
+    & .clear {
+        @include clear();
+	}
+	
+	& .center {
+		text-align: center;
+	}
+
+	& .nowrap {
+		white-space: nowrap;
+	}
+
+	.landing {
+		@import "landing-config";
+	}
+
+	.landing-wrap {
+		@include overflow();
+		position: relative;
+	}
+
+	#fullpage {
+		@include overflow();
+	}
+
+	.content-wrap {
+		padding-top: 50px + $base-offset * 2;
+		padding-bottom: 64px;
+		position: relative;
+		min-height: 100vh;
+		background-color: $lighter-grey;
+
+		@media screen and (max-width: $screen-sm) {
+			padding-bottom: 88px;
+		}
+	}
+
+
+    @import 'components/modal';
+
+	/*LANDING COMPONENTS*/
+	@import 'components/landing/form-ui';
+	@import 'components/landing/text';
+	@import 'components/landing/nav-dots';
+
+	/*LANDING CONTAINERS*/
+	@import 'containers/landing/side-form';
+	@import 'containers/landing/base-section';
+	@import 'containers/landing/second-section';
+	@import 'containers/landing/third-section';
+	@import 'containers/landing/fourth-section';
+	@import 'containers/landing/fifth-section';
+	@import 'containers/landing/foot-section';
+} 

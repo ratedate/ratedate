@@ -1,0 +1,81 @@
+.chat-page {
+
+    $side-width: 300px;
+
+    &-wrap {
+        position: relative;
+        width: 100%;
+        max-width: 1240px;
+        margin: 0 auto;
+    }
+
+    & .main {
+        position: relative;
+        @include overflow();
+        padding: 0 $base-offset;
+        min-height: calc(100vh - 64px - (50px + #{$base-offset} * 2));
+    }
+
+    & .left-side, & .right-side {
+        position: relative;
+        width: $side-width;
+        height: 20px;
+        min-height: calc(100vh - 64px - (50px + #{$base-offset} * 2));
+    } 
+
+    & .left-side {float: left;}
+    & .right-side {float: right;}
+
+    & .chats-list, & .profile-chat {
+        margin-top: $base-offset * 8;
+    }
+
+    @media screen and (max-width: 1280px) {
+        & .chat-wrap {
+            position: relative;
+            overflow: hidden;
+        }
+
+        & .chats-list, & .profile-chat {
+            margin-top: 0;
+        }
+
+        & .right-side {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: auto;
+            float: none;
+            z-index: 1;
+            min-height: auto;
+        }
+    }
+
+    @media screen and (max-width: $screen-md) {
+        & .left-side, & .main {
+            min-height: calc(100vh - 88px - (50px + #{$base-offset} * 2));
+        }
+    }
+
+    @media screen and (max-width: $screen-sm) {
+        & .left-side {width: 100vw;}
+        & .chat-wrap {
+            z-index: 1;
+            position: absolute;
+            top: 0;
+            left: 100vw;
+            width: 100vw;
+            @include transition(.3s);
+            // transform: translateX(100%);
+        }
+
+        &.show-chat {
+            & .chat-wrap {
+                @include transition(.3s);
+                left: 0;
+            }
+        }
+    }
+}

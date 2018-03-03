@@ -1,0 +1,125 @@
+.profile {
+    $image-size: 320px;
+    $profile-size-xs: $base-offset * 16;
+    @include overflow();
+
+
+    background-color: #fff;
+    box-shadow: 0px 4px 24px 0px rgba(1, 1, 1, 0.04);
+    border-radius: 4px;
+    display: block;
+
+    &-image {
+        position: relative;
+        @include overflow();
+        display: block;
+        width: 100%;
+        height: $image-size;
+        background-size: cover;
+        background-position: center;
+
+        & img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            height: auto;
+            width: 100%;
+        }
+    }
+
+    &-info {
+        position: relative;
+        padding: $base-offset * 4 $base-offset * 3;
+        & .name {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: $base-offset;
+        }
+        & .place {
+            font-size: 14px;
+            color: $grey;
+            margin-bottom: $base-offset * 2;
+        }
+
+        &-buttons {
+            opacity: 0;
+            @include clear();
+            margin: 0 -$base-offset / 2;
+
+            position: absolute;
+            left: 50%;
+            top: 0;
+
+            transform: translate3d(-50%, -50%, 0);
+    
+            & a {
+                margin: 0 $base-offset / 2;
+                float: left;
+                $icon-size: 16px;
+                display: block;
+                font-size: 16px;
+                line-height: $icon-size;
+                text-align: center;
+                
+    
+                padding: $base-offset * 2;
+                height: $icon-size + $base-offset * 4;
+                width: $icon-size + $base-offset * 4;
+                background-color: #fff;
+                border-radius: 100%;
+                box-shadow: 0px 4px 16px 0px rgba(1, 1, 1, 0.1);
+    
+                &.red {
+                    color: $red;
+                }
+    
+                &.yellow {
+                    color: $yellow;
+                }
+            }
+        }
+    }
+
+    &:hover {
+        .profile-info-buttons {
+            @include transition(.3s);
+            opacity: 1;
+        }
+    }
+
+    @media screen and (max-width: $screen-md) {
+        &-info {
+            &-buttons {
+                opacity: 1;
+            }
+        }
+    }
+
+    @media screen and (max-width: $screen-xsc) {
+        height: $profile-size-xs;
+        &-image {
+            height: 100%;
+            width: $profile-size-xs;
+            float: left;
+        }
+
+        &-info {
+            @include overflow();
+            padding: $base-offset * 2;
+
+            & .name {
+                font-size: 14px;
+            }
+            & .place {
+                font-size: 12px;
+            }
+
+            &-buttons {
+                position: static;
+                transform: none;
+            }
+        }
+    }
+}
+  

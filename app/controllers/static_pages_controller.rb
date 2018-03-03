@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
 
-  layout "wide", only: ['home']
+  layout "landing", only: ['home']
   def home
     redirect_to my_profile_path if user_signed_in?
   end

@@ -1,33 +1,51 @@
-<div>
-  <div class="row no-gutters">
-    <div class="col-auto col-lg-3 col-xl-2" id="conversations">
-      <%= render @conversations, current_conversation: @conversation.id, layout: false %>
-    </div>
-    <div class="col col-lg-8">
-      <div id="conversation-main" class="conversation-main">
-        <div id="conversation-body" data-conversation-id="<%= @conversation.id %>">
-          <%= render @conversation.personal_messages, current_user_id: current_user.id %>
-        </div>
+<div class="chat-page show-chat">
+  <div class="chat-page-wrap">
+    <div class="left-side">
+      <div class="chats-list">
+        <p class="chats-list-title">Your chats</p>
+
+        <ul id="conversations">
+          <%= render @conversations, current_conversation: @conversation.id, layout: false %>
+        </ul>
       </div>
-
-      <%= form_for @personal_message do |f| %>
-          <%= hidden_field_tag 'conversation_id', @conversation.id %>
-          <div class="row" data-turbolinks="false">
-            <div class="col">
-              <%= f.text_field :body, class: "form-control" %>
-            </div>
-            <div class="col-auto">
-              <%= f.submit 'Send', class: "btn btn-secondary h-100" %>
-            </div>
-          </div>
-
-      <% end %>
     </div>
-    <div class="col-xl-2 d-none d-xl-block">
-      <% profile = @conversation.with(current_user).profile %>
-      <%= image_tag profile.medium_avatar, class: 'img-fluid' %>
-      <div>
-        <h4><%= profile.display_name %></h4>
+    <div class="chat-wrap">
+      <div class="right-side">
+        <% profile = @conversation.with(current_user).profile %>
+        <div class="profile-chat">
+          <a class="to-chats" href="javascript:void(0)">
+            <i class="fa fa-chevron-left"></i>
+          </a>
+          <div class="profile-chat-image">
+            <%= image_tag profile.medium_avatar %>
+          </div>
+          <div class="profile-chat-info">
+            <p class="name"><%= profile.display_name+', '+profile.age.to_s %></p>
+            <p class="place"><%= profile.city.country+', '+profile.city.city if profile.city.present? %></p>
+
+            <a class="round-btn transparent send-gift" href="javascript:void(0)">
+              <i class="fa fa-gift"></i>
+              <span>Send a gift</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+      <div class="main">
+        <div class="chat-window" id="conversation-main">
+          <div class="bubble-area" id="conversation-body" data-conversation-id="<%= @conversation.id %>">
+            <%= render @conversation.personal_messages, current_user_id: current_user.id %>
+          </div>
+          <div class="message-form" data-turbolinks="false">
+            <%= form_for @personal_message do |f| %>
+                <%= hidden_field_tag 'conversation_id', @conversation.id %>
+                <%= f.submit 'Send', class: 'round-btn' %>
+                <div class="profile-input">
+                  <%= f.text_area :body, placeholder: 'Enter message' %>
+                </div>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

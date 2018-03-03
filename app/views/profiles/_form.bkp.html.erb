@@ -1,0 +1,124 @@
+<%= form_with(model: profile, local: true) do |form| %>
+    <% if profile.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+          <ul>
+            <% profile.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="form-group">
+      <% img_src = @profile.avatar.present? ? @profile.avatar.url : image_url('avatar_placeholder.png') %>
+      <div class="row">
+        <div class="col-xl-6">
+          <img id="img_preview" src="<%= img_src %>" alt="Avatar" class="img-fluid"/>
+        </div>
+      </div>
+      <%= form.file_field :avatar, id: :profile_avatar %>
+      <%= form.hidden_field :avatar_cache %>
+    </div>
+    <%= form.hidden_field :crop_x, id: :crop_x %>
+    <%= form.hidden_field :crop_y, id: :crop_y %>
+    <%= form.hidden_field :crop_w, id: :crop_w %>
+    <%= form.hidden_field :crop_h, id: :crop_h %>
+
+    <div class="form-group form-row">
+      <%= form.fields_for :photos do |p| %>
+          <div class="col-lg-2">
+            <label>
+              <img src="<%= p.object.new_record? ? asset_path('avatar_placeholder.png') : p.object.photo.url(:thumb) %>" class="img-fluid">
+              <%= p.file_field :photo, class: 'd-none' %>
+            </label>
+          </div>
+      <% end %>
+    </div>
+
+    <div class="form-group form-row">
+      <div class="col-lg-6">
+        <%= form.text_field :name, id: :profile_name, class: 'form-control', placeholder: 'Name' %>
+      </div>
+      <div class="col-lg-6">
+        <%= form.text_field :surname, id: :profile_surname, class: 'form-control', placeholder: 'Surname' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= form.label :hide_surname %>
+      <%= form.check_box :hide_surname, id: :profile_hide_surname %>
+    </div>
+
+    <div class="form-group">
+      <%= form.text_field :nickname, id: :profile_nickname, class: 'form-control', placeholder: 'Nickname' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.select :languages, options_for_select(languages, @profile.languages), {include_hidden: false }, {multiple: true, id: 'profile_languages', class: 'form-control'} %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :address %>
+      <%= form.text_field :address, id: :profile_address, class: 'form-control' %>
+    </div>
+    <div class="form-group row">
+      <div class="col-lg">
+        <%= form.text_field :country, id: :profile_country, class: 'form-control', readonly: true, placeholder: 'Country', value: (@profile.city.country if @profile.city.present?) %>
+        <%= form.hidden_field :country_code, id: :profile_country_code, value: (@profile.city.country_code if @profile.city.present?) %>
+      </div>
+      <div class="col-lg">
+        <%= form.text_field :state, id: :profile_state, class: 'form-control', disabled: true, placeholder: 'State', value: (@profile.city.administrative_area_level_1+@profile.city.administrative_area_level_2 if @profile.city.present?) %>
+        <%= form.hidden_field :administrative_area_level_1, id: :administrative_area_level_1, value: (@profile.city.administrative_area_level_1 if @profile.city.present?) %>
+        <%= form.hidden_field :administrative_area_level_2, id: :administrative_area_level_2, value: (@profile.city.administrative_area_level_2 if @profile.city.present?) %>
+      </div>
+      <div class="col-lg">
+        <%= form.text_field :city_name, id: :profile_city, class: 'form-control', readonly: true, placeholder: 'City', value: (@profile.city.city if @profile.city.present?) %>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <%= form.label :dob %>
+      <%= form.date_select :dob, id: :profile_dob, start_year: Date.today.year-18, end_year: 1920 %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :hide_dob %>
+      <%= form.check_box :hide_dob, id: :profile_hide_dob %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :gender %>
+      <%= form.radio_button :gender, "male", id: :profile_gender %>
+      <%= form.label :gender, "Male" %>
+      <%= form.radio_button :gender, "female", id: :profile_gender %>
+      <%= form.label :gender, "Female" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :about %>
+      <%= form.text_area :about, id: :profile_about, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :hobby_list, 'Hobbies' %>
+      <%= form.text_field :hobby_list, id: :hobby_list, value: @profile.hobby_list.join(', '), 'data-role' => 'tagsinput'  %>
+    </div>
+    <div class="form-group">
+      <%= form.label :film_list, 'Movies' %>
+      <%= form.text_field :film_list, id: :film_list, value: @profile.film_list.join(', '), 'data-role' => 'tagsinput' %>
+    </div>
+    <div class="form-group">
+      <%= form.label :music_list, 'Music' %>
+      <%= form.text_field :music_list, id: :music_list, value: @profile.music_list.join(', '), 'data-role' => 'tagsinput' %>
+    </div>
+    <div class="form-group">
+      <%= form.label :book_list, 'Books' %>
+      <%= form.text_field :book_list, id: :book_list, value: @profile.book_list.join(', '), 'data-role' => 'tagsinput' %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+<% end %>

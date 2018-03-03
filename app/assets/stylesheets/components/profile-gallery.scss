@@ -1,0 +1,223 @@
+.profile-gallery {
+    $image-size: $base-offset * 14;
+    $image-size-lg: 220px;
+    $image-size-md: 220px;
+    $image-size-smc: 140px;
+    $image-size-sm: 110px;
+
+    padding: $base-offset * 4;
+    background-color: #fff;
+    border-radius: 4px;
+
+    &-title {
+        @include clear();
+        height: 20px;
+        & span {
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 18px;
+        }
+        & a {
+            float: right;
+            font-size: 12px;
+            line-height: 18px;
+            color: $grey;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        margin-bottom: $base-offset * 6;
+    }
+
+    & ul {
+        @include overflow();
+        // @include clear();
+        // height: $image-size;
+        margin: -$base-offset / 4;
+        & li {
+            float: left;
+            padding: $base-offset / 4;
+            width: 50%;
+            & > a, & > span, & > label {
+                position: relative;
+                display: block;
+                width: 100%;
+                cursor: pointer;
+                height: $image-size;
+
+                @include overflow();
+
+                & .icon {
+                    $icon-size: 32px;
+
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate3d(-50%, -50%, 0);
+
+                    width: $icon-size;
+                    height: $icon-size;
+                    background-color: #fff;
+                    border-radius: 100%;
+                    box-shadow: 0px 4px 16px 0px rgba(1, 1, 1, 0.1);
+
+                    & .fa {
+                        font-size: 16px;
+                        color: $grey;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate3d(-50%, -50%, 0);
+                    }
+                }
+
+                &.removable {
+                    &::after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+
+                        background-color: rgba($dark, .3);
+                        opacity: 0;
+                    }
+                    & .icon {
+                        opacity: 0;
+                        
+                    }
+                    &:hover {
+                        &::after {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            opacity: 1;
+                            @include transition(.3s);
+
+                            background-color: rgba($dark, .3);
+                        }
+                        & .icon {
+                            z-index: 1;
+                            @include transition(.3s);
+                            opacity: 1;
+                        }  
+                    }
+                }
+
+                &.add {
+                    background-color: $light-grey;
+                }
+
+                & img {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate3d(-50%, -50%, 0);
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+
+    & .view-more {
+        margin-top: $base-offset * 2;
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    @media screen and (max-width: $screen-lg) {
+        
+        padding: 0;
+        background: none;
+        &-title {
+            display: none;
+        }
+
+        & ul {
+            // height: $image-size-lg;
+            & li {
+                width: calc(100% / 3);
+                & a, & span {
+                    height: $image-size-lg;
+
+                    &.removable {
+                        &::after {
+                            display: none;
+                        }
+                        &:hover {
+                            &::after {
+                                display: none;
+                            }
+                        }
+                        & .icon {
+                            opacity: 1;
+                            top: auto;
+                            bottom: $base-offset * 2;
+                            transform: translate3d(-50%, 0, 0);
+                        }
+                    }
+                }
+            }
+        }
+
+        &.edit {
+            padding: $base-offset * 4;
+            background-color: #fff;
+            &-title {
+                display: block;
+            }
+        }
+    }
+
+    @media screen and (max-width: $screen-md) {
+        & ul {
+            // height: $image-size-md;
+            & li {
+                & a, & span {
+                    height: $image-size-md;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: $screen-sm) {
+        & ul {
+            // height: $image-size-smc;
+            & li {
+                & a, & span {
+                    height: $image-size-smc;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: $screen-xsc) {
+        & ul {
+            // height: $image-size-sm;
+            & li {
+                & a, & span {
+                    height: $image-size-sm;
+                }
+            }
+        }
+
+        &.edit {
+            & ul {
+                // height: $image-size-lg;
+                & li {
+                    width: calc(100% / 2);
+                }
+            }
+        }
+    }
+}

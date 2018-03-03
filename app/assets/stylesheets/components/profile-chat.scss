@@ -1,0 +1,125 @@
+.profile-chat {
+    $image-height: 300px;
+
+    border-radius: 4px;
+    background-color: #fff;
+    @include overflow();
+
+    & .to-chats {
+        display: none;
+    }
+
+    &-image {
+        position: relative;
+        width: 100%;
+        height: $image-height;
+        @include overflow();
+
+        img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &-info {
+        padding: $base-offset * 3;
+
+        & .name {
+            font-weight: 500;
+            font-size: 18px;
+            margin-bottom: $base-offset;
+        }
+
+        & .place {
+            font-size: 14px;
+            color: $grey;
+            margin-bottom: $base-offset * 3;
+        }
+
+        & .round-btn {
+            margin: 0 auto;
+            width: 200px;
+            display: block;
+
+            & .fa {
+                color: $red;
+                margin-right: $base-offset;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1280px) {
+        $image-size: 50px;
+        width: 100%;
+        padding: $base-offset * 2;
+
+        &-image {
+
+            width: $image-size;
+            height: $image-size;
+            border-radius: 100%;
+            float: left;
+            margin-right: $base-offset * 2;
+        }
+
+        &-info {
+            position: relative;
+            padding: 0;
+            @include overflow();
+
+            & .place {
+                margin: 0;
+            }
+            // & .name {font-size: 14px;}
+            // & .place {font-size: 12px;}
+            
+            & .round-btn {
+                position: absolute;
+                padding: $base-offset;
+                min-width: auto;
+                width: auto;
+                top: 50%;
+                right: $base-offset * 2;
+                transform: translateY(-50%);
+                box-shadow: 0px 4px 8px 0px rgba(1, 1, 1, 0.06) !important;
+
+                & .fa {
+                    display: block;
+                    width: 18px;
+                    float: left;
+                    margin: 0;
+                } 
+                
+                & span {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    // @media screen and (max-width: $screen-md) {
+    //     &-info {
+    //         & .round-btn {
+    //         }
+    //     }
+    // }
+
+    @media screen and (max-width: $screen-sm) {
+        & .to-chats {
+            display: block;
+            float: left;
+            line-height: 50px;
+            margin-right: $base-offset * 2; 
+        }
+
+        &-info {
+            & .round-btn {
+                right: $base-offset;
+            }
+        }
+    }
+}

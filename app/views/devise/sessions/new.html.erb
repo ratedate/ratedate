@@ -1,27 +1,29 @@
 <h2><%= t('.sign_in') %></h2>
 
+<div class="login-form active">
 <%= devise_error_messages! %>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => "devise-form"}) do |f| %>
-  <div class="form-group mx-auto d-block">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <p class="input">
     <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email"   %>
-  </div>
+  </p>
 
-  <div class="form-group mx-auto d-block">
+  <p class="input">
     <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
-  </div>
+  </p>
 
   <% if devise_mapping.rememberable? %>
-    <div class="form-group">
+    <p class="checkbox">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
-    </div>
+    </p>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit t('.sign_in'), class: "btn btn-secondary mb-3  mx-auto d-block" %>
+  <div class="center">
+    <%= f.submit t('.sign_in'), class: "round-btn" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>

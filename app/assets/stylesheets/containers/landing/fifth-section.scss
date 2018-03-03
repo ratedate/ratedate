@@ -1,0 +1,68 @@
+.fifth-section {
+    position: relative;
+    background-color: $red;
+    padding: $base-offset * 3 68px 0;
+    // width: 100vw;
+    // height: 100vh;
+    height: 100%;
+    width: 100%;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100vmin;
+        height: 100vmin;
+        border-radius: 100%;
+        background-color: $orange;
+        top: 25vmin;
+        left: -30vmin;
+    }
+
+    & .section-title {
+        position: absolute;
+        left: 68px;
+        top: 50%;
+
+        transform: translateY(-50%);
+    }
+
+    &-back {
+        position: absolute;
+        top: 0;
+        right: -35vmin;
+        display: block;
+        height: 100vh;
+        width: 120vmin;
+        @include backgroundImage('fifth-screen-back.png');
+        background-size: 100% auto;
+        background-position: center;
+    }
+
+    @media screen and (max-width: $screen-lg) {
+        &::before {left: -5vmin;}
+        &-back {right: -30vmin;}
+    }
+
+    @media screen and (max-width: $screen-md) {
+        @media screen and (orientation: portrait) {
+            & .section-title {
+                left: $base-offset;
+                top: 10vmin;
+                transform: none;
+            }
+
+            &::before {
+                top: 35vmin;
+                left: -15vmin;
+            }
+
+            &-back {
+                right: -40vmin;
+                top: 30vmin;
+                // height: 111vmin;
+                width: 140vmin;
+            }
+        }
+    }
+}

@@ -1,24 +1,120 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Ratedate</title>
-    <%= render "favicon" %>
-    <%= csrf_meta_tags %>
-    <%= meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZtLop0Yk-dl1d9Ord1Hc7nsrak_Mat44&libraries=places"></script>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload', async: true %>
-  </head>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <body>
-  <%= google_analytics %>
-  <%= ya_metric %>
-  <div class="container-fluid">
-    <%= render "rd_main_navbar" %>
-  </div>
-    <div class="container">
-      <%= yield %>
+  <title>Rate Date</title>
+  <% if content_for?(:head) %>
+      <%= yield(:head) %>
+  <% end %>
+  <%= render "favicon" %>
+  <%= csrf_meta_tags %>
+  <%= meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+
+  <!-- HTML5 shissm and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<%= google_analytics %>
+<%= ya_metric %>
+<header>
+
+  <a id="side-menu-open" class="menu-btn" href="javascript:void(0)">
+    <span class="fa fa-bars"></span>
+  </a>
+
+  <a class="logo" href="javascript:void(0)"><span class="icon-logo"></span></a>
+
+  <div class="navs">
+
+    <div class="navs-wrap">
+      <div class="navs-head mobile">
+        <a id="close-user-menu" class="close-btn" href="javascript:void(0)">
+          <span class="fa fa-times"></span>
+        </a>
+        <span class="icon-logo"></span>
+      </div>
+
+      <ul class="left-nav">
+        <li><%= link_to 'Profiles', profiles_path %></li>
+        <li><a class="soon" href="javascript:void(0)">Auctions</a></li>
+      </ul>
+
+      <ul class="right-nav">
+        <li><%= link_to 'My Profile', my_profile_path %></li>
+        <li><%= link_to 'Edit Profile', edit_my_profile_path%></li>
+        <li><%= link_to t(:sign_out), sign_out_path, method: :delete%></li>
+
+        <li class="links-row">
+          <a class="left" href="javascript:void(0)" data-modal-target="#terms-of-use">Terms of Use</a>
+          <a id="policy" class="right" href="javascript:void(0)" data-modal-target="#privacy-policy">Policy</a>
+        </li>
+      </ul>
+      <p class="links-row mobile">
+        <a class="left" href="javascript:void(0)" data-modal-target="#terms-of-use">Terms of Use</a>
+        <a class="right" href="javascript:void(0)" data-modal-target="#privacy-policy">Policy</a>
+      </p>
     </div>
+  </div>
 
-  </body>
+  <div class="right-menu">
+    <!--<a class="notifier not-empty" href="javascript:void(0)">-->
+      <!--<i class="fa fa-bell-o"></i>-->
+    <!--</a>-->
+
+    <%= link_to(current_user.personal_messages.any? ? conversation_path(Conversation.participating_last(current_user)) : profiles_path, class: 'messages') do %>
+      <i class="fa fa-comment-o"></i>
+      <!--<span class="unread">241</span>-->
+    <% end %>
+
+    <a class="user-menu" href="javascript:void(0)">
+      <%= user_avatar %>
+    </a>
+  </div>
+</header>
+
+<div class="content-wrap">
+  <main>
+    <%= yield %>
+  </main>
+
+  <footer>
+    <div class="links-row">
+      <a href="javascript:void(0)" data-modal-target="#terms-of-use">Terms of Use</a>
+      <a href="javascript:void(0)" data-modal-target="#privacy-policy">Policy</a>
+    </div>
+    <p class="copyright">Copyright © 2018 RateDate</p>
+  </footer>
+
+  <div class="modal" id="privacy-policy">
+    <a class="modal-close" href="javascript:void(0)">
+      <i class="fa fa-times"></i>
+    </a>
+
+    <div class="modal-window">
+      <div class="modal-content">
+        <%= render 'static_pages/privacy_policy', layout: false %>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="terms-of-use">
+    <a class="modal-close" href="javascript:void(0)">
+      <i class="fa fa-times"></i>
+    </a>
+
+    <div class="modal-window">
+      <div class="modal-content">
+        <%= render 'static_pages/terms_of_use', layout: false %>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
 </html>

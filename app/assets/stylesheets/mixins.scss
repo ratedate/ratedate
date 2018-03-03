@@ -1,0 +1,121 @@
+@mixin sized() {
+    max-width: $screen-lg;
+    display: block;
+    margin: 0 auto;
+}
+
+@mixin overflow($overflow-x: hidden, $overflow-y: $overflow-x) {
+    overflow-x: $overflow-x;
+    overflow-y: $overflow-y;
+    // &::-webkit-scrollbar { 
+    //     // display: none;  // Safari and Chrome
+    // }
+}
+  
+@mixin clear() {
+    &::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+  
+@mixin transition($time, $function: 'ease-in-out') {
+    -webkit-transition: $time ;
+    -moz-transition: $time ;
+    -o-transition: $time ;
+    transition: $time ;
+}
+  
+@mixin box-sizing($boxmodel) {
+    -webkit-box-sizing: $boxmodel;
+    -moz-box-sizing: $boxmodel;
+    box-sizing: $boxmodel;
+}
+  
+@mixin backgroundImage($image) {
+    background-image: image_url($image);
+    background-repeat: no-repeat;
+}
+
+@mixin border-radius($value1: 2px, $value2: $value1, $value3: $value1, $value4: $value1) {
+    -moz-border-top-left-radius: $value1;
+    -moz-border-top-right-radius: $value2;
+    -moz-border-bottom-right-radius: $value3;
+    -moz-border-bottom-left-radius: $value4;
+    -webkit-border-top-left-radius: $value1;
+    -webkit-border-top-right-radius: $value2;
+    -webkit-border-bottom-right-radius: $value3;
+    -webkit-border-bottom-left-radius: $value4;
+    border-top-left-radius: $value1;
+    border-top-right-radius: $value2;
+    border-bottom-right-radius: $value3;
+    border-bottom-left-radius: $value4;
+}
+  
+//ICON
+@mixin icon($icon, $color: inherit, $backColor: transparent, $border-radius: 0, $size: $icon-size) {
+    &::before {
+        content: $icon;
+        font-family: 'Icon Font Name', sans-serif;
+        font-size: $size;
+        line-height: $size;
+        color: $color;
+        background-color: $backColor;
+        @include border-radius($border-radius);
+        display: inline-block;
+        width: $size;
+        height: $size;
+    }
+}
+  
+@mixin translate($x: 0, $y: 0, $z: 0) {
+    -webkit-transform: translate3d($x, $y, $z);
+    -moz-transform: translate3d($x, $y, $z);
+    -o-transform: translate3d($x, $y, $z);
+    transform: translate3d($x, $y, $z);
+}
+  
+//GRID GENERATOR
+@mixin grid-generator($screen) {
+    @for $i from 1 through 6 {
+        .grid-#{$screen}-#{$i} {
+            margin: -$base-offset;
+            @include clear();
+            & .cell {
+                @include box-sizing(border-box);
+                float: left;
+                padding: $base-offset;
+                width: 100% / $i;
+            }
+
+            & .centered-#{$screen} {
+                width: 100%;
+                float: left;
+                position: relative;
+                left: calc((100% / #{$i}) / 2);
+            }
+        }
+    }
+}
+
+@include grid-generator('xs');
+
+@media screen and (min-width: $screen-xsc-min) {
+    @include grid-generator('xsc');
+}
+@media screen and (min-width: $screen-sm-min) {
+    @include grid-generator('sm');
+}
+@media screen and (min-width: $screen-smc-min) {
+    @include grid-generator('smc');
+}
+@media screen and (min-width: $screen-md-min) {
+    @include grid-generator('md');
+}
+@media screen and (min-width: $screen-mdc-min) {
+    @include grid-generator('mdc');
+}
+@media screen and (min-width: $screen-lg-min) {
+    @include grid-generator('lg');
+}

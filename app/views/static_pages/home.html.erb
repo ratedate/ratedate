@@ -1,32 +1,221 @@
-<div class="container-fluid">
-  <div class="nav justify-content-center">
-    <span class="icon-logo text-secondary display-1"></span>
-  </div>
-  <div class="row justify-content-md-center">
-    <div class="col-md-8 text-center">
+
+
+<div class="side-form">
+    <div class="side-form-head">
+      <span class="logo icon-logo"></span>
+      <a id="hide-menu" class="close-menu" href="javascript:void(0)">
+        <span class="fa fa-times"></span>
+      </a>
+    </div>
+
+    <div class="login signup show">
+      <p class="trigger">
+        <a href="javascript:void(0)" class="left">Log In</a>
+        <a href="javascript:void(0)" class="right">Sign Up</a>
+      </p>
+
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-      <p class="h3">Update Coming Soon</p>
-      <%= form_for(:user, as: resource_name, url: session_path(resource_name), :html => {:class => "devise-form"}) do |f| %>
-          <div class="form-group mx-auto d-block">
-            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email"   %>
-          </div>
+      <%= devise_error_messages! %>
+      <%= flash[:recaptcha_error] %>
+      <div class="login-form active">
+        <%= form_for(:user, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <p class="input">
+              <%= f.email_field :email, autofocus: true, placeholder: "E-mail"   %>
+            </p>
 
-          <div class="form-group mx-auto d-block">
-            <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
-          </div>
+            <p class="input">
+              <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+            </p>
 
-          <% if devise_mapping.rememberable? %>
-              <div class="form-group mx-auto d-block">
-                <%= f.check_box :remember_me %>
-                <%= f.label :remember_me %>
+            <% if devise_mapping.rememberable? %>
+                <p class="checkbox">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
+                </p>
+            <% end %>
+
+            <div class="center">
+              <%= f.submit t('.sign_in'), class: 'round-btn' %>
+            </div>
+            <a class="link underline medium instructions" href="javascript:void(0)">
+              Didn't receive confirmation instructions?
+            </a>
+
+        <% end %>
+      </div>
+
+      <div class="signup-form">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+            <%= f.hidden_field :referred_by, :value => session[:referred_by] %>
+            <p class="input">
+              <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+            </p>
+
+            <p class="input">
+              <%= f.password_field :password, autocomplete: "off",  placeholder: "Password" %>
+            </p>
+
+            <p class="input">
+              <%= f.password_field :password_confirmation, autocomplete: "off",  placeholder: "Repeat password" %>
+            </p>
+            <div class="captcha">
+              <div class="captcha-wrap">
+                <!-- INSERT CAPTCHA HERE -->
+                <%= recaptcha_tags %>
               </div>
-          <% end %>
+            </div>
+            <div class="center">
+              <%= f.submit t('sign_up'), class: 'round-btn' %>
+            </div>
+        <% end %>
+        <a class="link underline medium instructions" href="javascript:void(0)">
+          Didn't receive confirmation instructions?
+        </a>
 
-          <div class="actions">
-            <%= f.submit t('.sign_in'), class: "btn btn-secondary mb-3  mx-auto d-block" %>
+      </div>
+    </div>
+
+    <div class="check-mail">
+      <span class="check-mail-icon"></span>
+      <p class="check-mail-text">
+        Thanks! Check your mail
+        and follow instructions!
+      </p>
+
+      <div class="center">
+        <button type="button" class="round-btn">Go to Log In</button>
+      </div>
+    </div>
+
+    <div class="forgot">
+      <p class="forgot-title">Forgot your password?</p>
+      <p class="input">
+        <input type="text" name="email" placeholder="E-mail" />
+      </p>
+      <div class="center">
+        <button type="submit" class="round-btn">Send reset link</button>
+      </div>
+      <div class="center">
+        <a class="link underline" href="javascript:void(0)">Log In</a>
+        <a class="link underline" href="javascript:void(0)">Sign Up</a>
+      </div>
+    </div>
+
+
+    <div class="info-links">
+      <a class="link" href="javascript:void(0)" data-modal-target="#terms-of-use">Terms of Use</a>
+      <a class="link" href="javascript:void(0)" data-modal-target="#privacy-policy">Policy</a>
+    </div>
+
+    <p class="info-text">
+      RateDate © 2018
+    </p>
+</div>
+
+<!-- SCREENS -->
+<div class="landing-wrap">
+  <div id="fullpage" >
+    <div class="section">
+      <div class="base-section">
+        <span class="logo icon-logo"></span>
+
+        <a id="show-menu" class="round-btn white" href="javascript:void(0)">Log In</a>
+
+        <div class="revolution">
+          <p>
+            <span class="nowrap">REVOLUTION</span>
+            <span class="nowrap">IN THE</span>
+            <span class="nowrap">ONLINE DATING</span>
+            <span class="nowrap">INDUSTRY</span>
+          </p>
+        </div>
+
+        <div class="happiness">
+          <p class="big-text">
+            <span class="nowrap">Your happiness</span>
+            <span class="nowrap">is closer</span>
+            <span class="nowrap">than you think</span>
+          </p>
+          <div class="hidden-text-wrap">
+            <p class="hidden-text">
+              Rate Date – is a dating site, providing a unique opportunity to
+              hold an online video date auction. This service makes it possible
+              not only to find and communicate with interesting people, but create
+              and take part in video date auctions as well.
+            </p>
           </div>
-      <% end %>
+        </div>
+
+        <div class="video-circle">
+          <video id="circle-video" loop poster=<%=image_url('video-poster.jpg')%>>
+            <source src="/videos/first-video.m4v" type="video/mp4" />
+            <source src="/videos/first-video.webm" type="video/webm" />
+            <source src="/videos/first-video.ogv" type="video/ogg" />
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="second-section">
+        <!-- NO CONTENT -->
+      </div>
+    </div>
+    <div class="section">
+      <div class="third-section">
+        <span class="third-section-back"></span>
+        <div class="section-title">
+          <p class="section-title-index">01</p>
+          <p class="section-title-label">Search</p>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="fourth-section">
+        <span class="fourth-section-back"></span>
+        <div class="section-title dark">
+          <p class="section-title-index">02</p>
+          <p class="section-title-label">Bid</p>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="fifth-section">
+        <span class="fifth-section-back"></span>
+        <div class="section-title">
+          <p class="section-title-index">03</p>
+          <p class="section-title-label">Watch</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section fp-auto-height">
+      <div class="foot-section">
+        <div class="links-row">
+          <a href="javascript:void(0)" data-modal-target="#terms-of-use">Terms of Use</a>
+          <a href="javascript:void(0)" data-modal-target="#privacy-policy">Policy</a>
+        </div>
+        <p class="copyright">Copyright © 2018 RateDate</p>
+      </div>
     </div>
   </div>
+
+  <ul class="nav-dots">
+    <li data-menuanchor="section-1">
+      <a href="#section-1"></a>
+    </li>
+    <li data-menuanchor="section-2">
+      <a href="#section-2"></a>
+    </li>
+    <li data-menuanchor="section-3">
+      <a href="#section-3"></a>
+    </li>
+    <li data-menuanchor="section-4">
+      <a href="#section-4"></a>
+    </li>
+    <li data-menuanchor="section-5">
+      <a href="#section-5"></a>
+    </li>
+  </ul>
 </div>

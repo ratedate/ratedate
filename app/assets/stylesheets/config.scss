@@ -1,0 +1,40 @@
+//colors
+$dark: #262626;
+$red: #FE123E;
+$lighter-grey: #f6f6f6;
+$light-grey: #ebebeb;
+$one-more-light-grey: #d2d2d2;
+$grey: #919191;
+$darker-grey: #3c3c3c;
+$orange: #ff4d4d;
+$yellow: #f6b94e;
+
+//values
+$base-offset: 8px;
+$icon-size: 24px;
+
+//Screen Size
+$screen-xs: 320px;
+$screen-xs-min: $screen-xs;
+
+$screen-sm: 620px;
+$screen-sm-min: $screen-sm;
+
+$screen-xsc: ($screen-xs + ($screen-sm - $screen-xs) / 2);
+$screen-xsc-min: $screen-xsc;
+
+$screen-md: 800px;
+$screen-md-min: $screen-md;
+
+$screen-smc: ($screen-sm + ($screen-md - $screen-sm) / 2);
+$screen-smc-min: $screen-smc;
+
+$screen-lg: 1136px;
+$screen-lg-min: $screen-lg;
+
+$screen-mdc: ($screen-md + ($screen-lg - $screen-md) / 2);
+$screen-mdc-min: $screen-mdc;
+
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-sm-max: ($screen-md-min - 1);
+$screen-md-max: ($screen-lg-min - 1);

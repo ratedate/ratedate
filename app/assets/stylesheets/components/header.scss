@@ -1,0 +1,392 @@
+header {
+    z-index: 10;
+    position: fixed;
+    width: 100vw;
+    @include clear();
+    background-color: $red;
+    padding: $base-offset $base-offset * 4;
+
+    height: 50px + $base-offset * 2;
+
+    & a {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    & .menu-btn {
+        display: none;
+        float: left;
+        color: #fff;
+        font-size: $icon-size;
+        line-height: 50px;
+        margin-right: $base-offset * 2;
+    }
+
+    & .logo {
+        display: block;
+        float: left;
+        line-height: 50px;
+        font-size: 50px;
+        color: #fff;
+
+        margin-right: $base-offset * 6;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    & .left-nav {
+        float: left;
+        line-height: 50px;
+        font-size: 16px;
+        color: #fff;
+
+        margin: 0 (-$base-offset * 3);
+
+        & li {
+            float: left;
+            margin: 0 $base-offset * 3;
+
+            & a {
+                display: block;
+                &.soon {
+                    cursor: default;
+                    position: relative;
+                    color: rgba($dark, .5);
+                    &:hover {
+                        text-decoration: none;
+                    }
+                    &::after {
+                        content: 'soon';
+                        font-weight: 600;
+                        font-size: 10px;
+                        line-height: 10px;
+                        color: $red;
+                        background-color: #fff;
+                        border-radius: 100px;
+                        display: inline;
+                        padding: $base-offset / 4 $base-offset / 1.5;
+
+                        position: absolute;
+                        top: 35%;
+                        right: 0;
+
+                        transform: translate3d(100%, -100%, 0);
+                    }
+                }
+            }
+        }
+    }
+
+    & .right-nav {
+        @include transition(.3s);
+        opacity: 0;
+        transform: translateY(-150%);
+        z-index: 2;
+
+        min-width: 220px;
+        position: fixed;
+        top: 80px;
+        right: $base-offset * 4;
+        padding: $base-offset * 4;
+        background-color: #fff;
+        box-shadow: 4px 0 20px 0 rgba($dark, .1);
+        border-radius: 8px;
+
+        &.show {
+            @include transition(.3s);
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        &::after {
+            bottom: 100%;
+            left: 162px;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+            border-color: transparent;
+            border-bottom-color: #fff;
+            border-width: 8px;
+            margin-left: -8px;
+        }
+
+        & li {
+            margin-bottom: $base-offset * 4;
+            & a {
+                line-height: 18px;
+                font-size: 16px;
+            }
+
+            &.links-row {
+                margin: $base-offset * 6 0 0;
+                & a {
+                    font-size: 14px;
+                    color: $grey;
+
+                    &.left {
+                        float: left;
+                    }
+
+                    &.right {
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
+
+    & .links-row.mobile {
+        display: none;
+        & a {
+            font-size: 14px;
+            color: #fff;
+
+            &.left {
+                float: left;
+            }
+
+            &.right {
+                float: right;
+            }
+        }
+    }
+
+    & .right-menu {
+        float: right;
+    }
+
+    & .notifier {
+        margin-right: $base-offset * 4;
+        position: relative;
+        float: left;
+        display: block;
+        font-size: 24px;
+        color: #fff;
+        line-height: 50px;
+
+        &.not-empty {
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+
+                top: 10px;
+                right: -5px;
+
+                width: 6px;
+                height: 6px;
+                background-color: $yellow;
+                border-radius: 100%;
+            }
+        }
+    }
+
+    & .messages {
+        margin-right: $base-offset * 4;
+        position: relative;
+        float: left;
+        display: block;
+        font-size: 24px;
+        color: #fff;
+        line-height: 50px;
+
+        & .unread {content: 'soon';
+            font-weight: 600;
+            font-size: 10px;
+            line-height: 10px;
+            color: $red;
+            background-color: #fff;
+            border-radius: 100px;
+            display: inline;
+            padding: $base-offset / 4;
+
+            position: absolute;
+            top: 25px;
+            right: 15px;
+            min-width: 35px;
+            text-align: center;
+
+            transform: translate3d(100%, -100%, 0);
+        }
+    }
+
+    & .user-menu {
+        float: left;
+        position: relative;
+        padding-right: $base-offset * 2 + 18px;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        &::before {
+            content: "\f078";
+            font-family: FontAwesome;
+            font-size: 18px;
+            color: #fff;
+            line-height: 50px;
+
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        & img {
+            float: left;
+            border-radius: 100%;
+            width: 50px;
+            width: 50px;
+        }
+    }
+
+    & .navs {
+        &-head {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: $screen-md) {
+        & .menu-btn {
+            display: block;
+        }
+
+        & .navs {
+            z-index: 50;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 320px;
+            height: 100vh;
+            background-color: $red;
+            padding: $base-offset * 2 $base-offset * 4 0;
+            box-shadow: 0 0 0 0 #930606;
+            transform: translateX(100%);
+
+
+            @include transition(.3s);
+            @include overflow(hidden, scroll);
+
+            &-wrap {
+                min-height: calc(100vh - #{$base-offset} * 2);
+                position: relative;
+                @include overflow();
+            }
+
+            &-head {
+                @include clear();
+                display: block;
+                margin-bottom: $base-offset * 8;
+                & .icon-logo {
+                    float: left;
+                    color: #fff;
+                    font-size: 40px;
+                    line-height: 40px;
+                }
+
+                & .close-btn {
+                    float: left;
+                    display: block;
+                    font-size: $icon-size;
+                    color: #fff;
+                    line-height: 40px;
+                    margin-right: $base-offset * 2;
+                }
+            }
+
+            & .left-nav {
+                float: none;
+                line-height: 18px;
+                font-size: 16px;
+                margin: 0;
+        
+                & li {
+                    float: none;
+                    margin: 0 0 $base-offset * 4;
+                    @include clear();
+        
+                    & a {
+                        display: block;
+                        float: left;
+                    }
+                }
+            }
+
+            & .right-nav {
+                margin-bottom: $base-offset * 10;
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            & .right-nav {
+                opacity: 1;
+                transform: translateY(0);
+        
+                min-width: auto;
+                position: static;
+                padding: 0;
+                background: none;
+                box-shadow: none;
+                border-radius: 0;
+        
+                &::after {
+                    display: none;
+                }
+        
+                & li {
+                    float: none;
+                    width: 100%;
+                    display: block;
+                    margin-bottom: $base-offset * 4;
+
+                    & a { 
+                        color: #fff;
+                    }
+        
+                    &.links-row {
+                        display: none;
+                    }
+                }
+            }
+
+            & .links-row.mobile {
+                display: block;
+                position: absolute;
+                bottom: $base-offset * 4;
+                left: $base-offset * 4;
+                right: $base-offset * 4;
+            }
+            
+            &.show {
+                @include transition(.3s);
+                transform: translateX(0);
+                box-shadow: 0 -4px 10px 0 #930606;
+            }
+        }
+
+        & .user-menu {
+            padding-right: 0;
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+    @media screen and (max-width: $screen-sm) {
+        padding: $base-offset;
+
+        & .logo {
+            line-height: 50px;
+            font-size: 40px;
+            margin: 0;
+        }
+
+        & .notifier, & .messages {
+            margin-right: $base-offset * 3;
+        }
+    }
+}

@@ -1,0 +1,53 @@
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    background-color: $dark;
+    padding: $base-offset * 3 $base-offset * 4;
+    @include overflow();
+
+    & .copyright {
+        float: left;
+        padding-left: $base-offset * 2;
+        font-size: 12px;
+        color: rgba(#fff, .7);
+
+        display: block;
+    }
+
+    & .links-row {
+        float: right;
+        & a {
+            display: block;
+            float: left;
+            font-size: 12px;
+            color: #fff;
+            margin: 0 $base-offset; 
+        }
+    }
+
+    @media screen and (max-width: $screen-md) and (orientation: portrait) {
+        // text-align: center;
+        padding: $base-offset * 3 $base-offset * 2;
+        & .copyright {
+            padding: 0;
+            float: none;
+            display: block;
+        }
+
+        & .links-row {
+            margin-bottom: $base-offset;
+            @include overflow();
+            display: block;
+            float: none;
+
+            & a {
+                // display: block;
+                // float: none;
+                margin: 0 $base-offset * 2 0 0;
+            }
+        }
+    }
+}

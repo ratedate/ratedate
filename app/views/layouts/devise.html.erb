@@ -1,30 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Ratedate ICO</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <%= meta_tags %>
+
+  <title>Rate Date</title>
   <%= render "favicon" %>
   <%= csrf_meta_tags %>
-  <%= meta_tags %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
-  <%= google_analytics %>
-  <%= ya_metric %>
-</head>
+  <%= stylesheet_link_tag    'landing', media: 'all', 'data-turbolinks-track' => 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload', async: Rails.env.production? %>
 
-<body>
-<div class="container-fluid container-bg-2">
-  <div class="row justify-content-md-center">
-    <div class="col-md-4 text-center">
-      <div class="nav justify-content-center">
-        <a href="http://ico.ratedate.net" class="nav-link"><span class="icon-logo text-light big-logo"></span></a>
+  <!-- HTML5 shissm and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body data-turbolinks="false">
+<%= google_analytics %>
+<%= ya_metric %>
+<main>
+  <div class="landing">
+    <div class="side-form">
+      <div class="side-form-head">
+        <span class="logo icon-logo"></span>
+        <a id="hide-menu" class="close-menu" href="javascript:void(0)">
+          <span class="fa fa-times"></span>
+        </a>
       </div>
+
+      <div class="login signup show">
+
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= flash[:recaptcha_error] %>
+        <%= yield %>
+      </div>
+
+
+      <div class="info-links">
+        <a class="link" href="javascript:void(0)">Terms of Use</a>
+        <a class="link" href="javascript:void(0)">Policy</a>
+      </div>
+
+      <p class="info-text">
+        RateDate © 2018
+      </p>
+    </div>
+
+    <!-- SCREENS -->
+    <div class="landing-wrap">
+      <div id="fullpage" >
+        <div class="section">
+          <div class="base-section">
+            <span class="logo icon-logo"></span>
+
+            <a id="show-menu" class="round-btn white" href="javascript:void(0)">Log In</a>
+
+            <div class="revolution">
+              <p>
+                <span class="nowrap">REVOLUTION</span>
+                <span class="nowrap">IN THE</span>
+                <span class="nowrap">ONLINE DATING</span>
+                <span class="nowrap">INDUSTRY</span>
+              </p>
+            </div>
+
+            <div class="happiness">
+              <p class="big-text">
+                <span class="nowrap">Your happiness</span>
+                <span class="nowrap">is closer</span>
+                <span class="nowrap">than you think</span>
+              </p>
+            </div>
+
+            <div class="video-circle">
+              <video id="circle-video" loop poster=<%=image_url('video-poster.jpg')%>>
+                <source src="/videos/first-video.m4v" type="video/mp4" />
+                <source src="/videos/first-video.webm" type="video/webm" />
+                <source src="/videos/first-video.ogv" type="video/ogg" />
+              </video>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </div>
-  <div class="row justify-content-md-center">
-    <div class="col-xl-3 col-lg-4 col-md-6 justify-content-center pt-3 text-light text-center">
-      <%= yield %>
-    </div>
-  </div>
-</div>
+</main>
 </body>
 </html>

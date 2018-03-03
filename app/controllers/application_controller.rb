@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
       if request.subdomain == "ico"
         ico_sign_in_path(resource_name)
       else
-        sign_in_path(resource_name)
+        root_path
       end
     end
   end
