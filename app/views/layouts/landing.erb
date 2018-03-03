@@ -9,7 +9,7 @@
   <%= render "favicon" %>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'landing', media: 'all', 'data-turbolinks-track' => 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload', async: Rails.env.production? %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
 
   <!-- HTML5 shissm and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,7 +18,7 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body data-turbolinks="false">
+<body>
 <%= google_analytics %>
 <%= ya_metric %>
 <main>
