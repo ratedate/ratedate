@@ -38,9 +38,8 @@
             <div class="center">
               <%= f.submit t('.sign_in'), class: 'round-btn' %>
             </div>
-            <a class="link underline medium instructions" href="javascript:void(0)">
-              Didn't receive confirmation instructions?
-            </a>
+            <%= link_to 'Forgot Your Password?', new_password_path(resource_name), class: "link underline medium instructions" %>
+            <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class: "link underline medium instructions" %>
 
         <% end %>
       </div>
@@ -70,9 +69,8 @@
               <%= f.submit t('sign_up'), class: 'round-btn' %>
             </div>
         <% end %>
-        <a class="link underline medium instructions" href="javascript:void(0)">
-          Didn't receive confirmation instructions?
-        </a>
+        <%= link_to 'Forgot Your Password?', new_password_path(resource_name), class: "link underline medium instructions" %>
+        <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class: "link underline medium instructions" %>
 
       </div>
     </div>
