@@ -1,0 +1,26 @@
+<div class="container account">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Wallet:</strong>
+  <%= @ico_etz_investment.wallet %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @ico_etz_investment.time %>
+</p>
+
+<p>
+  <strong>Etz:</strong>
+  <%= @ico_etz_investment.etz %>
+</p>
+
+<p>
+  <strong>Rdt:</strong>
+  <%= @ico_etz_investment.rdt %>
+</p>
+
+<%= link_to 'Edit', edit_ico_etz_investment_path(@ico_etz_investment) %> |
+<%= link_to 'Back', ico_etz_investments_path %>
+</div>

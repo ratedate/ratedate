@@ -22,6 +22,7 @@ Rails.application.routes.draw do
         get 'account', to: 'account#index'
         post 'account/add_eth'
         post 'kyc/create'
+        resources :etz_investments
       end
       root 'static_pages#ico_landing', module: 'ico'
       # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

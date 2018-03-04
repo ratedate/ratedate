@@ -3,6 +3,7 @@ class Ico::AccountController <  Ico::IcoController
   before_action :authenticate_ico_user!
   def index
     @referrals = Kyc.where(user_id: current_ico_user.referral_ids).count
+    @etz_investments = EtzInvestment.where(wallet: current_ico_user.kyc.wallet)
   end
 
   def add_eth

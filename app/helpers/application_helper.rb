@@ -113,7 +113,7 @@ module ApplicationHelper
   end
 
   def etz_raised
-    '155.0000'
+    number_with_precision(EtzInvestment.sum(:etz), :precision => 4)
   end
   def languages_list(languages)
     tmp = []

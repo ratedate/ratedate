@@ -76,7 +76,7 @@
         <% if current_ico_user.kyc.present? %>
             <div class="row">
               <div class="col my-2">
-                <div class="alert alert-primary h-100"><div class="text-center h3"><span id="eth_balance">0</span> RDT</div><div class="h5 text-center">Баланс</div></div>
+                <div class="alert alert-primary h-100"><div class="text-center h3"><span id="eth_balance"><%= "%g"%@etz_investments.sum(:rdt) %></span> RDT</div><div class="h5 text-center">Баланс</div></div>
               </div>
               <div class="col my-2">
                 <div class="alert alert-primary h-100"><div class="text-center h3"><%= @referrals %></div><div class="h5 text-center">Рефералы</div></div>
@@ -127,6 +127,31 @@
               </tr>
               </thead>
               <tbody id="purchase_history_data"></tbody>
+            </table>
+            <div class="h4">История Покупок(ETZ)</div>
+            <table class="table table-light table-striped">
+              <thead>
+              <tr>
+                <th>Time</th>
+                <th>ETZ</th>
+                <th>RDT</th>
+              </tr>
+              </thead>
+              <tbody id="purchase_history_data">
+              <% @etz_investments.each do |i| %>
+                  <tr>
+                    <td>
+                      <%= i.time.to_s %>
+                    </td>
+                    <td>
+                      <%= i.etz %>
+                    </td>
+                    <td>
+                      <%= i.rdt %>
+                    </td>
+                  </tr>
+              <% end %>
+              </tbody>
             </table>
         <% end %>
       </div>

@@ -9,7 +9,7 @@
   <%= render "favicon" %>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'ico/account', media: 'all', 'data-turbolinks-track' => 'reload' %>
-  <%= javascript_include_tag params[:controller], 'data-turbolinks-track' => 'reload' %>
+  <%= javascript_include_tag 'ico/account', 'data-turbolinks-track' => 'reload' %>
 
   <!-- HTML5 shissm and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,6 +31,9 @@
       <li><a class="btn-link" href="https://ratedate.net/">Rate Date beta</a></li>
       <li><%= wp_link('btn-link') %></li>
       <% if ico_user_signed_in? %>
+          <li>
+            <%= link_to 'ETZ invest', ico_etz_investments_path, class: "btn-link" if current_ico_user.superadmin? %>
+          </li>
           <li>
             <%= link_to t(:sign_out), ico_sign_out_path, method: :delete, class: "btn-link" %>
           </li>

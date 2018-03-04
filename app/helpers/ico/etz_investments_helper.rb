@@ -1,0 +1,2 @@
+module Ico::EtzInvestmentsHelper
+end

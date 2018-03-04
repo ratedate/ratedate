@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180205192225) do
+ActiveRecord::Schema.define(version: 20180304072917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 20180205192225) do
     t.index ["author_id", "receiver_id"], name: "index_conversations_on_author_id_and_receiver_id", unique: true
     t.index ["author_id"], name: "index_conversations_on_author_id"
     t.index ["receiver_id"], name: "index_conversations_on_receiver_id"
+  end
+
+  create_table "etz_investments", force: :cascade do |t|
+    t.string "wallet"
+    t.datetime "time"
+    t.decimal "etz"
+    t.decimal "rdt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "gifts", force: :cascade do |t|
@@ -170,6 +179,7 @@ ActiveRecord::Schema.define(version: 20180205192225) do
     t.string "name"
     t.integer "referred_by"
     t.string "eth_wallet"
+    t.boolean "superadmin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

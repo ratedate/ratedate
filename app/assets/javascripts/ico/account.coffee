@@ -11,7 +11,10 @@
 #= require ico/headerBehaviour
 #= require velocity.min
 #= require clipboard.min
-
+fix_len = (num) ->
+  return if num<10 then '0'+num else num
+dateToUTC = (date) ->
+  return date.getUTCFullYear()+'-'+fix_len(date.getUTCDate())+'-'+fix_len(date.getUTCDay())+' '+fix_len(date.getUTCHours())+':'+fix_len(date.getUTCMinutes())+':'+date.getUTCSeconds()+' UTC'
 window.eth_balance = undefined;
 updateICOProgress = ->
   wallet = $('#eth_wallet').text()
@@ -1097,7 +1100,8 @@ updateICOProgress = ->
     RDT = new web3RD.eth.Contract(rdtabi, "0x60ba75eca02cb7ac00ec3dd01bb3fd90f46871e6")
     RDT.methods.balanceOf(wallet).call (error, result) ->
       if(!error)
-        window.eth_balance = Number(web3RD.utils.fromWei(result))
+        window.eth_balance = Number(web3RD.utils.fromWei(result))+Number($('#eth_balance').text())
+        $('#eth_balance').text(window.eth_balance)
         ICO.methods.balanceOf(wallet).call (error, result) ->
           if(!error)
             window.eth_balance += Number(web3RD.utils.fromWei(result))
@@ -1113,7 +1117,7 @@ updateICOProgress = ->
             temp = '<tr><td id="'+event.blockNumber+'"></td><td>'+web3RD.utils.fromWei(event.returnValues.value)+'</td><td>'+web3RD.utils.fromWei(event.returnValues.amount)+'<td></tr>'
             $('#purchase_history_data').append(temp)
             web3RD.eth.getBlock event.blockNumber, (error, block) ->
-              $('#'+block.number).text(new Date(block.timestamp*1000).toLocaleString())
+              $('#'+block.number).text(dateToUTC(new Date(block.timestamp*1000)))
     ICO.getPastEvents 'TokenPurchase', {
       filter: {beneficiary: wallet},
       fromBlock: 5000000,
@@ -1125,7 +1129,7 @@ updateICOProgress = ->
             temp = '<tr><td id="'+event.blockNumber+'"></td><td>'+web3RD.utils.fromWei(event.returnValues.value)+'</td><td>'+web3RD.utils.fromWei(event.returnValues.amount)+'<td></tr>'
             $('#purchase_history_data').append(temp)
             web3RD.eth.getBlock event.blockNumber, (error, block) ->
-              $('#'+block.number).text(new Date(block.timestamp*1000).toLocaleString())
+              $('#'+block.number).text(dateToUTC(new Date(block.timestamp*1000)))
   return
 ready = ->
   $('header').headerBehaviour()
