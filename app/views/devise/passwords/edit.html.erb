@@ -4,11 +4,11 @@
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
 
-  <p class="field">
+  <p class="input">
     <%= f.password_field :password, autocomplete: "off", placeholder: t('.new_password') %><br />
   </p>
 
-  <p class="field">
+  <p class="input">
     <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: t('.confirm_new_password') %>
   </p>
 
