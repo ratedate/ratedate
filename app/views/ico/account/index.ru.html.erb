@@ -73,19 +73,19 @@
         </table>
       </div>
       <div class="col-lg-6">
+        <div class="row">
         <% if current_ico_user.kyc.present? %>
-            <div class="row">
               <div class="col my-2">
                 <div class="alert alert-primary h-100"><div class="text-center h3"><span id="eth_balance"><%= "%g"%@etz_investments.sum(:rdt) %></span> RDT</div><div class="h5 text-center">Баланс</div></div>
               </div>
-              <div class="col my-2">
-                <div class="alert alert-primary h-100"><div class="text-center h3"><%= @referrals %></div><div class="h5 text-center">Рефералы</div></div>
-              </div>
-              <div class="col my-2">
-                <div class="alert alert-primary h-100"><div class="text-center h3"><%= @referrals*10 %> RDT</div><div class="h5 text-center">Реферальный Бонус</div></div>
-              </div>
-            </div>
-      <% end %>
+        <% end %>
+          <div class="col my-2">
+            <div class="alert alert-primary h-100"><div class="text-center h3"><%= @referrals %></div><div class="h5 text-center">Рефералы</div></div>
+          </div>
+          <div class="col my-2">
+            <div class="alert alert-primary h-100"><div class="text-center h3"><%= @referrals*10 %> RDT</div><div class="h5 text-center">Реферальный Бонус</div></div>
+          </div>
+        </div>
         <p><strong>Купленные токены будут начислены 15 апреля после аутентификации личности.</strong></p>
         <strong>Адрес смарт контракта:</strong>
         <div class="input-group pb-2">
