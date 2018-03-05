@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.filter(params.slice(:by_country, :by_city, :by_gender, :by_age_from, :by_age_to)).where.not(id: current_user.profile.id)
+    @profiles = Profile.filter(params.slice(:by_country, :by_city, :by_gender, :by_age_from, :by_age_to)).where.not(id: current_user.profile)
   end
 
   # GET /profiles/1
