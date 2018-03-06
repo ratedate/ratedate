@@ -115,6 +115,7 @@
         }
     }
 
+
     @media screen and (max-width: $screen-md) {
         & .filter-bar {
             & .toggle-filter {
@@ -124,6 +125,17 @@
             & .selected-filters {
                 display: none;
             }
+        }
+        & .truncate{
+          &-xs{
+            display: block;
+            float: left;
+            text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            max-width: 75%;
+          }
         }
     }
 }
