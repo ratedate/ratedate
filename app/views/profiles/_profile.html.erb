@@ -1,10 +1,16 @@
 <div class="cell">
   <div class="profile">
     <span class="profile-image">
-      <%= image_tag profile.medium_avatar %>
+      <%= link_to profile do %>
+        <%= image_tag profile.medium_avatar %>
+      <% end %>
     </span>
     <div class="profile-info">
-      <p class="name"><%= link_to profile.display_name+', '+profile.age.to_s, profile %></p>
+      <p class="name">
+        <%= link_to profile do %>
+          <span class="truncate-xs"><%= profile.display_name %></span><span>, <%= profile.age %></span>
+        <% end %>
+      </p>
       <p class="place">
         <%= profile.city.country+', '+profile.city.city if profile.city.present? %>
       </p>
