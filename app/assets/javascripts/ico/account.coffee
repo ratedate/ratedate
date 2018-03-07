@@ -14,7 +14,7 @@
 fix_len = (num) ->
   return if num<10 then '0'+num else num
 dateToUTC = (date) ->
-  return date.getUTCFullYear()+'-'+fix_len(date.getUTCDate())+'-'+fix_len(date.getUTCDay())+' '+fix_len(date.getUTCHours())+':'+fix_len(date.getUTCMinutes())+':'+date.getUTCSeconds()+' UTC'
+  return date.getUTCFullYear()+'-'+fix_len(date.getUTCMonth()+1)+'-'+fix_len(date.getUTCDate())+' '+fix_len(date.getUTCHours())+':'+fix_len(date.getUTCMinutes())+':'+date.getUTCSeconds()+' UTC'
 window.eth_balance = undefined;
 updateICOProgress = ->
   wallet = $('#eth_wallet').text()
