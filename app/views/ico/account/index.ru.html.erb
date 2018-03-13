@@ -2,98 +2,15 @@
   <div>
     <div class="row">
       <div class="col-lg-6">
-        <div class="timer">
-          <p class="timer-title" id="presaletext">ICO START: </p>
-
-          <p class="timer-digit">
-            <span class="timer-digit-label">DAYS</span>
-            <span class="timer-digit-value" id="tDayNum">--</span>
-          </p>
-          <p class="timer-digit">
-            <span class="timer-digit-label">HOURS</span>
-            <span class="timer-digit-value" id="tHourNum">--</span>
-          </p>
-          <p class="timer-digit">
-            <span class="timer-digit-label">MINUTES</span>
-            <span class="timer-digit-value" id="tMinNum">--</span>
-          </p>
-          <p class="timer-digit">
-            <span class="timer-digit-label">SECONDS</span>
-            <span class="timer-digit-value" id="tSecNum">--</span>
-          </p>
-        </div>
-        <div class="row mt-4 h5 text-center">
-          <div class="col-sm-6 pb-3">
-            <span class="icon-ethereum"></span>&nbsp;<span id="eth">0.0000</span>&nbsp;ETH<br>
-            <span>Собрано</span>
-          </div>
-          <div class="col-sm-6 pb-3">
-            <span class="icon-etz"></span>&nbsp;<span id="eth"><%= etz_raised %></span>&nbsp;ETZ<br>
-            <span>Собрано</span>
-          </div>
-        </div>
-        <div class="h4 center">Расписание продаж токенов</div>
-        <table class="table table-light table-striped">
-          <tr>
-            <td>Pre-Sale</td>
-            <td>15.01.18 - 10.02.18</td>
-            <td>+50%</td>
-            <td>1ETH = 9000 RDT</td>
-          </tr>
-          <tr>
-            <td>Step 1</td>
-            <td>24.02.18 - 26.02.18</td>
-            <td>+20%</td>
-            <td>1ETH = 7200 RDT</td>
-          </tr>
-          <tr>
-            <td>Step 2</td>
-            <td>27.02.18 - 05.03.18</td>
-            <td>+15%</td>
-            <td>1ETH = 6900 RDT</td>
-          </tr>
-          <tr>
-            <td>Step 3</td>
-            <td>06.03.18 - 12.03.18</td>
-            <td>+10%</td>
-            <td>1ETH = 6600 RDT</td>
-          </tr>
-          <tr>
-            <td>Step 4</td>
-            <td>13.03.18 - 19.03.18</td>
-            <td>+5%</td>
-            <td>1ETH = 6300 RDT</td>
-          </tr>
-          <tr>
-            <td>Step 5</td>
-            <td>20.03.18 - 28.03.18</td>
-            <td>&nbsp</td>
-            <td>1ETH = 6000 RDT</td>
-          </tr>
-        </table>
-      </div>
-      <div class="col-lg-6">
-        <div class="row">
-        <% if current_ico_user.kyc.present? %>
-              <div class="col my-2">
-                <div class="alert alert-primary h-100"><div class="text-center h3"><span id="eth_balance"><%= "%g"%@etz_investments.sum(:rdt) %></span> RDT</div><div class="h5 text-center">Баланс</div></div>
-              </div>
+        <% if current_ico_user.eth_wallet.nil? %>
+        <p><strong>Заполните ваш ETH/ETZ кошелек, чтоб получить информацию для инвестирования.</strong></p>
+            <%= form_tag controller: 'account', action: 'add_eth', method: 'POST', class: 'inline-form' do %>
+                <%= text_field_tag :eth_wallet, '', class: "form-control", placeholder: 'ETH/ETZ wallet'  %>
+                <%= submit_tag t(:submit), class: "button red" %>
+            <% end %>
         <% end %>
-          <div class="col my-2">
-            <div class="alert alert-primary h-100"><div class="text-center h3"><%= @referrals %></div><div class="h5 text-center">Рефералы</div></div>
-          </div>
-          <div class="col my-2">
-            <div class="alert alert-primary h-100"><div class="text-center h3"><%= @referrals*10 %> RDT</div><div class="h5 text-center">Реферальный Бонус</div></div>
-          </div>
-        </div>
-        <p><strong>Купленные токены будут начислены 15 апреля после аутентификации личности.</strong></p>
         <strong>Адрес смарт контракта:</strong>
-        <div class="input-group pb-2">
-          <input id="smart_contract" type="text" value="0xa95AC0D22379c428FB73296446a6399962c1A93A" class="form-control" readonly>
-          <div class="input-group-append">
-            <button class="button red" id="copy" data-clipboard-target="#smart_contract">copy</button>
-          </div>
-        </div>
+        <p><%= 'Будет доступен на ICO' if current_ico_user.eth_wallet.present? %></p>
 
         <ul>
           <li>Мин. взнос - 0.1 ETH;</li>
@@ -101,21 +18,26 @@
           <li>Рекомендуем использовать кошелек myetherwallet.com</li>
         </ul>
         <strong>Кошелек для инвестирования в ETZ:</strong>
-        <div class="input-group pb-2">
-          <input id="etz_wallet" type="text" value="0xC7be27cFB787bf3606Cb1D4130Affbf798361781" class="form-control" readonly>
-          <div class="input-group-append">
-            <button class="button red" id="copy_etz" data-clipboard-target="#etz_wallet">copy</button>
+        <p><%= 'Будет доступен на ICO' if current_ico_user.eth_wallet.present? %></p>
+        <div class="pb-2">Руководства по переводу ETZ <a href="http://etherzero.org/tutorials/" class="text-secondary">http://etherzero.org/tutorials/</a></div>
+        <div class="pb-2"><strong>Внимание:</strong> минимальная сумма 10 ETZ. Переводы с меньшими суммами не будут обрабатываться для начисления RDT.</div>
+      </div>
+      <div class="col-lg-6">
+        <div class="row">
+        <% if current_ico_user.eth_wallet.present? %>
+              <div class="col my-2">
+                <div class="alert alert-primary h-100"><div class="text-center h3"><span id="eth_balance"><%= "%g"%@etz_investments.sum(:rdt) %></span> RDT</div><div class="h5 text-center">Баланс</div></div>
+              </div>
+          <div class="col my-2">
+            <div class="alert alert-primary h-100"><div class="text-center h3"><%= @referrals %></div><div class="h5 text-center">Рефералы</div></div>
+          </div>
+          <div class="col my-2">
+            <div class="alert alert-primary h-100"><div class="text-center h3"><%= @referrals*10 %> RDT</div><div class="h5 text-center">Реферальный Бонус</div></div>
           </div>
         </div>
-        <div class="pb-2">Руководства по переводу ETZ <a href="http://etherzero.org/tutorials/" class="text-secondary">http://etherzero.org/tutorials/</a></div>
-        <div class="pb-2"><strong>Внимание:</strong> минимальная сумма 10 ETZ. Переводы с меньшими суммами не будут обрабатываться для начисления RDT. Количество RDT будет рассчитываться по курсу ETH/ETZ от yobit на момент транзакции.</div>
-        <div>
-        <% if current_ico_user.kyc.nil? %>
-            <%= render 'kyc_form' %>
-        <% else %>
-              Ваша реферальная ссылка для участия в Bounty программе:
+        <div>Ваша реферальная ссылка для участия в Bounty программе:
               <strong><%= ref_link %></strong><br>
-              Адрес вашего ETH кошелька: <span id="eth_wallet" class="text-truncate d-inline-block w-100"><%= current_ico_user.kyc.wallet %></span>
+              Адрес вашего ETH кошелька: <span id="eth_wallet" class="text-truncate d-inline-block w-100"><%= current_ico_user.eth_wallet %></span>
             </div>
             <div class="h4">История покупок(ETH)</div>
             <table class="table table-light table-striped">

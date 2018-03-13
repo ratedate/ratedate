@@ -2,7 +2,7 @@ class Ico::AccountController <  Ico::IcoController
   layout "ico_account"
   before_action :authenticate_ico_user!
   def index
-    @referrals = Kyc.where(user_id: current_ico_user.referral_ids).count
+    @referrals = current_ico_user.referrals.where("eth_wallet IS NOT NULL AND created_at<='2018-03-12'::date").count
     @etz_investments = EtzInvestment.where('lower(wallet) = ?', current_ico_user.kyc.wallet.downcase) if current_ico_user.kyc.present?
   end
 
