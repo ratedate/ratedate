@@ -1,0 +1,35 @@
+<div class="cell">
+  <div class="auction">
+    <span class="auction-image">
+      <%= link_to auction.profile do %>
+        <%= image_tag auction.profile.medium_avatar %>
+      <% end %>
+    </span>
+    <div class="auction-info">
+      <p class="name">
+        <%= link_to auction.profile do %>
+          <span class="truncate-xs"><%= auction.profile.display_name %></span><span>, <%= auction.profile.age %></span>
+        <% end %>
+      </p>
+      <p class="place">
+        <%= auction.profile.city.country+', '+auction.profile.city.city if auction.profile.city.present? %>
+      </p>
+      <div class="bid">
+        <div class="bid-title"><%= auction.bids.any? ? 'Highest Bid' : 'Starts at' %></div>
+        <div class="bid-value"><span><%= auction.bids.any? ? "%g"%auction.bids.last.bid_value : "%g"%auction.start_bid %></span> RDT</div>
+      </div>
+      <div class="auction-info-timer">
+        <div class="auction-info-timer-title">End </div>
+        <div class="auction-info-timer-value"><%= auction.auction_end.strftime('%B %d %H:%M') %></div>
+        <% progress = (DateTime.now.to_time-auction.created_at.to_time)/(auction.auction_end.to_time-auction.created_at.to_time)*100 %>
+        <div class="auction-info-timer-progress"><div class="auction-info-timer-progress-bar" style="width: <%= progress %>%"></div></div>
+      </div>
+      <div class="bid-form">
+        <form action="">
+          <input type="number" value="100">
+          <button type="submit" class="button red">Bid</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

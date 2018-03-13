@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   scope "/:locale", locale: /#{I18n.available_locales.join("|")}/, defaults: {locale: "en"}  do
     resources :profiles, except: [:edit, :destroy]
+    resources :auctions
     get 'my_profile', to: 'profiles#show', as: 'my_profile'
     get 'my_profile/edit', to: 'profiles#edit', as: 'edit_my_profile'
     resources :personal_messages, only: [:new,  :create]

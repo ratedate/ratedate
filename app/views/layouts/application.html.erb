@@ -5,14 +5,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <title>Rate Date</title>
-  <% if content_for?(:head) %>
-      <%= yield(:head) %>
-  <% end %>
   <%= render "favicon" %>
   <%= csrf_meta_tags %>
   <%= meta_tags %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+  <% if content_for?(:head) %>
+      <%= yield(:head) %>
+  <% end %>
 
   <!-- HTML5 shissm and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,7 +44,7 @@
 
       <ul class="left-nav">
         <li><%= link_to 'Profiles', profiles_path %></li>
-        <li><a class="soon" href="javascript:void(0)">Auctions</a></li>
+        <li><%= link_to 'Auctions', auctions_path %></li>
       </ul>
 
       <ul class="right-nav">
@@ -73,6 +73,8 @@
       <i class="fa fa-comment-o"></i>
       <!--<span class="unread">241</span>-->
     <% end %>
+    <a class="balance" href="javascript:void(0)">0.00 RDT</a>
+    <a class="buy-rdt" href="javascript:void(0)"><i class="icon-coins"></i></a>
 
     <a class="user-menu" href="javascript:void(0)">
       <%= user_avatar %>

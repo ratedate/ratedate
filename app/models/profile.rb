@@ -4,6 +4,7 @@ class Profile < ApplicationRecord
   belongs_to :user
   belongs_to :city
   has_many :photos
+  has_many :auctions
   # Used for user avatar image edit
   attr_accessor :city_name, :administrative_area_level_1, :administrative_area_level_2, :country, :country_code
   accepts_nested_attributes_for :photos, allow_destroy: true

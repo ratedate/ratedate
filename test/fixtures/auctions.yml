@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  aim: MyString
+  rater_age_min: 1
+  rater_age_max: 1
+  rater_gender: MyString
+  date_duration: 1
+  auction_end: 2018-03-09 09:17:38
+  video_date_start: 2018-03-09 09:17:38
+  bid_step: 9.99
+  start_bid: 9.99
+  video_preview: MyString
+
+two:
+  aim: MyString
+  rater_age_min: 1
+  rater_age_max: 1
+  rater_gender: MyString
+  date_duration: 1
+  auction_end: 2018-03-09 09:17:38
+  video_date_start: 2018-03-09 09:17:38
+  bid_step: 9.99
+  start_bid: 9.99
+  video_preview: MyString

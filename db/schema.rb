@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180304072917) do
+ActiveRecord::Schema.define(version: 20180309114728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "auctions", force: :cascade do |t|
+    t.integer "profile_id"
+    t.string "aim"
+    t.integer "rater_age_min"
+    t.integer "rater_age_max"
+    t.string "rater_gender"
+    t.integer "date_duration"
+    t.datetime "auction_end"
+    t.datetime "video_date_start"
+    t.decimal "bid_step"
+    t.decimal "start_bid"
+    t.string "video_preview"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bids", force: :cascade do |t|
+    t.integer "auction_id"
+    t.integer "profile_id"
+    t.decimal "bid_value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cities", force: :cascade do |t|
     t.string "country"

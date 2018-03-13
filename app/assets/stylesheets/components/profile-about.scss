@@ -3,6 +3,10 @@
     background-color: #fff;
     border-radius: 4px;
 
+    & .w-50{
+      width: 50%;
+      float: left;
+    }
     &-title {
         font-weight: 500;
         font-size: 18px;
