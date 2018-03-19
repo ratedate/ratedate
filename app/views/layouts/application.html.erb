@@ -73,7 +73,7 @@
       <i class="fa fa-comment-o"></i>
       <!--<span class="unread">241</span>-->
     <% end %>
-    <a class="balance" href="javascript:void(0)">0.00 RDT</a>
+    <a class="balance" href="javascript:void(0)"><%= current_user.balance.present? ? current_user.balance.available_balance : '0.0' %> RDT</a>
     <a class="buy-rdt" href="javascript:void(0)"><i class="icon-coins"></i></a>
 
     <a class="user-menu" href="javascript:void(0)">
