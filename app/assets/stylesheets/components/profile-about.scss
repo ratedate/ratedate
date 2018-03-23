@@ -52,6 +52,16 @@
         & .read-more {
             display: block;
         }
+
+        &.show{
+          & .profile-about-item {
+            display: block;
+          }
+
+          & .read-more {
+            display: none;
+          }
+        }
     }
 
     @media screen and (max-width: $screen-sm) {

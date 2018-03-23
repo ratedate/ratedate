@@ -114,6 +114,11 @@ var ready = function() {
         $('.modal').removeClass('show');
     });
 
+    //Show mobile about
+    $(document).on('click','.read-more',function () {
+        $('.profile-about').addClass('show');
+    });
+
     //SHOW HIDE MOBILE CHAT
     $('.chat-person').on('click', function() {
         $('.chat-page').addClass('show-chat');
