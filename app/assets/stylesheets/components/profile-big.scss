@@ -137,7 +137,7 @@
                 bottom: $base-offset * 2;
                 left: $base-offset * 2;
                 margin: -$base-offset;
-                & button {
+                & button, & a {
                     float: left;
                     margin: $base-offset;
                     min-width: auto;
