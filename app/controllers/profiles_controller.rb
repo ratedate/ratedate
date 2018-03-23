@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/new
   def new
     if current_user.profile.present?
-      redirect_to my_profile_path
+      redirect_to current_user.profile
     end
     @profile = Profile.new
     6.times {@profile.photos.build}
