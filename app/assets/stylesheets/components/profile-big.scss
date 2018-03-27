@@ -60,10 +60,7 @@
 
         & .buttons {
             margin: -$base-offset;
-            & button {
-                margin: $base-offset;
-            }
-            & a {
+            & button, & a {
                 margin: $base-offset;
             }
             & span {
@@ -78,7 +75,7 @@
                 width: 18px;
             }
             & .send-message {& .fa {color: $yellow;}}
-            & .send-gift {& .fa {color: $red;}}
+            & .send-gift, & .buy-rdt {& .fa, & .icon {color: $red;}}
         }
 
         & .edit, & .buttons {

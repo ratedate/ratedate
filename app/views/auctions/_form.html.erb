@@ -1,0 +1,67 @@
+<%= form_with(model: auction, local: true) do |form| %>
+  <% if auction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(auction.errors.count, "error") %> prohibited this auction from being saved:</h2>
+
+      <ul>
+      <% auction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :aim %>
+    <%= form.text_field :aim, id: :auction_aim %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rater_age_min %>
+    <%= form.number_field :rater_age_min, id: :auction_rater_age_min %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rater_age_max %>
+    <%= form.number_field :rater_age_max, id: :auction_rater_age_max %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rater_gender %>
+    <%= form.text_field :rater_gender, id: :auction_rater_gender %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_duration %>
+    <%= form.number_field :date_duration, id: :auction_date_duration %>
+  </div>
+
+  <div class="field">
+    <%= form.label :auction_end %>
+    <%= form.datetime_select :auction_end, id: :auction_auction_end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video_date_start %>
+    <%= form.datetime_select :video_date_start, id: :auction_video_date_start %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bid_step %>
+    <%= form.text_field :bid_step, id: :auction_bid_step %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_bid %>
+    <%= form.text_field :start_bid, id: :auction_start_bid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video_preview %>
+    <%= form.text_field :video_preview, id: :auction_video_preview %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

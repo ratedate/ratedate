@@ -44,6 +44,35 @@
     </div>
     <div class="clear"></div>
     <div class="side">
+      <% if @profile.auctions.any? %>
+      <% auction = @profile.auctions.last %>
+      <div class="profile-auction">
+        <p class="profile-auction-title">Auction</p>
+        <p class="profile-auction-aim">The aim of auction - <%= auction.aim %></p>
+        <div class="profile-auction-bid-info">
+          <div class="bid-value">
+            <div class="title"><%= auction.bids.any? ? 'Highest Bid' : 'Starts at' %></div>
+            <div class="value"><span><%= auction.bids.any? ? "%g"%auction.bids.last.bid_value : "%g"%auction.start_bid %></span> RDT</div>
+          </div>
+          <div class="bid-count">
+            <div class="title">Bids</div>
+            <div class="value"><span><%= auction.bids.count %></span></div>
+          </div>
+        </div>
+        <div class="profile-auction-timer">
+          <div class="profile-auction-timer-title">End </div>
+          <div class="profile-auction-timer-value"><%= auction.auction_end.strftime('%B %d %H:%M') %></div>
+          <% progress = (DateTime.now.to_time-auction.created_at.to_time)/(auction.auction_end.to_time-auction.created_at.to_time)*100 %>
+          <div class="profile-auction-timer-progress"><div class="profile-auction-timer-progress-bar" style="width: <%= progress %>%"></div></div>
+        </div>
+        <div class="bid-form">
+          <form action="">
+            <input id="auction_bid_<%= auction.id %>" type="number" value="<%= auction.bids.any? ? "%g"%(auction.bids.last.bid_value+auction.bid_step) : "%g"%auction.start_bid %>">
+            <button type="submit" class="button red">Bid</button>
+          </form>
+        </div>
+      </div>
+      <% end %>
       <div class="profile-about">
         <p class="profile-about-title"> About </p>
         <p class="profile-about-message"><%= @profile.about %></p>

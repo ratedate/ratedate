@@ -1,0 +1,107 @@
+<div class="profile-page">
+  <div class="profile-page-wrap">
+    <div class="main">
+      <div class="profile-big">
+        <div class="profile-big-image">
+          <%= image_tag @auction.profile.large_avatar %>
+        </div>
+        <div class="profile-big-info">
+          <p class="name"><%= @auction.profile.display_name %>, <%= @auction.profile.age %> y.o.</p>
+          <p class="place"><%= @auction.profile.city.country if @auction.profile.city %>, <%= @auction.profile.city.city if @auction.profile.city %></p>
+          <% if @auction.profile==current_user.profile %>
+              <%= link_to 'Edit auction', edit_auction_path(@auction), class: 'round-btn transparent edit' %>
+          <% else %>
+              <div class="buttons">
+                <button class="round-btn transparent buy-rdt" type="button" data-modal-target="#buy-rdt">
+                  <i class="icon icon-coins"></i>
+                  <span class="btn-text">Buy RDT</span>
+                </button>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="side">
+      <div class="profile-about">
+        <p class="profile-about-title">
+          <span>Auction Details</span>
+        </p>
+        <p class="profile-about-message">The aim of auction - <%= @auction.aim %></p>
+        <div class="profile-about-item">
+          <p class="title">Interested in</p>
+          <p class="value"><%= @auction.rater_gender %></p>
+        </div>
+        <div class="profile-about-item">
+          <p class="title"><%= @auction.bids.any? ? 'Current Bid' : 'Starts At' %></p>
+          <p class="value"><%= @auction.bids.any? ? @auction.bids.last.bid_value : @auction.start_bid %></p>
+        </div>
+        <div class="profile-about-item w-50">
+          <p class="title">Bids</p>
+          <p class="value"><%= @auction.bids.any? ? @auction.bids.count : '0' %></p>
+        </div>
+        <div class="profile-about-item w-50">
+          <p class="title">Step</p>
+          <p class="value"><%= @auction.bid_step %> RDT</p>
+        </div>
+        <div class="profile-about-item">
+          <p class="title">End</p>
+          <p class="value"><%= @auction.auction_end %></p>
+        </div>
+        <div class="profile-about-item">
+          <p class="title">2 days 5:43:25 left</p>
+        </div>
+
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div class="side">
+      <div class="profile-about">
+        <p class="profile-about-title"> About </p>
+        <p class="profile-about-message"><%= @auction.profile.about %></p>
+
+        <div class="profile-about-item">
+          <p class="title">Languages</p>
+          <p class="value">
+            <%= languages_list(@auction.profile.languages) if  @auction.profile.languages %>
+          </p>
+        </div>
+
+        <div class="profile-about-item">
+          <p class="title">Music</p>
+          <p class="value"><%= @auction.profile.music_list %></p>
+        </div>
+
+        <div class="profile-about-item">
+          <p class="title">Movies</p>
+          <p class="value"><%= @auction.profile.film_list %></p>
+        </div>
+
+        <div class="profile-about-item">
+          <p class="title">Books</p>
+          <p class="value"><%= @auction.profile.book_list %></p>
+        </div>
+
+        <div class="profile-about-item">
+          <p class="title">Hobbies</p>
+          <p class="value"><%= @auction.profile.hobby_list %></p>
+        </div>
+
+        <a class="read-more" href="javascript:void(0)">Read more</a>
+      </div>
+    </div>
+    <div class="main">
+      <ul class="slider-lg with-offset">
+        <li>
+          <a class="profile-no-gift" href="javascript:void(0)" data-modal-target="#gifts">
+            <p class="profile-no-gift-icon">
+              <i class="fa fa-gift"></i>
+            </p>
+            <p class="profile-no-gift-caption">
+              Be the first! Send a gift!
+            </p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

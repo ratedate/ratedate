@@ -1,0 +1,34 @@
+<%= form_tag({controller: :auctions, action: :index}, method: :get) do %>
+    <p class="filter-form-title">Filter</p>
+    <a class="filter-form-close" id="hide-filters" href="javascript:void(0)">
+      <span class="fa fa-times"></span>
+    </a>
+    <div class="input">
+      <p class="input-label">Select country</p>
+      <%= collection_select '', :by_country,  City.select(:country).distinct, :country, :country, {selected: params[:by_country]} %>
+    </div>
+
+    <div class="input">
+      <p class="input-label">Age</p>
+      <div class="range">
+        <%= hidden_field_tag :by_age_from, params[:by_age_from], class: 'range-from'  %>
+        <%= hidden_field_tag :by_age_to, params[:by_age_to], class: 'range-to'  %>
+      </div>
+    </div>
+
+    <div class="input">
+      <p class="input-label">Sex</p>
+      <div class="radio-group">
+        <label class="radio-btn">
+          <%= radio_button_tag :by_gender, "male", params[:by_gender]=='male', id: :by_gender, hidden: true %>
+          <span class="radio-btn-view">Male</span>
+        </label>
+        <label class="radio-btn">
+          <%= radio_button_tag :by_gender, "female", params[:by_gender]=='female', id: :by_gender, hidden: true %>
+          <span class="radio-btn-view">Female</span>
+        </label>
+      </div>
+    </div>
+
+    <%= submit_tag :Apply, class: 'round-btn' %>
+<% end %>

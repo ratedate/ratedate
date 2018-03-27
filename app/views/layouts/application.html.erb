@@ -5,14 +5,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <title>Rate Date</title>
-  <% if content_for?(:head) %>
-      <%= yield(:head) %>
-  <% end %>
   <%= render "favicon" %>
   <%= csrf_meta_tags %>
   <%= meta_tags %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+  <% if content_for?(:head) %>
+      <%= yield(:head) %>
+  <% end %>
 
   <!-- HTML5 shissm and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,7 +44,7 @@
 
       <ul class="left-nav">
         <li><%= link_to 'Profiles', profiles_path %></li>
-        <li><a class="soon" href="javascript:void(0)">Auctions</a></li>
+        <li><%= link_to 'Auctions', auctions_path %></li>
       </ul>
 
       <ul class="right-nav">
@@ -73,6 +73,8 @@
       <i class="fa fa-comment-o"></i>
       <!--<span class="unread">241</span>-->
     <% end %>
+    <a class="balance" href="javascript:void(0)" data-modal-target="#buy-rdt-modal"><span><%= current_user.balance.present? ? "%g"%current_user.balance.available_balance : '0' %></span> RDT</a>
+    <a class="buy-rdt" href="javascript:void(0)" data-modal-target="#buy-rdt-modal"><i class="icon-coins"></i></a>
 
     <a class="user-menu" href="javascript:void(0)">
       <%= user_avatar %>
@@ -112,6 +114,17 @@
     <div class="modal-window">
       <div class="modal-content">
         <%= render 'static_pages/terms_of_use', layout: false %>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="buy-rdt-modal">
+    <a class="modal-close" href="javascript:void(0)">
+      <i class="fa fa-times"></i>
+    </a>
+
+    <div class="modal-window">
+      <div class="modal-content">
+        <h1>The RDT selling is under development.</h1>
       </div>
     </div>
   </div>

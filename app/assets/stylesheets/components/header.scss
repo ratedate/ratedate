@@ -214,6 +214,37 @@ header {
             transform: translate3d(100%, -100%, 0);
         }
     }
+    & .buy-rdt {
+        margin-right: $base-offset * 4;
+        position: relative;
+        float: left;
+        display: block;
+        font-size: 24px;
+        color: #fff;
+        line-height: 50px;
+      padding-top: 3px;
+      &:hover, &:focus{
+        text-decoration: none;
+      }
+    }
+
+    & .balance {
+      margin-right: $base-offset * 4;
+      margin-top: 12px;
+      padding: 2px 14px;
+      position: relative;
+      float: left;
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: $red;
+      background-color: #fff;
+      line-height: 24px;
+      border-radius: 100px;
+      &:hover, &:focus{
+        text-decoration: none;
+      }
+    }
 
     & .user-menu {
         float: left;
@@ -379,14 +410,25 @@ header {
     @media screen and (max-width: $screen-sm) {
         padding: $base-offset;
 
-        & .logo {
-            line-height: 50px;
-            font-size: 40px;
-            margin: 0;
+        //& .logo {
+        //    line-height: 50px;
+        //    font-size: 40px;
+        //    margin: 0;
+        //}
+        & .logo{
+          display: none;
         }
 
-        & .notifier, & .messages {
-            margin-right: $base-offset * 3;
+        & .notifier, & .messages, & .balance, & .buy-rdt {
+            margin-right: $base-offset*2;
         }
     }
+  @media screen and (max-width: $screen-xs){
+    & .logo{
+      display: none;
+    }
+    & .notifier, & .messages, & .balance, & .buy-rdt {
+      margin-right: $base-offset*2;
+    }
+  }
 }

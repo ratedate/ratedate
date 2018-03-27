@@ -1,0 +1,143 @@
+.profile-auction {
+    padding: $base-offset * 4;
+    background-color: #fff;
+    border-radius: 4px;
+    margin-bottom: $base-offset*2;
+
+
+    &-title {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 18px;
+        margin-bottom: $base-offset * 2;
+    }
+
+    &-aim {
+        font-size: 14px;
+        color: $grey;
+        margin-bottom: $base-offset * 2;
+    }
+
+    &-bid-info{
+      @include clear();
+      background-color: $light-grey;
+      border-radius: 4px;
+      text-align: center;
+      & .bid-value{
+        width: 60%;
+        float: left;
+      }
+      & .bid-count{
+        width: 40%;
+        float: right;
+      }
+      & .title{
+        padding: $base-offset;
+        font-size: 14px;
+      }
+      & .value{
+        padding: $base-offset;
+        color: $red;
+        & span{
+          font-size: 20px;
+          font-weight: 600;
+        }
+      }
+    }
+
+    &-timer{
+      @include clear();
+      padding-top: $base-offset*2;
+      padding-bottom: $base-offset*2;
+      &-title{
+        color: #000000;
+        font-size: 14px;
+        float: left;
+      }
+      &-value{
+        color: $red;
+        font-size: 14px;
+        float: right;
+        font-weight: 600;
+      }
+      &-progress{
+        margin-top: $base-offset;
+        float: left;
+        height: 5px;
+        width: 100%;
+        background-color: rgba($red,0.5);
+        border-radius: 100px;
+        &-bar{
+          background-color: $red;
+          height: 100%;
+          width: 0;
+          border-radius: 100px;
+        }
+      }
+    }
+
+    & .bid-form{
+      input{
+        border: 1px solid #ebebeb;
+        font-size: 14px;
+        line-height: 16px;
+        padding: 8px 16px;
+        border-radius: 4px;
+        width: 60%;
+        margin-right: 5%;
+      }
+      button{
+        background-color: $red;
+        padding: $base-offset $base-offset*2;
+        text-align: center;
+        border: none;
+        border-radius: 100px;
+        color: #FFF;
+        font-weight: 600;
+        font-size: 16px;
+        width: 33%;
+      }
+    }
+
+    &-item {
+        margin-bottom: $base-offset * 2;
+        font-size: 12px;
+
+        &:last-of-type {
+            margin: 0;
+        }
+
+        & .title {
+            font-weight: 500;
+        }
+        & .value {
+            color: $grey;
+        }
+    }
+
+    & .read-more {
+        display: none;
+        font-size: 12px;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    & .profile-input {
+        margin-bottom: 30px;
+    }
+    
+    @media screen and (max-width: $screen-lg) {
+
+        &-item {
+            display: none;
+        }
+
+        & .read-more {
+            display: block;
+        }
+    }
+
+    @media screen and (max-width: $screen-sm) {
+        padding: $base-offset * 4 $base-offset * 2 $base-offset * 2;
+    }
+}
