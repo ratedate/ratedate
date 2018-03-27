@@ -23,5 +23,8 @@ jQuery(document).on 'turbolinks:load', ->
           $('.bid-title').text('Highest bid')
     place_bid: (auction_id, bid) ->
       @perform 'place_bid', auction_id: auction_id, bid: bid
-  $(document).on 'click', '.button-bid', (e) ->
+$(document).on 'click', '.button-bid', (e) ->
+  if Number($('.balance>span').text()) >= Number($(this).prev('input').val())
     App.auction.place_bid($(this).data('auction'), $('#auction_bid_'+$(this).data('auction')).val())
+  else
+   $('#buy-rdt-modal').addClass('show')

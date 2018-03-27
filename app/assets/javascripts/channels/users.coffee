@@ -16,4 +16,4 @@ jQuery(document).on 'turbolinks:load', ->
 
     received: (data) ->
       if data['available_balance']
-        $('.balance').text(data['available_balance']+' RDT')
+        $('.balance>span').text(data['available_balance'])

@@ -4,7 +4,7 @@ class AuctionsController < ApplicationController
   # GET /auctions
   # GET /auctions.json
   def index
-    @auctions = Auction.all
+    @auctions = Auction.joins(:profile).filter(params.slice(:by_country, :by_city, :by_gender, :by_age_from, :by_age_to))
   end
 
   # GET /auctions/1

@@ -73,8 +73,8 @@
       <i class="fa fa-comment-o"></i>
       <!--<span class="unread">241</span>-->
     <% end %>
-    <a class="balance" href="javascript:void(0)"><%= current_user.balance.present? ? current_user.balance.available_balance : '0.0' %> RDT</a>
-    <a class="buy-rdt" href="javascript:void(0)"><i class="icon-coins"></i></a>
+    <a class="balance" href="javascript:void(0)" data-modal-target="#buy-rdt-modal"><span><%= current_user.balance.present? ? "%g"%current_user.balance.available_balance : '0' %></span> RDT</a>
+    <a class="buy-rdt" href="javascript:void(0)" data-modal-target="#buy-rdt-modal"><i class="icon-coins"></i></a>
 
     <a class="user-menu" href="javascript:void(0)">
       <%= user_avatar %>
@@ -114,6 +114,17 @@
     <div class="modal-window">
       <div class="modal-content">
         <%= render 'static_pages/terms_of_use', layout: false %>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="buy-rdt-modal">
+    <a class="modal-close" href="javascript:void(0)">
+      <i class="fa fa-times"></i>
+    </a>
+
+    <div class="modal-window">
+      <div class="modal-content">
+        <h1>The RDT selling is under development.</h1>
       </div>
     </div>
   </div>
