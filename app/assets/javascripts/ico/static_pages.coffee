@@ -4,7 +4,7 @@
 #= require jquery3
 #= require rails-ujs
 #= require turbolinks
-# require timer
+#= require timer
 #= require popper
 #= require bootstrap
 #= require web3
