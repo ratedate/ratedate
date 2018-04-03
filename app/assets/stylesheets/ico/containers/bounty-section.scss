@@ -1,0 +1,90 @@
+.bounty-section {
+    padding: $base-offset * 8 0;
+    &-wrap {
+        @include sized();
+    }
+
+  & .bg-red{
+    background-color: $red;
+    color: #fff;
+  }
+  & p{
+    padding: $base-offset 0;
+  }
+
+    & h3 {
+        margin-bottom: $base-offset * 4;
+    }
+    
+    & .image {
+        margin-bottom: $base-offset * 2;
+        & img {
+            width: 100%;
+        }
+    }
+
+    & .bonus-list {
+        @include clear();
+        & li {
+            text-align: center;
+            width: calc(100% / 5);
+            float: left;
+            & .bonus-day {
+                font-weight: 500;
+                font-size: 18px;
+            }
+            & .bonus-percent {
+                font-weight: 600;
+                font-size: 30px;
+            }
+        }
+    }
+
+    @media screen and (max-width: $screen-md) {
+        position: relative;
+        & .image {
+            margin: 0;
+            & img {
+                display: none;
+            }
+
+            content: '';
+            display: block;
+            position: absolute;
+            top: 100px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            @include backgroundImage('coins-thin.png');
+            background-position: center bottom;
+            background-size: contain;
+        }
+
+        & .bonus-list {
+            position: relative;
+            z-index: 1;
+            & li {
+                text-align: center;
+                width: 100%;
+                margin-bottom: $base-offset * 2;
+
+                &:last-of-type {
+                    margin: 0;
+                }
+            }
+        }
+    }
+  @media screen and (max-width: $screen-sm) {
+    & .main-bonus, & .extra-bonus{
+      width: 75%;
+      text-align: left;
+    }
+    & .lines{
+      display: none;
+    }
+    & .bonus-percent.mobile{
+      display: block;
+    }
+  }
+}

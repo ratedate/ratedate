@@ -78,10 +78,14 @@ body {
 	@import "containers/images-section";
 	@import "containers/screenshots-section";
 	@import "containers/bonuses-section";
+	@import "containers/bounty-section";
 	@import "containers/road-map-section";
 	@import "containers/partners-section";
 	@import "containers/team-section";
 	@import "containers/stats-section";
+
+
+  @import "bootstrap-custom";
 
 	@media screen and (max-width: $screen-sm) {
 		font-size: 14px;
