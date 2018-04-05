@@ -2,6 +2,27 @@
   <div>
     <div class="row">
       <div class="col-lg-6">
+        <div class="timer">
+          <p class="timer-title" id="presaletext">ICO START: </p>
+
+          <p class="timer-digit">
+            <span class="timer-digit-label">DAYS</span>
+            <span class="timer-digit-value" id="tDayNum">--</span>
+          </p>
+          <p class="timer-digit">
+            <span class="timer-digit-label">HOURS</span>
+            <span class="timer-digit-value" id="tHourNum">--</span>
+          </p>
+          <p class="timer-digit">
+            <span class="timer-digit-label">MINUTES</span>
+            <span class="timer-digit-value" id="tMinNum">--</span>
+          </p>
+          <p class="timer-digit">
+            <span class="timer-digit-label">SECONDS</span>
+            <span class="timer-digit-value" id="tSecNum">--</span>
+          </p>
+        </div>
+
         <% if current_ico_user.eth_wallet.nil? %>
         <p><strong>Fill in your ETH/ETZ wallet to get investment info</strong></p>
             <%= form_tag controller: 'account', action: 'add_eth', method: 'POST', class: 'inline-form' do %>
@@ -20,23 +41,11 @@
         <p><%= 'Will be available on ICO' if current_ico_user.eth_wallet.present? %></p>
         <div class="pb-2">Transfer ETZ tutorials for all possible wallets <a href="http://etherzero.org/tutorials/" class="text-secondary">http://etherzero.org/tutorials/</a></div>
         <div class="pb-2"><strong>Attention:</strong> minimal amount 10 ETZ. The fee is less than the amount claimed for the accrual of RDT will not be processed.</div>
+        <p><strong>ATTENTION!</strong> Do not use online exchanges addresses or another’s ones. Use only your own addresses which you can fully control. Otherwise your RDT would be lost.</p>
       </div>
       <div class="col-lg-6">
         <% if current_ico_user.eth_wallet.present? %>
-        <div class="row">
-              <div class="col my-2">
-                <div class="alert alert-primary h-100"><div class="text-center h3"><span id="eth_balance"><%= "%g"%@etz_investments.sum(:rdt) %></span> RDT</div><div class="h5 text-center">Balance</div></div>
-              </div>
-          <div class="col my-2">
-            <div class="alert alert-primary h-100"><div class="text-center h3"><%= @referrals %></div><div class="h5 text-center">Referrals</div></div>
-          </div>
-          <div class="col my-2">
-            <div class="alert alert-primary h-100"><div class="text-center h3"><%= @referrals*10 %> RDT</div><div class="h5 text-center">Referral Bonus</div></div>
-          </div>
-        </div>
             <div>
-              Your referral link to participate in the Bounty program:
-              <strong><%= ref_link %></strong><br>
               Your ETH wallet: <span id="eth_wallet" class="text-truncate d-inline-block w-100"><%= current_ico_user.eth_wallet %></span>
             </div>
             <div class="h4">Purchase History(ETH)</div>
@@ -78,8 +87,72 @@
         <% end %>
       </div>
     </div>
-    <p class="h4">Bounty Program</p>
-    <p>Any user who has an own website, blog or social network account can take our Bounty Rate Date program. User is rewarded with 10RTD for each potential investor, engaged by him before starting ICO or during it. User can receive additional rewarding of 100RTD if investor engaged by him deposits any funds into ICO program. Rewarding arrives in a wallet balance, pointed in a personal account.</p>
-    <p><strong>ATTENTION!</strong> Do not use online exchanges addresses or another’s ones. Use only your own addresses which you can fully control. Otherwise your RDT would be lost.</p>
-  </div>
+
+    <div class="bonuses-section">
+      <div class="section">
+        <div class="bonuses-section-wrap">
+          <div class="main-bonus">
+            <div class="title">Main Bonus</div>
+            <div class="item">1.000.000 RDT<br>
+              1 ETH = 6 600 RDT
+            </div>
+            <div class="item">2.000.000 RDT<br>
+              1 ETH = 6 480 RDT
+            </div>
+            <div class="item">3.000.000 RDT<br>
+              1 ETH = 6 300 RDT
+            </div>
+            <div class="item">4.000.000 RDT<br>
+              1 ETH = 6 180 RDT
+            </div>
+            <div class="item">24.000.000 RDT<br>
+              1 ETH = 6 000 RDT
+            </div>
+          </div>
+          <div class="lines">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+          </div>
+          <div class="bonus-percent">
+            <div class="item">10%</div>
+            <div class="item">8%</div>
+            <div class="item">5%</div>
+            <div class="item">3%</div>
+            <div class="item">0%</div>
+          </div>
+          <div class="lines">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+          </div>
+          <div class="extra-bonus">
+            <div class="title">Extra Bonus</div>
+            <div class="item">> 30 ETH</div>
+            <div class="item">15 ETH – 29 ETH</div>
+            <div class="item">5 ETH – 14.99 ETH</div>
+            <div class="item">1 ETH – 4.99 ETH</div>
+            <div class="item">< 1 ETH</div>
+          </div>
+          <div class="bonus-percent mobile">
+            <div class="item">10%</div>
+            <div class="item">8%</div>
+            <div class="item">5%</div>
+            <div class="item">3%</div>
+            <div class="item">0%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Bounty Campaign</h2>
+    <p>Referral campaign 5% of all attracted buyers of RDT using a referral link: <strong><%= ref_link %></strong></p>
+    <div class="text-center">
+      <a href="https://bitcointalk.org/index.php?topic=3169535.0" class="button red">Bounty Campaign en</a>
+      <a href="https://bitcointalk.org/index.php?topic=3153004.0" class="button red">Bounty Campaign ru</a></div>
+    </div>
 </div>

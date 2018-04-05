@@ -2,6 +2,26 @@
   <div>
     <div class="row">
       <div class="col-lg-6">
+        <div class="timer">
+          <p class="timer-title" id="presaletext">ICO START: </p>
+
+          <p class="timer-digit">
+            <span class="timer-digit-label">DAYS</span>
+            <span class="timer-digit-value" id="tDayNum">--</span>
+          </p>
+          <p class="timer-digit">
+            <span class="timer-digit-label">HOURS</span>
+            <span class="timer-digit-value" id="tHourNum">--</span>
+          </p>
+          <p class="timer-digit">
+            <span class="timer-digit-label">MINUTES</span>
+            <span class="timer-digit-value" id="tMinNum">--</span>
+          </p>
+          <p class="timer-digit">
+            <span class="timer-digit-label">SECONDS</span>
+            <span class="timer-digit-value" id="tSecNum">--</span>
+          </p>
+        </div>
         <% if current_ico_user.eth_wallet.nil? %>
         <p><strong>Заполните ваш ETH/ETZ кошелек, чтоб получить информацию для инвестирования.</strong></p>
             <%= form_tag controller: 'account', action: 'add_eth', method: 'POST', class: 'inline-form' do %>
@@ -21,23 +41,11 @@
         <p><%= 'Будет доступен на ICO' if current_ico_user.eth_wallet.present? %></p>
         <div class="pb-2">Руководства по переводу ETZ <a href="http://etherzero.org/tutorials/" class="text-secondary">http://etherzero.org/tutorials/</a></div>
         <div class="pb-2"><strong>Внимание:</strong> минимальная сумма 10 ETZ. Переводы с меньшими суммами не будут обрабатываться для начисления RDT.</div>
+        <p><strong>ВНИМАНИЕ!</strong> Не используйте адреса бирж или чужие адреса, используйте только адрес, который полностью контролируете (и можете получить private key). Иначе ваши RDT могут быть потеряны.</p>
       </div>
       <div class="col-lg-6">
-        <div class="row">
         <% if current_ico_user.eth_wallet.present? %>
-              <div class="col my-2">
-                <div class="alert alert-primary h-100"><div class="text-center h3"><span id="eth_balance"><%= "%g"%@etz_investments.sum(:rdt) %></span> RDT</div><div class="h5 text-center">Баланс</div></div>
-              </div>
-          <div class="col my-2">
-            <div class="alert alert-primary h-100"><div class="text-center h3"><%= @referrals %></div><div class="h5 text-center">Рефералы</div></div>
-          </div>
-          <div class="col my-2">
-            <div class="alert alert-primary h-100"><div class="text-center h3"><%= @referrals*10 %> RDT</div><div class="h5 text-center">Реферальный Бонус</div></div>
-          </div>
-        </div>
-        <div>Ваша реферальная ссылка для участия в Bounty программе:
-              <strong><%= ref_link %></strong><br>
-              Адрес вашего ETH кошелька: <span id="eth_wallet" class="text-truncate d-inline-block w-100"><%= current_ico_user.eth_wallet %></span>
+        <div>Адрес вашего ETH кошелька: <span id="eth_wallet" class="text-truncate d-inline-block w-100"><%= current_ico_user.eth_wallet %></span>
             </div>
             <div class="h4">История покупок(ETH)</div>
             <table class="table table-light table-striped">
@@ -78,8 +86,73 @@
         <% end %>
       </div>
     </div>
+
+    <div class="bonuses-section">
+      <div class="section">
+        <div class="bonuses-section-wrap">
+          <div class="main-bonus">
+            <div class="title">Main Bonus</div>
+            <div class="item">1.000.000 RDT<br>
+              1 ETH = 6 600 RDT
+            </div>
+            <div class="item">2.000.000 RDT<br>
+              1 ETH = 6 480 RDT
+            </div>
+            <div class="item">3.000.000 RDT<br>
+              1 ETH = 6 300 RDT
+            </div>
+            <div class="item">4.000.000 RDT<br>
+              1 ETH = 6 180 RDT
+            </div>
+            <div class="item">24.000.000 RDT<br>
+              1 ETH = 6 000 RDT
+            </div>
+          </div>
+          <div class="lines">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+          </div>
+          <div class="bonus-percent">
+            <div class="item">10%</div>
+            <div class="item">8%</div>
+            <div class="item">5%</div>
+            <div class="item">3%</div>
+            <div class="item">0%</div>
+          </div>
+          <div class="lines">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+          </div>
+          <div class="extra-bonus">
+            <div class="title">Extra Bonus</div>
+            <div class="item">> 30 ETH</div>
+            <div class="item">15 ETH – 29 ETH</div>
+            <div class="item">5 ETH – 14.99 ETH</div>
+            <div class="item">1 ETH – 4.99 ETH</div>
+            <div class="item">< 1 ETH</div>
+          </div>
+          <div class="bonus-percent mobile">
+            <div class="item">10%</div>
+            <div class="item">8%</div>
+            <div class="item">5%</div>
+            <div class="item">3%</div>
+            <div class="item">0%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <h2>Bounty Программа</h2>
-    <p>В Bounty программе Rate Date может принять участие любой пользователь у которого есть свой сайт, блог или аккаунт в социальной сети. Вознаграждение составляет 10 RDT за каждого привлеченного потенциального инвестора до начала и во время проведения ICO.  А также дополнительное вознаграждение  100 RDT в случае внесения средств привлеченным инвестором,  независимо от суммы отправленных средств.  Вознаграждение выплачивается на баланс кошелька указанного в личном кабинете. </p>
-    <p><strong>ВНИМАНИЕ!</strong> Не используйте адреса бирж или чужие адреса, используйте только адрес, который полностью контролируете (и можете получить private key). Иначе ваши RDT могут быть потеряны.</p>
+    <p>Реферальная кампания 5% от всех привлеченных покупателей RDT, используя реферальную ссылку: <strong><%= ref_link %></strong> </p>
+    <div class="text-center">
+      <a href="https://bitcointalk.org/index.php?topic=3169535.0" class="button red">Bounty Campaign en</a>
+      <a href="https://bitcointalk.org/index.php?topic=3153004.0" class="button red">Bounty Campaign ru</a></div>
+    </div>
   </div>
 </div>

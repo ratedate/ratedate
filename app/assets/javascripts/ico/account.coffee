@@ -6,7 +6,7 @@
 #= require turbolinks
 #= require popper
 #= require bootstrap
-# require timer
+#= require timer
 #= require web3
 #= require ico/headerBehaviour
 #= require velocity.min

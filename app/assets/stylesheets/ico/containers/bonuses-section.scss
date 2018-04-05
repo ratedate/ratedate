@@ -2,6 +2,7 @@
     padding: $base-offset * 8 0;
     &-wrap {
         @include sized();
+      @include overflow();
     }
 
 
