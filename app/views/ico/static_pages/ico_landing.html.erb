@@ -1,72 +1,97 @@
 <div class="base-section">
+  <video id="base-section-video" playsinline autoplay muted loop>
+    <source src="/videos/videoplayback.mp4">
+  </video>
   <div class="section">
     <div class="base-section-wrap">
       <h2 class="center">Rate Date - Online Dating Auction</h2>
       <p class="center medium">Revolution in the online dating industry</p>
-
       <div class="timer">
-        <p class="timer-title" id="presaletext">ICO Coming Soon</p>
+        <p class="timer-title" id="presaletext">ICO START:</p>
+        <p class="timer-digit">
+          <span class="timer-digit-label">DAYS</span>
+          <span class="timer-digit-value" id="tDayNum">--</span>
+        </p>
+        <p class="timer-digit">
+          <span class="timer-digit-label">HOURS</span>
+          <span class="timer-digit-value" id="tHourNum">--</span>
+        </p>
+        <p class="timer-digit">
+          <span class="timer-digit-label">MINUTES</span>
+          <span class="timer-digit-value" id="tMinNum">--</span>
+        </p>
+        <p class="timer-digit">
+          <span class="timer-digit-label">SECONDS</span>
+          <span class="timer-digit-value" id="tSecNum">--</span>
+        </p>
 
       </div>
     </div>
   </div>
 </div>
-<div class="stats-section" id="about">
+
+<div class="bonuses-section">
   <div class="section">
-    <div class="stats-section">
-      <div class="grid-xs-1 grid-md-2 grid-lg-3">
-        <div class="cell">
-          <div class="stats-item">
-            <p class="stats-item-value">World stats</p>
-            <p class="stats-item-text">of online dating industry</p>
-          </div>
+    <div class="bonuses-section-wrap">
+      <div class="main-bonus">
+        <div class="title">Main Bonus</div>
+        <div class="item">1.000.000 RDT<br>
+          1 ETH = 6 600 RDT
         </div>
-        <div class="cell">
-          <div class="stats-item">
-            <p class="stats-item-value circle">$3 Billion</p>
-            <p class="stats-item-text">Annual Revenue in the Online Dating Industry Has Surpassed $3 Billion</p>
-          </div>
+        <div class="item">2.000.000 RDT<br>
+          1 ETH = 6 480 RDT
         </div>
-        <div class="cell">
-          <div class="stats-item">
-            <p class="stats-item-value circle">26%</p>
-            <p class="stats-item-text">
-              The largest share of adults worldwide who are
-              actively paying for a dating service are from United States
-              (26%), United Kingdom (21%), and Germany (17%).
-            </p>
-          </div>
+        <div class="item">3.000.000 RDT<br>
+          1 ETH = 6 300 RDT
         </div>
-        <div class="cell">
-          <div class="stats-item">
-            <p class="stats-item-value circle">up to 27%</p>
-            <p class="stats-item-text">
-              The use of online dating services (sites and apps) among
-              young adults (ages 18-24) nearly tripled from 2013 to 2016 (from 10% to 27%).
-            </p>
-          </div>
+        <div class="item">4.000.000 RDT<br>
+          1 ETH = 6 180 RDT
         </div>
-        <div class="cell">
-          <div class="stats-item">
-            <p class="stats-item-value circle">5.3%</p>
-            <p class="stats-item-text">The annual growth rate from 2012 to 2017 is 5.3%.</p>
-          </div>
+        <div class="item">24.000.000 RDT<br>
+          1 ETH = 6 000 RDT
         </div>
-        <div class="cell">
-          <div class="stats-item">
-            <p class="stats-item-value circle">44%</p>
-            <p class="stats-item-text">
-              44% of online daters who had success said that their use of online
-              dating led to marriages or serious long-term relationships.
-            </p>
-          </div>
-        </div>
+      </div>
+      <div class="lines">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+      </div>
+      <div class="bonus-percent">
+        <div class="item">10%</div>
+        <div class="item">8%</div>
+        <div class="item">5%</div>
+        <div class="item">3%</div>
+        <div class="item">0%</div>
+      </div>
+      <div class="lines">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+      </div>
+      <div class="extra-bonus">
+        <div class="title">Extra Bonus</div>
+        <div class="item">> 30 ETH</div>
+        <div class="item">15 ETH – 29 ETH</div>
+        <div class="item">5 ETH – 14.99 ETH</div>
+        <div class="item">1 ETH – 4.99 ETH</div>
+        <div class="item">< 1 ETH</div>
+      </div>
+      <div class="bonus-percent mobile">
+        <div class="item">10%</div>
+        <div class="item">8%</div>
+        <div class="item">5%</div>
+        <div class="item">3%</div>
+        <div class="item">0%</div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="description-section bubble left-to-right">
+<div class="description-section bubble left-to-right" id="about">
   <div class="section">
     <div class="description-section-wrap">
       <h3>New trend of the dating industry</h3>
@@ -204,22 +229,66 @@
   </div>
 </div>
 
+
+<div class="stats-section" >
+  <div class="section">
+    <div class="stats-section">
+      <div class="grid-xs-1 grid-md-2 grid-lg-3">
+        <div class="cell">
+          <div class="stats-item">
+            <p class="stats-item-value">World stats</p>
+            <p class="stats-item-text">of online dating industry</p>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="stats-item">
+            <p class="stats-item-value circle">$3 Billion</p>
+            <p class="stats-item-text">Annual Revenue in the Online Dating Industry Has Surpassed $3 Billion</p>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="stats-item">
+            <p class="stats-item-value circle">26%</p>
+            <p class="stats-item-text">
+              The largest share of adults worldwide who are
+              actively paying for a dating service are from United States
+              (26%), United Kingdom (21%), and Germany (17%).
+            </p>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="stats-item">
+            <p class="stats-item-value circle">up to 27%</p>
+            <p class="stats-item-text">
+              The use of online dating services (sites and apps) among
+              young adults (ages 18-24) nearly tripled from 2013 to 2016 (from 10% to 27%).
+            </p>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="stats-item">
+            <p class="stats-item-value circle">5.3%</p>
+            <p class="stats-item-text">The annual growth rate from 2012 to 2017 is 5.3%.</p>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="stats-item">
+            <p class="stats-item-value circle">44%</p>
+            <p class="stats-item-text">
+              44% of online daters who had success said that their use of online
+              dating led to marriages or serious long-term relationships.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="images-section">
   <div class="section">
     <div class="images-section-wrap">
       <div class="grid-xs-1 grid-md-2">
-        <div class="cell">
-          <div class="image">
-            <p class="image-title">Сhange in the price of RDT for users inside the service</p>
-            <%= image_tag 'graph01-04.png'%>
-          </div>
-        </div>
-        <div class="cell">
-          <div class="image">
-            <p class="image-title">The RDT buyback according to purchases inside the service</p>
-            <%= image_tag 'graph02-04.png'%>
-          </div>
-        </div>
         <div class="cell">
           <div class="image">
             <p class="image-title">Token distribution</p>
@@ -258,35 +327,48 @@
   </div>
 </div>
 
-<div id="bonus" class="bonuses-section">
+<div id="bounty" class="bounty-section">
   <div class="section">
-    <div class="bonuses-section-wrap">
-      <h3>Bonuses</h3>
-      <div class="image">
-        <%= image_tag('coins.png') %>
-      </div>
-      <ul class="bonus-list">
-        <li>
-          <p class="bonus-day">Day 1-3</p>
-          <p class="bonus-percent">20%</p>
-        </li>
-        <li>
-          <p class="bonus-day">Day 4-10</p>
-          <p class="bonus-percent">15%</p>
-        </li>
-        <li>
-          <p class="bonus-day">Day 11-17</p>
-          <p class="bonus-percent">10%</p>
-        </li>
-        <li>
-          <p class="bonus-day">Day 18-24</p>
-          <p class="bonus-percent">5%</p>
-        </li>
-        <li>
-          <p class="bonus-day">Day 25-33</p>
-          <p class="bonus-percent">No bonuses</p>
-        </li>
-      </ul>
+    <div class="bounty-section-wrap">
+      <h3>Bounty campaign</h3>
+      <p>Bounty Foundation 2 500 000 RDT tokens (5% of the total issue)</p>
+      <p>Performing certain actions, you will receive stakes. </p>
+      <p>Rate Date Tokens will be accrued to Bounty participants' wallets within two weeks after the completion of Token-Sale.</p>
+      <p><strong>Fund distribution:</strong></p>
+      <table class="table">
+        <tr>
+          <td class="bg-red">25%</td>
+          <td>Facebook</td>
+          <td class="bg-red">625 000 RDT</td>
+        </tr>
+        <tr>
+          <td class="bg-red">25%</td>
+          <td>Twitter</td>
+          <td class="bg-red">625 000 RDT</td>
+        </tr>
+        <tr>
+          <td class="bg-red">15%</td>
+          <td>Telegram</td>
+          <td class="bg-red">375 000 RDT</td>
+        </tr>
+        <tr>
+          <td class="bg-red">25%</td>
+          <td>Reviews and articles (Slack, Reddit, Medium, Youtube etc.)</td>
+          <td class="bg-red">625 000 RDT</td>
+        </tr>
+        <tr>
+          <td class="bg-red">5%</td>
+          <td>Registration on RateDate.net</td>
+          <td class="bg-red">125 000 RDT</td>
+        </tr>
+        <tr>
+          <td class="bg-red">5%</td>
+          <td>Reserve</td>
+          <td class="bg-red">125 000 RDT</td>
+        </tr>
+      </table>
+      <p>Referral campaign 5% of all attracted buyers of RDT using a referral link from the personal account of ico.ratedate.net</p>
+      <div class="text-center"><a href="https://bitcointalk.org/index.php?topic=3169535.0" class="button red">Bounty Campaign</a></div>
     </div>
   </div>
 </div>
@@ -373,7 +455,7 @@
             <a href="https://www.kickico.com/campaigns/35008/rate-date" class="partner"><span class="icon-kickico"></span></a>
           </div>
           <div class="cell">
-            <a href="https://bitcointalk.org/index.php?topic=2284274" class="partner"><span class="icon-btalk"></span></a>
+            <a href="https://bitcointalk.org/index.php?topic=3124220.0" class="partner"><span class="icon-btalk"></span></a>
           </div>
           <div class="cell">
             <a href="https://icobench.com/ico/rate-date" class="partner"><span class="icon-icobench"></span></a>

@@ -13,7 +13,7 @@ $(document).ready(function(){
     var secText = "#tSecText";
 //   variables
 
-    var countDownDate = 1519480800000;
+    var countDownDate = 1526392800000;
 
     function fix_len(num) {
         return num<10?'0'+num:num;
