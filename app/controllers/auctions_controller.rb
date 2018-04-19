@@ -1,6 +1,6 @@
 class AuctionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_auction, only: [:show, :edit, :update, :destroy]
+  before_action :set_auction, only: [:show, :edit, :update, :destroy, :videodate]
 
   # GET /auctions
   # GET /auctions.json
@@ -20,6 +20,10 @@ class AuctionsController < ApplicationController
 
   # GET /auctions/1/edit
   def edit
+  end
+
+  def videodate
+
   end
 
   # POST /auctions
@@ -66,6 +70,10 @@ class AuctionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_auction
       @auction = Auction.find(params[:id])
+    end
+
+    def check_access
+    #TODO write access mechanism
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
