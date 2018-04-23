@@ -35,6 +35,9 @@
   & p{
     padding: $base-offset 0;
   }
+  & .text-center{
+    margin-top: $base-offset;
+  }
 
     & h3 {
         margin-bottom: $base-offset * 4;
