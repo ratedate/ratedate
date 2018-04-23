@@ -4,9 +4,33 @@
         @include sized();
     }
 
+  table{
+    font-weight: 600;
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 0 $base-offset*2;
+    tr{
+      & td{
+        padding: $base-offset*2;
+        vertical-align: middle;
+        &:first-child{
+          border-top-left-radius: 6px;
+          border-bottom-left-radius: 6px;
+        }
+        &:last-child{
+          border-top-right-radius: 6px;
+          border-bottom-right-radius: 6px;
+        }
+      }
+    }
+  }
   & .bg-red{
     background-color: $red;
     color: #fff;
+    &-light{
+      background-color: rgba($red,0.1);
+      color: $red;
+    }
   }
   & p{
     padding: $base-offset 0;
