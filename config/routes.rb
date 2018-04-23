@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     resources :auctions, except: [:edit, :destroy, :create]
     get 'my_profile', to: 'profiles#show', as: 'my_profile'
     get 'my_profile/edit', to: 'profiles#edit', as: 'edit_my_profile'
+    get 'auctions/:id/videodate', to: 'auctions#videodate', as: 'auctions_videodate'
     resources :personal_messages, only: [:new,  :create]
     resources :conversations, only: [:index, :show]
     root 'static_pages#in_develop'

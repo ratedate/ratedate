@@ -1,6 +1,7 @@
 class AuctionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_auction, only: [:show, :edit, :update, :destroy, :videodate]
+  # before_action :check_access, only: :videodate
 
   # GET /auctions
   # GET /auctions.json
@@ -73,7 +74,9 @@ class AuctionsController < ApplicationController
     end
 
     def check_access
-    #TODO write access mechanism
+      if current_user.profile != @auction.profile || current_user.profile != @auction.bids.max.profile || @auction.auction_end > DateTime.now
+        redirect_to auctions_path, notice: 'Error! Something wrong.'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
