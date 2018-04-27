@@ -10,4 +10,6 @@ class Auction < ApplicationRecord
   scope :by_gender, -> (gender) {where 'profiles.gender = ?', gender}
   scope :by_age_from, -> (age_from) {where 'profiles.dob <= ?', Date.today - age_from.to_i.year}
   scope :by_age_to, -> (age_to) {where 'profiles.dob >= ?', Date.today - age_to.to_i.year}
+  scope :active, -> {where('auction_end>?', DateTime.now)}
+  scope :ended, -> {where('auction_end<=?', DateTime.now)}
 end

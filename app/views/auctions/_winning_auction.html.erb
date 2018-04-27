@@ -1,0 +1,42 @@
+<div class="cell">
+  <div class="auction">
+    <span class="auction-image">
+      <%= link_to auction.profile do %>
+        <%= image_tag auction.profile.medium_avatar %>
+      <% end %>
+    </span>
+    <div class="auction-info" id="auction_<%= auction.id %>">
+      <p class="name">
+        <%= link_to auction.profile do %>
+            <span class="truncate-xs"><%= auction.profile.display_name %></span><span>, <%= auction.profile.age %></span>
+        <% end %>
+      </p>
+      <p class="place">
+        <%= auction.profile.city.country+', '+auction.profile.city.city if auction.profile.city.present? %>
+      </p>
+      <div class="bid">
+        <div class="bid-title"><%= auction.bids.any? ? 'Highest Bid' : 'Starts at' %></div>
+        <div class="bid-value"><span><%= auction.bids.any? ? "%g"%auction.bids.last.bid_value : "%g"%auction.start_bid %></span> RDT</div>
+      </div>
+      <div class="auction-info-timer">
+        <div class="auction-info-timer-title">Valid Until </div>
+        <div class="auction-info-timer-value"><%= auction.auction_end.strftime('%B %d %H:%M') %></div>
+        <% progress = (DateTime.now.to_time-auction.created_at.to_time)/(auction.auction_end.to_time-auction.created_at.to_time)*100 %>
+        <div class="auction-info-timer-progress"><div class="auction-info-timer-progress-bar" style="width: <%= progress %>%"></div></div>
+      </div>
+      <a href="javascript:void(0)" class="button-invite" data-modal-target="#video-date-invite-<%= auction.id %>">Invite on a Date</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="video-date-invite-<%= auction.id %>">
+  <a class="modal-close" href="javascript:void(0)">
+    <i class="fa fa-times"></i>
+  </a>
+
+  <div class="modal-window">
+    <div class="modal-content">
+      <h1>The RDT selling is under development.</h1>
+    </div>
+  </div>
+</div>

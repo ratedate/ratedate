@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+<div class="profiles">
+  <div class="profiles-wrap">
+    <h2>Current Bids</h2>
+    <div class="grid-xs-1 grid-xsc-2 grid-sm-2 grid-md-3 grid-lg-4">
+      <%= render @auctions %>
+    </div>
+    <h2>Winning Bids</h2>
+    <div class="grid-xs-1 grid-xsc-2 grid-sm-2 grid-md-3 grid-lg-4">
+      <%= render partial: 'winning_auction', collection: @winning_auctions, as: 'auction' %>
+    </div>
+  </div>
+</div>

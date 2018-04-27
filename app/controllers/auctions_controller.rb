@@ -6,7 +6,7 @@ class AuctionsController < ApplicationController
   # GET /auctions
   # GET /auctions.json
   def index
-    @auctions = Auction.joins(:profile).filter(params.slice(:by_country, :by_city, :by_gender, :by_age_from, :by_age_to))
+    @auctions = Auction.joins(:profile).filter(params.slice(:by_country, :by_city, :by_gender, :by_age_from, :by_age_to)).active
   end
 
   # GET /auctions/1
@@ -25,6 +25,11 @@ class AuctionsController < ApplicationController
 
   def videodate
 
+  end
+
+  def my_bids
+    @auctions = current_user.profile.bid_auctions.active
+    @winning_auctions = current_user.profile.winning_auctions
   end
 
   # POST /auctions
