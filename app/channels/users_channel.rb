@@ -6,4 +6,25 @@ class UsersChannel < ApplicationCable::Channel
 
   def unsubscribed
   end
+
+  def video_date_invite (data)
+    auction = Auction.find data['auction_id']
+    if current_user.profile == auction.profile || current_user.profile == auction.winner
+      participant = auction.video_date_participant(current_user.profile)
+      conversation = Conversation.between(current_user.id, participant.id)[0]
+      conversation ||= Conversation.create(author_id: current_user.id,
+                                           receiver_id: participant.id)
+      ActionCable.server.broadcast "users_#{participant.id}_channel",
+                                    video_date_invite: invitation(auction, current_user.profile, conversation)
+    end
+  end
+
+  def redis
+    Redis.new
+  end
+
+  def invitation(auction, profile, conversation)
+    AuctionsController.render partial: 'auctions/invitation',
+                              locals: {auction: auction, profile: profile, conversation: conversation}
+  end
 end

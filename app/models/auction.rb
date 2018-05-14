@@ -4,6 +4,7 @@ class Auction < ApplicationRecord
   belongs_to :profile
   has_many :bids
   has_many :raters, through: :bids, source: :profile
+  belongs_to :winner, class_name: 'Profile'
 
   scope :by_country, -> (country) {where 'profiles.city_id IN (?)', City.where(country: country).select('id') }
   scope :by_city, -> (city) {where city_id: city }
@@ -12,4 +13,8 @@ class Auction < ApplicationRecord
   scope :by_age_to, -> (age_to) {where 'profiles.dob >= ?', Date.today - age_to.to_i.year}
   scope :active, -> {where('auction_end>?', DateTime.now)}
   scope :ended, -> {where('auction_end<=?', DateTime.now)}
+
+  def video_date_participant(prof)
+    prof==profile ?  winner.user : profile.user
+  end
 end

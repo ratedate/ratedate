@@ -3,6 +3,7 @@ class AuctionsController < ApplicationController
   before_action :set_auction, only: [:show, :edit, :update, :destroy, :videodate]
   # before_action :check_access, only: :videodate
 
+  layout 'videodates', only: [:videodate]
   # GET /auctions
   # GET /auctions.json
   def index
@@ -24,7 +25,11 @@ class AuctionsController < ApplicationController
   end
 
   def videodate
-
+    if current_user.dating?
+      redirect_to auctions_my_bids_path, notice: 'You already connected to this video date'
+    end
+    @conversation = Conversation.between(@auction.profile.user, @auction.winner.user).first
+    @personal_message = PersonalMessage.new
   end
 
   def my_bids

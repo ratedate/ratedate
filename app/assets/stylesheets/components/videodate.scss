@@ -1,27 +1,162 @@
-#remoteVideo{
-  width: 100%;
-  height: 100%;
-  video{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translateX(-50%) translateY(-50%);
+
+& .video-page{
+  & .video-window{
+    width: 70%;
+    min-height: calc(100vh - 64px - (50px + #{$base-offset} * 2));
+    position: relative;
+    float: left;
+    & #remoteVideo{
+      width: 100%;
+      height: 100%;
+      video{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translateX(-50%) translateY(-50%);
+      }
+    }
+    & #localVideo{
+      width: 20%;
+      height: 20%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      transform: translateX(-50%) translateY(-50%);
+      video{
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+      }
+    }
   }
-}
-#localVideo{
-  width: 20%;
-  height: 20%;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  transform: translateX(-50%) translateY(-50%);
-  video{
-    width: 100%;
-    height: 100%;
-    background-size: cover;
+  & .chat-wrap{
+    position: relative;
+    @include overflow();
+    padding: 0 $base-offset;
+    min-height: calc(100vh - 64px - (50px + #{$base-offset} * 2));
+    width: 30%;
+    float: right;
+  }
+  & .video-chat-window{
+    background-color: #fff;
+
+    position: absolute;
+    top: 0;
+    left: $base-offset;
+    right: $base-offset;
+    bottom: 0;
+    & .message-form {
+      border-top: 1px solid $light-grey;
+      padding: $base-offset * 3;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      & .profile-input {
+        @include overflow();
+        height: 60px;
+        & textarea {
+          height: 100%;
+          min-height: auto;
+        }
+      }
+      & .round-btn {
+        height: 60px;
+        margin-left: $base-offset * 2;
+        float: right;
+        &::before {
+          content: 'Send'
+        }
+      }
+    }
+
+    & .bubble-area {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 108px;
+
+      padding: $base-offset * 8 $base-offset * 4 0;
+
+      @include overflow(hidden, scroll);
+    }
+
+    & .bubble {
+      width: 60%;
+      // max-width: 300px;
+      @include clear();
+      float: left;
+      margin-bottom: $base-offset * 4;
+
+      &-date {
+        width: 100%;
+        text-align: right;
+        font-size: 12px;
+        color: $grey;
+        margin-bottom: $base-offset;
+      }
+
+      &-message {
+        width: 100%;
+        border-radius: 4px;
+        padding: $base-offset * 3;
+        background-color: $red;
+        font-size: 14px;
+        color: #fff;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        -moz-hyphens: auto;
+        hyphens: auto;
+      }
+
+      &.from {
+        float: right;
+
+        & .bubble-message {
+          background-color: $light-grey;
+          color: $dark;
+        }
+      }
+    }
+
+    @media screen and (max-width: 1280px) {
+      left: 0;
+      right: 0;
+      top: 50px + $base-offset * 4;
+    }
+
+    @media screen and (max-width: $screen-md) {
+      & .message-form {
+        & .round-btn {
+          padding: $base-offset * 2;
+          min-width: auto;
+          height: auto;
+          &::before {
+            display: block;
+            height: 18px;
+            width: 18px;
+            text-align: center;
+            line-height: 18px;
+            content: '\f1d8';
+            font-family: FontAwesome;
+            float: left;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: $screen-xs) {
+      & .bubble {
+        width: 80%;
+      }
+    }
   }
 }

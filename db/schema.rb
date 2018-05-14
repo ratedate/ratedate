@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20180427191015) do
     t.string "video_preview"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "winner"
+    t.integer "winner_id"
   end
 
   create_table "balances", force: :cascade do |t|

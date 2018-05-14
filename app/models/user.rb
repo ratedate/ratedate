@@ -69,4 +69,8 @@ class User < ApplicationRecord
   def online?
     !Redis.new.get("user_#{self.id}_online").nil?
   end
+
+  def dating?
+    !Redis.new.get("user_#{self.id}_dating_now").nil?
+  end
 end

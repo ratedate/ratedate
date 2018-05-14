@@ -7,7 +7,7 @@ class Profile < ApplicationRecord
   has_many :auctions
   has_many :bids, -> {includes :auction}
   has_many :bid_auctions, -> { distinct }, through: :bids, source: :auction
-  has_many :winning_auctions, class_name: 'Auction', foreign_key: :winner
+  has_many :winning_auctions, class_name: 'Auction', foreign_key: 'winner_id'
   # Used for user avatar image edit
   attr_accessor :city_name, :administrative_area_level_1, :administrative_area_level_2, :country, :country_code
   accepts_nested_attributes_for :photos, allow_destroy: true
