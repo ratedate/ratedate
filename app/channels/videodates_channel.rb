@@ -21,6 +21,12 @@ class VideodatesChannel < ApplicationCable::Channel
     end
   end
 
+  def set_video_start(data)
+    redis.set("user_#{current_user.id}_video_connected", "1") if redis.get("user_#{current_user.id}_video_connected").nil?
+    auction = Auction.find data['auction_id']
+    redis.set("video_date_#{auction.id}_started") if redis.get("user_#{video_date_participant(current_user.profile).id}_video_connected")
+  end
+
   def redis
     Redis.new
   end
