@@ -1,6 +1,13 @@
-<h1>Editing Auction</h1>
 
-<%= render 'form', auction: @auction %>
 
-<%= link_to 'Show', @auction %> |
-<%= link_to 'Back', auctions_path %>
+
+<div class="profile-page with-button">
+  <div class="profile-page-wrap">
+    <h1>Editing Auction</h1>
+    <%= render 'form', auction: @auction %>
+
+    <%= link_to 'Show', @auction %> |
+    <%= link_to 'Back', auctions_path %>
+
+  </div>
+</div>
