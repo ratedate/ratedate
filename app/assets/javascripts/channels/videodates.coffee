@@ -1,5 +1,5 @@
 
-#= require 'simplewebrtc/out/simplewebrtc-with-adapter.bundle.js'
+#= require 'simplewebrtc-with-adapter.bundle.js'
 
 jQuery(document).on 'turbolinks:load', ->
 #  first check if action cable subscription present
