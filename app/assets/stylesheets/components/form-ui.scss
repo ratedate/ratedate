@@ -241,6 +241,101 @@
             @include overflow();
             width: calc(100% - #{$label-width});
         }
+      .range {
+        // border: 1px solid $one-more-light-grey;
+        border: none;
+        height: 4px;
+        background-color: $one-more-light-grey;
+        margin: 30px 8px 8px;
+
+        & .noUi-handle {
+
+          $handler-size: 16px;
+
+          box-shadow: none;
+          width: $handler-size;
+          height: $handler-size;
+          background-color: $red;
+          border-radius: 100%;
+          border: none;
+          &::before, &::after {
+            display: none;
+          }
+
+          transform: translateX(-50%) !important;
+        }
+
+        & .noUi-tooltip {
+          border: 0;
+          font-weight: 500;
+          font-size: 16px;
+          background: none;
+        }
+      }
+
+      .radio-btn {
+        $button-size: 16px;
+        &-view {
+          cursor: pointer;
+          position: relative;
+          font-size: 16px;
+          line-height: $button-size;
+          font-weight: 500;
+          position: relative;
+          padding-left: $button-size + $base-offset * 2;
+
+          &::before {
+            content: '';
+            display: block;
+            width: $button-size;
+            height: $button-size;
+            border: 2px solid $one-more-light-grey;
+            border-radius: 100%;
+
+            position: absolute;
+            left: 0;
+            top: 0;
+          }
+
+          &::after {
+            content: '';
+            display: block;
+            width: $button-size / 2;
+            height: $button-size / 2;
+            background-color: #fff;
+            border-radius: 100%;
+
+            position: absolute;
+            left: 2px + $button-size / 4;
+            top: 2px + $button-size / 4;
+          }
+        }
+
+        & input:checked + .radio-btn-view {
+          &::before {
+            @include transition(.3s);
+            border-color: $red;
+          }
+          &::after {
+            @include transition(.3s);
+            background-color: $red;
+          }
+        }
+      }
+
+      .radio-group {
+        margin: 8px;
+        .radio-btn {
+          margin-right: $base-offset * 2;
+          &:last-of-type {
+            margin-right: 0;
+          }
+        }
+      }
+      .grid-xs-1 {
+         margin: 0px;
+      }
+
     }
 
     @media screen and (max-width: $screen-sm) {

@@ -1,11 +1,13 @@
 class AuctionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_auction, only: [:show, :edit, :update, :destroy]
+  before_action :set_auction, only: [:show, :edit, :update, :destroy, :videodate]
+  # before_action :check_access, only: :videodate
 
+  layout 'videodates', only: [:videodate]
   # GET /auctions
   # GET /auctions.json
   def index
-    @auctions = Auction.joins(:profile).filter(params.slice(:by_country, :by_city, :by_gender, :by_age_from, :by_age_to))
+    @auctions = Auction.joins(:profile).filter(params.slice(:by_country, :by_city, :by_gender, :by_age_from, :by_age_to)).active
   end
 
   # GET /auctions/1
@@ -22,14 +24,28 @@ class AuctionsController < ApplicationController
   def edit
   end
 
+  def videodate
+    if current_user.dating?
+      redirect_to auctions_my_bids_path, notice: 'You already connected to this video date'
+    end
+    @conversation = Conversation.between(@auction.profile.user, @auction.winner.user).first
+    @personal_message = PersonalMessage.new
+  end
+
+  def my_bids
+    @auctions = current_user.profile.bid_auctions.active
+    @winning_auctions = current_user.profile.winning_auctions.ended
+    @my_auctions = current_user.profile.auctions
+  end
+
   # POST /auctions
   # POST /auctions.json
   def create
-    @auction = Auction.new(auction_params)
+    @auction = current_user.profile.auctions.build(auction_params)
 
     respond_to do |format|
       if @auction.save
-        format.html { redirect_to @auction, notice: 'Auction was successfully created.' }
+        format.html { redirect_to @auction.profile, notice: 'Auction was successfully created.' }
         format.json { render :show, status: :created, location: @auction }
       else
         format.html { render :new }
@@ -66,6 +82,12 @@ class AuctionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_auction
       @auction = Auction.find(params[:id])
+    end
+
+    def check_access
+      if current_user.profile != @auction.profile || current_user.profile != @auction.bids.max.profile || @auction.auction_end > DateTime.current
+        redirect_to auctions_path, notice: 'Error! Something wrong.'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

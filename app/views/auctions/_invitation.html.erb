@@ -1,0 +1,14 @@
+<div class="date-invitation show">
+  <div class="date-invitation-window">
+    <div class="date-invitation-content">
+      <div class="caller-avatar">
+        <%= image_tag profile.large_avatar %>
+      </div>
+      <div class="date-invitation-text"><%= profile.name %> invites you on a video date.</div>
+      <div class="buttons">
+        <%= link_to 'Postpone', conversation_path(conversation), class: 'postpone round-btn white' %>
+        <%= link_to 'Accept', auctions_videodate_path(auction), class: 'accept round-btn' %>
+      </div>
+    </div>
+  </div>
+</div>

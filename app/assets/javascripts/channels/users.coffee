@@ -1,5 +1,8 @@
 jQuery(document).on 'turbolinks:load', ->
 #  first check if action cable subscription present
+  showInviteDialog = (invite) ->
+#TODO think about the ring sound
+    $('body').append(invite)
   user_subscribed = false
   App.cable.subscriptions.subscriptions.forEach (item) ->
     if JSON.parse(item["identifier"])["channel"]=="UsersChannel"
@@ -17,3 +20,12 @@ jQuery(document).on 'turbolinks:load', ->
     received: (data) ->
       if data['available_balance']
         $('.balance>span').text(data['available_balance'])
+      if data['video_date_invite']
+        showInviteDialog(data['video_date_invite'])
+      if data['video_date_page_ready']
+        Turbolinks.visit('/en/auctions/'+data['video_date_page_ready']+'/videodate')
+    video_date_invite: (auction_id) ->
+      @perform 'video_date_invite', auction_id: auction_id
+
+$(document).on 'click', '.button-invite', (e) ->
+  App.users.video_date_invite($(this).data('auction'))

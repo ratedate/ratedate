@@ -87,6 +87,8 @@ var ready = function() {
         var self = this;
         var from = $('#by_age_from').val()==''?18:$('#by_age_from').val();
         var to = $('#by_age_to').val()==''?45:$('#by_age_to').val();
+        var from = $('#auction_rater_age_min').val()==''?18:$('#auction_rater_age_min').val();
+        var to = $('#auction_rater_age_max').val()==''?45:$('#auction_rater_age_max').val();
         var slider = noUiSlider.create(this, {
             start: [from, to],
             tooltips: true,

@@ -1,0 +1,25 @@
+<div class="video-page" data-auction="<%= @auction.id %>">
+  <div class="video-window">
+    <div id="remoteVideo"></div>
+    <div id="localVideo"></div>
+    <div class="buttons">
+      <%= link_to 'End Videodate', auctions_my_bids_path, class: 'round-btn' %>
+    </div>
+  </div>
+  <div class="chat-wrap">
+    <div class="chat-window" id="conversation-main">
+      <div class="bubble-area" id="conversation-body" data-conversation-id="<%= @conversation.id %>">
+        <%= render @conversation.personal_messages, current_user_id: current_user.id %>
+      </div>
+      <div class="message-form" data-turbolinks="false">
+        <%= form_for @personal_message do |f| %>
+            <%= hidden_field_tag 'conversation_id', @conversation.id %>
+            <%= f.submit 'Send', class: 'round-btn' %>
+            <div class="profile-input">
+              <%= f.text_area :body, placeholder: 'Enter message' %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
