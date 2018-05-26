@@ -34,17 +34,18 @@ class AuctionsController < ApplicationController
 
   def my_bids
     @auctions = current_user.profile.bid_auctions.active
-    @winning_auctions = current_user.profile.winning_auctions
+    @winning_auctions = current_user.profile.winning_auctions.ended
+    @my_auctions = current_user.profile.auctions
   end
 
   # POST /auctions
   # POST /auctions.json
   def create
-    @auction = Auction.new(auction_params)
+    @auction = current_user.profile.auctions.build(auction_params)
 
     respond_to do |format|
       if @auction.save
-        format.html { redirect_to @auction, notice: 'Auction was successfully created.' }
+        format.html { redirect_to @auction.profile, notice: 'Auction was successfully created.' }
         format.json { render :show, status: :created, location: @auction }
       else
         format.html { render :new }
@@ -84,7 +85,7 @@ class AuctionsController < ApplicationController
     end
 
     def check_access
-      if current_user.profile != @auction.profile || current_user.profile != @auction.bids.max.profile || @auction.auction_end > DateTime.now
+      if current_user.profile != @auction.profile || current_user.profile != @auction.bids.max.profile || @auction.auction_end > DateTime.current
         redirect_to auctions_path, notice: 'Error! Something wrong.'
       end
     end

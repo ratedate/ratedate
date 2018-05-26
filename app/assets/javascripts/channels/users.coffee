@@ -22,9 +22,10 @@ jQuery(document).on 'turbolinks:load', ->
         $('.balance>span').text(data['available_balance'])
       if data['video_date_invite']
         showInviteDialog(data['video_date_invite'])
+      if data['video_date_page_ready']
+        Turbolinks.visit('/en/auctions/'+data['video_date_page_ready']+'/videodate')
     video_date_invite: (auction_id) ->
       @perform 'video_date_invite', auction_id: auction_id
 
 $(document).on 'click', '.button-invite', (e) ->
   App.users.video_date_invite($(this).data('auction'))
-  Turbolinks.visit('/en/auctions/'+$(this).data('auction')+'/videodate')

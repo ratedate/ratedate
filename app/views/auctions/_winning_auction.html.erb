@@ -18,13 +18,9 @@
         <div class="bid-title"><%= auction.bids.any? ? 'Winning Bid' : 'Starts at' %></div>
         <div class="bid-value"><span><%= auction.bids.any? ? "%g"%auction.bids.last.bid_value : "%g"%auction.start_bid %></span> RDT</div>
       </div>
-      <div class="auction-info-timer">
-        <div class="auction-info-timer-title">Valid Until </div>
-        <div class="auction-info-timer-value"><%= auction.auction_end.strftime('%B %d %H:%M') %></div>
-        <% progress = (DateTime.now.to_time-auction.created_at.to_time)/(auction.auction_end.to_time-auction.created_at.to_time)*100 %>
-        <div class="auction-info-timer-progress"><div class="auction-info-timer-progress-bar" style="width: <%= progress %>%"></div></div>
-      </div>
-      <a href="javascript:void(0);" class="button-invite" data-auction="<%= auction.id %>">Invite on a Date</a>
+      <% if !auction.videodate_ended %>
+          <a href="javascript:void(0);" class="button-invite" data-auction="<%= auction.id %>">Invite on a Date</a>
+      <% end %>
     </div>
   </div>
 </div>

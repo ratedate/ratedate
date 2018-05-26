@@ -15,6 +15,7 @@ class AuctionsChannel < ApplicationCable::Channel
         auction.bids.last.unbid if auction.bids.any?
         bid = auction.bids.build(profile_id: current_user.profile.id, bid_value: data['bid'])
         if bid.save!
+          auction.update(winner_id: current_user.profile.id)
           ActionCable.server.broadcast 'auctions_channel',
                                         auction_id: auction.id,
                                         bid: "%g"%bid.bid_value,

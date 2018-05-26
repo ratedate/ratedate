@@ -32,6 +32,12 @@
         background-size: cover;
       }
     }
+    & .buttons{
+      position: absolute;
+      bottom: 27px;
+      right: 50%;
+      transform: translateX(50%) translateY(0%);
+    }
   }
   & .chat-wrap{
     position: relative;

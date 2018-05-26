@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180427191015) do
+ActiveRecord::Schema.define(version: 20180526144137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,9 @@ ActiveRecord::Schema.define(version: 20180427191015) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "winner_id"
+    t.boolean "videodate_ended", default: false
+    t.datetime "videodate_end_time"
+    t.integer "videodate_past_time", default: 0
   end
 
   create_table "balances", force: :cascade do |t|
@@ -145,6 +148,7 @@ ActiveRecord::Schema.define(version: 20180427191015) do
     t.integer "crop_w"
     t.integer "crop_h"
     t.string "languages", array: true
+    t.string "timezone"
     t.index ["languages"], name: "index_profiles_on_languages", using: :gin
   end
 

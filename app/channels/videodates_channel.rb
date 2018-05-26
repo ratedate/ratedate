@@ -7,6 +7,17 @@ class VideodatesChannel < ApplicationCable::Channel
 
   def unsubscribed
     redis.del("user_#{current_user.id}_dating_now")
+    redis.del("user_#{current_user.id}_video_connected")
+    auction_id = redis.get("user_#{current_user.id}_active_videodate")
+    start_time = redis.get("video_date_#{auction_id}_started")
+    if start_time
+      videodate_past_time = Time.current.to_i - Time.new(start_time).to_i
+      redis.del("video_date_#{auction_id}_started")
+      auction = Auction.find auction_id
+      total_past_time = auction.videodate_past_time+videodate_past_time
+      ended = total_past_time>auction.date_duration ? true : false
+      auction.update(videodate_past_time: total_past_time, videodate_ended: ended, videodate_end_time: DateTime.current)
+    end
   end
 
   def get_videodate_room(data)
@@ -24,7 +35,8 @@ class VideodatesChannel < ApplicationCable::Channel
   def set_video_start(data)
     redis.set("user_#{current_user.id}_video_connected", "1") if redis.get("user_#{current_user.id}_video_connected").nil?
     auction = Auction.find data['auction_id']
-    redis.set("video_date_#{auction.id}_started") if redis.get("user_#{video_date_participant(current_user.profile).id}_video_connected")
+    redis.set("video_date_#{auction.id}_started", Time.current) if redis.get("user_#{video_date_participant(current_user.profile).id}_video_connected")
+    redis.set("user_#{current_user.id}_active_videodate", auction.id)
   end
 
   def redis
