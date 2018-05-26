@@ -10,58 +10,75 @@
       </ul>
     </div>
   <% end %>
+  <div class="main">
+    <div class="profile-about">
+      <div class="profile-input horizontal">
+        <p class="label">Aim of auction</p>
+        <%= form.text_field :aim, id: :auction_aim %>
+      </div>
 
-  <div class="field">
-    <%= form.label :aim %>
-    <%= form.text_field :aim, id: :auction_aim %>
-  </div>
+      <div class="profile-input horizontal">
+        <p class="label">Rater age</p>
+        <div>
+          <div class="range">
+            <%= form.hidden_field :rater_age_min, class: 'range-from', id: :auction_rater_age_min  %>
+            <%= form.hidden_field :rater_age_max, class: 'range-to', id: :auction_rater_age_max  %>
+          </div>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :rater_age_min %>
-    <%= form.number_field :rater_age_min, id: :auction_rater_age_min %>
-  </div>
+      <div class="profile-input horizontal">
+        <p class="label">Rater Gender</p>
+        <div>
+          <div class="radio-group">
+            <label class="radio-btn">
+              <%= form.radio_button :rater_gender, "male", id: :auction_rater_gender, hidden: true %>
+              <span class="radio-btn-view">Male</span>
+            </label>
+            <label class="radio-btn">
+              <%= form.radio_button :rater_gender, "female", id: :auction_rater_gender, hidden: true %>
+              <span class="radio-btn-view">Female</span>
+            </label>
+          </div>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :rater_age_max %>
-    <%= form.number_field :rater_age_max, id: :auction_rater_age_max %>
-  </div>
+      <div class="profile-input horizontal">
+        <p class="label">Auction End Date</p>
+        <div class="grid-xs-3">
+          <div class="cell">
+            <%= form.datetime_select :auction_end, id: :auction_auction_end, start_year: Date.today.year-18, end_year: 2018, date_separator: '</div><div class="cell">', datetime_separator: '</div></div></div><div class="profile-input horizontal"><p class="label">Auction End Time</p><div class="grid-xs-2"><div class="cell">', time_separator: '</div><div class="cell">' %>
+          </div>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :rater_gender %>
-    <%= form.text_field :rater_gender, id: :auction_rater_gender %>
-  </div>
+      <div class="profile-input horizontal">
+        <div class="grid-xs-2">
+          <div class="cell">
+            <p class="label">Bid Step</p>
+            <div class="grid-xs-1">
+              <%= form.select(:bid_step, [[5,5],[10,10],[15,15],[20,20]] , id: :auction_bid_step) %>
+            </div>
+          </div>
+          <div class="cell">
+            <p class="label">Start Bid</p>
+            <div class="grid-xs-1">
+              <%= form.select(:start_bid, [[5,5],[10,10],[15,15],[20,20]] , id: :auction_start_bid) %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="profile-input horizontal">
+        <p class="label">Videodate Duration</p>
+        <div class="grid-xs-1">
+          <%= form.select(:date_duration, [[5,300],[10,600],[15,900],[20,1200]] , id: :auction_date_duration) %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :date_duration %>
-    <%= form.number_field :date_duration, id: :auction_date_duration %>
-  </div>
 
-  <div class="field">
-    <%= form.label :auction_end %>
-    <%= form.datetime_select :auction_end, id: :auction_auction_end %>
+    </div>
   </div>
+  <div class="clear"></div>
+  <%= form.submit :Save, class: 'side-button round-btn' %>
 
-  <div class="field">
-    <%= form.label :video_date_start %>
-    <%= form.datetime_select :video_date_start, id: :auction_video_date_start %>
-  </div>
-
-  <div class="field">
-    <%= form.label :bid_step %>
-    <%= form.text_field :bid_step, id: :auction_bid_step %>
-  </div>
-
-  <div class="field">
-    <%= form.label :start_bid %>
-    <%= form.text_field :start_bid, id: :auction_start_bid %>
-  </div>
-
-  <div class="field">
-    <%= form.label :video_preview %>
-    <%= form.text_field :video_preview, id: :auction_video_preview %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

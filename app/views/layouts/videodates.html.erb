@@ -9,7 +9,7 @@
   <%= csrf_meta_tags %>
   <%= meta_tags %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+  <%= javascript_include_tag 'video', 'data-turbolinks-track' => 'reload' %>
   <% if content_for?(:head) %>
       <%= yield(:head) %>
   <% end %>
@@ -51,7 +51,6 @@
       <ul class="right-nav">
         <li><%= link_to 'My Profile', current_user.profile %></li>
         <li><%= link_to 'Edit Profile', edit_my_profile_path%></li>
-        <li><%= link_to 'Create Auction', new_auction_path %></li>
         <li><%= link_to t(:sign_out), sign_out_path, method: :delete%></li>
 
         <li class="links-row">

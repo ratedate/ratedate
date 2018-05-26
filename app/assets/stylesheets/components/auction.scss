@@ -149,6 +149,18 @@
             display: inline-block;
           }
         }
+        & .button-invite{
+          background-color: $red;
+          padding: $base-offset $base-offset*2;
+          text-align: center;
+          border: none;
+          border-radius: 100px;
+          color: #FFF;
+          font-weight: 600;
+          font-size: 16px;
+          width: 100%;
+          display: inline-block;
+        }
     }
 
 

@@ -1,0 +1,26 @@
+<div class="cell">
+  <div class="auction">
+    <span class="auction-image">
+      <%= link_to auction.profile do %>
+        <%= image_tag auction.profile.medium_avatar %>
+      <% end %>
+    </span>
+    <div class="auction-info" id="auction_<%= auction.id %>">
+      <p class="name">
+        <%= link_to auction.profile do %>
+            <span class="truncate-xs"><%= auction.profile.display_name %></span><span>, <%= auction.profile.age %></span>
+        <% end %>
+      </p>
+      <p class="place">
+        <%= auction.profile.city.country+', '+auction.profile.city.city if auction.profile.city.present? %>
+      </p>
+      <div class="bid">
+        <div class="bid-title"><%= auction.bids.any? ? 'Winning Bid' : 'Starts at' %></div>
+        <div class="bid-value"><span><%= auction.bids.any? ? "%g"%auction.bids.last.bid_value : "%g"%auction.start_bid %></span> RDT</div>
+      </div>
+      <% if !auction.videodate_ended %>
+          <a href="javascript:void(0);" class="button-invite" data-auction="<%= auction.id %>">Invite on a Date</a>
+      <% end %>
+    </div>
+  </div>
+</div>

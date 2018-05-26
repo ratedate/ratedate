@@ -1,0 +1,10 @@
+body{
+  & .video-page{
+    & .video-window{
+      width: 70%;
+    }
+    & .chat-window{
+      width: 30%;
+    }
+  }
+}

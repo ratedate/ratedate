@@ -1,5 +1,7 @@
 {
   "name": "ratedate",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "simplewebrtc": "^3.0.1"
+  }
 }

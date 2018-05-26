@@ -1,5 +1,9 @@
-<h1>New Auction</h1>
+<div class="profile-page with-button">
+  <div class="profile-page-wrap">
+    <%= render 'form', auction: @auction %>
 
-<%= render 'form', auction: @auction %>
+    <%= link_to 'Back', auctions_path %>
 
-<%= link_to 'Back', auctions_path %>
+  </div>
+</div>
+

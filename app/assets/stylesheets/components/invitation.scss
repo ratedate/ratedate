@@ -1,0 +1,98 @@
+.date-invitation {
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($dark, .9);
+  z-index: -100;
+  opacity: 0;
+
+
+  &-window {
+    background-color: #fff;
+    border-radius: 4px;
+    position: absolute;
+
+    width: 90%;
+    max-height: 90%;
+    max-width: 400px;
+    padding:  0;
+
+
+    z-index: 100;
+    top: 10%;
+    left: 50%;
+    transform: translate3d(-50%, 20%, 0);
+    opacity: 0;
+  }
+
+  &-text{
+    padding: $base-offset*3;
+    font-size: 18px;
+    color: $red;
+    text-align: center;
+  }
+
+  &-content {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    img{
+      width: 100%;
+    }
+    & .buttons{
+      padding: $base-offset;
+      @include overflow();
+      & .postpone, & .accept{
+        width: 50%;
+      }
+      & .postpone{
+        float: left;
+        background-color: #fff;
+        color: $red;
+      }
+      & .accept{
+        float: right;
+        background-color: $red;
+        color: #fff;
+      }
+    }
+    h1 {
+      font-size: 26px;
+      font-weight: 500;
+      margin-bottom: $base-offset * 8;
+    }
+    h2 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: $base-offset * 2;
+    }
+    p {
+      font-weight: 300;
+      font-size: 14px;
+      margin-bottom: $base-offset * 4;
+    }
+    ul{
+      font-weight: 300;
+      font-size: 14px;
+      margin-bottom: $base-offset * 4;
+      list-style-type: disc;
+      list-style-position: inside;
+      li{
+        margin-bottom: $base-offset * 2;
+      }
+    }
+  }
+
+  &.show {
+    z-index: 100;
+    opacity: 1;
+
+    & .date-invitation-window {
+      @include transition(.6s);
+      transform: translate3d(-50%, 0, 0);
+      opacity: 1;
+    }
+  }
+}
