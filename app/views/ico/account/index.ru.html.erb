@@ -47,12 +47,14 @@
         <strong>Кошелек для инвестирования в ETZ:</strong>
         <% if current_ico_user.eth_wallet.present? %>
             <div class="input-group pb-2">
-              <input id="etz_wallet" type="text" value="0xC7be27cFB787bf3606Cb1D4130Affbf798361781" class="form-control" readonly>
+              <input id="etz_wallet" type="text" value="0x4835415bDBC15eC5e0B6904f9b2a40aDAf013687" class="form-control" readonly>
               <div class="input-group-append">
                 <button class="button red" id="copy_etz" data-clipboard-target="#etz_wallet">copy</button>
               </div>
             </div>
         <% end %>
+        <div class="pb-2">1 ETZ = 6 RDT</div>
+        <div class="pb-2">1000 ETZ = 1 ETH</div>
         <div class="pb-2">Руководства по переводу ETZ <a href="http://etherzero.org/tutorials/" class="text-secondary">http://etherzero.org/tutorials/</a></div>
         <div class="pb-2"><strong>Внимание:</strong> минимальная сумма 10 ETZ. Переводы с меньшими суммами не будут обрабатываться для начисления RDT.</div>
         <p><strong>ВНИМАНИЕ!</strong> Не используйте адреса бирж или чужие адреса, используйте только адрес, который полностью контролируете (и можете получить private key). Иначе ваши RDT могут быть потеряны.</p>
