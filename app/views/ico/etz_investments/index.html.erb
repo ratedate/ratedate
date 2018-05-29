@@ -28,6 +28,33 @@
     <% end %>
   </tbody>
 </table>
+<h1>Ico ETH Investments</h1>
+
+<table class="table table-light table-striped">
+  <thead>
+    <tr>
+      <th>Wallet</th>
+      <th>Time</th>
+      <th>ETH</th>
+      <th>Rdt</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ico_eth_investments.each do |ico_etz_investment| %>
+      <tr>
+        <td><%= ico_etz_investment.wallet %></td>
+        <td><%= ico_etz_investment.time %></td>
+        <td><%= ico_etz_investment.eth %></td>
+        <td><%= ico_etz_investment.rdt %></td>
+        <td><%= link_to 'Show', ico_etz_investment_path(ico_etz_investment) %></td>
+        <td><%= link_to 'Edit', edit_ico_etz_investment_path(ico_etz_investment) %></td>
+        <td><%= link_to 'Destroy', ico_etz_investment_path(ico_etz_investment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <br>
 

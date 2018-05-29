@@ -30,15 +30,29 @@
             <% end %>
         <% end %>
         <strong>Адрес смарт контракта:</strong>
-        <p><%= 'Будет доступен на ICO' if current_ico_user.eth_wallet.present? %></p>
+        <% if current_ico_user.eth_wallet.present? %>
+            <div class="input-group pb-2">
+              <input id="smart_contract" type="text" value="0x9A1f14B572BC19134dDe4DAa38ae4aBeEB445272" class="form-control" readonly>
+              <div class="input-group-append">
+                <button class="button red" id="copy" data-clipboard-target="#smart_contract">copy</button>
+              </div>
+            </div>
+        <% end %>
 
-        <ul>
+            <ul>
           <li>Мин. взнос - 0.1 ETH;</li>
           <li>Cтавьте GAS не менее 300 000 (излишки вам вернутся);</li>
           <li>Рекомендуем использовать кошелек myetherwallet.com</li>
         </ul>
         <strong>Кошелек для инвестирования в ETZ:</strong>
-        <p><%= 'Будет доступен на ICO' if current_ico_user.eth_wallet.present? %></p>
+        <% if current_ico_user.eth_wallet.present? %>
+            <div class="input-group pb-2">
+              <input id="etz_wallet" type="text" value="0xC7be27cFB787bf3606Cb1D4130Affbf798361781" class="form-control" readonly>
+              <div class="input-group-append">
+                <button class="button red" id="copy_etz" data-clipboard-target="#etz_wallet">copy</button>
+              </div>
+            </div>
+        <% end %>
         <div class="pb-2">Руководства по переводу ETZ <a href="http://etherzero.org/tutorials/" class="text-secondary">http://etherzero.org/tutorials/</a></div>
         <div class="pb-2"><strong>Внимание:</strong> минимальная сумма 10 ETZ. Переводы с меньшими суммами не будут обрабатываться для начисления RDT.</div>
         <p><strong>ВНИМАНИЕ!</strong> Не используйте адреса бирж или чужие адреса, используйте только адрес, который полностью контролируете (и можете получить private key). Иначе ваши RDT могут быть потеряны.</p>
@@ -56,7 +70,21 @@
                 <th>RDT</th>
               </tr>
               </thead>
-              <tbody id="purchase_history_data"></tbody>
+              <tbody id="purchase_history_data">
+              <% @eth_investments.each do |i| %>
+                  <tr>
+                    <td>
+                      <%= i.time.to_s %>
+                    </td>
+                    <td>
+                      <%= "%g"%i.eth %>
+                    </td>
+                    <td>
+                      <%= "%g"%i.rdt %>
+                    </td>
+                  </tr>
+              <% end %>
+              </tbody>
             </table>
             <div class="h4">История Покупок(ETZ)</div>
             <table class="table table-light table-striped">

@@ -8,7 +8,8 @@ class Ico::EtzInvestmentsController < ApplicationController
   # GET /ico/etz_investments
   # GET /ico/etz_investments.json
   def index
-    @ico_etz_investments = EtzInvestment.all
+    @ico_etz_investments = EtzInvestment.all.where('etz IS NOT NULL')
+    @ico_eth_investments = EtzInvestment.all.where('eth IS NOT NULL')
   end
 
   # GET /ico/etz_investments/1
@@ -73,7 +74,7 @@ class Ico::EtzInvestmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ico_etz_investment_params
-      params.require(:etz_investment).permit(:wallet, :time, :etz, :rdt)
+      params.require(:etz_investment).permit(:wallet, :time, :etz, :eth, :rdt)
     end
 
     def is_super_admin

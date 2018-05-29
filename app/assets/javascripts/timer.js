@@ -23,7 +23,7 @@ $(document).ready(function(){
         var now = Date.now();
         var distance = countDownDate - now;
         if(distance < 0) {
-            var endICODate = 1522260000000;
+            var endICODate = 1531591200000;
             distance = endICODate - now;
             var elem = document.getElementById('presaletext');
             elem.innerText = 'Token Sale Live!';
