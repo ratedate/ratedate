@@ -101,8 +101,8 @@ ready_profiles = ->
     input.type = ''
     input.type = 'file'
   validateImage = (e, input, target) ->
-    if e.total > 2097152
-      showError('Image is very large. Please select image less than 2mb')
+    if e.total > 3145728
+      showError('Image is very large. Please select image less than 3mb')
       resetFileInput(input)
     else
       if e.target.result.match('image/jpeg|image/png|image/jpg')
@@ -116,7 +116,7 @@ ready_profiles = ->
             showError('One side of the image is much larger than other')
             resetFileInput(this.input)
           else
-            if this.width>=760&&this.height>=760
+            if this.width>=360&&this.height>=360
               if this.target == crop
                 crop.croppie('bind',{url: this.src})
                 this.target.attr 'src', this.src
