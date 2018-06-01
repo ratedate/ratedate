@@ -3,8 +3,8 @@ class Ico::AccountController <  Ico::IcoController
   before_action :authenticate_ico_user!
   def index
     @referrals = current_ico_user.referrals.where("eth_wallet IS NOT NULL AND created_at<='2018-03-12'::date").count
-    @etz_investments = EtzInvestment.where('etz IS NOT NULL AND lower(wallet) = ?', current_ico_user.kyc.wallet.downcase) if current_ico_user.kyc.present?
-    @eth_investments = EtzInvestment.where('eth IS NOT NULL AND lower(wallet) = ?', current_ico_user.kyc.wallet.downcase) if current_ico_user.kyc.present?
+    @etz_investments = EtzInvestment.where('etz IS NOT NULL AND lower(wallet) = ?', current_ico_user.eth_wallet.downcase) if current_ico_user.eth_wallet.present?
+    @eth_investments = EtzInvestment.where('eth IS NOT NULL AND lower(wallet) = ?', current_ico_user.eth_wallet.downcase) if current_ico_user.eth_wallet.present?
   end
 
   def add_eth
