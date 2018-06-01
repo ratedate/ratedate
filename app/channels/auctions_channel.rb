@@ -9,19 +9,37 @@ class AuctionsChannel < ApplicationCable::Channel
 
   def place_bid(data)
     auction = Auction.find_by(id: data['auction_id'])
+    # TODO move verification to bids model
     if current_user.balance.present?
-      if auction && auction.profile != current_user.profile && data['bid'].to_d <= current_user.balance.available_balance
+      if auction && auction.profile != current_user.profile && data['bid'].to_d <= current_user.balance.available_balance && current_user.profile.id!=auction.winner_id
         current_user.balance.block_amount(data['bid'])
-        auction.bids.last.unbid if auction.bids.any?
-        bid = auction.bids.build(profile_id: current_user.profile.id, bid_value: data['bid'])
-        if bid.save!
-          auction.update(winner_id: current_user.profile.id)
-          ActionCable.server.broadcast 'auctions_channel',
-                                        auction_id: auction.id,
-                                        bid: "%g"%bid.bid_value,
-                                        min_bid: "%g"%(bid.bid_value+auction.bid_step)
+        if auction.bids.any?
+          if data['bid'].to_d>auction.winner_bid.bid_value
+            auction.winner_bid.unbid
+            bid = auction.bids.build(profile_id: current_user.profile.id, bid_value: data['bid'])
+            if bid.save!
+              auction.update(winner_id: current_user.profile.id)
+              ActionCable.server.broadcast 'auctions_channel',
+                                           auction_id: auction.id,
+                                           bid: "%g"%bid.bid_value,
+                                           min_bid: "%g"%(bid.bid_value+auction.bid_step)
+            else
+              current_user.balance.unblock_amount(data['bid'])
+            end
+          end
         else
-          current_user.balance.unblock_amount(data['bid'])
+          if data['bid'].to_d >= auction.start_bid
+            bid = auction.bids.build(profile_id: current_user.profile.id, bid_value: data['bid'])
+            if bid.save!
+              auction.update(winner_id: current_user.profile.id)
+              ActionCable.server.broadcast 'auctions_channel',
+                                           auction_id: auction.id,
+                                           bid: "%g"%bid.bid_value,
+                                           min_bid: "%g"%(bid.bid_value+auction.bid_step)
+            else
+              current_user.balance.unblock_amount(data['bid'])
+            end
+          end
         end
       end
     end
