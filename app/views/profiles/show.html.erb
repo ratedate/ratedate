@@ -44,7 +44,7 @@
     </div>
     <div class="clear"></div>
     <div class="side">
-      <% if @profile.auctions.any? %>
+      <% if @profile.auctions.active.any? %>
       <% auction = @profile.auctions.active.last %>
       <div class="profile-auction">
         <p class="profile-auction-title">Auction</p>
