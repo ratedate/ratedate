@@ -17,7 +17,7 @@ class AuctionsController < ApplicationController
 
   # GET /auctions/new
   def new
-    if current_user.auctions.active.present?
+    if current_user.profile.auctions.active.present?
       redirect_to auctions_my_bids_path, notice: 'You already have active auction'
     end
     @auction = Auction.new
@@ -44,7 +44,7 @@ class AuctionsController < ApplicationController
   # POST /auctions
   # POST /auctions.json
   def create
-    if current_user.auctions.active.present?
+    if current_user.profile.auctions.active.present?
       redirect_to auctions_my_bids_path, notice: 'You already have active auction'
     end
     @auction = current_user.profile.auctions.build(auction_params)
