@@ -22,6 +22,13 @@
             <span class="timer-digit-value" id="tSecNum">--</span>
           </p>
         </div>
+        <% presale = EtzInvestment.where("time<?", DateTime.new(2018,6,7)).sum(:rdt) %>
+        <% ico = EtzInvestment.where("time>=?", DateTime.new(2018,6,7)).sum(:rdt) %>
+        <div class="progress">
+          <div class="progress-bar presale" id="progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="250" style="width: <%= presale*100/37500000 %>%;"></div>
+          <div class="progress-bar progress-bar-striped ico" id="progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="250" style="width: <%= ico*100/37500000 %>%;"></div>
+        </div>
+        <p class="ico-progress-text">PreSale - <%= number_with_precision(presale, precision: 0, delimiter: ',') %> RDT | ICO - <%= number_with_precision(ico, precision: 0, delimiter: ',') %> RDT of 37,500,000 RDT</p>
 
         <% if current_ico_user.eth_wallet.nil? %>
         <p><strong>Fill in your ETH/ETZ wallet to get investment info</strong></p>
@@ -83,7 +90,7 @@
                       <%= "%g"%i.eth %>
                     </td>
                     <td>
-                      <%= "%g"%i.rdt %>
+                      <%= number_with_precision(i.rdt, precision: 5, strip_insignificant_zeros: true) %>
                     </td>
                   </tr>
               <% end %>

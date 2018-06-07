@@ -7,6 +7,21 @@ main{
   padding-top: 80px;
 }
 .account{
+  & .progress{
+    margin: 20px 0 10px;
+  }
+  & .presale, & .ico{
+    background-color: $red;
+  }
+  & .presale{
+    border-right: 2px solid #fff;
+  }
+  .ico{
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 75%, transparent 75%, transparent);
+  }
+  & .ico-progress-text{
+    font-size: 16px;
+  }
   & .timer {
     text-align: center;
     //margin-top: $base-offset;
