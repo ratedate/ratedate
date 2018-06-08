@@ -46,12 +46,14 @@
         <li><%= link_to 'Profiles', profiles_path %></li>
         <li><%= link_to 'Auctions', auctions_path %></li>
         <li><%= link_to 'My Bids', auctions_my_bids_path %></li>
+        <li><%= link_to 'Promo Codes', promos_path if current_user.superadmin? %></li>
       </ul>
 
       <ul class="right-nav">
         <li><%= link_to 'My Profile', current_user.profile %></li>
         <li><%= link_to 'Edit Profile', edit_my_profile_path%></li>
         <li><%= link_to 'Create Auction', new_auction_path %></li>
+        <li><a href="javascript:void(0)" data-modal-target="#promo">Promo Code</a></li>
         <li><%= link_to t(:sign_out), sign_out_path, method: :delete%></li>
 
         <li class="links-row">
@@ -127,6 +129,20 @@
     <div class="modal-window">
       <div class="modal-content">
         <h1>The RDT selling is under development.</h1>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="promo">
+    <a class="modal-close" href="javascript:void(0)">
+      <i class="fa fa-times"></i>
+    </a>
+
+    <div class="modal-window">
+      <div class="modal-content">
+        <%= form_with(url: activate_promo_path) do |form| %>
+            <%= form.text_field :promocode %>
+            <%= form.submit 'Activate', class: 'round-btn' %>
+        <% end %>
       </div>
     </div>
   </div>

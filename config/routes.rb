@@ -48,6 +48,8 @@ Rails.application.routes.draw do
       delete 'sign_out', to: 'devise/sessions#destroy'
       get 'sign_up', to: 'devise/registrations#new'
     end
+    resources :promos, except: [:edit, :destroy]
+    post 'activate_promo', to: 'promos#activate'
   end
   resources :conversations, only: [:index]
 end

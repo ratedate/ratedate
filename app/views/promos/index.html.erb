@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<div class="profiles">
+  <div class="profiles-wrap">
+    <p id="notice"><%= notice %></p>
+
+    <h1>Promos</h1>
+
+    <table>
+      <thead>
+      <tr>
+        <th>Promo Code</th>
+        <th>Value</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @promos.each do |promo| %>
+          <tr>
+            <td><%= promo.promocode %></td>
+            <td><%= promo.value %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <%= link_to 'New Promos', new_promo_path, class: 'round-btn' %>
+  </div>
+</div>

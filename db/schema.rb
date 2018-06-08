@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180529060311) do
+ActiveRecord::Schema.define(version: 20180608134001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,6 +151,18 @@ ActiveRecord::Schema.define(version: 20180529060311) do
     t.string "languages", array: true
     t.string "timezone"
     t.index ["languages"], name: "index_profiles_on_languages", using: :gin
+  end
+
+  create_table "promos", force: :cascade do |t|
+    t.string "promocode"
+    t.string "status", default: "available"
+    t.string "promo_type", default: "rdt"
+    t.decimal "value"
+    t.integer "user_id"
+    t.string "create_session"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["promocode"], name: "index_promos_on_promocode", unique: true
   end
 
   create_table "sent_gifts", force: :cascade do |t|

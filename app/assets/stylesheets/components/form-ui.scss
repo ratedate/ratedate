@@ -383,3 +383,13 @@
         }
     }
 }
+#promo{
+  & input[type=text]{
+    width: 50%;
+    height: 54px;
+    border-radius: 5px;
+    color: $grey;
+    padding: 10px 15px;
+    font-size: 19px;
+  }
+}
