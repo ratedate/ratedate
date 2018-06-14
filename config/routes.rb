@@ -50,6 +50,12 @@ Rails.application.routes.draw do
     end
     resources :promos, except: [:edit, :destroy]
     post 'activate_promo', to: 'promos#activate'
+    post 'payment', to: 'payments#payment'
+    post 'payment_result', to: 'payments#payment_result'
+    get 'payment', to: 'payments#payment_redirect'
+    get 'payment_result', to: 'payments#payment_redirect'
   end
+  post 'process_payment_result', to: 'payments#process_payment_result'
+  get 'process_payment_result', to: 'payments#payment_redirect'
   resources :conversations, only: [:index]
 end

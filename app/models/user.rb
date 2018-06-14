@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :personal_messages, dependent: :destroy
   has_one :kyc, dependent: :destroy
   has_one :balance,  dependent: :destroy
+  has_many :payments
   TEMP_EMAIL_PREFIX = 'user@ratedate'
   TEMP_EMAIL_REGEX = /\Auser@ratedate/
 

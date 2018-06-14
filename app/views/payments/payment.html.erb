@@ -1,0 +1,50 @@
+<% content_for :head do %>
+    <script src="https://rawgit.com/cloudipsp/checkout-vue/latest/dist/checkout.js" data-turbolinks-track="reload"></script>
+    <script src="https://rawgit.com/cloudipsp/checkout-vue/latest/dist/i18n/ru.js" data-turbolinks-track="reload"></script>
+    <link rel="stylesheet" media="all" href="https://rawgit.com/cloudipsp/checkout-vue/latest/dist/checkout.css" data-turbolinks-track="reload">
+    <script>
+        var Options = {
+            options: {
+                methods: ["card"],
+                cardIcons: ["mastercard", "visa", "diners-club", "american-express"],
+                title: "my_title",
+                link: "https://ratedate.net",
+                fullScreen: false,
+                button: true,
+                locales: ["ru", "en"],
+                fee: true,
+                email: true
+            },
+            params: {
+                merchant_id: 1410125,
+                currency: "USD",
+                amount: <%= @payment.amount %>,
+                order_id: "<%= @payment.order_id %>",
+                order_desc: "my_order_desc",
+                response_url: "http://localhost:3000/en/payment_result",
+                email: "<%= current_user.email %>"
+            },
+            messages: {
+                ru: {
+                    card_number: "Номер карты",
+                    my_title: "Купить RDT",
+                    my_order_desc: "Buy <%= @payment.rdt_amount %> RDT",
+                    pay: "Оплатить"
+                },
+                en: {
+                    card_number: "Card number",
+                    my_title: "Buy RDT",
+                    my_order_desc: "Buy <%= @payment.rdt_amount %> RDT",
+                    pay: "Pay now"
+                }
+            }
+        };
+
+        $(document).on('turbolinks:load', function(){ fondy("#app", Options)});
+    </script>
+<% end %>
+<div class="profiles">
+  <div class="profiles-wrap">
+    <div id="app"></div>
+  </div>
+</div>

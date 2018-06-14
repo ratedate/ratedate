@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  balance: one
+  amount: 9.99
+  transactionable: one
+  transactionable_type: Transactionable
+
+two:
+  balance: two
+  amount: 9.99
+  transactionable: two
+  transactionable_type: Transactionable

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180608134001) do
+ActiveRecord::Schema.define(version: 20180611144428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,21 @@ ActiveRecord::Schema.define(version: 20180608134001) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "payments", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "order_id"
+    t.string "order_desc"
+    t.integer "amount"
+    t.string "currency"
+    t.string "order_status"
+    t.string "signature"
+    t.string "tran_type"
+    t.decimal "rdt_amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_payments_on_user_id"
+  end
+
   create_table "personal_messages", force: :cascade do |t|
     t.text "body"
     t.bigint "conversation_id"
@@ -209,6 +224,18 @@ ActiveRecord::Schema.define(version: 20180608134001) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.bigint "balance_id"
+    t.decimal "amount"
+    t.string "transaction_type"
+    t.string "transactionable_type"
+    t.bigint "transactionable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["balance_id"], name: "index_transactions_on_balance_id"
+    t.index ["transactionable_type", "transactionable_id"], name: "index_transactions_on_type_and_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -235,6 +262,8 @@ ActiveRecord::Schema.define(version: 20180608134001) do
   end
 
   add_foreign_key "identities", "users"
+  add_foreign_key "payments", "users"
   add_foreign_key "personal_messages", "conversations"
   add_foreign_key "personal_messages", "users"
+  add_foreign_key "transactions", "balances"
 end
