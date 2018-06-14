@@ -59,7 +59,7 @@ class PaymentsController < ApplicationController
 
   def check_response_signature(string, signature)
     if string && signature
-      Digest::SHA1.hexdigest(string.gsub('**********','test'))==signature
+      Digest::SHA1.hexdigest(string.gsub('**********','2N06Wdf1D8EJnngRWJOlSwQeTZuZAoa2'))==signature
     else
       false
     end
