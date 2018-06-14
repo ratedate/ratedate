@@ -47,7 +47,7 @@
         <p class="label">Auction End Date</p>
         <div class="grid-xs-3">
           <div class="cell">
-            <%= form.datetime_select :auction_end, id: :auction_auction_end, start_year: Date.today.year-18, end_year: 2018, date_separator: '</div><div class="cell">', datetime_separator: '</div></div></div><div class="profile-input horizontal"><p class="label">Auction End Time</p><div class="grid-xs-2"><div class="cell">', time_separator: '</div><div class="cell">' %>
+            <%= form.datetime_select :auction_end, id: :auction_auction_end, start_year: Date.today.year-18, end_year: 2018, date_separator: '</div><div class="cell">', datetime_separator: '</div></div></div><div class="profile-input horizontal"><p class="label">Auction End Time</p><div class="grid-xs-2"><div class="cell">', time_separator: '</div><div class="cell">', default: 7.days.from_now.in_time_zone(show_timezone) %>
           </div>
         </div>
       </div>

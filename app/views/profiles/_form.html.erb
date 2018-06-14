@@ -128,6 +128,12 @@
           </div>
         </div>
         <div class="profile-input horizontal">
+          <p class="label">Time zone</p>
+          <div>
+            <%= form.time_zone_select :timezone, nil, default: "Pacific Time (US & Canada)" %>
+          </div>
+        </div>
+        <div class="profile-input horizontal">
           <p class="label">Languages</p>
           <div>
             <%= form.select :languages, options_for_select(languages, @profile.languages), {include_hidden: false }, {multiple: true, id: 'profile_languages'} %>

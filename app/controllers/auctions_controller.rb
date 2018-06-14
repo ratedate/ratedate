@@ -48,7 +48,9 @@ class AuctionsController < ApplicationController
       redirect_to auctions_my_bids_path, notice: 'You already have active auction'
     end
     @auction = current_user.profile.auctions.build(auction_params)
-
+    @timezone = current_user.profile.timezone || 'UTC'
+    # asctime convert DateTime to string without timezone info
+    @auction.auction_end = @auction.auction_end.asctime.in_time_zone(@timezone).utc
     respond_to do |format|
       if @auction.save
         format.html { redirect_to @auction.profile, notice: 'Auction was successfully created.' }

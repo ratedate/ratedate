@@ -120,4 +120,16 @@ module ApplicationHelper
     languages.each{|l| tmp<<language(l)}
     tmp.join(', ')
   end
+
+  def show_timezone
+    timezone = 'UTC'
+    if current_user
+      if current_user.profile
+        if current_user.profile.timezone
+          timezone = current_user.profile.timezone
+        end
+      end
+    end
+    timezone
+  end
 end

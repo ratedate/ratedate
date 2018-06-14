@@ -61,7 +61,7 @@
         </div>
         <div class="profile-auction-timer">
           <div class="profile-auction-timer-title">End </div>
-          <div class="profile-auction-timer-value"><%= auction.auction_end.strftime('%B %d %H:%M') %></div>
+          <div class="profile-auction-timer-value"><%= auction.auction_end.in_time_zone(show_timezone).strftime('%B %d %H:%M') %></div>
           <% progress = (DateTime.now.to_time-auction.created_at.to_time)/(auction.auction_end.to_time-auction.created_at.to_time)*100 %>
           <div class="profile-auction-timer-progress"><div class="profile-auction-timer-progress-bar" style="width: <%= progress %>%"></div></div>
         </div>
