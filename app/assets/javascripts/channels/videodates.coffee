@@ -32,7 +32,9 @@ connectVideodate = (room) ->
     # the id/element dom element that will hold remote videos
       remoteVideosEl: 'remoteVideo',
     #immediately ask for camera access
-      autoRequestMedia: true
+      autoRequestMedia: true,
+      url: 'https://ratedate.net:8888/'
       })
+  webrtc.webrtc.config.peerConnectionConfig.iceTransports = "relay";
   webrtc.on 'readyToCall', () ->
     webrtc.joinRoom(room)
