@@ -25,6 +25,9 @@ class AuctionsController < ApplicationController
 
   # GET /auctions/1/edit
   def edit
+    @timezone = current_user.profile.timezone || 'UTC'
+    # asctime convert DateTime to string without timezone info and recreate in utc for form
+    @auction.auction_end = @auction.auction_end.in_time_zone(@timezone).asctime.to_datetime
   end
 
   def videodate
@@ -48,9 +51,9 @@ class AuctionsController < ApplicationController
       redirect_to auctions_my_bids_path, notice: 'You already have active auction'
     end
     @auction = current_user.profile.auctions.build(auction_params)
-    @timezone = current_user.profile.timezone || 'UTC'
+    # @timezone = current_user.profile.timezone || 'UTC'
     # asctime convert DateTime to string without timezone info
-    @auction.auction_end = @auction.auction_end.asctime.in_time_zone(@timezone).utc
+    # @auction.auction_end = @auction.auction_end.asctime.in_time_zone(@timezone).utc
     respond_to do |format|
       if @auction.save
         format.html { redirect_to @auction.profile, notice: 'Auction was successfully created.' }
@@ -67,7 +70,7 @@ class AuctionsController < ApplicationController
   def update
     respond_to do |format|
       if @auction.update(auction_params)
-        format.html { redirect_to @auction, notice: 'Auction was successfully updated.' }
+        format.html { redirect_to @auction.profile, notice: 'Auction was successfully updated.' }
         format.json { render :show, status: :ok, location: @auction }
       else
         format.html { render :edit }
