@@ -6,6 +6,8 @@ class Auction < ApplicationRecord
   has_many :raters, through: :bids, source: :profile
   belongs_to :winner, class_name: 'Profile', optional: true
 
+  before_save :set_time_in_timezone
+
   scope :by_country, -> (country) {where 'profiles.city_id IN (?)', City.where(country: country).select('id') }
   scope :by_city, -> (city) {where city_id: city }
   scope :by_gender, -> (gender) {where 'profiles.gender = ?', gender}
@@ -26,6 +28,12 @@ class Auction < ApplicationRecord
     if auction_end < DateTime.current
       # TODO add finished to auction with date
       self.winner_bid.process
+    end
+  end
+
+  def set_time_in_timezone
+    if self.profile.timezone
+      self.auction_end = self.auction_end.asctime.in_time_zone(self.profile.timezone).utc
     end
   end
 end
