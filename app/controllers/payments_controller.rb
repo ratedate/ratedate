@@ -38,7 +38,7 @@ class PaymentsController < ApplicationController
     ip_set = ['127.0.0.1', '54.76.178.89', '54.154.216.60']
     if payment_params[:order_id] && ip_set.any? {|ip| ip==request.remote_ip}
       @payment = Payment.where('order_id=?',payment_params[:order_id]).last
-      if @payment
+      if @payment && @payment.order_status != 'approved'
         @payment.update(payment_params)
         if payment_params[:order_status] == 'approved'
           @payment.complete
