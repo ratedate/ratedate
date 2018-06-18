@@ -1,6 +1,6 @@
 class Auction < ApplicationRecord
   include Filterable
-
+  attr_accessor :timezone
   belongs_to :profile
   has_many :bids
   has_many :raters, through: :bids, source: :profile
@@ -33,8 +33,8 @@ class Auction < ApplicationRecord
   end
 
   def set_time_in_timezone
-    if self.profile.timezone
-      self.auction_end = self.auction_end.asctime.in_time_zone(self.profile.timezone).utc
+    if self.timezone
+      self.auction_end = self.auction_end.asctime.in_time_zone(self.timezone).utc
     end
   end
 end
