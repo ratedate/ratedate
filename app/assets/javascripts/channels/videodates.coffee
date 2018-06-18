@@ -25,6 +25,8 @@ jQuery(document).on 'turbolinks:load', ->
           connectVideodate(data['videodate_room'])
       get_videodate_room: (auction_id) ->
         @perform 'get_videodate_room', auction_id: auction_id
+      set_video_start: (auction_id) ->
+        @perform 'set_video_start', auction_id: auction_id
 connectVideodate = (room) ->
   webrtc = new SimpleWebRTC({
     # the id/element dom element that will hold "our" video
@@ -37,3 +39,7 @@ connectVideodate = (room) ->
       })
   webrtc.on 'readyToCall', () ->
     webrtc.joinRoom(room)
+  webrtc.on 'connectionReady', (sessionId) ->
+    auction = $('.video-page').data('auction')
+    if auction
+      App.dating.set_video_start(auction)

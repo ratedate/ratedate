@@ -19,6 +19,7 @@ class AuctionsChannel < ApplicationCable::Channel
             bid = auction.bids.build(profile_id: current_user.profile.id, bid_value: data['bid'])
             if bid.save!
               auction.update(winner_id: current_user.profile.id)
+              auction.transactions.create(balance_id: current_user.balance.id, amount: bid.bid_value, transaction_type: 'place_bid')
               ActionCable.server.broadcast 'auctions_channel',
                                            auction_id: auction.id,
                                            bid: "%g"%bid.bid_value,
@@ -32,6 +33,7 @@ class AuctionsChannel < ApplicationCable::Channel
             bid = auction.bids.build(profile_id: current_user.profile.id, bid_value: data['bid'])
             if bid.save!
               auction.update(winner_id: current_user.profile.id)
+              auction.transactions.create(balance_id: current_user.balance.id, amount: bid.bid_value, transaction_type: 'place_bid')
               ActionCable.server.broadcast 'auctions_channel',
                                            auction_id: auction.id,
                                            bid: "%g"%bid.bid_value,

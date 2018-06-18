@@ -11,7 +11,7 @@ class VideodatesChannel < ApplicationCable::Channel
     auction_id = redis.get("user_#{current_user.id}_active_videodate")
     start_time = redis.get("video_date_#{auction_id}_started")
     if start_time
-      videodate_past_time = Time.current.to_i - Time.new(start_time).to_i
+      videodate_past_time = Time.current.to_i - Time.parse(start_time).to_i
       redis.del("video_date_#{auction_id}_started")
       auction = Auction.find auction_id
       total_past_time = auction.videodate_past_time+videodate_past_time
@@ -36,7 +36,7 @@ class VideodatesChannel < ApplicationCable::Channel
   def set_video_start(data)
     redis.set("user_#{current_user.id}_video_connected", "1") if redis.get("user_#{current_user.id}_video_connected").nil?
     auction = Auction.find data['auction_id']
-    redis.set("video_date_#{auction.id}_started", Time.current) if redis.get("user_#{video_date_participant(current_user.profile).id}_video_connected")
+    redis.set("video_date_#{auction.id}_started", Time.current) if redis.get("user_#{auction.video_date_participant(current_user.profile).id}_video_connected")
     redis.set("user_#{current_user.id}_active_videodate", auction.id)
   end
 

@@ -5,6 +5,7 @@ class Auction < ApplicationRecord
   has_many :bids
   has_many :raters, through: :bids, source: :profile
   belongs_to :winner, class_name: 'Profile', optional: true
+  has_many :transactions, :as => :transactionable
 
   before_save :set_time_in_timezone
 
@@ -15,7 +16,7 @@ class Auction < ApplicationRecord
   scope :by_age_to, -> (age_to) {where 'profiles.dob >= ?', Date.today - age_to.to_i.year}
   scope :active, -> {where('auction_end>?', DateTime.current)}
   scope :ended, -> {where('auction_end<=?', DateTime.current)}
-  scope :videodate_not_ended, -> {where('videodate_ended = false')}
+  scope :videodate_not_ended, -> {where('videodate_ended = ?',false)}
 
   def video_date_participant(prof)
     prof==profile ?  winner.user : profile.user
@@ -30,6 +31,10 @@ class Auction < ApplicationRecord
       # TODO add finished to auction with date
       self.winner_bid.process
     end
+  end
+
+  def is_charitable?
+    self.charitable
   end
 
   def set_time_in_timezone

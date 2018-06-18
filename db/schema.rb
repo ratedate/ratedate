@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180611144428) do
+ActiveRecord::Schema.define(version: 20180618140117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20180611144428) do
     t.boolean "videodate_ended", default: false
     t.datetime "videodate_end_time"
     t.integer "videodate_past_time", default: 0
+    t.boolean "charitable", default: false
   end
 
   create_table "balances", force: :cascade do |t|
