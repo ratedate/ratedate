@@ -15,6 +15,7 @@ class Auction < ApplicationRecord
   scope :by_age_to, -> (age_to) {where 'profiles.dob >= ?', Date.today - age_to.to_i.year}
   scope :active, -> {where('auction_end>?', DateTime.current)}
   scope :ended, -> {where('auction_end<=?', DateTime.current)}
+  scope :videodate_not_ended, -> {where('videodate_ended = false')}
 
   def video_date_participant(prof)
     prof==profile ?  winner.user : profile.user

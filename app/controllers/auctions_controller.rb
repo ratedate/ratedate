@@ -40,8 +40,8 @@ class AuctionsController < ApplicationController
 
   def my_bids
     @auctions = current_user.profile.bid_auctions.active
-    @winning_auctions = current_user.profile.winning_auctions.ended
-    @my_auctions = current_user.profile.auctions
+    @winning_auctions = current_user.profile.winning_auctions.ended.videodate_not_ended
+    @my_auctions = current_user.profile.auctions.videodate_not_ended
   end
 
   # POST /auctions

@@ -17,6 +17,7 @@ class VideodatesChannel < ApplicationCable::Channel
       total_past_time = auction.videodate_past_time+videodate_past_time
       ended = total_past_time>auction.date_duration ? true : false
       auction.update(videodate_past_time: total_past_time, videodate_ended: ended, videodate_end_time: DateTime.current)
+      auction.finish_video_date if ended
     end
   end
 
