@@ -14,6 +14,10 @@ class Profile < ApplicationRecord
 
   before_validation :set_city
 
+  validates_presence_of :avatar
+  validates :name, :surname, :gender, :timezone, :dob, :presence => true
+
+
   mount_uploader :avatar, AvatarUploader
   # acts_as_taggable
   acts_as_ordered_taggable_on :hobbies, :musics, :films, :books

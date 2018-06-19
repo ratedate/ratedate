@@ -5,6 +5,9 @@ class ProfilesController < ApplicationController
   # GET /profiles.json
   def index
     @profiles = Profile.filter(params.slice(:by_country, :by_city, :by_gender, :by_age_from, :by_age_to)).where.not(id: current_user.profile)
+    if params[:by_gender].nil?
+      @profiles = @profiles.order 'gender '+(current_user.profile.gender=='male' ? 'ASC' : 'DESC')
+    end
   end
 
   # GET /profiles/1
