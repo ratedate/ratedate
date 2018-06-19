@@ -150,7 +150,11 @@
         }
     }
 }
-
+& .profile-input .field_with_errors{
+  & input, & textarea{
+    border-bottom: 2px solid $red;
+  }
+}
 & .profile-input {
     & .label {
         font-size: 12px;

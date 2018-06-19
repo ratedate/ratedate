@@ -1,4 +1,4 @@
-.input, .field_with_errors {
+.input {
     input {
         font-size: 18px;
         padding: $base-offset * 1.5 0;
@@ -8,6 +8,15 @@
     }
     
     // color: $grey;
+}
+.landing .field_with_errors{
+  input {
+    font-size: 18px;
+    padding: $base-offset * 1.5 0;
+    border: none;
+    width: 100%;
+    border-bottom: 2px solid $red;
+  }
 }
 
 .link {
