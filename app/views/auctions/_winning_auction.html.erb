@@ -1,5 +1,8 @@
 <div class="cell">
   <div class="auction">
+    <% if auction.is_charitable? %>
+        <span class="icon-rd-heart charitable"></span>
+    <% end %>
     <span class="auction-image">
       <%= link_to auction.profile do %>
         <%= image_tag auction.profile.medium_avatar %>

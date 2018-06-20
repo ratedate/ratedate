@@ -47,6 +47,9 @@
       <% if @profile.auctions.active.any? %>
       <% auction = @profile.auctions.active.last %>
       <div class="profile-auction" id="auction_<%= auction.id %>">
+        <% if auction.is_charitable? %>
+            <span class="icon-rd-heart charitable"></span>
+        <% end %>
         <p class="profile-auction-title">Auction</p>
         <p class="profile-auction-aim">The aim of auction - <%= auction.aim %></p>
         <div class="profile-auction-bid-info">

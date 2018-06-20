@@ -17,6 +17,7 @@ class Auction < ApplicationRecord
   scope :active, -> {where('auction_end>?', DateTime.current)}
   scope :ended, -> {where('auction_end<=?', DateTime.current)}
   scope :videodate_not_ended, -> {where('videodate_ended = ?',false)}
+  scope :charitable_first, -> {order('charitable desc')}
 
   def video_date_participant(prof)
     prof==profile ?  winner.user : profile.user

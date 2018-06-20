@@ -3,6 +3,16 @@
     background-color: #fff;
     border-radius: 4px;
     margin-bottom: $base-offset*2;
+    position: relative;
+
+    & .charitable{
+      font-size: 30px;
+      color: $red;
+      position: absolute;
+      top: $base-offset*2;
+      right: $base-offset*2;
+      z-index: 100;
+    }
 
 
     &-title {
