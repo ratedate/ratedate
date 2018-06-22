@@ -27,12 +27,18 @@
         <% progress = (DateTime.now.to_time-auction.created_at.to_time)/(auction.auction_end.to_time-auction.created_at.to_time)*100 %>
         <div class="auction-info-timer-progress"><div class="auction-info-timer-progress-bar" style="width: <%= progress %>%"></div></div>
       </div>
-      <div class="bid-form">
-        <form action="">
-          <input id="auction_bid_<%= auction.id %>" type="number" value="<%= auction.bids.any? ? "%g"%(auction.bids.last.bid_value+auction.bid_step) : "%g"%auction.start_bid %>">
-          <a href="javascript:void(0)" class="button-bid" data-auction="<%= auction.id %>">Bid</a>
-        </form>
-      </div>
+      <% if auction.profile.user == current_user %>
+          <div class="buttons">
+            <%= link_to 'Edit', edit_auction_path(auction), class: 'button-red' %>
+          </div>
+      <% else %>
+          <div class="bid-form">
+            <form action="">
+              <input id="auction_bid_<%= auction.id %>" type="number" value="<%= auction.bids.any? ? "%g"%(auction.bids.last.bid_value+auction.bid_step) : "%g"%auction.start_bid %>">
+              <a href="javascript:void(0)" class="button-bid" data-auction="<%= auction.id %>">Bid</a>
+            </form>
+          </div>
+      <% end %>
     </div>
   </div>
 </div>

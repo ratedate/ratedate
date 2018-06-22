@@ -19,6 +19,21 @@
       z-index: 100;
     }
 
+    & .buttons{
+      .button-red{
+        color: #fff;
+        background-color: $red;
+        border-radius: 100px;
+        width: 100%;
+        font-weight: 600;
+        font-size: 16px;
+        display: inline-block;
+        padding: $base-offset $base-offset*2;
+        text-align: center;
+        border: none;
+      }
+    }
+
     &-image {
         position: relative;
         @include overflow();
