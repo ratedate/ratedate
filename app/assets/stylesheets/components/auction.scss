@@ -136,6 +136,14 @@
             float: right;
             font-weight: 600;
           }
+          &-countdown{
+            color: $red;
+            font-size: 14px;
+            font-weight: 600;
+            clear: both;
+            padding: 10px 0;
+            text-align: right;
+          }
           &-progress{
             margin-top: $base-offset;
             float: left;

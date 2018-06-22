@@ -22,7 +22,7 @@
 //= require wNumb
 //= require nouislider
 //= require lightbox
-//= require jquery.countdown
+//= require auctions
 //= require profiles
 
 var $navLinks = null;
